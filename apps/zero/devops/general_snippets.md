@@ -34,7 +34,7 @@ heroku ps:scale web=1
 
 * daily git work    
 ```sh
-git add .;git commit -m "[FIX] | fullstack |  previous commit only uploed flask dev lol we have a whole project" --author "WindMillCodeDev <>"  ;git push origin master
+git add .;git commit -m "[UPDATE] | fullstack |  modifed misc to devops in projects" --author "WindMillCodeDev <>"  ;git push origin master
 
 git add .;git commit -m "[UPDATE] updates to orders resource " ;git push origin michael-dev
 
