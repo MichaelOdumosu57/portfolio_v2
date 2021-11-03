@@ -1,0 +1,199 @@
+<main
+
+[class]= "prefix.main({val:'Pod'})"
+>
+
+    <section
+    [class]= "prefix.pods[0]({val:''})"
+    >
+        <div
+        [class]= "prefix.pods[0]({val:'Item0'})"
+        >
+            <label>{{table.search.label.text}}</label>
+            <input
+            [class]= "prefix.pods[0]({val:'Input0'})"
+            appUpdateInputVal [updateInputVal]="table.search.query.input"
+            />
+        </div>
+        <button
+        (click)=table.search.button.click()
+        [class]= "prefix.pods[0]({val:'Button0'})"
+        >{{table.search.button.text}}</button>
+        <div
+        [class]= "prefix.pods[0]({val:'Item1'})"
+        >
+            <div
+            [class]= "prefix.pods[0]({val:'Item2'})"
+            >
+                <input
+                disabled
+                [placeholder]="table.searchBy.placeholder.text"
+                [class]= "prefix.pods[0]({val:'Input0'})"
+                />
+                <i
+                (click)="table.searchBy.icon.click()"
+                [class]= "'pi pi-chevron-down '+prefix.pods[0]({val:'Icon0'})"
+                ></i>
+            </div>
+            <h2
+            [ngStyle]=x.style
+            (click)="x.click()"
+            [class]= "prefix.pods[0]({val:'Text0'})"
+            *ngFor="let x of table.searchBy.options.items"
+            >{{x.text}}</h2>
+        </div>
+        <button
+        (click)="table.search.reset.click()"
+        [class]= "prefix.pods[0]({val:'Button1'})"
+        >
+        {{table.search.reset.text}}
+        </button>
+        <button
+        (click)="table.details.create.request.click()"
+        [class]= "prefix.pods[0]({val:'Button2'})"
+        >
+        {{table.details.create.request.text}}
+        </button>
+
+    </section>
+    <section
+    [class]= "prefix.pods[1]({val:''})"
+    >
+        <label
+        [class]= "prefix.pods[1]({val:'Label0'})"
+        >{{table.pages.per.label.text}}</label>
+        <input
+        disabled
+        appUpdateInputVal [updateInputVal]="table.pages.per.input"
+        [class]= "prefix.pods[1]({val:'Input0'})"
+        type="number"
+        [value]="table.pages.per.input.value"
+        />
+        <app-plus-minus
+        [input]="table.pages.current.input"
+        ></app-plus-minus>
+    </section>
+
+    <section
+    [class]= "prefix.pods[2]({val:''})"
+    >
+        <div
+        [class]= "prefix.pods[2]({val:'ItemA'})"
+        *ngFor="let x of table.headers.items;let i = index"
+
+        >
+            <div
+            [class]= "prefix.pods[2]({val:'Item5'})"
+            >
+                <div
+                [class]= "prefix.pods[2]({val:'Item11'})"
+                >
+                    <h2
+                    [class]= "prefix.pods[2]({val:'Text0'})"
+                    >{{ x.title.text}} </h2>
+                    <ng-container
+                    *ngFor="let y of ['up','down']"
+                    >
+                        <i
+                        (click)="x.sort[y].click()"
+                        *ngIf="x.sort.confirm"
+                        [class]= "'pi pi-caret-'+ y + ' '+ prefix.pods[2]({val:'Icon0'})"
+                        ></i>
+                    </ng-container>
+
+
+                </div>
+                <div
+                [class]= "prefix.pods[2]({val:'ItemB'})"
+
+                *ngFor ="let y of table.db.displayItems;let j = index"
+                >
+                    <ng-container
+                    appEntryPropertyType
+                    [entryPropertyType] ="{
+                        type:x.view.type,
+                        textEntry,
+                        viewEntry,
+                        modifyEntry,
+                        y,
+                        x,
+                        prefix
+                    }"
+                    #entryPropertyView>
+
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<aside
+[ngStyle]="table.details.view.style"
+[class]= "prefix.pods[3]({val:'View'})"
+>
+    <div
+    [class]= "prefix.pods[3]({val:'Item0'})"
+    >
+        <i
+        (click)="table.details.close.click()"
+        [class]= "'pi pi-times ' + prefix.pods[3]({val:'Icon0'})">
+        </i>
+        <div
+        [class]= "prefix.pods[3]({val:'Item1'})">
+            <div
+            [class]= "prefix.pods[3]({val:'Item2'})"
+            *ngFor="let x of table.details.values.target | keyvalue:table.util.keyvaluePipe.unsorted;let i = index">
+                <h2>{{x.key}}: </h2>
+                <div
+                [ngSwitch]="table.details.values.state"
+                [class]= "prefix.pods[3]({val:'Item3'})">
+                    <div
+
+                    *ngFor="let y of x.value | keyvalue:table.util.keyvaluePipe.unsorted;let j = index"
+                    [class]= "prefix.pods[3]({val:'Item4'})">
+                        <h3>{{y.key | titlecase }}:</h3>
+                        <div
+
+                        [class]= "prefix.pods[3]({val:'Item5'})"
+                        >
+                            <h3
+                            *ngSwitchCase="'view'"
+                            >{{y.value}}</h3>
+                            <textarea
+                            appUpdateInputVal [updateInputVal]="y.value.input"
+                            *ngSwitchCase="'edit'"
+                            [class]= "prefix.pods[3]({val:'Input0'})"
+                            >{{y.value.input.value}}</textarea>
+                            <textarea
+                            appUpdateInputVal [updateInputVal]="y.value.input"
+                            *ngSwitchCase="'create'"
+                            [class]= "prefix.pods[3]({val:'Input0'})"
+                            >{{y.value.input.value}}</textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <button
+        (click)="table.details.create.confirm.click()"
+        *ngIf=  "table.details.values.state === 'create'"
+        [class]= "prefix.pods[3]({val:'Button0'})"
+        >{{ table.details.create.confirm.text}}</button>
+        <button
+        (click)="table.details.update.click()"
+        *ngIf=  "table.details.values.state === 'edit'"
+        [class]= "prefix.pods[3]({val:'Button0'})"
+        >{{ table.details.update.text}}</button>
+        <button
+        *ngIf=  "table.details.values.state === 'edit'"
+        (click)="table.details.delete.click()"
+        [class]= "prefix.pods[3]({val:'Button1'})"
+        >{{ table.details.delete.text}}</button>
+
+    </div>
+
+</aside>
