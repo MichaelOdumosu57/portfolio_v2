@@ -34,7 +34,7 @@ heroku ps:scale web=1
 
 * daily git work    
 ```sh
-git add .;git commit -m "[UPDATE] | fullstack |  minor update" --author "WindMillCodeDev <>"  ;git push origin master
+git add .;git commit -m "[UPDATE] | fullstack |  updated template project structure" --author "WindMillCodeDev <>"  ;git push origin master
 
 git add .;git commit -m "[UPDATE] updates to orders resource " ;git push origin michael-dev
 

@@ -1,6 +1,10 @@
-
-
-
+def local_deps():
+    import sys
+    if sys.platform == "win32":
+        sys.path.append(sys.path[0] + ".\\site-packages\\windows")
+    elif sys.platform =="linux":
+        sys.path.append(sys.path[0] + "./site-packages/linux")    
+local_deps()
 
 def translator(d,new_dict={},func=lambda my_str: my_str):
 
@@ -11,7 +15,41 @@ def translator(d,new_dict={},func=lambda my_str: my_str):
            print(val)
 
 
+def i18n_translate_vendor(dev_obj):
+    import json
+    from translatepy import Translator
+    lang_codes = dev_obj.get("lang_codes")
+    source_file = dev_obj.get("source_file")
+    dest_file = dev_obj.get("dest_file")
 
+    i18n_trnaslator = Translator()
+    for x in lang_codes:
+
+        with open(source_file,encoding="utf-8") as f:
+            lang  = json.load(f)
+            def translateMe(string):
+                my_result = i18n_trnaslator.translate(
+                    string,
+                    destination_language=x,
+                    source_language="en"
+                ).result
+                print(my_result)
+                return my_result
+
+            my_translate = replace(lang,translateMe)
+
+
+            with open(dest_file.replace("{}",x)
+            ,"w",encoding="utf-8") as g:
+                print(json.dumps(my_translate,indent=4) , file=g)
+                f.close()
+                g.close()
+
+    return {
+        'data':{
+            'i18n_obj':my_translate
+        }
+    }
 
 def replace(data, repl):
     if isinstance(data, dict):
@@ -63,44 +101,3 @@ def update_target(data, source,repl= lambda x,y:  y):
 
 
 # DEV ADDITIONS
-import sys
-if sys.platform == "win32":
-    sys.path.append(sys.path[0] + "\\..\\..\\site-packages\\windows")
-elif sys.platform =="linux":
-    sys.path.append(sys.path[0] + "/../../site-packages/linux")
-from sqlalchemy.types import TypeDecorator, CHAR
-from sqlalchemy.dialects.postgresql import UUID
-import uuid
-
-class GUID(TypeDecorator):
-    """Platform-independent GUID type.
-    Uses PostgreSQL's UUID type, otherwise uses
-    CHAR(32), storing as stringified hex values.
-    """
-    impl = CHAR
-
-    def load_dialect_impl(self, dialect):
-        if dialect.name == 'postgresql':
-            return dialect.type_descriptor(UUID())
-        else:
-            return dialect.type_descriptor(CHAR(32))
-
-    def process_bind_param(self, value, dialect):
-        if value is None:
-            return value
-        elif dialect.name == 'postgresql':
-            return str(value)
-        else:
-            if not isinstance(value, uuid.UUID):
-                return "%.32x" % uuid.UUID(value).int
-            else:
-                # hexstring
-                return "%.32x" % value.int
-
-    def process_result_value(self, value, dialect):
-        if value is None:
-            return value
-        else:
-            if not isinstance(value, uuid.UUID):
-                value = uuid.UUID(value)
-            return value

@@ -26,7 +26,6 @@ def init_products():
             )) for i,x in enumerate(range(0,7))
         ]
         db.session.commit()
-    # pprint.pprint(products)
 #
 
 
