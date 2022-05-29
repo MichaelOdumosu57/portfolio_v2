@@ -12,7 +12,7 @@ import org.apache.logging.log4j.LogManager;
 @RestController
 public class HelloController {
 
-  private static final Logger logger = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger(HelloController.class);
 
   @GetMapping("/helloworld")
   public String helloWorld() {
@@ -21,9 +21,9 @@ public class HelloController {
 
   @GetMapping("/log")
   public void logHelloWorld(){
-    logger.entry();
-    logger.error("Hello beautiful world.");
-    logger.exit();
+    logger.traceEntry();
+    logger.debug("Hello beautiful world.");
+    logger.traceExit();
 
   }
 }
