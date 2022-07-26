@@ -49,22 +49,40 @@ export class AppComponent {
     }
   })
 
-  wmlDropdownMeta = new WmlDropdownMeta({
-    options:Array(this.utilService.generateRandomNumber(5,5))
-    .fill(null)
-    .map((nullVal,index0)=>{
-      let type:WmlDropdownOptionsMeta["type"] =  [4,0].includes(index0)  ? "select":"option"
-      return new WmlDropdownOptionsMeta({
-        display:{
-          cpnt:DropdownOptionComponent,
-          meta:new DropdownOptionMeta({
-            selectChevronIsPresent:type === "select"
-          }),
-        },
-        sourceValue:index0,
-        type
-      })
+
+
+  dropDownOptions = Array(this.utilService.generateRandomNumber(5,5))
+  .fill(null)
+  .map((nullVal,index0)=>{
+    let type:WmlDropdownOptionsMeta["type"] =  [4].includes(index0)  ? "select":"option"
+    return new WmlDropdownOptionsMeta({
+      display:{
+        cpnt:DropdownOptionComponent,
+        meta:new DropdownOptionMeta({
+          selectChevronIsPresent:type === "select"
+        }),
+      },
+      sourceValue:index0,
+      type
     })
+  })
+
+
+  dropdownSelect = new WmlDropdownOptionsMeta({
+    display:{
+      cpnt:DropdownOptionComponent,
+      meta:new DropdownOptionMeta({
+        selectChevronIsPresent:true
+      }),
+    },
+    children:new WmlDropdownMeta({
+      options:this.dropDownOptions
+    }),
+    sourceValue:1,
+    type:"select"
+  })
+  wmlDropdownMeta = new WmlDropdownMeta({
+    options:[this.dropdownSelect]
   })
   dropdownField = new WMLField({
     type:"custom",
@@ -92,12 +110,16 @@ export class AppComponent {
       takeUntil(this.ngUnsub),
       tap(()=>{
         
+        this.pullAllDropdownOptions()
         this.updateDropdownText();
       })
     )
     .subscribe()
   }
 
+  pullAllDropdownOptions(){
+    console.log(this.wmlDropdownMeta)
+  }
   private updateDropdownText() {
     this.wmlDropdownMeta.options.map((option, index0) => {
       let meta:DropdownOptionMeta = option.display.meta

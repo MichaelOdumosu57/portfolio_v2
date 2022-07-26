@@ -19,7 +19,7 @@ import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-optio
   selector: 'wml-dropdown',
   templateUrl: './wml-dropdown.component.html',
   styleUrls: ['./wml-dropdown.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -52,11 +52,7 @@ export class WmlDropdownComponent {
   ngAfterViewInit() {
     this.showInitalOption();
 
-    this.meta.options.forEach((option,index0)=>{
-      if(index0 !==0){
-        option.parent = this.meta.options[0]
-      }
-    })
+    this.attachParentToChild();
     this.communicateWithParentSubj
       .pipe(
         takeUntil(this.ngUnsub),
@@ -74,32 +70,51 @@ export class WmlDropdownComponent {
   }
 
 
+  private attachParentToChild() {
+    this.meta.options.forEach((option, index0) => {
+      if (index0 !== 0) {
+        option.parent = this.meta.options[0];
+      }
+    });
+  }
+
   private showInitalOption() {
-    this.meta.options[0].class = "Pod0Item0";
+
+    if (this.meta._root) {
+      this.meta.options[0].class = "Pod0Item0";
+    }
     this.cdref.detectChanges();
+
   }
 
   private showDropdown(resp: WmlDropdownParentSubjParams) {
     if (resp.type === "showDropdown") {
-      
-      this.meta.options.forEach((option) => {
+
+
+      resp.option.children.options.forEach((option) => {
         option.class = "Pod0Item0";
+
+        resp.option.view.cdref?.detectChanges()
+        option.view.cdref?.detectChanges()
+
       });
+
       this.cdref.detectChanges();
     }
   }
 
   private hideDropdown(resp: WmlDropdownParentSubjParams) {
     if (resp.type === "hideDropdown") {
-      
-      this.meta.options.forEach((option) => {
-        this.meta.options.forEach((option) => {
-          if(option.parent){
-            option.class = "Pod0Item1";
-          }
-        });
-      });
-      this.cdref.detectChanges();
+      this.meta.options.forEach((option)=>{
+        option.children.options.forEach((option1)=>{
+          option1.class = "Pod0Item1";
+          option1.view.cdref?.detectChanges()
+          option.view.cdref?.detectChanges()
+        })
+        
+      })
+
+
     }
   }
 
@@ -126,7 +141,7 @@ export class WmlDropdownParentSubjParams {
     )
   }
   type!: "showDropdown" | "hideDropdown"
-  option?:WmlDropdownOptionsMeta
+  option!: WmlDropdownOptionsMeta
 }
 
 export class WmlDropdownMeta {
@@ -138,6 +153,7 @@ export class WmlDropdownMeta {
       }
     )
   }
+  _root = true
   wmlField: WMLField = new WMLField();
   options: Array<WmlDropdownOptionsMeta> = []
 

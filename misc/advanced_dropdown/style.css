@@ -65,7 +65,7 @@ nav ul ul{
   opacity: 0;
   visibility: hidden;
 }
-nav ul li > ul{
+nav ul li:hover > ul{
   top: 70px;
   opacity: 1;
   visibility: visible;

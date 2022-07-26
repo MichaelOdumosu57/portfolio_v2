@@ -14,3 +14,7 @@ the dropdown is opened by the first elemement
 
 # References
 * https://www.codingnepalweb.com/animated-drop-down-menu-bar-html-css/
+
+
+# Issues 
+* change detection seems not to be working with the dropdown children
