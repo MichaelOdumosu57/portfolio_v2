@@ -43,14 +43,17 @@ export class WmlDropdownOptionComponent implements OnInit {
   }
 
   @HostListener('mousemove') onMouseover(){
-    if( ["select","autocomplete"].includes(this.meta.type) ){
+    if( ["select"].includes(this.meta.type) ){
       this.meta.communicateWithParentSubj.next(
         new WmlDropdownParentSubjParams({
-          type:"showDropdown"
+          type:"showDropdown",
+          option:this.meta
         })
       )
     }
   }
+
+
 
 
   ngOnInit(): void {
@@ -77,19 +80,15 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
           ...params
         }
       )
-      if(!params.class){
-        if(["option"].includes(this.type)){
-          this.class = "Pod0Item1"
-        }
-      }
     }
     display!:{
       cpnt:Type<any>,
       meta:any
     } 
     communicateWithParentSubj!:Subject<WmlDropdownParentSubjParams>
-    class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item0" 
+    class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
     sourceValue?:any
     type:"select" | "autocomplete" | "option" | "noSelect" = "option"
+    parent!:WmlDropdownOptionsMeta
   
 }
