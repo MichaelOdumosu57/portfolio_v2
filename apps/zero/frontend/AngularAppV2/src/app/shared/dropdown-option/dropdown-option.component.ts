@@ -22,7 +22,6 @@ export class DropdownOptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.meta)
   }
 
   ngAfterViewInit(){
