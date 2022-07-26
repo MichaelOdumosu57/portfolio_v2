@@ -50,6 +50,22 @@ export class AppComponent {
   })
 
 
+  option5DropdownOptions:WmlDropdownOptionsMeta[] = Array(this.utilService.generateRandomNumber(5,5))
+  .fill(null)
+  .map((nullVal,index0)=>{
+    let type:WmlDropdownOptionsMeta["type"] =  [4].includes(index0)  ? "select":"option"
+    return new WmlDropdownOptionsMeta({
+      display:{
+        cpnt:DropdownOptionComponent,
+        meta:new DropdownOptionMeta({
+          selectChevronIsPresent:type === "select"
+        }),
+      },
+      sourceValue:index0,
+      type
+    })
+  })
+
 
   dropDownOptions = Array(this.utilService.generateRandomNumber(5,5))
   .fill(null)
@@ -62,6 +78,9 @@ export class AppComponent {
           selectChevronIsPresent:type === "select"
         }),
       },
+      children: new WmlDropdownMeta({
+        options:[4].includes(index0) ? this.option5DropdownOptions : []
+      }),
       sourceValue:index0,
       type
     })
@@ -81,6 +100,8 @@ export class AppComponent {
     sourceValue:1,
     type:"select"
   })
+
+
   wmlDropdownMeta = new WmlDropdownMeta({
     options:[this.dropdownSelect]
   })
