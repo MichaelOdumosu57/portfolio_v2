@@ -53,6 +53,16 @@ export class WmlDropdownOptionComponent implements OnInit {
     }
   }
 
+  @HostListener('mouseout') onMouseLeave() {
+    
+    this.meta.communicateWithParentSubj.next(
+      new WmlDropdownParentSubjParams({
+        type: "hideDropdown",
+      })
+    )
+
+  }  
+
 
 
 

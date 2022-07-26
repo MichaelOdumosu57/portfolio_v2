@@ -1,0 +1,8 @@
+@import "src/assets/styles/global.scss";
+#root{
+  wml-dropdown{
+    dropdpown-option  .MainPod{
+      background-color: provideRandomColor();
+    }
+  }
+}
