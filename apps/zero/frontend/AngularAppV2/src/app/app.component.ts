@@ -50,10 +50,10 @@ export class AppComponent {
   })
 
   wmlDropdownMeta = new WmlDropdownMeta({
-    options:Array(this.utilService.generateRandomNumber(5,2))
+    options:Array(this.utilService.generateRandomNumber(5,5))
     .fill(null)
     .map((nullVal,index0)=>{
-      let type = index0 ===0 ? "select":"option"
+      let type:WmlDropdownOptionsMeta["type"] =  [4,0].includes(index0)  ? "select":"option"
       return new WmlDropdownOptionsMeta({
         display:{
           cpnt:DropdownOptionComponent,
@@ -62,7 +62,7 @@ export class AppComponent {
           }),
         },
         sourceValue:index0,
-        type: index0 ===0 ? "select":"option"
+        type
       })
     })
   })
