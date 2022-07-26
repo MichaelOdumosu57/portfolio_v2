@@ -110,18 +110,23 @@ export class AppComponent {
       takeUntil(this.ngUnsub),
       tap(()=>{
         
-        this.pullAllDropdownOptions()
+        this.pullAllDropdownOptions(this.wmlDropdownMeta.options)
         this.updateDropdownText();
       })
     )
     .subscribe()
   }
+  allOptions:WmlDropdownOptionsMeta[] = []
 
-  pullAllDropdownOptions(){
-    console.log(this.wmlDropdownMeta)
+  pullAllDropdownOptions(options:WmlDropdownOptionsMeta[]){
+  
+    options.forEach((option)=>{
+      this.allOptions.push(option)
+      this.pullAllDropdownOptions(option.children.options)
+    })
   }
   private updateDropdownText() {
-    this.wmlDropdownMeta.options.map((option, index0) => {
+    this.allOptions.map((option, index0) => {
       let meta:DropdownOptionMeta = option.display.meta
       meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : CONFIG.i18n.appDropdownOption + " " + index0;
       meta.view.cdref?.detectChanges()
