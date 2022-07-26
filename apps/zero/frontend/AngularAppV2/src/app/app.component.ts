@@ -50,7 +50,7 @@ export class AppComponent {
   })
 
 
-  option5DropdownOptions:WmlDropdownOptionsMeta[] = Array(this.utilService.generateRandomNumber(5,5))
+  generateSubDropdown:()=> WmlDropdownOptionsMeta[] =()=> Array(this.utilService.generateRandomNumber(5,5))
   .fill(null)
   .map((nullVal,index0)=>{
     let type:WmlDropdownOptionsMeta["type"] =  [4].includes(index0)  ? "select":"option"
@@ -70,7 +70,7 @@ export class AppComponent {
   dropDownOptions = Array(this.utilService.generateRandomNumber(5,5))
   .fill(null)
   .map((nullVal,index0)=>{
-    let type:WmlDropdownOptionsMeta["type"] =  [4].includes(index0)  ? "select":"option"
+    let type:WmlDropdownOptionsMeta["type"] =  this.utilService.generateRandomNumber(7) > 4  ? "select":"option"
     return new WmlDropdownOptionsMeta({
       display:{
         cpnt:DropdownOptionComponent,
@@ -79,7 +79,7 @@ export class AppComponent {
         }),
       },
       children: new WmlDropdownMeta({
-        options:[4].includes(index0) ? this.option5DropdownOptions : []
+        options:type === "select" ? this.generateSubDropdown() : []
       }),
       sourceValue:index0,
       type
@@ -152,6 +152,9 @@ export class AppComponent {
       meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : CONFIG.i18n.appDropdownOption + " " + index0;
       meta.view.cdref?.detectChanges()
     });
+    console.log(this.allOptions)
+    console.log(this.wmlDropdownMeta)
+
   }
 
   ngAfterViewInit(){
