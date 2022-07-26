@@ -1,0 +1,3 @@
+<ng-container [formGroup]="meta.wmlField.field.parentForm">
+  <input [formControlName]="meta.wmlField.field.formControlName" (input)="triggerChange($event)"/>
+</ng-container>

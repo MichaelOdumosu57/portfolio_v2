@@ -1,0 +1,20 @@
+:host {
+  &.View {
+  }
+  .Main {
+    &Pod{
+    }
+  }
+  .Pod{
+    &0{
+
+      &Item{
+        &0{
+          border:1px solid var(--black);
+          padding:var(--spacing3) var(--spacing5) 0 var(--spacing5);
+        }
+      }
+
+    }
+  }
+}

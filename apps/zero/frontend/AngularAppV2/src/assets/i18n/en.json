@@ -1,0 +1,11 @@
+{
+  "sampleCpnt":{
+    "header":"Cpnt Created"
+  },
+  "app":{
+    "on":"Take off",
+    "off":"Add on",
+    "submit":"Submit",
+    "removeDropdownOption":"Remove Dropdown Option"
+  }
+}

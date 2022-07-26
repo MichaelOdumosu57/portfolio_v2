@@ -1,32 +1,27 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "f800d948-6781-4e11-814c-2e11cca19056"
-  },
-  "scripts":{
-    "test":"npx ng test"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PwCApp": {
+    "AngularAppV2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         },
-        "@schematics/angular:application": {
-          "strict": true
-        }
+        "@schematics/angular:service": {
+          "flat": false
+        }        
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pw-capp",
+            "outputPath": "dist/angular-app-v2",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -78,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PwCApp:build:production"
+              "browserTarget": "AngularAppV2:build:production"
             },
             "development": {
-              "browserTarget": "PwCApp:build:development"
+              "browserTarget": "AngularAppV2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,17 +84,19 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PwCApp:build"
+            "browserTarget": "AngularAppV2:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
+            "sourceMap": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -113,5 +110,7 @@
       }
     }
   },
-  "defaultProject": "PwCApp"
+  "cli": {
+    "analytics": "07c16a27-f0b9-4b31-a194-46a57f7cf26f"
+  }
 }
