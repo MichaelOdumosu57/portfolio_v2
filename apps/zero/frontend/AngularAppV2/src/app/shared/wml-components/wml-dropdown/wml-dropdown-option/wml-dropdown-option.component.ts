@@ -42,7 +42,7 @@ export class WmlDropdownOptionComponent implements OnInit {
   }
 
   @HostListener('mousemove') onMouseover(){
-    if(this.meta.type === "select"){
+    if( ["select","autocomplete"].includes(this.meta.type) ){
       this.meta.communicateWithParentSubj.next(
         new WmlDropdownParentSubjParams({
           type:"showDropdown"
@@ -50,6 +50,7 @@ export class WmlDropdownOptionComponent implements OnInit {
       )
     }
   }
+
 
 
 

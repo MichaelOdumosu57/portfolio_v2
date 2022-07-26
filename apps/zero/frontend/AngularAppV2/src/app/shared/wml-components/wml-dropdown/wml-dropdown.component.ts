@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Host
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 // rxjs
-import {takeUntil, tap,pluck, map, defaultIfEmpty, take } from 'rxjs/operators';
+import { takeUntil, tap, pluck, map, defaultIfEmpty, take } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 
@@ -26,42 +26,66 @@ import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-optio
       useExisting: forwardRef(() => WmlDropdownComponent),
       multi: true
     }
-  ]  
+  ]
 })
-export class WmlDropdownComponent  {
+export class WmlDropdownComponent {
 
   @Input('meta') meta: WmlDropdownMeta = new WmlDropdownMeta();
-  @ViewChildren("customOption", {read:ViewContainerRef}) customOptions!:QueryList<ViewContainerRef>;
+  @ViewChildren("customOption", { read: ViewContainerRef }) customOptions!: QueryList<ViewContainerRef>;
   constructor(
-    private cdref:ChangeDetectorRef,
+    private cdref: ChangeDetectorRef,
   ) { }
   @HostBinding('class') myClass: string = `View`;
-  ngUnsub= new Subject<void>()
+  ngUnsub = new Subject<void>()
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
 
 
-
-  ngAfterViewInit(){
-    this.communicateWithParentSubj
-    .pipe(
-      takeUntil(this.ngUnsub),
-      tap((resp)=>{
-
-        if(resp.type ==="showDropdown"){
-          this.meta.options.forEach((option)=>{
-            option.class = "Pod0Item0"
-          })
-          this.cdref.detectChanges()
-        }
-        
+  @HostListener('mouseleave') onMouseLeave() {
+    this.communicateWithParentSubj.next(
+      new WmlDropdownParentSubjParams({
+        type: "hideDropdown"
       })
     )
-    .subscribe()
+
+  }
+
+  ngAfterViewInit() {
+    this.communicateWithParentSubj
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((resp) => {
+
+          this.showDropdown(resp);
+          this.hideDropdown(resp)
+
+        })
+      )
+      .subscribe()
 
     this.setCommunicateWithParentSubj();
 
   }
 
+
+  private showDropdown(resp: WmlDropdownParentSubjParams) {
+    if (resp.type === "showDropdown") {
+      this.meta.options.forEach((option) => {
+        option.class = "Pod0Item0";
+      });
+      this.cdref.detectChanges();
+    }
+  }
+
+  private hideDropdown(resp: WmlDropdownParentSubjParams) {
+    if (resp.type === "hideDropdown") {
+      this.meta.options.forEach((option) => {
+        if (["option", "noSelect"].includes(option.type)) {
+          option.class = "Pod0Item1";
+        }
+      });
+      this.cdref.detectChanges();
+    }
+  }
 
   private setCommunicateWithParentSubj() {
     this.meta.options.forEach((option) => {
@@ -69,15 +93,15 @@ export class WmlDropdownComponent  {
     });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.ngUnsub.next();
     this.ngUnsub.complete()
   }
 
 }
 
-export class WmlDropdownParentSubjParams{
-  constructor(params:Partial<WmlDropdownParentSubjParams>={}){
+export class WmlDropdownParentSubjParams {
+  constructor(params: Partial<WmlDropdownParentSubjParams> = {}) {
     Object.assign(
       this,
       {
@@ -85,11 +109,11 @@ export class WmlDropdownParentSubjParams{
       }
     )
   }
-  type!:"showDropdown" | "hideDropdown"
+  type!: "showDropdown" | "hideDropdown"
 }
 
 export class WmlDropdownMeta {
-  constructor(params:Partial<WmlDropdownMeta>={}){
+  constructor(params: Partial<WmlDropdownMeta> = {}) {
     Object.assign(
       this,
       {
@@ -98,7 +122,7 @@ export class WmlDropdownMeta {
     )
   }
   wmlField: WMLField = new WMLField();
-  options:Array<WmlDropdownOptionsMeta> = []
+  options: Array<WmlDropdownOptionsMeta> = []
 
-  
+
 }
