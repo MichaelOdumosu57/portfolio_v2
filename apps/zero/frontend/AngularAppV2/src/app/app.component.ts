@@ -152,9 +152,6 @@ export class AppComponent {
       meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : CONFIG.i18n.appDropdownOption + " " + index0;
       meta.view.cdref?.detectChanges()
     });
-    console.log(this.allOptions)
-    console.log(this.wmlDropdownMeta)
-
   }
 
   ngAfterViewInit(){

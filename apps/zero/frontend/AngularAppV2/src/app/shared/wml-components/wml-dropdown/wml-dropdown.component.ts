@@ -40,7 +40,8 @@ export class WmlDropdownComponent {
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
 
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener('mouseout') onMouseLeave() {
+    console.log(this.meta)
     this.communicateWithParentSubj.next(
       new WmlDropdownParentSubjParams({
         type: "hideDropdown",
