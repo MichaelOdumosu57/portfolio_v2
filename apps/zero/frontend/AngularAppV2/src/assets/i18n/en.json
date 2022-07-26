@@ -6,6 +6,10 @@
     "on":"Take off",
     "off":"Add on",
     "submit":"Submit",
-    "removeDropdownOption":"Remove Dropdown Option"
+    "removeDropdownOption":"Remove Dropdown Option",
+    "dropdown":{
+      "select":"Please Select An Option",
+      "option":"Option"
+    }
   }
 }

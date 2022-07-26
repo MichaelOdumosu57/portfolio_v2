@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
+// angular
+import { Component, HostBinding } from '@angular/core';
+
+// rxjs
+import { takeUntil,tap } from 'rxjs';
+
+// reactive forms
 import { FormControl, FormGroup } from '@angular/forms';
+
+// misc
 import { CONFIG } from '@core/config/configs';
 import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/dropdown-option/dropdown-option.component';
-import { SampleCpntComponent, SampleCpntMeta } from '@shared/sample-cpnt/sample-cpnt.component';
+
+
+// wml compoenets
 import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown.component';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { WMLForm } from  '@shared/wml-components/wml-form/wml-form.component';
-import { UtilityService } from '@app/core/utility/utility.service';
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
+
+// services
+import { UtilityService } from '@app/core/utility/utility.service';
+import { ConfigService } from '@core/config/config.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +31,10 @@ import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-
 export class AppComponent {
   constructor(
     private utilService:UtilityService,
+    private configService:ConfigService
   ){}
-  title = 'AngularAppV2';
+  @HostBinding('class') myClass: string = `View`;
+  ngUnsub= new Subject<void>()
 
   rootFormGroup = new FormGroup({
     [CONFIG.app.nameFieldFormControlName]:new FormControl(),
@@ -70,8 +86,33 @@ export class AppComponent {
     fields:this.fields
   })
 
+  ngOnInit(){
+    this.configService.initI18NValues()
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+        
+        this.updateDropdownText();
+      })
+    )
+    .subscribe()
+  }
+
+  private updateDropdownText() {
+    this.wmlDropdownMeta.options.map((option, index0) => {
+      let meta:DropdownOptionMeta = option.display.meta
+      meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : CONFIG.i18n.appDropdownOption + " " + index0;
+      meta.view.cdref?.detectChanges()
+    });
+  }
+
   ngAfterViewInit(){
     // console.log(this.nameField.view?.cdref)
+  }
+
+  ngOnDestroy(){
+    this.ngUnsub.next();
+    this.ngUnsub.complete()
   }
 
   removeDockField=()=>{
@@ -97,7 +138,6 @@ export class AppComponent {
     this.wmlDropdownMeta.options.pop()
     this.dropdownField.view.cdref?.detectChanges()
     
-    console.log(this.wmlDropdownMeta.options.length)
   }
 
 }

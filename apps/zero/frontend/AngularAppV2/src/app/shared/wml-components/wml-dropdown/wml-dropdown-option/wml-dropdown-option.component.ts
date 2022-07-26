@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 import { CONFIG } from '@app/core/config/configs';
 import { addCustomComponent } from '@shared/wml-components/functions';
 import { WmlDropdownParentSubjParams } from '../wml-dropdown.component';
+import { WMLWrapper } from '@shared/wml-components/models';
 
 @Component({
   selector: 'wml-dropdown-option',
@@ -52,10 +53,8 @@ export class WmlDropdownOptionComponent implements OnInit {
   }
 
 
-
-
-
   ngOnInit(): void {
+    this.meta.view.cdref = this.cdref
     this.initComponent()
     this.initUpdateComponent()
     
@@ -68,9 +67,10 @@ export class WmlDropdownOptionComponent implements OnInit {
 
 }
 
-export class WmlDropdownOptionsMeta {
+export class WmlDropdownOptionsMeta extends WMLWrapper {
   
     constructor(params:Partial<WmlDropdownOptionsMeta>={}){
+      super();
       Object.assign(
         this,
         {

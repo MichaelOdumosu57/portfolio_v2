@@ -23,6 +23,10 @@ export class UtilityService {
     return myArray[this.generateRandomNumber(index ?? myArray.length)]
   }
 
+  getValueByi18nKey = (value:string)=>{
+    return this.translateService.get(value)
+  }
+
   makeLowerCase = new LowerCasePipe().transform
   makeTitleCase = new TitleCasePipe().transform
 }

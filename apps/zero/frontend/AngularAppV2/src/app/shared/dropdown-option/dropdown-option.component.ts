@@ -1,5 +1,6 @@
 // angular
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+import { WMLWrapper } from '@shared/wml-components/models';
 
 // rxjs
 import { Subject } from 'rxjs';
@@ -26,6 +27,10 @@ export class DropdownOptionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(){
+    this.meta.view.cdref = this.cdref
+  }
+
   ngOnDestroy(){
     this.ngUnsub.next();
     this.ngUnsub.complete()
@@ -34,8 +39,9 @@ export class DropdownOptionComponent implements OnInit {
 
 }
 
-export class DropdownOptionMeta {
+export class DropdownOptionMeta extends WMLWrapper{
   constructor(params:Partial<DropdownOptionMeta>={}){
+    super();
     Object.assign(
       this,
       {
@@ -43,7 +49,7 @@ export class DropdownOptionMeta {
       }
     )
   }
-
+  
   title:string= "My Option"
   subTitle:string = "My Subtext"
   selectChevronIsPresent =false

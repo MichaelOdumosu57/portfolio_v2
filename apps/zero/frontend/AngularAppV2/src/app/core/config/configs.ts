@@ -3,6 +3,10 @@ class Configs {
     nameFieldFormControlName:"myName",
     dropdownFieldFormControlName:"myDropdown",
   }
+  i18n= {
+    appDropdownSelect:"",
+    appDropdownOption:"",    
+  }
 }
 
 class DefaultConfigs extends Configs  {
