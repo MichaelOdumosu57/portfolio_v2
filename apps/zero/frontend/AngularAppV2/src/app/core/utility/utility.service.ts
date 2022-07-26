@@ -19,6 +19,10 @@ export class UtilityService {
     return Math.floor(Math.random() * range)+additional
   }
 
+  generateRandomColor = () => {
+    return `#${this.generateRandomNumber(0xFFFFFF).toString(16)}`
+  }
+
   selectRandomOptionFromArray = (myArray: Array<any>, index?: number) => {
     return myArray[this.generateRandomNumber(index ?? myArray.length)]
   }

@@ -53,7 +53,7 @@ export class WmlDropdownOptionComponent implements OnInit {
     }
   }
 
-  @HostListener('mouseout') onMouseLeave() {
+  @HostListener('mouseout') onMouseOut() {
     
     this.meta.communicateWithParentSubj.next(
       new WmlDropdownParentSubjParams({
@@ -105,7 +105,8 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
     sourceValue?:any
     type:"select" | "autocomplete" | "option" | "noSelect" = "option"
-    parent!:WmlDropdownOptionsMeta
+    parentOption!:WmlDropdownOptionsMeta
+    parentDropdown!:WmlDropdownMeta
     children:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
     
   

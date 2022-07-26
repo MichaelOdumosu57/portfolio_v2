@@ -21,10 +21,8 @@ export class DropdownOptionComponent implements OnInit {
     private cdref:ChangeDetectorRef
   ) { }
 
-
-
-
   ngOnInit(): void {
+    console.log(this.meta)
   }
 
   ngAfterViewInit(){
@@ -50,6 +48,7 @@ export class DropdownOptionMeta extends WMLWrapper{
     )
   }
   
+  style:any = {};
   title:string= "My Option"
   subTitle:string = "My Subtext"
   selectChevronIsPresent =false

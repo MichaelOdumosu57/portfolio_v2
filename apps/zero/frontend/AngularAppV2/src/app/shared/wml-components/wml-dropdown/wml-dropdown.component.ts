@@ -53,7 +53,7 @@ export class WmlDropdownComponent {
   ngAfterViewInit() {
     this.showInitalOption();
 
-    this.attachParentToChild();
+    this.attachParentsToChild();
     this.communicateWithParentSubj
       .pipe(
         takeUntil(this.ngUnsub),
@@ -71,11 +71,12 @@ export class WmlDropdownComponent {
   }
 
 
-  private attachParentToChild() {
+  private attachParentsToChild() {
     this.meta.options.forEach((option, index0) => {
       if (index0 !== 0) {
-        option.parent = this.meta.options[0];
+        option.parentOption = this.meta.options[0];
       }
+      option.parentDropdown = this.meta
     });
   }
 

@@ -53,7 +53,11 @@ export class AppComponent {
 
 
 
-  generateSubDropdown:(level:number) =>WmlDropdownOptionsMeta[] = (level=0) => Array(this.utilService.generateRandomNumber(5,5))
+  generateSubDropdown:(level:number) =>WmlDropdownOptionsMeta[] = (level=0) => {
+  
+  
+  let backgroundColor = this.utilService.generateRandomColor()
+  return Array(this.utilService.generateRandomNumber(5,5))
   .fill(null)
   .map((nullVal,index0)=>{
     let options:WmlDropdownOptionsMeta[] = []
@@ -66,7 +70,10 @@ export class AppComponent {
       display:{
         cpnt:DropdownOptionComponent,
         meta:new DropdownOptionMeta({
-          selectChevronIsPresent:type === "select"
+          selectChevronIsPresent:type === "select",
+          style:{
+            backgroundColor
+          }
         }),
       },
       children: new WmlDropdownMeta({
@@ -76,6 +83,8 @@ export class AppComponent {
       type
     })
   })
+
+  }
 
 
   dropdownSelect = new WmlDropdownOptionsMeta({
