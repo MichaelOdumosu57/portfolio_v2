@@ -3,18 +3,24 @@
   }
   .Main {
     &Pod{
+      position: relative;
       background-color: provideRandomColor();
-      position: absolute;
+
     }
   }
   .Pod{
     &0{
+      position: absolute;
+      width: 100%;
       &Item{
         &0{
           display: block;  
         }
         &1{
           display: none;  
+        }
+        &2{
+          
         }
       }
     }
