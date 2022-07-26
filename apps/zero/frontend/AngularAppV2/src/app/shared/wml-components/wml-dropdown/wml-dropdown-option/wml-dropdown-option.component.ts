@@ -90,5 +90,6 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     sourceValue?:any
     type:"select" | "autocomplete" | "option" | "noSelect" = "option"
     parent!:WmlDropdownOptionsMeta
+    options:WmlDropdownOptionsMeta[] = []
   
 }
