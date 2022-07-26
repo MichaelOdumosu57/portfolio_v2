@@ -7,6 +7,7 @@ import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wm
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { WMLForm } from  '@shared/wml-components/wml-form/wml-form.component';
 import { UtilityService } from '@app/core/utility/utility.service';
+import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
 
 @Component({
   selector: 'app-root',
@@ -33,27 +34,20 @@ export class AppComponent {
   })
 
   wmlDropdownMeta = new WmlDropdownMeta({
-    select:{
-      display:{
-        cpnt:DropdownOptionComponent,
-        meta:new DropdownOptionMeta({
-          title:"Selector",
-          subTitle:"Subtitle"
-        }),
-      },
-      sourceValue:1,
-    },
-    options:Array(this.utilService.generateRandomNumber(5))
+    options:Array(this.utilService.generateRandomNumber(5,2))
     .fill(null)
     .map((nullVal,index0)=>{
-      return {
+      let type = index0 ===0 ? "select":"option"
+      return new WmlDropdownOptionsMeta({
         display:{
           cpnt:DropdownOptionComponent,
-          meta:new DropdownOptionMeta(),
+          meta:new DropdownOptionMeta({
+            selectChevronIsPresent:type === "select"
+          }),
         },
         sourceValue:index0,
-        multiple:false
-      }
+        type: index0 ===0 ? "select":"option"
+      })
     })
   })
   dropdownField = new WMLField({

@@ -1,5 +1,5 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 // rxjs
 import { Subject } from 'rxjs';
@@ -19,6 +19,9 @@ export class DropdownOptionComponent implements OnInit {
   constructor(
     private cdref:ChangeDetectorRef
   ) { }
+
+
+
 
   ngOnInit(): void {
   }
@@ -43,4 +46,5 @@ export class DropdownOptionMeta {
 
   title:string= "My Option"
   subTitle:string = "My Subtext"
+  selectChevronIsPresent =false
 }

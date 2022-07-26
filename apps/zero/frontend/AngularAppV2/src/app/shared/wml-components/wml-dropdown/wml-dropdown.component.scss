@@ -3,18 +3,21 @@
   }
   .Main {
     &Pod{
+
+      position: absolute;
     }
   }
   .Pod{
     &0{
-
       &Item{
         &0{
-          border:1px solid var(--black);
-          padding:var(--spacing3) var(--spacing5) 0 var(--spacing5);
+          display: block;  
+        }
+        &1{
+          display: none;  
         }
       }
-
     }
   }
+
 }

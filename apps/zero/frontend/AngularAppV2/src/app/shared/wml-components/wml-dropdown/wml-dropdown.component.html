@@ -1,10 +1,5 @@
-<ng-container [formGroup]="meta.wmlField.field.parentForm">
-  <div class="Pod0Item0">
-    <ng-template #customSelect></ng-template>
+<div class="MainPod" [formGroup]="meta.wmlField.field.parentForm">
+  <div [class]="'Pod0 '+option.class" *ngFor="let option of meta.options">
+    <wml-dropdown-option  [meta]="option"></wml-dropdown-option>
   </div>
-
-  <div  class="Pod0Item0" *ngFor="let option of meta.options">
-    <ng-template #customOption ></ng-template>
-  </div>
-
-</ng-container>
+</div>

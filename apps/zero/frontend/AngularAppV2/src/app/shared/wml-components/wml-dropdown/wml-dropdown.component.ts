@@ -1,11 +1,11 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, HostBinding, Input, OnInit, QueryList, Type, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, HostBinding, HostListener, Input, OnInit, QueryList, Type, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 
 // reactive forms
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 // rxjs
-import {takeUntil, tap,pluck, map, defaultIfEmpty } from 'rxjs/operators';
+import {takeUntil, tap,pluck, map, defaultIfEmpty, take } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 
@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 import { WMLField } from '../wml-fields/wml-fields.component';
 import { addCustomComponent } from '../functions';
 import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/dropdown-option/dropdown-option.component';
+import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-option.component';
 
 @Component({
   selector: 'wml-dropdown',
@@ -36,30 +37,36 @@ export class WmlDropdownComponent  {
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()
-
-  ngAfterViewInit(): void {
-
+  communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
 
 
 
-    this.customOptions.changes
+  ngAfterViewInit(){
+    this.communicateWithParentSubj
     .pipe(
       takeUntil(this.ngUnsub),
-      map((vcfs)=> vcfs._results),
-      tap((vcfs:Array<ViewContainerRef>)=>{
+      tap((resp)=>{
+
+        if(resp.type ==="showDropdown"){
+          this.meta.options.forEach((option)=>{
+            option.class = "Pod0Item0"
+          })
+          this.cdref.detectChanges()
+        }
         
-        vcfs.forEach((vcf,index0)=>{
-          addCustomComponent(
-            vcf,
-            this.meta.options[index0].display.cpnt,
-            this.meta.options[index0].display.meta
-          )
-        })
-        this.cdref.detectChanges()
       })
     )
     .subscribe()
-    this.customOptions.notifyOnChanges()
+
+    this.setCommunicateWithParentSubj();
+
+  }
+
+
+  private setCommunicateWithParentSubj() {
+    this.meta.options.forEach((option) => {
+      option.communicateWithParentSubj = this.communicateWithParentSubj;
+    });
   }
 
   ngOnDestroy(){
@@ -69,6 +76,17 @@ export class WmlDropdownComponent  {
 
 }
 
+export class WmlDropdownParentSubjParams{
+  constructor(params:Partial<WmlDropdownParentSubjParams>={}){
+    Object.assign(
+      this,
+      {
+        ...params
+      }
+    )
+  }
+  type!:"showDropdown" | "hideDropdown"
+}
 
 export class WmlDropdownMeta {
   constructor(params:Partial<WmlDropdownMeta>={}){
@@ -80,20 +98,7 @@ export class WmlDropdownMeta {
     )
   }
   wmlField: WMLField = new WMLField();
-  select:{
-    display:{
-      cpnt:Type<any>,
-      meta:any
-    },
-    sourceValue?:any,
-  } = {
-    display:{
-      cpnt:DropdownOptionComponent,
-      meta:new DropdownOptionMeta(),
-    },
-    sourceValue:0,
-  }
-  options:Array<WmlDropdownMeta["select"]> = []
+  options:Array<WmlDropdownOptionsMeta> = []
 
   
 }

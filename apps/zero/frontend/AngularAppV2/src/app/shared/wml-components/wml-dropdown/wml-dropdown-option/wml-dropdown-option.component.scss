@@ -1,0 +1,12 @@
+:host {
+  &.View {
+  }
+  .Main {
+    &Pod{
+      border:1px solid var(--black);
+    }
+  }
+  .Pod{
+    &0{}
+  }
+}
