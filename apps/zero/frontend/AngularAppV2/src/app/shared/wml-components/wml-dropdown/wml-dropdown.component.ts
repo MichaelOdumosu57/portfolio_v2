@@ -1,18 +1,16 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, HostBinding, HostListener, Input, OnInit, QueryList, Type, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { ChangeDetectorRef, Component, forwardRef, HostBinding, Input } from '@angular/core';
 
 // reactive forms
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 // rxjs
-import { takeUntil, tap, pluck, map, defaultIfEmpty, take } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 
 // wml-components
 import { WMLField } from '../wml-fields/wml-fields.component';
-import { addCustomComponent } from '../functions';
-import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/dropdown-option/dropdown-option.component';
 import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-option.component';
 import { WmlDropdownSampleComponent } from './wml-dropdown-sample/wml-dropdown-sample.component';
 
@@ -61,7 +59,6 @@ export class WmlDropdownComponent {
           else if (resp.type === "hideDropdown") {
             this.hideDropdown(resp);
           }
-
 
         })
       )
