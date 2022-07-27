@@ -32,7 +32,6 @@ import { WmlDropdownSampleComponent } from './wml-dropdown-sample/wml-dropdown-s
 export class WmlDropdownComponent {
 
   @Input('meta') meta: WmlDropdownMeta = new WmlDropdownMeta();
-  @ViewChildren("customOption", { read: ViewContainerRef }) customOptions!: QueryList<ViewContainerRef>;
   constructor(
     private cdref: ChangeDetectorRef,
   ) { }

@@ -8,7 +8,7 @@ import { UtilityService } from '@app/core/utility/utility.service';
 // rxjs
 import { Subject } from 'rxjs';
 
-// ms
+// misc
 import { CONFIG } from '@app/core/config/configs';
 
 @Component({
