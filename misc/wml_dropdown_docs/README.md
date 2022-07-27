@@ -22,3 +22,4 @@ the dropdown is opened by the first elemement
 
 # Issues 
 * change detection seems not to be working with the dropdown children
+* in unit test showInitalOptionAndSetAsRoot and showDropdown is needed or the component breaks with expression chnaged after checked error

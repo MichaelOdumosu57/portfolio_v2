@@ -1,6 +1,6 @@
 @function provideRandomColor() {
     $result: rgba(random(255), random(255), random(255),random(1));
-    @debug 1;
+    
     @return $result;
 }
 

@@ -43,24 +43,32 @@ export class WmlDropdownComponent {
     this.showInitalOptionAndSetAsRoot();
     this.resizeInitialDropdown();
     this.attachParentsToChild();
-    this.communicateWithParentSubj
-      .pipe(
-        takeUntil(this.ngUnsub),
-        tap((resp) => {
-
-          this.showDropdown(resp);
-          this.hideDropdown(resp)
-
-        })
-      )
-      .subscribe()
-
+    this.subscribeToCommunicateWithParentSubj().subscribe();;
     this.setCommunicateWithParentSubj();
 
   }
 
 
-  private attachParentsToChild() {
+  subscribeToCommunicateWithParentSubj() {
+    return this.communicateWithParentSubj
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((resp) => {
+
+          if (resp.type === "showDropdown") {
+            this.showDropdown(resp);
+          }
+          else if (resp.type === "hideDropdown") {
+            this.hideDropdown(resp);
+          }
+
+
+        })
+      )
+
+  }
+
+  attachParentsToChild() {
     this.meta.options.forEach((option, index0) => {
       if (index0 !== 0) {
         option.parentOption = this.meta.options[0];
@@ -69,17 +77,17 @@ export class WmlDropdownComponent {
     });
   }
 
-  private resizeInitialDropdown() {
+  resizeInitialDropdown() {
     if (this.meta._root) {
       this.meta.options[0].children.dropdownStyle = { width: "100%" };
 
     }
   }
 
-  private showInitalOptionAndSetAsRoot() {
+  showInitalOptionAndSetAsRoot() {
 
     if (this.meta._root) {
-      if(this.meta.options.length === 0){
+      if (this.meta.options.length === 0) {
         this.meta.options = [new WmlDropdownOptionsMeta({
           display: {
             cpnt: WmlDropdownSampleComponent,
@@ -94,38 +102,26 @@ export class WmlDropdownComponent {
 
   }
 
-  private showDropdown(resp: WmlDropdownParentSubjParams) {
-    if (resp.type === "showDropdown") {
+  showDropdown(resp: WmlDropdownParentSubjParams) {
 
+    resp.option.children.options.forEach((option) => {
+      option.class = "Pod0Item0";
 
-      resp.option.children.options.forEach((option) => {
-        option.class = "Pod0Item0";
+    });
 
-        resp.option.view.cdref?.detectChanges()
-        option.view.cdref?.detectChanges()
+    this.cdref.detectChanges();
 
-      });
-
-      this.cdref.detectChanges();
-    }
   }
 
-  private hideDropdown(resp: WmlDropdownParentSubjParams) {
-    if (resp.type === "hideDropdown") {
-      this.meta.options.forEach((option) => {
-        option.children.options.forEach((option1) => {
-          option1.class = "Pod0Item1";
-          option1.view.cdref?.detectChanges()
-          option.view.cdref?.detectChanges()
-        })
-
+  hideDropdown(resp: WmlDropdownParentSubjParams) {
+    this.meta.options.forEach((option) => {
+      option.children.options.forEach((option1) => {
+        option1.class = "Pod0Item1";
       })
-
-
-    }
+    })
   }
 
-  private setCommunicateWithParentSubj() {
+  setCommunicateWithParentSubj() {
     this.meta.options.forEach((option) => {
       option.communicateWithParentSubj = this.communicateWithParentSubj;
     });
