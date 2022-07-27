@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { configureTestingModuleForServices } from '@core/utility/test-utils';
+import { fromEvent } from 'rxjs';
 
 import { UtilityService } from './utility.service';
 
@@ -86,6 +87,78 @@ describe('UtilityService', () => {
       expect(option).toEqual(1)
     })    
   })
+
+  describe("selectRandomOptionFromArray",()=>{
+  
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let array =[1,2,3]
+
+      // act
+      let option = service.selectRandomOptionFromArray(array)
+      
+      // assert
+      expect(array).toContain(option)
+    })
+  })
+
+  describe("makeLowerCase",()=>{
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let str = "Hello World"
+
+      // act
+      let option = service.makeLowerCase(str)
+      
+      // assert
+      expect(option).toEqual("hello world")
+    })
+
+  })
+
+  describe("makeTitleCase",()=>{
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let str = "hello world"
+
+      // act
+      let option = service.makeTitleCase(str)
+      
+      // assert
+      expect(option).toEqual("Hello World")
+    })
+  
+  })
+
+
+  describe("eventDispatcher",()=>{
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let called = false
+      fromEvent(window,"click")
+      .subscribe(()=>{
+        called = true
+      })
+
+      // act
+      let option = service.eventDispatcher("click",window)
+      
+      // assert
+      expect(called).toBeTrue()
+    })
+
+
+  })
+
+
 
 
   
