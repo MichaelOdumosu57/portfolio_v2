@@ -160,10 +160,6 @@ export class AppComponent {
     });
   }
 
-  ngAfterViewInit(){
-    console.log(this.wmlDropdownMeta)
-    // console.log(this.nameField.view?.cdref)
-  }
 
   ngOnDestroy(){
     this.ngUnsub.next();

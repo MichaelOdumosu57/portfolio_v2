@@ -11,12 +11,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class UtilityService {
 
   constructor(
-    private translateService:TranslateService
+    private translateService: TranslateService
   ) { }
 
 
-  generateRandomNumber = (range: number = 100,additional:number=0) => {
-    return Math.floor(Math.random() * range)+additional
+  generateRandomNumber = (range: number = 100, additional: number = 0) => {
+    return Math.floor(Math.random() * range) + additional
   }
 
   generateRandomColor = () => {
@@ -27,8 +27,21 @@ export class UtilityService {
     return myArray[this.generateRandomNumber(index ?? myArray.length)]
   }
 
-  getValueByi18nKey = (value:string)=>{
+  getValueByi18nKey = (value: string) => {
     return this.translateService.get(value)
+  }
+
+  eventDispatcher(event: string, element: HTMLElement | Window | Element) {
+
+    try {
+      let eventModern = new Event(event)
+      element.dispatchEvent(eventModern)
+    }
+    catch (e) {
+      let eventLegacy = document.createEvent("Event");
+      eventLegacy.initEvent(event, false, true);
+      element.dispatchEvent(eventLegacy)
+    }
   }
 
   makeLowerCase = new LowerCasePipe().transform

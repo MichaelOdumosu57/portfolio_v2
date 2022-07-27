@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 import { addCustomComponent } from '@shared/wml-components/functions';
 import { WmlDropdownMeta, WmlDropdownParentSubjParams } from '../wml-dropdown.component';
 import { WMLWrapper } from '@shared/wml-components/models';
+import { WmlDropdownSampleComponent } from '../wml-dropdown-sample/wml-dropdown-sample.component';
 
 @Component({
   selector: 'wml-dropdown-option',
@@ -98,12 +99,15 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
 
 
     }
-    display!:{
+    display:{
       cpnt:Type<any>,
       meta:any
-    } 
+    } = {
+      cpnt:WmlDropdownSampleComponent,
+      meta:{}
+    }
     _root= false
-    communicateWithParentSubj!:Subject<WmlDropdownParentSubjParams>
+    communicateWithParentSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
     sourceValue?:any
     type:"select" | "autocomplete" | "option" | "noSelect" = "option"

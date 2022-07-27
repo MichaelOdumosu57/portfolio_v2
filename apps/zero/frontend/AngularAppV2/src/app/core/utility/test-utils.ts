@@ -1,5 +1,5 @@
 // angular
-import { NO_ERRORS_SCHEMA, Type } from "@angular/core";
+import { ChangeDetectorRef, NO_ERRORS_SCHEMA, Type } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 
@@ -13,12 +13,20 @@ export  let mockTranslateService = {
   onLangChange:new Subject(),
   onDefaultLangChange:new Subject(),
 }
+
+
 export let configureTestingModuleForComponents = async (
   targetCpnt:Type<any>,
-  providers:Partial<{
+  myProviders:Partial<{
     mockTranslateService:any
+    mockCdref:any
   }> = {}
 )=>{
+
+  let providers = [
+    {provide:TranslateService,useValue:myProviders.mockTranslateService}
+  ]
+
   await TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
@@ -27,9 +35,7 @@ export let configureTestingModuleForComponents = async (
     declarations: [
       targetCpnt
     ],
-    providers:[
-      {provide:TranslateService,useValue:providers.mockTranslateService}
-    ],
+    providers,
     schemas:[
       NO_ERRORS_SCHEMA
     ]
