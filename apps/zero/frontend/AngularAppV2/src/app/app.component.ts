@@ -18,6 +18,7 @@ import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wm
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { WMLForm } from  '@shared/wml-components/wml-form/wml-form.component';
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
+import { WmlDropdownService } from '@shared/wml-components/wml-dropdown/wml-dropdown-service/wml-dropdown.service';
 
 // services
 import { UtilityService } from '@app/core/utility/utility.service';
@@ -31,7 +32,8 @@ import { ConfigService } from '@core/config/config.service';
 export class AppComponent {
   constructor(
     private utilService:UtilityService,
-    private configService:ConfigService
+    private configService:ConfigService,
+    private wmlDropdownService:WmlDropdownService,
   ){}
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()
@@ -61,7 +63,7 @@ export class AppComponent {
     .map((nullVal,index0)=>{
       let options:WmlDropdownOptionsMeta[] = []
       let type:WmlDropdownOptionsMeta["type"] =  this.utilService.generateRandomNumber(7) > 4  ? "select":"option"
-      if(level++ < 3){
+      if(level++ < 6){
         options =type === "select" ? this.generateSubDropdown(level) : []
         level--
       }
@@ -137,21 +139,16 @@ export class AppComponent {
       takeUntil(this.ngUnsub),
       tap(()=>{
         
-        this.pullAllDropdownOptions(this.wmlDropdownMeta.options)
+        this.allOptions  = this.wmlDropdownService.pullAllDropdownOptions(this.wmlDropdownMeta.options)
         this.updateDropdownText();
+        
       })
     )
     .subscribe()
   }
   allOptions:WmlDropdownOptionsMeta[] = []
 
-  pullAllDropdownOptions(options:WmlDropdownOptionsMeta[]){
-  
-    options.forEach((option)=>{
-      this.allOptions.push(option)
-      this.pullAllDropdownOptions(option.children.options)
-    })
-  }
+
   private updateDropdownText() {
     this.allOptions.map((option, index0) => {
       let meta:DropdownOptionMeta = option.display.meta

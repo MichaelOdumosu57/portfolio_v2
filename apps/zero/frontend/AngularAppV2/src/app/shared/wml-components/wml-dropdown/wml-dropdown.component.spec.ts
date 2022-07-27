@@ -43,7 +43,7 @@ describe('WmlDropdownComponent', () => {
     beforeEach(()=>{
       spyOn(cpnt,"showInitalOptionAndSetAsRoot");
       spyOn(cpnt,"resizeInitialDropdown");
-      spyOn(cpnt,"attachParentsToChild");      
+      spyOn(cpnt,"attachParentDropdownToChild");      
       spyOn(cpnt,"subscribeToCommunicateWithParentSubj").and.callThrough()
       spyOn(cpnt,"setCommunicateWithParentSubj");
     })
@@ -58,7 +58,7 @@ describe('WmlDropdownComponent', () => {
       // assert
       expect(cpnt.showInitalOptionAndSetAsRoot).toHaveBeenCalled();
       expect(cpnt.resizeInitialDropdown).toHaveBeenCalled();
-      expect(cpnt.attachParentsToChild).toHaveBeenCalled();
+      expect(cpnt.attachParentDropdownToChild).toHaveBeenCalled();
       expect(cpnt.subscribeToCommunicateWithParentSubj).toHaveBeenCalled();
       expect(cpnt.setCommunicateWithParentSubj).toHaveBeenCalled();
     })
@@ -118,7 +118,7 @@ describe('WmlDropdownComponent', () => {
 
   })
 
-  describe("attachParentsToChild",()=>{
+  describe("attachParentDropdownToChild",()=>{
     
     it(` when called | 
      as appropriate | 
@@ -131,7 +131,7 @@ describe('WmlDropdownComponent', () => {
         })
 
         // act
-        cpnt.attachParentsToChild();
+        cpnt.attachParentDropdownToChild();
 
         // assert
         cpnt.meta.options.forEach((option,index0)=>{

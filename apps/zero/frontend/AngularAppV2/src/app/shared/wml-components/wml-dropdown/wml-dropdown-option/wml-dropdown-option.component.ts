@@ -42,6 +42,19 @@ export class WmlDropdownOptionComponent  {
 
   }
 
+  @HostListener('click') onClick(){
+    
+    if(this.meta.type === "option"){
+      
+      this.meta.communicateWithParentSubj.next(
+        new WmlDropdownParentSubjParams({
+          type:"selectOption",
+          option:this.meta
+        })
+      )
+    }
+  }
+
   @HostListener('mousemove') onMouseover(){
     
     if( ["select"].includes(this.meta.type) ){
@@ -106,6 +119,7 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
       cpnt:WmlDropdownSampleComponent,
       meta:{}
     }
+    selected?:WmlDropdownOptionsMeta
     _root= false
     communicateWithParentSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 

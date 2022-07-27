@@ -39,49 +39,18 @@ export class WmlDropdownComponent {
 
   ngAfterViewInit() {
     this.showInitalOptionAndSetAsRoot();
+
     this.resizeInitialDropdown();
-    this.attachParentsToChild();
+    this.attachRootDropdownToChildren();
+    this.attachRootOptionsToChildren();
+    this.attachParentDropdownToChild();
+
     this.subscribeToCommunicateWithParentSubj().subscribe();;
     this.setCommunicateWithParentSubj();
-
-  }
-
-
-  subscribeToCommunicateWithParentSubj() {
-    return this.communicateWithParentSubj
-      .pipe(
-        takeUntil(this.ngUnsub),
-        tap((resp) => {
-
-          if (resp.type === "showDropdown") {
-            this.showDropdown(resp);
-          }
-          else if (resp.type === "hideDropdown") {
-            this.hideDropdown(resp);
-          }
-
-        })
-      )
-
-  }
-
-  attachParentsToChild() {
-    this.meta.options.forEach((option, index0) => {
-      if (index0 !== 0) {
-        option.parentOption = this.meta.options[0];
-      }
-      option.parentDropdown = this.meta
-    });
-  }
-
-  resizeInitialDropdown() {
-    if (this.meta._root) {
-      this.meta.options[0].children.dropdownStyle = { width: "100%" };
-
-    }
   }
 
   showInitalOptionAndSetAsRoot() {
+
 
     if (this.meta._root) {
       if (this.meta.options.length === 0) {
@@ -97,6 +66,55 @@ export class WmlDropdownComponent {
     }
     this.cdref.detectChanges();
 
+  }
+  resizeInitialDropdown() {
+    if (this.meta._root) {
+      this.meta.options[0].children.dropdownStyle = { width: "100%" };
+
+    }
+  }
+
+  attachRootDropdownToChildren(){
+    if (this.meta._root) {
+      
+    }
+  }
+  attachRootOptionsToChildren(){
+    if (this.meta._root) {}
+  }  
+
+  attachParentDropdownToChild() {
+    this.meta.options.forEach((option, index0) => {
+
+      option.parentDropdown = this.meta
+    });
+  }
+
+  subscribeToCommunicateWithParentSubj() {
+    return this.communicateWithParentSubj
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((resp) => {
+
+          if (resp.type === "showDropdown") {
+            this.showDropdown(resp);
+          }
+          else if (resp.type === "hideDropdown") {
+            this.hideDropdown(resp);
+          }
+
+          else if(resp.type === "selectOption"){
+            this.selectOption(resp);
+          }
+        })
+      )
+
+  }
+
+  setCommunicateWithParentSubj() {
+    this.meta.options.forEach((option) => {
+      option.communicateWithParentSubj = this.communicateWithParentSubj;
+    });
   }
 
   showDropdown(resp: WmlDropdownParentSubjParams) {
@@ -118,11 +136,11 @@ export class WmlDropdownComponent {
     })
   }
 
-  setCommunicateWithParentSubj() {
-    this.meta.options.forEach((option) => {
-      option.communicateWithParentSubj = this.communicateWithParentSubj;
-    });
+  selectOption(resp: WmlDropdownParentSubjParams) {
+    console.log(resp)
   }
+
+
 
   ngOnDestroy() {
     this.ngUnsub.next();
@@ -140,7 +158,7 @@ export class WmlDropdownParentSubjParams {
       }
     )
   }
-  type!: "showDropdown" | "hideDropdown"
+  type!: "showDropdown" | "hideDropdown" | "selectOption"
   option!: WmlDropdownOptionsMeta
 }
 
@@ -152,6 +170,7 @@ export class WmlDropdownMeta {
         ...params
       }
     )
+
 
   }
   _root = true
