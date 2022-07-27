@@ -3,6 +3,7 @@ import { ComponentFixture, fakeAsync, flush } from '@angular/core/testing';
 import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@app/core/utility/test-utils';
 import { UtilityService } from '@core/utility/utility.service';
 import { Subject } from 'rxjs';
+import { WMLField } from '../wml-fields/wml-fields.component';
 import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-option.component';
 import { WmlDropdownSampleComponent } from './wml-dropdown-sample/wml-dropdown-sample.component';
 
@@ -308,6 +309,52 @@ describe('WmlDropdownComponent', () => {
       });
     })
   })
+
+  describe("WmlDropdownParentSubjParams",()=>{
+  
+    it(` when instaiated | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let option = new WmlDropdownOptionsMeta({})
+      let resp = new WmlDropdownParentSubjParams({
+        type:"showDropdown",
+        option
+      })
+
+      
+      // assert
+      expect(resp.type).toEqual("showDropdown")
+      expect(resp.option).toEqual(option)
+    })
+  })
+
+  describe("WmlDropdownMeta",()=>{
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      let optionLength = utilService.generateRandomNumber(3)
+      let option = new WmlDropdownOptionsMeta({})
+      let resp = new WmlDropdownMeta({
+        options:Array(optionLength)
+        .fill(null).map((_)=>{
+          return new WmlDropdownOptionsMeta({})
+        }),
+        _root:false,
+        wmlField:new WMLField(),
+        dropdownStyle:{width:"100%"}
+      })
+
+      
+      // assert
+      expect(resp._root).toBeFalse()
+      expect(resp.wmlField).toBeInstanceOf(WMLField)
+      expect(resp.options.length).toEqual(optionLength)
+      expect(resp.dropdownStyle.width).toEqual("100%")
+    })
+  })
+  
 
 
   describe("ngOnDestroy",()=>{
