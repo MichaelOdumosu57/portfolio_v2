@@ -40,15 +40,15 @@ export class WmlDropdownComponent {
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
 
 
-  @HostListener('mouseleave') onMouseLeave() {
+  // @HostListener('mouseleave') onMouseLeave() {
     
-    this.communicateWithParentSubj.next(
-      new WmlDropdownParentSubjParams({
-        type: "hideDropdown",
-      })
-    )
+  //   this.communicateWithParentSubj.next(
+  //     new WmlDropdownParentSubjParams({
+  //       type: "hideDropdown",
+  //     })
+  //   )
 
-  }
+  // }
 
   ngAfterViewInit() {
     this.showInitalOption();
@@ -158,6 +158,6 @@ export class WmlDropdownMeta {
   _root = true
   wmlField: WMLField = new WMLField();
   options: Array<WmlDropdownOptionsMeta> = []
-
+  dropdownStyle:any = {}
 
 }

@@ -4,7 +4,6 @@
   .Main {
     &Pod{
       position: relative;
-      background-color: provideRandomColor();
 
     }
   }
@@ -20,7 +19,7 @@
           display: none;  
         }
         &2{
-          
+          width: 100%;
         }
       }
     }

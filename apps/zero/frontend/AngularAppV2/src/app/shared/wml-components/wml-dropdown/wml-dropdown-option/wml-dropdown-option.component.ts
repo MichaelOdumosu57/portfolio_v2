@@ -19,7 +19,7 @@ import { WMLWrapper } from '@shared/wml-components/models';
   selector: 'wml-dropdown-option',
   templateUrl: './wml-dropdown-option.component.html',
   styleUrls: ['./wml-dropdown-option.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WmlDropdownOptionComponent implements OnInit {
 
@@ -32,6 +32,8 @@ export class WmlDropdownOptionComponent implements OnInit {
   @Input('meta') meta: WmlDropdownOptionsMeta = new WmlDropdownOptionsMeta();
   @ViewChild("customOption", {read:ViewContainerRef,static:true}) customOption!:ViewContainerRef;
   ngUnsub= new Subject<void>()
+  dynamicComponentMeta:any 
+  // stylePosition:"relative" | "absolute" = "relative"
 
   initComponent(){
     addCustomComponent(this.customOption,this.meta.display.cpnt,this.meta.display.meta)
@@ -43,8 +45,13 @@ export class WmlDropdownOptionComponent implements OnInit {
   }
 
   @HostListener('mousemove') onMouseover(){
+    
     if( ["select"].includes(this.meta.type) ){
+      
+      // this.stylePosition = "absolute"
+      // this.dynamicComponentMeta.updateStylePositionSubj.next(this.stylePosition )
       this.meta.communicateWithParentSubj.next(
+        
         new WmlDropdownParentSubjParams({
           type:"showDropdown",
           option:this.meta
@@ -55,6 +62,8 @@ export class WmlDropdownOptionComponent implements OnInit {
 
   @HostListener('mouseout') onMouseOut() {
     
+    // this.stylePosition = "relative"
+    // this.dynamicComponentMeta.updateStylePositionSubj.next(this.stylePosition)
     this.meta.communicateWithParentSubj.next(
       new WmlDropdownParentSubjParams({
         type: "hideDropdown",
@@ -67,6 +76,7 @@ export class WmlDropdownOptionComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.dynamicComponentMeta = this.meta.display.meta
     this.meta.view.cdref = this.cdref
     this.initComponent()
     this.initUpdateComponent()

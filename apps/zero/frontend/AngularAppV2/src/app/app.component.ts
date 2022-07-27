@@ -3,6 +3,7 @@ import { Component, HostBinding } from '@angular/core';
 
 // rxjs
 import { takeUntil,tap } from 'rxjs';
+import { Subject,BehaviorSubject } from 'rxjs';
 
 // reactive forms
 import { FormControl, FormGroup } from '@angular/forms';
@@ -21,7 +22,6 @@ import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-
 // services
 import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -55,34 +55,38 @@ export class AppComponent {
 
   generateSubDropdown:(level:number) =>WmlDropdownOptionsMeta[] = (level=0) => {
   
-  
-  let backgroundColor = this.utilService.generateRandomColor()
-  return Array(this.utilService.generateRandomNumber(5,5))
-  .fill(null)
-  .map((nullVal,index0)=>{
-    let options:WmlDropdownOptionsMeta[] = []
-    let type:WmlDropdownOptionsMeta["type"] =  this.utilService.generateRandomNumber(7) > 4  ? "select":"option"
-    if(level++ < 3){
-      options =type === "select" ? this.generateSubDropdown(level) : []
-      level--
-    }
-    return new WmlDropdownOptionsMeta({
-      display:{
-        cpnt:DropdownOptionComponent,
-        meta:new DropdownOptionMeta({
-          selectChevronIsPresent:type === "select",
-          style:{
-            backgroundColor
+    let backgroundColor = this.utilService.generateRandomColor()
+    return Array(this.utilService.generateRandomNumber(5,5))
+    .fill(null)
+    .map((nullVal,index0)=>{
+      let options:WmlDropdownOptionsMeta[] = []
+      let type:WmlDropdownOptionsMeta["type"] =  this.utilService.generateRandomNumber(7) > 4  ? "select":"option"
+      if(level++ < 3){
+        options =type === "select" ? this.generateSubDropdown(level) : []
+        level--
+      }
+      return new WmlDropdownOptionsMeta({
+        display:{
+          cpnt:DropdownOptionComponent,
+          meta:new DropdownOptionMeta({
+            selectChevronIsPresent:type === "select",
+            style:{
+              backgroundColor
+            }
+
+          }),
+        },
+        children: new WmlDropdownMeta({
+          options,
+          dropdownStyle:{
+            left:"100%",
+            top:"100%",
           }
         }),
-      },
-      children: new WmlDropdownMeta({
-        options
-      }),
-      sourceValue:index0,
-      type
+        sourceValue:index0,
+        type
+      })
     })
-  })
 
   }
 
@@ -95,7 +99,8 @@ export class AppComponent {
       }),
     },
     children:new WmlDropdownMeta({
-      options:this.generateSubDropdown(0)
+      options:this.generateSubDropdown(0),
+   
     }),
     sourceValue:1,
     type:"select"
@@ -103,7 +108,7 @@ export class AppComponent {
 
 
   wmlDropdownMeta = new WmlDropdownMeta({
-    options:[this.dropdownSelect]
+    options:[this.dropdownSelect],
   })
   dropdownField = new WMLField({
     type:"custom",

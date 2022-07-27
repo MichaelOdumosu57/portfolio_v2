@@ -3,7 +3,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Hos
 import { WMLWrapper } from '@shared/wml-components/models';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import {  tap,takeUntil } from "rxjs/operators";
 
 @Component({
   selector: 'dropdown-option',
@@ -16,12 +17,23 @@ export class DropdownOptionComponent implements OnInit {
 
   @Input('meta') meta: DropdownOptionMeta = new DropdownOptionMeta();
   @HostBinding('class') myClass: string = `View`;
+  @HostBinding('style.position') stylePosition: string = "inital";
+
   ngUnsub= new Subject<void>()
   constructor(
     private cdref:ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
+    this.meta.updateStylePositionSubj
+    .pipe(
+    takeUntil(this.ngUnsub),
+      tap((position)=>{
+        this.stylePosition = position
+      })
+    )
+    .subscribe()
+
   }
 
   ngAfterViewInit(){
@@ -47,7 +59,8 @@ export class DropdownOptionMeta extends WMLWrapper{
     )
   }
   
-  style:any = {};
+  updateStylePositionSubj = new Subject<"absolute" | "relative">()
+  style:any = {}
   title:string= "My Option"
   subTitle:string = "My Subtext"
   selectChevronIsPresent =false
