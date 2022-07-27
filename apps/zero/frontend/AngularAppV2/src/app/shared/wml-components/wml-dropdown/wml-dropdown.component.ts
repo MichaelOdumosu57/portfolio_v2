@@ -79,7 +79,7 @@ export class WmlDropdownComponent {
   attachRootInformationToChildren() {
     if (this.meta._root) {
       let allOptions = this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(this.meta);
-      console.log(allOptions)
+      
       allOptions.forEach((option) => {
         option.rootDropdown = this.meta;
         option.rootOption = this.meta.options[0];

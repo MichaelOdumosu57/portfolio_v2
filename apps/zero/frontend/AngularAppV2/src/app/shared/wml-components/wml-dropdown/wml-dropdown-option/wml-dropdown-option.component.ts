@@ -58,6 +58,7 @@ export class WmlDropdownOptionComponent  {
     
     if(this.meta.type === "option"){
       
+      this.meta.isSelected = !this.meta.isSelected 
       this.meta.communicateWithRootOptionSubj.next(
         new WmlDropdownParentSubjParams({
           type:"selectOption",
@@ -100,7 +101,12 @@ export class WmlDropdownOptionComponent  {
         takeUntil(this.ngUnsub),
         tap((resp) => {
           this.customOption.clear()
-          addCustomComponent(this.customOption,resp.option.display.cpnt,resp.option.display.meta)
+          if(resp.option.isSelected){
+            addCustomComponent(this.customOption,resp.option.display.cpnt,resp.option.display.meta)
+          }
+          else{
+            addCustomComponent(this.customOption,this.meta.display.cpnt,this.meta.display.meta)
+          }
         })
       )
     }
@@ -160,6 +166,7 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     parentDropdown!:WmlDropdownMeta
     rootOption!:WmlDropdownOptionsMeta
     rootDropdown!:WmlDropdownMeta
+    isSelected?:boolean = false
     _rootIsReadySubj:Subject<void> = new Subject<void>()
     dropdownChild:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
     
