@@ -158,7 +158,7 @@ describe('WmlDropdownComponent', () => {
       cpnt.resizeInitialDropdown();
 
       // assert
-      expect(cpnt.meta.options[0].children.dropdownStyle.width).toEqual( "100%" )
+      expect(cpnt.meta.options[0].dropdownChild.dropdownStyle.width).toEqual( "100%" )
     })
 
     it(` when called | 
@@ -173,7 +173,7 @@ describe('WmlDropdownComponent', () => {
       cpnt.resizeInitialDropdown();
 
       // assert
-      expect(cpnt.meta.options[0].children.dropdownStyle.width).not.toEqual( "100%" )
+      expect(cpnt.meta.options[0].dropdownChild.dropdownStyle.width).not.toEqual( "100%" )
     })    
   })
 
@@ -237,7 +237,7 @@ describe('WmlDropdownComponent', () => {
       let resp = new WmlDropdownParentSubjParams({
         type:"showDropdown",
         option:new WmlDropdownOptionsMeta({
-          children:new WmlDropdownMeta({
+          dropdownChild:new WmlDropdownMeta({
             options:Array(utilService.generateRandomNumber(10))
             .fill(null).map((_)=>{
               return new WmlDropdownOptionsMeta({})
@@ -250,7 +250,7 @@ describe('WmlDropdownComponent', () => {
       cpnt.showDropdown(resp);
 
       // assert
-      resp.option.children.options.forEach((option) => {
+      resp.option.dropdownChild.options.forEach((option) => {
         expect(option.class).toEqual("Pod0Item0");
 
       });
@@ -267,7 +267,7 @@ describe('WmlDropdownComponent', () => {
         options:Array(utilService.generateRandomNumber(3))
         .fill(null).map((_)=>{
           return new WmlDropdownOptionsMeta({
-            children:new WmlDropdownMeta({
+            dropdownChild:new WmlDropdownMeta({
               options:Array(utilService.generateRandomNumber(3))
               .fill(null).map((_)=>{
                 return new WmlDropdownOptionsMeta({})
@@ -286,7 +286,7 @@ describe('WmlDropdownComponent', () => {
 
       // assert
       cpnt.meta.options.forEach((option) => {
-        option.children.options.forEach((option1) => {
+        option.dropdownChild.options.forEach((option1) => {
           expect(option1.class).toEqual("Pod0Item1");
         })
   

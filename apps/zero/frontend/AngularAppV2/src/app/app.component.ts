@@ -58,12 +58,12 @@ export class AppComponent {
   generateSubDropdown:(level:number) =>WmlDropdownOptionsMeta[] = (level=0) => {
   
     let backgroundColor = this.utilService.generateRandomColor()
-    return Array(this.utilService.generateRandomNumber(5,5))
+    return Array(this.utilService.generateRandomNumber(5,3))
     .fill(null)
     .map((nullVal,index0)=>{
       let options:WmlDropdownOptionsMeta[] = []
       let type:WmlDropdownOptionsMeta["type"] =  this.utilService.generateRandomNumber(7) > 4  ? "select":"option"
-      if(level++ < 6){
+      if(level++ < 2){
         options =type === "select" ? this.generateSubDropdown(level) : []
         level--
       }
@@ -79,7 +79,7 @@ export class AppComponent {
           }),
         },
         displayType:"dropdownFirst",
-        children: new WmlDropdownMeta({
+        dropdownChild: new WmlDropdownMeta({
           
           options,
           dropdownStyle:{
@@ -101,7 +101,7 @@ export class AppComponent {
         selectChevronIsPresent:true
       }),
     },
-    children:new WmlDropdownMeta({
+    dropdownChild:new WmlDropdownMeta({
 
       options:this.generateSubDropdown(0),
     }),
@@ -139,7 +139,7 @@ export class AppComponent {
       takeUntil(this.ngUnsub),
       tap(()=>{
         
-        this.allOptions  = this.wmlDropdownService.pullAllDropdownOptions(this.wmlDropdownMeta.options)
+        this.allOptions  = this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(this.wmlDropdownMeta)
         this.updateDropdownText();
         
       })

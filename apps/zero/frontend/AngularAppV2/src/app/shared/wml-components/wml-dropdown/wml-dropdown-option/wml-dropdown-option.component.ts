@@ -100,8 +100,8 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
   
     constructor(params:Partial<WmlDropdownOptionsMeta>={}){
       super();
-      if(params.children){
-        params.children._root = false
+      if(params.dropdownChild){
+        params.dropdownChild._root = false
       }
       Object.assign(
         this,
@@ -128,7 +128,10 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     displayType: "optionFirst" | "dropdownFirst" = "optionFirst"
     parentOption!:WmlDropdownOptionsMeta
     parentDropdown!:WmlDropdownMeta
-    children:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
+    rootOption!:WmlDropdownOptionsMeta
+    rootDropdown!:WmlDropdownMeta
+
+    dropdownChild:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
     
   
 }
