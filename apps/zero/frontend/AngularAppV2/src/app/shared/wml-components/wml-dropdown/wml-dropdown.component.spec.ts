@@ -1,23 +1,30 @@
 // testing
 import { ComponentFixture, fakeAsync, flush } from '@angular/core/testing';
 import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@app/core/utility/test-utils';
+
+// service
 import { UtilityService } from '@core/utility/utility.service';
+// rxjs
 import { Subject } from 'rxjs';
+
+// wml components
 import { WMLField } from '../wml-fields/wml-fields.component';
 import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-option.component';
 import { WmlDropdownSampleComponent } from './wml-dropdown-sample/wml-dropdown-sample.component';
-
+import { WmlDropdownService } from './wml-dropdown-service/wml-dropdown.service';
 import { WmlDropdownComponent, WmlDropdownMeta, WmlDropdownParentSubjParams } from './wml-dropdown.component';
 
 describe('WmlDropdownComponent', () => {
   let cpnt: WmlDropdownComponent;
   let fixture: ComponentFixture<WmlDropdownComponent>;
   let utilService:UtilityService
+  let wmlDropdownService: WmlDropdownService
 
   beforeEach(async () => {
     await configureTestingModuleForComponents(WmlDropdownComponent,{mockTranslateService});
     ({fixture, cpnt} =  grabComponentInstance(WmlDropdownComponent));
     utilService = fixture.debugElement.injector.get(UtilityService)
+    wmlDropdownService = fixture.debugElement.injector.get(WmlDropdownService)
     fixture.detectChanges()
   })
 
@@ -43,7 +50,8 @@ describe('WmlDropdownComponent', () => {
     beforeEach(()=>{
       spyOn(cpnt,"showInitalOptionAndSetAsRoot");
       spyOn(cpnt,"resizeInitialDropdown");
-      spyOn(cpnt,"attachParentInformationToChildren");      
+      spyOn(cpnt,"attachParentInformationToChildren");
+      spyOn(cpnt,"attachRootInformationToChildren");            
       spyOn(cpnt,"subscribeToCommunicateWithParentSubj").and.callThrough()
       spyOn(cpnt,"setCommunicateWithParentSubj");
     })
@@ -120,33 +128,124 @@ describe('WmlDropdownComponent', () => {
 
   describe("attachParentInformationToChildren",()=>{
     
+    fit(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      cpnt.meta = new WmlDropdownMeta({
+        _root:true,
+        options:[new WmlDropdownOptionsMeta({
+          dropdownChild:new WmlDropdownMeta({
+            options:Array(utilService.generateRandomNumber(5))
+            .fill(null)
+            .map(()=>{
+              return new WmlDropdownOptionsMeta({})
+            })
+          })
+        })]
+      })
+      let allOptions = wmlDropdownService.pullAllDropdownOptionsViaDropdown(cpnt.meta)
+      allOptions.forEach((option)=>{
+        spyOn(option._rootIsReadySubj,"next");
+      })
+
+      // act
+      cpnt.attachParentInformationToChildren();
+
+
+
+
+      // assert
+      allOptions.forEach((option)=>{
+        expect(option._rootIsReadySubj.next).toHaveBeenCalled();
+        /**@TODO figure out how test the exact option */
+        expect(option.parentDropdown).toBeDefined()
+        expect(option.parentOption).toBeDefined()     
+           
+      })
+
+
+        
+
+    })
+
+    it(` when called | 
+    and !this.meta._root | 
+    does the required action `,()=>{
+     // arrange
+     
+     cpnt.meta = new WmlDropdownMeta({
+      _root:false,
+       options:[new WmlDropdownOptionsMeta({
+         dropdownChild:new WmlDropdownMeta({
+           options:Array(utilService.generateRandomNumber(5))
+           .fill(null)
+           .map(()=>{
+             return new WmlDropdownOptionsMeta({})
+           })
+         })
+       })]
+     })
+     let allOptions = wmlDropdownService.pullAllDropdownOptionsViaDropdown(cpnt.meta)
+     allOptions.forEach((option)=>{
+       spyOn(option._rootIsReadySubj,"next");
+     })
+
+     // act
+     cpnt.attachParentInformationToChildren();
+
+
+
+
+     // assert
+     allOptions.forEach((option)=>{
+       expect(option._rootIsReadySubj.next).not.toHaveBeenCalled();
+       /**@TODO figure out how test the exact option */
+       expect(option.parentDropdown).not.toBeDefined()
+       expect(option.parentOption).not.toBeDefined()     
+          
+     })
+
+
+       
+
+    })
+  })
+
+  describe("attachRootInformationToChildren",()=>{
     it(` when called | 
      as appropriate | 
      does the required action `,()=>{
         // arrange
-        cpnt.meta.options= Array(utilService.generateRandomNumber(5))
-        .fill(null)
-        .map(()=>{
-          return new WmlDropdownOptionsMeta({})
+        cpnt.meta._root = true
+        cpnt.meta = new WmlDropdownMeta({
+          options:[new WmlDropdownOptionsMeta({
+            dropdownChild:new WmlDropdownMeta({
+              options:Array(utilService.generateRandomNumber(5))
+              .fill(null)
+              .map(()=>{
+                return new WmlDropdownOptionsMeta({})
+              })
+            })
+          })]
         })
 
         // act
-        cpnt.attachParentInformationToChildren();
-
+        cpnt.attachRootInformationToChildren();
+        
         // assert
-        cpnt.meta.options.forEach((option,index0)=>{
+        let allOptions = wmlDropdownService.pullAllDropdownOptionsViaDropdown(cpnt.meta)
 
-          if (index0 === 0) {
-            expect(option.parentOption).not.toEqual(cpnt.meta.options[0]);
-          }
-          else{
-            expect(option.parentOption).toEqual(cpnt.meta.options[0]);
-          }
+        allOptions.forEach((option)=>{
+
           
-          expect(option.parentDropdown).toEqual(cpnt.meta)
+          expect(option.rootOption).toEqual(cpnt.meta.options[0]);
+          expect(option.rootDropdown).toEqual(cpnt.meta)
         })
 
+    
     })
+  
   })
 
   describe("resizeInitialDropdown",()=>{
