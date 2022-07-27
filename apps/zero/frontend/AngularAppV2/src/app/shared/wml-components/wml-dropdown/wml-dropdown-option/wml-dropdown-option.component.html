@@ -1,4 +1,8 @@
-<li class="MainPod">
+<ng-container *ngIf="meta.displayType === 'dropdownFirst'" >
   <wml-dropdown [meta]="meta.children"></wml-dropdown>
   <ng-template #customOption></ng-template>
-</li>
+</ng-container>
+<ng-container *ngIf="meta.displayType === 'optionFirst'" >
+  <ng-template #customOption></ng-template>
+  <wml-dropdown [meta]="meta.children"></wml-dropdown>
+</ng-container>

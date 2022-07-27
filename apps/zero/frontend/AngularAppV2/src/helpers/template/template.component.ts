@@ -17,7 +17,7 @@ import { CONFIG } from '@app/core/config/configs';
   styleUrls: ['./template.component.scss'],
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class TemplateComponent implements OnInit {
+export class TemplateComponent  {
 
   constructor(
     private cdref:ChangeDetectorRef,

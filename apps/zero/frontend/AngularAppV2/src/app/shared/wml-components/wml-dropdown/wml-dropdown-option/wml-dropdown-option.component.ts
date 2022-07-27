@@ -21,7 +21,7 @@ import { WMLWrapper } from '@shared/wml-components/models';
   styleUrls: ['./wml-dropdown-option.component.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WmlDropdownOptionComponent implements OnInit {
+export class WmlDropdownOptionComponent  {
 
   constructor(
     private cdref:ChangeDetectorRef,
@@ -30,14 +30,12 @@ export class WmlDropdownOptionComponent implements OnInit {
   ) { }
   @HostBinding('class') myClass: string = `View`;
   @Input('meta') meta: WmlDropdownOptionsMeta = new WmlDropdownOptionsMeta();
-  @ViewChild("customOption", {read:ViewContainerRef,static:true}) customOption!:ViewContainerRef;
+  @ViewChild("customOption", {read:ViewContainerRef,static:false}) customOption!:ViewContainerRef;
   ngUnsub= new Subject<void>()
-  dynamicComponentMeta:any 
-  // stylePosition:"relative" | "absolute" = "relative"
+
 
   initComponent(){
     addCustomComponent(this.customOption,this.meta.display.cpnt,this.meta.display.meta)
-
   }
 
   initUpdateComponent(){
@@ -48,8 +46,7 @@ export class WmlDropdownOptionComponent implements OnInit {
     
     if( ["select"].includes(this.meta.type) ){
       
-      // this.stylePosition = "absolute"
-      // this.dynamicComponentMeta.updateStylePositionSubj.next(this.stylePosition )
+
       this.meta.communicateWithParentSubj.next(
         
         new WmlDropdownParentSubjParams({
@@ -62,8 +59,7 @@ export class WmlDropdownOptionComponent implements OnInit {
 
   @HostListener('mouseout') onMouseOut() {
     
-    // this.stylePosition = "relative"
-    // this.dynamicComponentMeta.updateStylePositionSubj.next(this.stylePosition)
+
     this.meta.communicateWithParentSubj.next(
       new WmlDropdownParentSubjParams({
         type: "hideDropdown",
@@ -73,10 +69,7 @@ export class WmlDropdownOptionComponent implements OnInit {
   }  
 
 
-
-
-  ngOnInit(): void {
-    this.dynamicComponentMeta = this.meta.display.meta
+  ngAfterViewInit(): void {
     this.meta.view.cdref = this.cdref
     this.initComponent()
     this.initUpdateComponent()
@@ -115,6 +108,7 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
     sourceValue?:any
     type:"select" | "autocomplete" | "option" | "noSelect" = "option"
+    displayType: "optionFirst" | "dropdownFirst" = "optionFirst"
     parentOption!:WmlDropdownOptionsMeta
     parentDropdown!:WmlDropdownMeta
     children:WmlDropdownMeta=new WmlDropdownMeta({_root:false});

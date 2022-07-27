@@ -72,15 +72,15 @@ export class AppComponent {
             selectChevronIsPresent:type === "select",
             style:{
               backgroundColor
-            }
+            },
 
           }),
         },
+        displayType:"dropdownFirst",
         children: new WmlDropdownMeta({
           options,
           dropdownStyle:{
             left:"100%",
-            top:"100%",
           }
         }),
         sourceValue:index0,
@@ -100,6 +100,7 @@ export class AppComponent {
     },
     children:new WmlDropdownMeta({
       options:this.generateSubDropdown(0),
+
    
     }),
     sourceValue:1,
