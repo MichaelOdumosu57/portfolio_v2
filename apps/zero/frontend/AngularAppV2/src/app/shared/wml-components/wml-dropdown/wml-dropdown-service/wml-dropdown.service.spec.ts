@@ -118,7 +118,8 @@ describe('WmlDropdownService', () => {
       let total = 1
       let dropdown = new WmlDropdownMeta({
         options: Array(utilService.generateRandomNumber(10))
-        .fill(null).map((_)=>{
+        .fill(null)
+        .map((_)=>{
           let count = utilService.generateRandomNumber(10)
           total+=1
 
@@ -149,7 +150,8 @@ describe('WmlDropdownService', () => {
       let total = 1
       let dropdown = new WmlDropdownMeta({
         options: Array(utilService.generateRandomNumber(10))
-        .fill(null).map((_)=>{
+        .fill(null)
+        .map((_)=>{
           let count = utilService.generateRandomNumber(10)
           total+=1
 

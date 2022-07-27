@@ -149,7 +149,7 @@ describe('UtilityService', () => {
       })
 
       // act
-      let option = service.eventDispatcher("click",window)
+      service.eventDispatcher("click",window)
       
       // assert
       expect(called).toBeTrue()
