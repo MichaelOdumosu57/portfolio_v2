@@ -10,7 +10,6 @@ import { UtilityService } from '@app/core/utility/utility.service';
 import { Subject } from 'rxjs';
 
 // misc
-import { CONFIG } from '@app/core/config/configs';
 import { addCustomComponent } from '@shared/wml-components/functions';
 import { WmlDropdownMeta, WmlDropdownParentSubjParams } from '../wml-dropdown.component';
 import { WMLWrapper } from '@shared/wml-components/models';

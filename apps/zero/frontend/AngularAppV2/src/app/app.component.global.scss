@@ -1,7 +1,7 @@
 #root{
   app-root{
-    wml-dropdown >.MainPod{
-      // width: 50%;
+    wml-fields .Pod1 > wml-dropdown >.MainPod{
+      width: 50%;
     }
   }
 }

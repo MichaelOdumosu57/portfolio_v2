@@ -14,6 +14,7 @@ import { WMLField } from '../wml-fields/wml-fields.component';
 import { addCustomComponent } from '../functions';
 import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/dropdown-option/dropdown-option.component';
 import { WmlDropdownOptionsMeta } from './wml-dropdown-option/wml-dropdown-option.component';
+import { WmlDropdownSampleComponent } from './wml-dropdown-sample/wml-dropdown-sample.component';
 
 @Component({
   selector: 'wml-dropdown',
@@ -39,19 +40,8 @@ export class WmlDropdownComponent {
   ngUnsub = new Subject<void>()
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
 
-
-  // @HostListener('mouseleave') onMouseLeave() {
-    
-  //   this.communicateWithParentSubj.next(
-  //     new WmlDropdownParentSubjParams({
-  //       type: "hideDropdown",
-  //     })
-  //   )
-
-  // }
-
   ngAfterViewInit() {
-    this.showInitalOption();
+    this.showInitalOptionAndSetAsRoot();
     this.resizeInitialDropdown();
     this.attachParentsToChild();
     this.communicateWithParentSubj
@@ -80,17 +70,26 @@ export class WmlDropdownComponent {
     });
   }
 
-  private resizeInitialDropdown(){
+  private resizeInitialDropdown() {
     if (this.meta._root) {
-      this.meta.options[0].children.dropdownStyle = {width: "100%"};
-      
+      this.meta.options[0].children.dropdownStyle = { width: "100%" };
+
     }
   }
 
-  private showInitalOption() {
+  private showInitalOptionAndSetAsRoot() {
 
     if (this.meta._root) {
+      if(this.meta.options.length === 0){
+        this.meta.options = [new WmlDropdownOptionsMeta({
+          display: {
+            cpnt: WmlDropdownSampleComponent,
+            meta: {}
+          }
+        })]
+      }
       this.meta.options[0].class = "Pod0Item0";
+      this.meta.options[0]._root = true
     }
     this.cdref.detectChanges();
 
@@ -114,13 +113,13 @@ export class WmlDropdownComponent {
 
   private hideDropdown(resp: WmlDropdownParentSubjParams) {
     if (resp.type === "hideDropdown") {
-      this.meta.options.forEach((option)=>{
-        option.children.options.forEach((option1)=>{
+      this.meta.options.forEach((option) => {
+        option.children.options.forEach((option1) => {
           option1.class = "Pod0Item1";
           option1.view.cdref?.detectChanges()
           option.view.cdref?.detectChanges()
         })
-        
+
       })
 
 
@@ -161,10 +160,11 @@ export class WmlDropdownMeta {
         ...params
       }
     )
+
   }
   _root = true
   wmlField: WMLField = new WMLField();
   options: Array<WmlDropdownOptionsMeta> = []
-  dropdownStyle:any = {}
+  dropdownStyle: any = {}
 
 }

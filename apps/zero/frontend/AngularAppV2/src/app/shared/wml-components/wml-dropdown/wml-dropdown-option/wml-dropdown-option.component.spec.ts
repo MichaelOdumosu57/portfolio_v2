@@ -1,23 +1,32 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// testing
+import { ComponentFixture } from '@angular/core/testing';
+import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@app/core/utility/test-utils';
 
 import { WmlDropdownOptionComponent } from './wml-dropdown-option.component';
 
 describe('WmlDropdownOptionComponent', () => {
-  let component: WmlDropdownOptionComponent;
+  let cpnt: WmlDropdownOptionComponent;
   let fixture: ComponentFixture<WmlDropdownOptionComponent>;
 
+
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ WmlDropdownOptionComponent ]
+    await configureTestingModuleForComponents(WmlDropdownOptionComponent,{mockTranslateService});
+    ({fixture, cpnt} =  grabComponentInstance(WmlDropdownOptionComponent));
+    fixture.detectChanges()
+  })
+  
+  
+  describe("init", () => {
+
+    it("should create", () => {
+      expect(cpnt).toBeTruthy()
+    })  
+
+    it("should have all values initalize properly", () => {
     })
-    .compileComponents();
 
-    fixture = TestBed.createComponent(WmlDropdownOptionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it("should have all properties be the correct class instance", () => {
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    })
+  })
 });

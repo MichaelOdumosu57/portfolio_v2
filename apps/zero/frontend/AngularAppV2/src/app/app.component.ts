@@ -78,6 +78,7 @@ export class AppComponent {
         },
         displayType:"dropdownFirst",
         children: new WmlDropdownMeta({
+          
           options,
           dropdownStyle:{
             left:"100%",
@@ -99,9 +100,8 @@ export class AppComponent {
       }),
     },
     children:new WmlDropdownMeta({
-      options:this.generateSubDropdown(0),
 
-   
+      options:this.generateSubDropdown(0),
     }),
     sourceValue:1,
     type:"select"
@@ -161,6 +161,7 @@ export class AppComponent {
   }
 
   ngAfterViewInit(){
+    console.log(this.wmlDropdownMeta)
     // console.log(this.nameField.view?.cdref)
   }
 
