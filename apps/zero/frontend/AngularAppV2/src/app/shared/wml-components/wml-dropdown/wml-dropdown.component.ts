@@ -52,7 +52,7 @@ export class WmlDropdownComponent {
 
   ngAfterViewInit() {
     this.showInitalOption();
-
+    this.resizeInitialDropdown();
     this.attachParentsToChild();
     this.communicateWithParentSubj
       .pipe(
@@ -78,6 +78,13 @@ export class WmlDropdownComponent {
       }
       option.parentDropdown = this.meta
     });
+  }
+
+  private resizeInitialDropdown(){
+    if (this.meta._root) {
+      this.meta.options[0].children.dropdownStyle = {width: "100%"};
+      
+    }
   }
 
   private showInitalOption() {
