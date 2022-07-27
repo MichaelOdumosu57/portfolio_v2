@@ -1,16 +1,18 @@
 // testing
-import { TestBed } from '@angular/core/testing';
 import { configureTestingModuleForServices } from '@core/utility/test-utils';
+import { TestBed } from '@angular/core/testing';
 
 import { TemplateService } from './template.service';
 
+// services
+import { UtilityService } from '@core/utility/utility.service';
 describe('TemplateService', () => {
   let service: TemplateService;
-
-
+  let utilService:UtilityService
 
   beforeEach(() => {
     service = configureTestingModuleForServices(TemplateService)
+    utilService =TestBed.inject(UtilityService)
   });
 
   describe("init", () => {

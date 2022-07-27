@@ -128,7 +128,7 @@ describe('WmlDropdownComponent', () => {
 
   describe("attachParentInformationToChildren",()=>{
     
-    fit(` when called | 
+    it(` when called | 
      as appropriate | 
      does the required action `,()=>{
       // arrange
@@ -156,11 +156,15 @@ describe('WmlDropdownComponent', () => {
 
 
       // assert
-      allOptions.forEach((option)=>{
+      allOptions.forEach((option,index0)=>{
         expect(option._rootIsReadySubj.next).toHaveBeenCalled();
-        /**@TODO figure out how test the exact option */
-        expect(option.parentDropdown).toBeDefined()
-        expect(option.parentOption).toBeDefined()     
+
+        if(index0 !== 0){
+          /**@TODO figure out how test the exact option */
+          expect(option.parentDropdown).toBeDefined()
+          expect(option.parentOption).toBeDefined()    
+        }
+ 
            
       })
 
@@ -217,8 +221,8 @@ describe('WmlDropdownComponent', () => {
      as appropriate | 
      does the required action `,()=>{
         // arrange
-        cpnt.meta._root = true
         cpnt.meta = new WmlDropdownMeta({
+          _root:true,
           options:[new WmlDropdownOptionsMeta({
             dropdownChild:new WmlDropdownMeta({
               options:Array(utilService.generateRandomNumber(5))
@@ -245,6 +249,39 @@ describe('WmlDropdownComponent', () => {
 
     
     })
+
+    it(` when called | 
+    as appropriate | 
+    does the required action `,()=>{
+       // arrange
+       cpnt.meta = new WmlDropdownMeta({
+         _root:false,
+         options:[new WmlDropdownOptionsMeta({
+           dropdownChild:new WmlDropdownMeta({
+             options:Array(utilService.generateRandomNumber(5))
+             .fill(null)
+             .map(()=>{
+               return new WmlDropdownOptionsMeta({})
+             })
+           })
+         })]
+       })
+
+       // act
+       cpnt.attachRootInformationToChildren();
+       
+       // assert
+       let allOptions = wmlDropdownService.pullAllDropdownOptionsViaDropdown(cpnt.meta)
+
+       allOptions.forEach((option)=>{
+
+         
+         expect(option.rootOption).not.toEqual(cpnt.meta.options[0]);
+         expect(option.rootDropdown).not.toEqual(cpnt.meta)
+       })
+
+   
+   })
   
   })
 

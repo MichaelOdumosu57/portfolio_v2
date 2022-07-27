@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@app/core/utility/test-utils';
 import { UtilityService } from '@core/utility/utility.service';
 import { addCustomComponent } from '@shared/wml-components/functions';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { WmlDropdownParentSubjParams } from '../wml-dropdown.component';
 
 import { WmlDropdownOptionComponent, WmlDropdownOptionsMeta } from './wml-dropdown-option.component';
@@ -12,11 +12,13 @@ import { WmlDropdownOptionComponent, WmlDropdownOptionsMeta } from './wml-dropdo
 describe('WmlDropdownOptionComponent', () => {
   let cpnt: WmlDropdownOptionComponent;
   let fixture: ComponentFixture<WmlDropdownOptionComponent>;
+  let utilService:UtilityService
 
 
   beforeEach(async () => {
     await configureTestingModuleForComponents(WmlDropdownOptionComponent, { mockTranslateService });
     ({ fixture, cpnt } = grabComponentInstance(WmlDropdownOptionComponent));
+    utilService = TestBed.inject(UtilityService)
     fixture.detectChanges()
   })
 
@@ -47,6 +49,7 @@ describe('WmlDropdownOptionComponent', () => {
     beforeEach(() => {
 
       spyOn(obj, 'addCustomComponent')
+      spyOn(cpnt,"subscribeToCommunicateWithRootSubj")
     })
     it(` when called | 
      as appropriate | 
@@ -54,9 +57,14 @@ describe('WmlDropdownOptionComponent', () => {
 
       // act
       cpnt.initComponent();
+      cpnt.meta._rootIsReadySubj.next();
 
-      // assert TODO  learn how to spy on standolone fns
-      // expect( spy1).toHaveBeenCalled();
+      // assert
+      /**
+       *@TODO  learn how to spy on standolone fns
+        expect( spy1).toHaveBeenCalled();
+      */
+     expect(cpnt.subscribeToCommunicateWithRootSubj).toHaveBeenCalled();
     })
   })
 
@@ -108,12 +116,7 @@ describe('WmlDropdownOptionComponent', () => {
 
   describe("onMouseover", () => {
 
-    let utilService:UtilityService
 
-    beforeEach(() => {
-      utilService = TestBed.inject(UtilityService)
-
-    })
 
     it(` when called | 
      as appropriate | 
@@ -158,13 +161,6 @@ describe('WmlDropdownOptionComponent', () => {
 
   describe("onMouseOut", () => {
 
-    let utilService:UtilityService
-
-    beforeEach(() => {
-      utilService = TestBed.inject(UtilityService)
-
-    })
-
     it(` when called | 
      as appropriate | 
      does the required action `, () => {
@@ -186,6 +182,61 @@ describe('WmlDropdownOptionComponent', () => {
 
     })
 
+  })
+
+  describe("subscribeToCommunicateWithRootSubj",()=>{
+  
+    it(` when called | 
+     as appropriate | 
+     does the required action `,()=>{
+      // arrange
+      cpnt.meta._root = true
+
+      // act
+      let obs$ = cpnt.subscribeToCommunicateWithRootSubj()
+
+      // assert
+      expect(obs$).toBeInstanceOf(Observable)
+
+    })
+
+    it(` when called | 
+     and this.meta.communicateWithRootOptionSubj.next | 
+     does the required action `,()=>{
+      // arrange
+      cpnt.meta._root = true
+      spyOn(cpnt.customOption,"clear")
+      let obs$ = cpnt.subscribeToCommunicateWithRootSubj()
+      obs$?.subscribe()
+
+      // act
+      cpnt.meta.communicateWithRootOptionSubj.next(new WmlDropdownParentSubjParams({
+        type:"showDropdown",
+        option:cpnt.meta
+      }))
+
+      // assert
+      expect(cpnt.customOption.clear).toHaveBeenCalled()
+      
+      /** 
+       *@TODO figre out how to test addCustomComponent
+      */
+
+    })    
+
+    it(` when called | 
+     and !this.meta._root | 
+     does the required action `,()=>{
+      // arrange
+      cpnt.meta._root = false
+
+      // act
+      let obs$ = cpnt.subscribeToCommunicateWithRootSubj()
+
+      // assert
+      expect(obs$).toEqual(null)
+
+    })    
   })
 
 

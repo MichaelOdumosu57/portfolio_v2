@@ -9,18 +9,7 @@ export class WmlDropdownService {
 
   constructor() { }
 
-  /**
- * @deprecated use pullAllDropdownOptionsViaDropdown instead
- */
-  pullAllDropdownOptions(options:WmlDropdownOptionsMeta[]){
-    let allOptions:WmlDropdownOptionsMeta[] = [] 
-    options.forEach((option)=>{
-      allOptions.push(option)
-      allOptions.push(...this.pullAllDropdownOptions(option.dropdownChild.options))
-    })
 
-    return allOptions
-  }
 
   pullAllDropdownOptionsViaDropdown(
     dropdown:WmlDropdownMeta,

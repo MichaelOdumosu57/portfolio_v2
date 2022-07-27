@@ -41,7 +41,7 @@ export class WmlDropdownOptionComponent  {
       takeUntil(this.ngUnsub),
       tap(()=>{
     
-        let obs$ = this.subscribeToCommunicateWithRootSubj()?.subscribe()
+        this.subscribeToCommunicateWithRootSubj()?.subscribe()
         
       })
     )

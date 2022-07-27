@@ -153,12 +153,6 @@ export class WmlDropdownComponent {
     })
   }
 
-  selectOption(resp: WmlDropdownParentSubjParams) {
-    console.log(resp.option.rootDropdown === this.meta)
-  }
-
-
-
   ngOnDestroy() {
     this.ngUnsub.next();
     this.ngUnsub.complete()
