@@ -38,14 +38,15 @@ export class WmlDropdownComponent {
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
+  communicateWithRootOptionSubj = new Subject<WmlDropdownParentSubjParams>();
+
 
   ngAfterViewInit() {
     this.showInitalOptionAndSetAsRoot();
 
     this.resizeInitialDropdown();
-    this.attachRootDropdownAndRootOptionToChildren();
-    this.attachParentDropdownAndParentOptionToChildren();
-
+    this.attachRootInformationToChildren();
+    this.attachParentInformationToChildren();
     this.subscribeToCommunicateWithParentSubj().subscribe();
     this.setCommunicateWithParentSubj();
   }
@@ -75,21 +76,22 @@ export class WmlDropdownComponent {
     }
   }
 
-  attachRootDropdownAndRootOptionToChildren() {
+  attachRootInformationToChildren() {
     if (this.meta._root) {
       let allOptions = this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(this.meta);
+      console.log(allOptions)
       allOptions.forEach((option) => {
         option.rootDropdown = this.meta;
         option.rootOption = this.meta.options[0];
+        option.communicateWithRootOptionSubj = this.communicateWithRootOptionSubj
       })
     }
   }
 
 
-
-  attachParentDropdownAndParentOptionToChildren() {
+  attachParentInformationToChildren() {
     if (this.meta._root) {
-      this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(
+      let allOptions =this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(
         this.meta,
         (parentDropdown, parentOption, child) => {
 
@@ -99,6 +101,9 @@ export class WmlDropdownComponent {
           })
         }
       );
+      allOptions.forEach((option)=>{
+        option._rootIsReadySubj.next();
+      })
     }
   }
 
@@ -115,14 +120,14 @@ export class WmlDropdownComponent {
             this.hideDropdown(resp);
           }
 
-          else if (resp.type === "selectOption") {
-            this.selectOption(resp);
-          }
+
         })
       )
-
   }
 
+
+
+  /**@TODO refactor to attachParentInformationToChildren */
   setCommunicateWithParentSubj() {
     this.meta.options.forEach((option) => {
       option.communicateWithParentSubj = this.communicateWithParentSubj;
@@ -149,7 +154,7 @@ export class WmlDropdownComponent {
   }
 
   selectOption(resp: WmlDropdownParentSubjParams) {
-    console.log(resp)
+    console.log(resp.option.rootDropdown === this.meta)
   }
 
 

@@ -8,6 +8,7 @@ import { UtilityService } from '@app/core/utility/utility.service';
 
 // rxjs
 import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 // misc
 import { addCustomComponent } from '@shared/wml-components/functions';
@@ -35,7 +36,18 @@ export class WmlDropdownOptionComponent  {
 
 
   initComponent(){
+    this.meta._rootIsReadySubj
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+    
+        let obs$ = this.subscribeToCommunicateWithRootSubj()?.subscribe()
+        
+      })
+    )
+    .subscribe()  
     addCustomComponent(this.customOption,this.meta.display.cpnt,this.meta.display.meta)
+
   }
 
   initUpdateComponent(){
@@ -46,7 +58,7 @@ export class WmlDropdownOptionComponent  {
     
     if(this.meta.type === "option"){
       
-      this.meta.communicateWithParentSubj.next(
+      this.meta.communicateWithRootOptionSubj.next(
         new WmlDropdownParentSubjParams({
           type:"selectOption",
           option:this.meta
@@ -80,6 +92,23 @@ export class WmlDropdownOptionComponent  {
     )
 
   }  
+
+  subscribeToCommunicateWithRootSubj() {
+    if(this.meta._root){
+      return this.meta.communicateWithRootOptionSubj
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((resp) => {
+          this.customOption.clear()
+          addCustomComponent(this.customOption,resp.option.display.cpnt,resp.option.display.meta)
+        })
+      )
+    }
+    else{
+      return null
+    }
+
+  }
 
 
   ngAfterViewInit(): void {
@@ -121,6 +150,7 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     }
     selected?:WmlDropdownOptionsMeta
     _root= false
+    communicateWithRootOptionSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     communicateWithParentSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
     sourceValue?:any
@@ -130,7 +160,7 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     parentDropdown!:WmlDropdownMeta
     rootOption!:WmlDropdownOptionsMeta
     rootDropdown!:WmlDropdownMeta
-
+    _rootIsReadySubj:Subject<void> = new Subject<void>()
     dropdownChild:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
     
   

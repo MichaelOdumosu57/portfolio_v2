@@ -16,6 +16,11 @@ the dropdown is opened by the first elemement
 
 
 
+wml-dropdown
+attachRootInformationToChildren - attached the root dropdown, root option and communicateRootSubj to all child options
+
+attachParentInformationToChildren - attach parent dropdown, parent option and communicateParentSubj to all child option
+
 # References
 * https://www.codingnepalweb.com/animated-drop-down-menu-bar-html-css/
 
