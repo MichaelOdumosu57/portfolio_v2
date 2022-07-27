@@ -9,7 +9,11 @@ __option__ does not have a dropdown and updates a select or autocomplete by clic
 __noSelect__ - an option that does not have a dropdown and has no select as well
 
 you can specify any position of how the dropdown opens up and how the dropdown icons arrange
+
+becuase of css and we dont want fixed position there are 2 positions that you can place the option and its dropdown
+optionFirst and dropdownFirst
 the dropdown is opened by the first elemement
+
 
 
 # References
