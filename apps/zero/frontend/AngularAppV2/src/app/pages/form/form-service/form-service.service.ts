@@ -11,6 +11,7 @@ import { FormGroup } from '@angular/forms';
 // services
 import { BaseService } from '@core/base/base.service';
 import { submitFormAPIRequestModel } from '../translations/functions';
+import { CONFIG } from '@core/config/configs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class FormService {
     let uiForm = reactiveForm.getRawValue()
     let apiForm = submitFormAPIRequestModel(uiForm)
     
-    return this.http.post('http://localhost:3000/api/submitForm', apiForm)
+    return this.http.post(CONFIG.form.submitFormEndpoint, apiForm)
     .pipe(
       this.baseService.closeOverlayLoading
     )

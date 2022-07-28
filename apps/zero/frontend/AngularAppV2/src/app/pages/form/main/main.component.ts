@@ -26,6 +26,7 @@ import { BaseService } from '@core/base/base.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
 import { FormService } from '../form-service/form-service.service';
+import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 @Component({
   selector: 'app-main',
@@ -40,7 +41,8 @@ export class MainComponent {
     private wmlDropdownService: WmlDropdownService,
     private baseService: BaseService,
     private cdref:ChangeDetectorRef,
-    private formService:FormService
+    private formService:FormService,
+    private automateService:AutomationService
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
@@ -165,6 +167,13 @@ export class MainComponent {
   wmlForm = new WMLForm({
     fields: this.fields
   })
+  private updateDropdownText(options: WmlDropdownOptionsMeta[] = [],text:string = CONFIG.i18n.appDropdownOption) {
+    options.map((option, index0) => {
+      let meta: DropdownOptionMeta = option.display.meta
+      meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : text  + " " + index0;
+      meta.view.cdref?.detectChanges()
+    });
+  }
 
   ngOnInit() {
     this.baseService.i18nValuesAreReadySubj
@@ -183,13 +192,11 @@ export class MainComponent {
   }
 
 
-  private updateDropdownText(options: WmlDropdownOptionsMeta[] = [],text:string = CONFIG.i18n.appDropdownOption) {
-    options.map((option, index0) => {
-      let meta: DropdownOptionMeta = option.display.meta
-      meta.title = index0 === 0 ? CONFIG.i18n.appDropdownSelect : text  + " " + index0;
-      meta.view.cdref?.detectChanges()
-    });
+  ngAfterViewInit() {
+    this.automateService.submitForm(this.rootFormGroup)
+
   }
+
 
 
   ngOnDestroy() {

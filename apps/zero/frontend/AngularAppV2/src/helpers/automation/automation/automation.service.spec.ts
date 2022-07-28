@@ -5,15 +5,14 @@ import { TestBed } from '@angular/core/testing';
 // services
 import { UtilityService } from '@core/utility/utility.service';
 
-import { TemplateService } from './template.service';
+import { AutomationService } from './automation.service';
 
-
-describe('TemplateService', () => {
-  let service: TemplateService;
+describe('AutomationService', () => {
+  let service: AutomationService;
   let utilService:UtilityService
 
   beforeEach(() => {
-    service = configureTestingModuleForServices(TemplateService)
+    service = configureTestingModuleForServices(AutomationService)
     utilService =TestBed.inject(UtilityService)
   });
 

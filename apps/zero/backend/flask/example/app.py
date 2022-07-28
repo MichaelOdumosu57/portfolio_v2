@@ -18,6 +18,7 @@ import requests
 import time
 
 app = Flask(__name__)
+
 app.config.update(
     # SERVER_NAME="127.0.0.1:5000",
     USE_NGROK=False,
@@ -28,6 +29,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db=SQLAlchemy(app)
 ma = Marshmallow(app)
+import form
 import users
 import cart
 import products
@@ -41,7 +43,7 @@ my_init.init_orders()
 my_init.init_users()
 
 # socketIo
-sio = SocketIO(app,cors_allowed_origins="https://michaelodumosu57.github.io")
+sio = SocketIO(app,cors_allowed_origins="*")
 @sio.event
 def connect():
     print("connected")
@@ -62,13 +64,13 @@ def test_connect():
 @sio.on('disconnect')
 def test_disconnect():
     print('Client disconnected')
-# 
+
 
 @app.after_request
 def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
+  response.headers.set('Access-Control-Allow-Origin', '*')
   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH')
+  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH') 
   return response
 
 

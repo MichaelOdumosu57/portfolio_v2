@@ -12,6 +12,7 @@ class Configs {
     helpTextFieldFormControlName:"myHelpText",
     clientStakeHldrFieldFormControlName:"myClientStakeHldr",
     presenterFieldFormControlName:"myPresenter",
+    submitFormEndpoint:"http://localhost:5000/form/submit",
   }
   i18n= {
     appDropdownSelect:"",
