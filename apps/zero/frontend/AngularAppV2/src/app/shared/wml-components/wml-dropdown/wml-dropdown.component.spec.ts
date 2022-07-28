@@ -25,6 +25,7 @@ describe('WmlDropdownComponent', () => {
     ({fixture, cpnt} =  grabComponentInstance(WmlDropdownComponent));
     utilService = fixture.debugElement.injector.get(UtilityService)
     wmlDropdownService = fixture.debugElement.injector.get(WmlDropdownService)
+    cpnt.meta.options =[new WmlDropdownOptionsMeta()]
     fixture.detectChanges()
   })
 
@@ -49,7 +50,7 @@ describe('WmlDropdownComponent', () => {
   describe("ngAfterViewInit",()=>{
     beforeEach(()=>{
       spyOn(cpnt,"showInitalOptionAndSetAsRoot");
-      spyOn(cpnt,"resizeInitialDropdown");
+      
       spyOn(cpnt,"attachParentInformationToChildren");
       spyOn(cpnt,"attachRootInformationToChildren");            
       spyOn(cpnt,"subscribeToCommunicateWithParentSubj").and.callThrough()
@@ -65,7 +66,7 @@ describe('WmlDropdownComponent', () => {
 
       // assert
       expect(cpnt.showInitalOptionAndSetAsRoot).toHaveBeenCalled();
-      expect(cpnt.resizeInitialDropdown).toHaveBeenCalled();
+      
       expect(cpnt.attachParentInformationToChildren).toHaveBeenCalled();
       expect(cpnt.subscribeToCommunicateWithParentSubj).toHaveBeenCalled();
       expect(cpnt.setCommunicateWithParentSubj).toHaveBeenCalled();
@@ -285,13 +286,13 @@ describe('WmlDropdownComponent', () => {
   
   })
 
-  describe("resizeInitialDropdown",()=>{
+  describe("updateRootDropdownStyle",()=>{
     
     it(` when called | 
      as appropriate | 
      does the required action `,()=>{
       // act
-      cpnt.resizeInitialDropdown();
+      cpnt.updateRootDropdownStyle();
 
       // assert
       expect(cpnt.meta.options[0].dropdownChild.dropdownStyle.width).toEqual( "100%" )
@@ -306,7 +307,7 @@ describe('WmlDropdownComponent', () => {
       cpnt.meta._root = false;
 
       // act
-      cpnt.resizeInitialDropdown();
+      cpnt.updateRootDropdownStyle();
 
       // assert
       expect(cpnt.meta.options[0].dropdownChild.dropdownStyle.width).not.toEqual( "100%" )

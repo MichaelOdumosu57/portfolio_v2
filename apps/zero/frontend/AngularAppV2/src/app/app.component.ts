@@ -104,6 +104,7 @@ export class AppComponent {
         selectChevronIsPresent:true
       }),
     },
+    
     dropdownChild:new WmlDropdownMeta({
 
       options:this.generateSubDropdown(0),
@@ -115,7 +116,7 @@ export class AppComponent {
 
   wmlDropdownMeta = new WmlDropdownMeta({
     options:[this.dropdownSelect],
-    
+
   })
   dropdownField = new WMLField({
     type:"custom",
@@ -138,7 +139,6 @@ export class AppComponent {
   })
 
   ngOnInit(){
-    console.log(this.nameField)
     this.configService.initI18NValues()
     .pipe(
       takeUntil(this.ngUnsub),

@@ -41,20 +41,18 @@ export class WmlDropdownComponent implements ControlValueAccessor {
   communicateWithRootOptionSubj = new Subject<WmlDropdownParentSubjParams>();
   communicateWithRootDropdownSubj = new Subject<WmlDropdownOptionsMeta | null>();
 
+  ngOnInit(){
+    this.updateRootDropdownStyle();
+  }
 
 
   ngAfterViewInit() {
-    if(this.meta._root) {
-      console.log(this.meta)
-    }
-    this.showInitalOptionAndSetAsRoot();
 
-    this.resizeInitialDropdown();
+    this.showInitalOptionAndSetAsRoot();
     this.attachRootInformationToChildren();
     this.attachParentInformationToChildren();
     this.subscribeToCommunicateWithParentSubj().subscribe();
     this.setCommunicateWithParentSubj();
-
     this.subscribeToCommunicateWithRootDropdownSubj()?.subscribe();
   }
 
@@ -76,10 +74,10 @@ export class WmlDropdownComponent implements ControlValueAccessor {
     this.cdref.detectChanges();
 
   }
-  resizeInitialDropdown() {
+  updateRootDropdownStyle() {
     if (this.meta._root) {
       this.meta.options[0].dropdownChild.dropdownStyle = { width: "100%" };
-
+      this.meta.dropdownStyle = {position:"relative"}
     }
   }
 
