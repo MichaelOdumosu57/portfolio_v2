@@ -39,6 +39,10 @@ export class WmlInputComponent implements OnInit, ControlValueAccessor {
 
 
   writeValue(val: any) {
+    if(val === ""){
+      val = null
+    }
+    console.log(val)
     this.onChange(val)
     this.onTouch(val)    
   }

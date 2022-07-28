@@ -1,6 +1,8 @@
 // testing
 import { ComponentFixture } from '@angular/core/testing';
 import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@app/core/utility/test-utils';
+
+// rxjs
 import { Subject } from 'rxjs';
 
 import { TemplateComponent } from './template.component';

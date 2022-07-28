@@ -5,4 +5,7 @@
   <section [class]="'Pod1'">
     <ng-template #customField ></ng-template>
   </section>
+  <section [class]="'Pod2'">
+    <label *ngIf="toggleErrorMsg()">{{wmlField?.error?.displayMsg}}</label>
+  </section>
 </main>

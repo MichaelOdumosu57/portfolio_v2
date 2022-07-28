@@ -43,9 +43,9 @@ export class MainComponent  {
   ngUnsub= new Subject<void>()
 
   rootFormGroup = new FormGroup({
-    [CONFIG.app.nameFieldFormControlName]:new FormControl(),
-    [CONFIG.app.dropdownFieldFormControlName]:new FormControl(),
-    [CONFIG.app.textAreaFieldFormControlName]:new FormControl(),
+    [CONFIG.homepage.nameFieldFormControlName]:new FormControl(),
+    [CONFIG.homepage.dropdownFieldFormControlName]:new FormControl(),
+    [CONFIG.homepage.textAreaFieldFormControlName]:new FormControl(),
     
   });
   nameField = new WMLField({
@@ -53,7 +53,7 @@ export class MainComponent  {
     custom:{
       selfType:"wml-card",
       fieldParentForm:this.rootFormGroup,
-      fieldFormControlName:CONFIG.app.nameFieldFormControlName
+      fieldFormControlName:CONFIG.homepage.nameFieldFormControlName
     }
   })
 
@@ -124,7 +124,7 @@ export class MainComponent  {
     custom:{
       selfType:"wml-card",
       fieldParentForm:this.rootFormGroup,
-      fieldFormControlName:CONFIG.app.dropdownFieldFormControlName,
+      fieldFormControlName:CONFIG.homepage.dropdownFieldFormControlName,
       fieldCustomCpnt:WmlDropdownComponent,
       fieldCustomMeta: this.wmlDropdownMeta
 
@@ -142,7 +142,7 @@ export class MainComponent  {
     custom:{
       selfType:"wml-card",
       fieldParentForm:this.rootFormGroup,
-      fieldFormControlName:CONFIG.app.textAreaFieldFormControlName,
+      fieldFormControlName:CONFIG.homepage.textAreaFieldFormControlName,
       fieldCustomCpnt:WmlInputComponent,
       fieldCustomMeta:this.textAreaMeta
     }

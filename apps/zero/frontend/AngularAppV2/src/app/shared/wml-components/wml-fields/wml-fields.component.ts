@@ -57,9 +57,17 @@ export class WmlFieldComponent implements OnInit {
 
   }
 
+  toggleErrorMsg(){
+    let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
+    let result = (formControl?.errors !== null && formControl?.dirty)
+
+    console.log(formControl?.errors ,formControl?.dirty,result)
+    return result
+  }
+
 
   ngOnInit(): void {
-    
+    this.wmlField?.field.parentForm.errors
     this.initComponent()
     this.initUpdateComponent()
     
@@ -149,5 +157,15 @@ export class WMLField extends WMLWrapper {
     }),
     formControlName:"name"
   }
-  errors= {}
+  error:{
+    msgs:{
+      [k:string]:string
+    }
+    displayMsg:string
+    isPresent:boolean
+  }= {
+    msgs:{},
+    isPresent:false,
+    displayMsg:"Please correct the above error",
+  }
 }

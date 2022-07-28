@@ -1,8 +1,17 @@
 class Configs {
-  app={
+  homepage={
     nameFieldFormControlName:"myName",
     dropdownFieldFormControlName:"myDropdown",
     textAreaFieldFormControlName:"myTextArea",
+  }
+  form={
+    nameFieldFormControlName:"myName",
+    proficiencyFieldFormControlName:"myProficiency",
+    descFieldFormControlName:"myDesc",
+    aptitudeFieldFormControlName:"myAptitude",
+    helpTextFieldFormControlName:"myHelpText",
+    clientStakeHldrFieldFormControlName:"myClientStakeHldr",
+    presenterFieldFormControlName:"myPresenter",
   }
   i18n= {
     appDropdownSelect:"",

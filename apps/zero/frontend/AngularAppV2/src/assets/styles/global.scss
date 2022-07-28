@@ -58,6 +58,10 @@
 
 }
 
+body{
+    padding:0 0 var(--spacing3) 0
+}
+
 input,select,textarea{
     width: 100%;
 }
