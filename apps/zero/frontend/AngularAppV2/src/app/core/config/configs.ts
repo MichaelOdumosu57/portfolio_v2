@@ -8,6 +8,9 @@ class Configs {
     appDropdownSelect:"",
     appDropdownOption:"",    
   }
+  nav = {
+    formNav:"/form"
+  }
 }
 
 class DefaultConfigs extends Configs  {

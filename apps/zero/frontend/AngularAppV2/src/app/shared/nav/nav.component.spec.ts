@@ -1,24 +1,16 @@
-// angular
-import { AppComponent } from './app.component';
-
 // testing
 import { ComponentFixture } from '@angular/core/testing';
 import { configureTestingModuleForComponents, grabComponentInstance, mockTranslateService } from '@core/utility/test-utils';
 
-// wml componnts
-import { WMLField } from './shared/wml-components/wml-fields/wml-fields.component';
-import { WMLForm } from './shared/wml-components/wml-form/wml-form.component';
+import { NavComponent } from './nav.component';
 
-
-describe('AppComponent', () => {
-
-  let fixture:ComponentFixture<any>
-  let cpnt:AppComponent
-
+describe('NavComponent', () => {
+  let cpnt: NavComponent;
+  let fixture: ComponentFixture<NavComponent>;
 
   beforeEach(async () => {
-    await configureTestingModuleForComponents(AppComponent,{mockTranslateService});
-    ({fixture, cpnt} =  grabComponentInstance(AppComponent));
+    await configureTestingModuleForComponents(NavComponent,{mockTranslateService});
+    ({fixture, cpnt} =  grabComponentInstance(NavComponent));
     fixture.detectChanges()
   })
 
@@ -36,6 +28,4 @@ describe('AppComponent', () => {
 
     })
   })
-
-
 });

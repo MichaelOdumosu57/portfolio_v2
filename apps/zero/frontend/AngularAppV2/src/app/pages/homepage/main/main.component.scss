@@ -1,0 +1,26 @@
+@import "src/assets/styles/global";
+
+:host {
+  &View {
+  }
+  .Main {
+    &Pod{
+      padding:var(--spacing7)
+    }
+  }
+  .Pod{
+    &0{
+      &Button{
+
+        @for $i from 0 through 5 {
+          &#{$i} {
+            background-color: provideRandomColor();
+            margin:var(--spacing5) var(--spacing10) 0 0;
+            padding:var(--spacing5) var(--spacing7);
+          }
+        }
+        
+      }
+    }
+  }
+}

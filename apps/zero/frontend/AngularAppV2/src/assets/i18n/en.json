@@ -11,5 +11,9 @@
       "select":"Please Select An Option",
       "option":"Option"
     }
+  },
+  "nav":{
+    "title":"Some Powerful Components",
+    "formNav":"Form"
   }
 }
