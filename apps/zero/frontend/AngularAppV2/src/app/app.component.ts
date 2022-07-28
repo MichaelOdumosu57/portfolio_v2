@@ -63,6 +63,7 @@ export class AppComponent {
       takeUntil(this.ngUnsub),
       tap((resp )=>{
         this.overlayLoadingIsPresent = resp
+        this.cdref.detectChanges()
       })
     )
     .subscribe()

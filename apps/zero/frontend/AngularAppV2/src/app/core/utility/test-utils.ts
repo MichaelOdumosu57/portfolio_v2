@@ -31,7 +31,8 @@ export let configureTestingModuleForComponents = async (
   await TestBed.configureTestingModule({
     imports: [
       RouterTestingModule,
-      TranslateModule
+      TranslateModule,
+      HttpClientModule
     ],
     declarations: [
       targetCpnt

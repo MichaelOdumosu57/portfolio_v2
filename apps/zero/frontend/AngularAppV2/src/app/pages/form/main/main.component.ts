@@ -25,6 +25,7 @@ import { WmlInputComponent, WmlInputMeta } from '@shared/wml-components/wml-inpu
 import { BaseService } from '@core/base/base.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
+import { FormService } from '../form-service/form-service.service';
 
 @Component({
   selector: 'app-main',
@@ -39,6 +40,7 @@ export class MainComponent {
     private wmlDropdownService: WmlDropdownService,
     private baseService: BaseService,
     private cdref:ChangeDetectorRef,
+    private formService:FormService
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
@@ -68,17 +70,17 @@ export class MainComponent {
         selectChevronIsPresent: true
       }),
     },
-
     dropdownChild: new WmlDropdownMeta({
 
       options: Array(this.utilService.generateRandomNumber(10,2))
         .fill(null)
-        .map((_) => {
+        .map((_,index1) => {
           return new WmlDropdownOptionsMeta({
             display: {
               cpnt: DropdownOptionComponent,
               meta: new DropdownOptionMeta({}),
             },
+            sourceValue:index1
           })
         }),
     }),
@@ -197,10 +199,16 @@ export class MainComponent {
 
   submit() {
 
-    if(!this.rootFormGroup.valid){
-      console.log(this.rootFormGroup.getRawValue())
-      console.log(this.rootFormGroup)
-      this.baseService.toggleOverlayLoadingSubj.next(true)
+    if(this.rootFormGroup.valid){
+      this.formService.submitForm(this.rootFormGroup)
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap(()=>{
+      
+        }),
+
+      )
+      .subscribe()
     }
     else{
       alert(CONFIG.i18n.formInvalidFormMsg)
