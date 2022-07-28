@@ -23,6 +23,7 @@ import { WmlDropdownService } from '@shared/wml-components/wml-dropdown/wml-drop
 // services
 import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
+import { WmlInputComponent, WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
 
 @Component({
   selector: 'app-root',
@@ -41,6 +42,7 @@ export class AppComponent {
   rootFormGroup = new FormGroup({
     [CONFIG.app.nameFieldFormControlName]:new FormControl(),
     [CONFIG.app.dropdownFieldFormControlName]:new FormControl(),
+    [CONFIG.app.textAreaFieldFormControlName]:new FormControl(),
     
   });
   nameField = new WMLField({
@@ -51,10 +53,6 @@ export class AppComponent {
       fieldFormControlName:CONFIG.app.nameFieldFormControlName
     }
   })
-
-
-
-
 
   generateSubDropdown:(level:number) =>WmlDropdownOptionsMeta[] = (level=0) => {
   
@@ -133,7 +131,20 @@ export class AppComponent {
   dockField = new WMLField({
     type:"default",
   })
-  fields = [this.nameField,this.dropdownField,this.dockField]
+
+
+  textAreaMeta= new WmlInputMeta({type:"textarea"})
+  textAreaField = new WMLField({
+    type:"custom",
+    custom:{
+      selfType:"wml-card",
+      fieldParentForm:this.rootFormGroup,
+      fieldFormControlName:CONFIG.app.textAreaFieldFormControlName,
+      fieldCustomCpnt:WmlInputComponent,
+      fieldCustomMeta:this.textAreaMeta
+    }
+  })
+  fields = [this.nameField,this.dropdownField,this.dockField,this.textAreaField]
   wmlForm = new WMLForm({
     fields:this.fields
   })

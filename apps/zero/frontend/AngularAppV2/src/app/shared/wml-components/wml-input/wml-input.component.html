@@ -1,3 +1,4 @@
 <ng-container [formGroup]="meta.wmlField.field.parentForm">
-  <input [formControlName]="meta.wmlField.field.formControlName" (input)="triggerChange($event)"/>
+  <input *ngIf="meta.type==='input'"[formControlName]="meta.wmlField.field.formControlName" (input)="triggerChange($event)"/>
+  <textarea *ngIf="meta.type==='textarea'"[formControlName]="meta.wmlField.field.formControlName" (input)="triggerChange($event)"></textarea>
 </ng-container>

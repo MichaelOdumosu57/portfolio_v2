@@ -53,10 +53,14 @@
     box-sizing: border-box;
 }
 
-input,select{
+input,select,textarea{
     width: 100%;
 }
 
 select{
     appearance: none;
+}
+
+textarea{
+    resize: none;
 }

@@ -62,5 +62,6 @@ export class WmlInputMeta {
     )
   }
 
+  type: "input" | "number" | "password" | "email" | "tel" | "textarea" = "input";
   wmlField: WMLField = new WMLField()
 }

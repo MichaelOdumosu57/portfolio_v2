@@ -1,7 +1,8 @@
 class Configs {
   app={
-    nameFieldFormControlName:"yourName",
+    nameFieldFormControlName:"myName",
     dropdownFieldFormControlName:"myDropdown",
+    textAreaFieldFormControlName:"myTextArea",
   }
   i18n= {
     appDropdownSelect:"",
