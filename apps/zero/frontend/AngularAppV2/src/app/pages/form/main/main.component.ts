@@ -27,6 +27,7 @@ import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
 import { FormService } from '../form-service/form-service.service';
 import { AutomationService } from '@helpers/automation/automation/automation.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
@@ -214,8 +215,8 @@ export class MainComponent {
           ()=>{
             alert(CONFIG.i18n.formSubmitFormSuccess)
           },
-          (resp)=>{
-            console.log(resp)
+          (resp:HttpErrorResponse)=>{
+            console.log(resp.error.data)
             alert(CONFIG.i18n.formSubmitFormError)
           }
         ),
