@@ -17,7 +17,9 @@ class Configs {
   i18n= {
     appDropdownSelect:"",
     appDropdownOption:"",   
-    formInvalidFormMsg:""
+    formInvalidFormMsg:"",
+    formSubmitFormSuccess:"",
+    formSubmitFormError:"",
 
   }
   nav = {

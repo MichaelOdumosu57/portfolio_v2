@@ -2,8 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-// rxjs
-import { tap} from 'rxjs/operators';
+
 
 // reactive forms
 import { FormGroup } from '@angular/forms';
@@ -22,8 +21,6 @@ export class FormService {
     private http: HttpClient,
     private baseService: BaseService
   ) { }
-
-
 
 
   submitForm(reactiveForm:FormGroup) {

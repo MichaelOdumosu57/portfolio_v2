@@ -210,9 +210,15 @@ export class MainComponent {
       this.formService.submitForm(this.rootFormGroup)
       .pipe(
         takeUntil(this.ngUnsub),
-        tap(()=>{
-      
-        }),
+        tap(
+          ()=>{
+            alert(CONFIG.i18n.formSubmitFormSuccess)
+          },
+          (resp)=>{
+            console.log(resp)
+            alert(CONFIG.i18n.formSubmitFormError)
+          }
+        ),
 
       )
       .subscribe()
