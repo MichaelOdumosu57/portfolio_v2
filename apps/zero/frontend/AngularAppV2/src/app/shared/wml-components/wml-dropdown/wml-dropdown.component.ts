@@ -146,9 +146,11 @@ export class WmlDropdownComponent implements ControlValueAccessor {
           takeUntil(this.ngUnsub),
           tap((resp) => {
             this.writeValue(resp)
-            this.meta.wmlField.field.parentForm.patchValue({
-              [this.meta.wmlField.field.formControlName]: resp
+            let {parentForm,formControlName} = this.meta.wmlField.field
+            parentForm.patchValue({
+              [formControlName]: resp
             })
+            parentForm.controls[formControlName].markAsDirty()
           })
         )
     }

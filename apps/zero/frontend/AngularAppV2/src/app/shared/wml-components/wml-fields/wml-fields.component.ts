@@ -58,10 +58,11 @@ export class WmlFieldComponent implements OnInit {
   }
 
   toggleErrorMsg(){
+    
     let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
     let result = (formControl?.errors !== null && formControl?.dirty)
+    
 
-    console.log(formControl?.errors ,formControl?.dirty,result)
     return result
   }
 
