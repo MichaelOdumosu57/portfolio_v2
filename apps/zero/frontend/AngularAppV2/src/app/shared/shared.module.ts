@@ -16,6 +16,7 @@ import { SampleCpntComponent } from './sample-cpnt/sample-cpnt.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 import { NavComponent } from './nav/nav.component';
+import { PenroseComponent } from './penrose/penrose.component';
 
 
 
@@ -31,12 +32,14 @@ import { NavComponent } from './nav/nav.component';
     TranslateModule,
     HttpClientModule,
     SampleCpntComponent,
-    NavComponent
+    NavComponent,
+    PenroseComponent
   ],
   declarations: [
     SampleCpntComponent,
     DropdownOptionComponent,
-    NavComponent
+    NavComponent,
+    PenroseComponent
   ]  
 })
 export class SharedModule { }

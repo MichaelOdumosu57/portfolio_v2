@@ -1,5 +1,5 @@
 // angular
-import { Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding } from '@angular/core';
 
 // rxjs
 import { takeUntil,tap } from 'rxjs';
@@ -29,7 +29,8 @@ import { BaseService } from '@core/base/base.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   constructor(
@@ -37,10 +38,12 @@ export class AppComponent {
     private configService:ConfigService,
     private wmlDropdownService:WmlDropdownService,
     private baseService:BaseService,
+    private cdref:ChangeDetectorRef,
   ){}
   
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()
+  overlayLoadingIsPresent:boolean = false;
 
 
 
@@ -54,7 +57,22 @@ export class AppComponent {
       })
     )
     .subscribe()
+
+    this.baseService.toggleOverlayLoadingSubj
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap((resp )=>{
+        this.overlayLoadingIsPresent = resp
+      })
+    )
+    .subscribe()
   }
+
+  ngOnDestroy(){
+    this.ngUnsub.next()
+    this.ngUnsub.complete()
+  }
+
 
 
 }

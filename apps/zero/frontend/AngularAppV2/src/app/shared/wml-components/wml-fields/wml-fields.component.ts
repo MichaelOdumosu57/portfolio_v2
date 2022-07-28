@@ -61,7 +61,9 @@ export class WmlFieldComponent implements OnInit {
     
     let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
     let result = (formControl?.errors !== null && formControl?.dirty)
-    
+    if(this.wmlField){
+      this.wmlField.error.displayMsg = this.wmlField.error.msgs[ Object.keys(formControl?.errors ?? {})[0] ]
+    }
 
     return result
   }

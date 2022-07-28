@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 
 // misc
 import { CONFIG } from '@app/core/config/configs';
+import { BaseService } from '@core/base/base.service';
 
 @Component({
   selector: 'template',
@@ -22,7 +23,8 @@ export class TemplateComponent  {
   constructor(
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
-    private configService:ConfigService
+    private configService:ConfigService,
+    private baseService:BaseService
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()

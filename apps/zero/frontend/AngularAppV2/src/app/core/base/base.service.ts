@@ -9,4 +9,5 @@ export class BaseService {
   constructor() { }
 
   i18nValuesAreReadySubj=new ReplaySubject<void>(Infinity)
+  toggleOverlayLoadingSubj=new Subject<boolean>()
 }

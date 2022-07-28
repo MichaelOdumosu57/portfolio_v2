@@ -1,5 +1,5 @@
 // angular
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding } from '@angular/core';
 
 // rxjs
 import { takeUntil, tap } from 'rxjs';
@@ -38,6 +38,7 @@ export class MainComponent {
     private configService: ConfigService,
     private wmlDropdownService: WmlDropdownService,
     private baseService: BaseService,
+    private cdref:ChangeDetectorRef,
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
@@ -197,6 +198,7 @@ export class MainComponent {
   submit() {
     console.log(this.rootFormGroup.getRawValue())
     console.log(this.rootFormGroup)
+    this.baseService.toggleOverlayLoadingSubj.next(true)
   }
 
 
