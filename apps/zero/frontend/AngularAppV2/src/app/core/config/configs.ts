@@ -1,6 +1,6 @@
 class Configs {
   app={
-    nameFieldFormControlName:"myName",
+    nameFieldFormControlName:"yourName",
     dropdownFieldFormControlName:"myDropdown",
   }
   i18n= {

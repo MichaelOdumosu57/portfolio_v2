@@ -40,7 +40,8 @@ export class AppComponent {
 
   rootFormGroup = new FormGroup({
     [CONFIG.app.nameFieldFormControlName]:new FormControl(),
-    [CONFIG.app.dropdownFieldFormControlName]:new FormControl()
+    [CONFIG.app.dropdownFieldFormControlName]:new FormControl(),
+    
   });
   nameField = new WMLField({
     type:"custom",
@@ -67,6 +68,8 @@ export class AppComponent {
         options =type === "select" ? this.generateSubDropdown(level) : []
         level--
       }
+
+      let sideOrBottom = this.utilService.generateRandomNumber(50) % 2 === 0 
       return new WmlDropdownOptionsMeta({
         display:{
           cpnt:DropdownOptionComponent,
@@ -78,12 +81,12 @@ export class AppComponent {
 
           }),
         },
-        displayType:"dropdownFirst",
+        displayType:sideOrBottom ? "dropdownFirst" :"optionFirst",
         dropdownChild: new WmlDropdownMeta({
           
           options,
           dropdownStyle:{
-            left:"100%",
+            left:sideOrBottom ?"100%" : "0px",
           }
         }),
         sourceValue:index0,
@@ -112,6 +115,7 @@ export class AppComponent {
 
   wmlDropdownMeta = new WmlDropdownMeta({
     options:[this.dropdownSelect],
+    
   })
   dropdownField = new WMLField({
     type:"custom",
@@ -134,6 +138,7 @@ export class AppComponent {
   })
 
   ngOnInit(){
+    console.log(this.nameField)
     this.configService.initI18NValues()
     .pipe(
       takeUntil(this.ngUnsub),

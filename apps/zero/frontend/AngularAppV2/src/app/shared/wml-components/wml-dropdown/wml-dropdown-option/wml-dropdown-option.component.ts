@@ -65,6 +65,7 @@ export class WmlDropdownOptionComponent  {
           option:this.meta
         })
       )
+
     }
   }
 
@@ -103,10 +104,13 @@ export class WmlDropdownOptionComponent  {
           this.customOption.clear()
           if(resp.option.isSelected){
             addCustomComponent(this.customOption,resp.option.display.cpnt,resp.option.display.meta)
+            this.meta.selected = resp.option
           }
           else{
             addCustomComponent(this.customOption,this.meta.display.cpnt,this.meta.display.meta)
+            this.meta.selected = null
           }
+          this.meta.communicateWithRootDropdownSubj.next(this.meta.selected)
         })
       )
     }
@@ -154,8 +158,10 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
       cpnt:WmlDropdownSampleComponent,
       meta:{}
     }
-    selected?:WmlDropdownOptionsMeta
+    selected?:WmlDropdownOptionsMeta | null
+    isSelected?:boolean = false
     _root= false
+    communicateWithRootDropdownSubj:Subject<WmlDropdownOptionsMeta | null> = new Subject<WmlDropdownOptionsMeta | null>()
     communicateWithRootOptionSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     communicateWithParentSubj:Subject<WmlDropdownParentSubjParams> = new Subject<WmlDropdownParentSubjParams>()
     class?:"Pod0Item0" | "Pod0Item1"= "Pod0Item1" 
@@ -166,7 +172,6 @@ export class WmlDropdownOptionsMeta extends WMLWrapper {
     parentDropdown!:WmlDropdownMeta
     rootOption!:WmlDropdownOptionsMeta
     rootDropdown!:WmlDropdownMeta
-    isSelected?:boolean = false
     _rootIsReadySubj:Subject<void> = new Subject<void>()
     dropdownChild:WmlDropdownMeta=new WmlDropdownMeta({_root:false});
     

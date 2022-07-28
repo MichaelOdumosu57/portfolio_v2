@@ -46,6 +46,8 @@ export class WmlFieldComponent implements OnInit {
 
     if(this.wmlField?.field.type ==="custom"){
 
+      this.wmlField.field.custom.meta
+      this.wmlField.field.custom.meta.wmlField = this.wmlField 
       addCustomComponent(this.customField,this.wmlField.field.custom.cpnt as Type<any>,this.wmlField.field.custom.meta)
 
     }

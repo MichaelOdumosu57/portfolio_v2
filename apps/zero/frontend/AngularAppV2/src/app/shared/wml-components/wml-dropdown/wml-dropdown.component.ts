@@ -2,7 +2,7 @@
 import { ChangeDetectorRef, Component, forwardRef, HostBinding, Input } from '@angular/core';
 
 // reactive forms
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 // rxjs
 import { takeUntil, tap } from 'rxjs/operators';
@@ -28,7 +28,7 @@ import { WmlDropdownService } from './wml-dropdown-service/wml-dropdown.service'
     }
   ]
 })
-export class WmlDropdownComponent {
+export class WmlDropdownComponent implements ControlValueAccessor {
 
   @Input('meta') meta: WmlDropdownMeta = new WmlDropdownMeta();
   constructor(
@@ -39,9 +39,14 @@ export class WmlDropdownComponent {
   ngUnsub = new Subject<void>()
   communicateWithParentSubj = new Subject<WmlDropdownParentSubjParams>()
   communicateWithRootOptionSubj = new Subject<WmlDropdownParentSubjParams>();
+  communicateWithRootDropdownSubj = new Subject<WmlDropdownOptionsMeta | null>();
+
 
 
   ngAfterViewInit() {
+    if(this.meta._root) {
+      console.log(this.meta)
+    }
     this.showInitalOptionAndSetAsRoot();
 
     this.resizeInitialDropdown();
@@ -49,6 +54,8 @@ export class WmlDropdownComponent {
     this.attachParentInformationToChildren();
     this.subscribeToCommunicateWithParentSubj().subscribe();
     this.setCommunicateWithParentSubj();
+
+    this.subscribeToCommunicateWithRootDropdownSubj()?.subscribe();
   }
 
   showInitalOptionAndSetAsRoot() {
@@ -79,11 +86,19 @@ export class WmlDropdownComponent {
   attachRootInformationToChildren() {
     if (this.meta._root) {
       let allOptions = this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(this.meta);
-      
+
       allOptions.forEach((option) => {
         option.rootDropdown = this.meta;
         option.rootOption = this.meta.options[0];
         option.communicateWithRootOptionSubj = this.communicateWithRootOptionSubj
+        option.communicateWithRootDropdownSubj = this.communicateWithRootDropdownSubj
+      })
+
+      
+
+      let allDropdowns = this.wmlDropdownService.pullAllDropdowns(this.meta,false)
+      allDropdowns.forEach((dropdown) => {
+        dropdown.wmlField = this.meta.wmlField;
       })
     }
   }
@@ -91,17 +106,18 @@ export class WmlDropdownComponent {
 
   attachParentInformationToChildren() {
     if (this.meta._root) {
-      let allOptions =this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(
+      let allOptions = this.wmlDropdownService.pullAllDropdownOptionsViaDropdown(
         this.meta,
         (parentDropdown, parentOption, child) => {
 
           child.options.forEach((option) => {
             option.parentDropdown = parentDropdown;
             option.parentOption = parentOption;
+
           })
         }
       );
-      allOptions.forEach((option)=>{
+      allOptions.forEach((option) => {
         option._rootIsReadySubj.next();
       })
     }
@@ -125,6 +141,41 @@ export class WmlDropdownComponent {
       )
   }
 
+  subscribeToCommunicateWithRootDropdownSubj() {
+    if (this.meta._root) {
+      return this.communicateWithRootDropdownSubj
+        .pipe(
+          takeUntil(this.ngUnsub),
+          tap((resp) => {
+            this.writeValue(resp)
+            this.meta.wmlField.field.parentForm.patchValue({
+              [this.meta.wmlField.field.formControlName]: resp
+            })
+          })
+        )
+    }
+    else {
+      return null
+    }
+  }
+
+
+  onChange: Function = () => { }
+  onTouch: Function = () => { }
+
+
+  writeValue(val: WmlDropdownOptionsMeta | null) {
+    this.onChange(val)
+    this.onTouch(val)
+  }
+
+  registerOnChange(fn: Function) {
+    this.onChange = fn
+  }
+
+  registerOnTouched(fn: Function) {
+    this.onTouch = fn
+  }
 
 
   /**@TODO refactor to attachParentInformationToChildren */
