@@ -21,12 +21,16 @@ export class ConfigService {
   initI18NValues(){
     return forkJoin([
       this.utilService.getValueByi18nKey("app.dropdown.select"),
-      this.utilService.getValueByi18nKey("app.dropdown.option")
+      this.utilService.getValueByi18nKey("app.dropdown.option"),
+      this.utilService.getValueByi18nKey("form.invalidFormMsg")
     ])
     .pipe(
       tap((resp)=>{
-        CONFIG.i18n.appDropdownSelect = resp[0]
-        CONFIG.i18n.appDropdownOption = resp[1]
+        [
+          CONFIG.i18n.appDropdownSelect,
+          CONFIG.i18n.appDropdownOption,
+          CONFIG.i18n.formInvalidFormMsg
+        ] = resp
       })
     )
     

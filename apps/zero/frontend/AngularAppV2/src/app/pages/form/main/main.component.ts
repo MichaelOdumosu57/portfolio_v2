@@ -196,9 +196,15 @@ export class MainComponent {
   }
 
   submit() {
-    console.log(this.rootFormGroup.getRawValue())
-    console.log(this.rootFormGroup)
-    this.baseService.toggleOverlayLoadingSubj.next(true)
+
+    if(!this.rootFormGroup.valid){
+      console.log(this.rootFormGroup.getRawValue())
+      console.log(this.rootFormGroup)
+      this.baseService.toggleOverlayLoadingSubj.next(true)
+    }
+    else{
+      alert(CONFIG.i18n.formInvalidFormMsg)
+    }
   }
 
 

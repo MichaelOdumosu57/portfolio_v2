@@ -1,4 +1,5 @@
 // angular
+import { HttpClientModule } from "@angular/common/http";
 import { ChangeDetectorRef, NO_ERRORS_SCHEMA, Type } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
@@ -52,6 +53,9 @@ export let configureTestingModuleForServices =  (
   }> = {}
 )=>{
   TestBed.configureTestingModule({
+    imports:[
+      HttpClientModule
+    ],
     providers:[
       {provide:TranslateService,useValue:providers.mockTranslateService}
     ],

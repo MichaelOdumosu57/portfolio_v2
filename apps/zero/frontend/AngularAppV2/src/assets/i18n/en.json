@@ -15,5 +15,8 @@
   "nav":{
     "title":"Some Powerful Components",
     "formNav":"Form"
+  },
+  "form":{
+    "invalidFormMsg":"Please fill out all required fields"
   }
 }

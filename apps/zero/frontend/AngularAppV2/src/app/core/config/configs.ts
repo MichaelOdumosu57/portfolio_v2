@@ -15,7 +15,9 @@ class Configs {
   }
   i18n= {
     appDropdownSelect:"",
-    appDropdownOption:"",    
+    appDropdownOption:"",   
+    formInvalidFormMsg:""
+
   }
   nav = {
     formNav:"/form"
