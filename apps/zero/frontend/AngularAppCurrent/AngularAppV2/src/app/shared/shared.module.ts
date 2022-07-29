@@ -17,8 +17,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 import { NavComponent } from './nav/nav.component';
 import { PenroseComponent } from './penrose/penrose.component';
-import { TryMeComponent } from './try-me/try-me.component';
-
 
 
 
