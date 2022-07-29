@@ -39,7 +39,6 @@ import { PenroseComponent } from './penrose/penrose.component';
     DropdownOptionComponent,
     NavComponent,
     PenroseComponent,
-    TryMeComponent,
   ]  
 })
 export class SharedModule { }
