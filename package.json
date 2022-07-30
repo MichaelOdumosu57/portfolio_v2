@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@windmillcode/karma-chronium-edge-launcher": "^0.0.1"
+  }
+}
