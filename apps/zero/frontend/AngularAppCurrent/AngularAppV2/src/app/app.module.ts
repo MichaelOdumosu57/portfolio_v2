@@ -15,7 +15,9 @@ import { environment as env } from '@environment/environment';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
+declare global{
+  var TWEEN:any
+}
 
 if (env.production) {
 

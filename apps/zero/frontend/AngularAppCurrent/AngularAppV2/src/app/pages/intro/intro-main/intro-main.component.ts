@@ -9,7 +9,7 @@ import { AutomationService } from '@helpers/automation/automation/automation.ser
 
 // rxjs
 import { fromEvent, interval, Subject } from 'rxjs';
-import {  tap,takeUntil,take} from "rxjs/operators";
+import {  tap,takeUntil,take, startWith} from "rxjs/operators";
 
 // misc
 import { CONFIG ,THREE} from '@app/core/config/configs';
@@ -43,6 +43,7 @@ export class IntroMainComponent  {
   renderer!:THREE.WebGLRenderer
   scene!:THREE.Scene
   displayDiv!:HTMLElement 
+  boxes!:THREE.Mesh[]
 
   ngAfterViewInit(): void {
 
@@ -51,15 +52,22 @@ export class IntroMainComponent  {
     this.animate(); 
     interval(2000)
     .pipe(
+      startWith(0),
       take(5),
       tap((res)=>{
+
         let z = 5000 - (res*300)
-        console.log(z)
-        this.camera.position.set(
-          400, 
-          400,
-          z
+        TWEEN.removeAll()
+        new TWEEN.Tween(this.camera.position)
+        .to(
+          {
+            x:400,
+            y:400,
+            z            
+          }
         )
+        .start()
+      
       })
     )
     .subscribe()
@@ -92,6 +100,12 @@ export class IntroMainComponent  {
   
   animate= ()=> {
     requestAnimationFrame( this.animate );
+    TWEEN.update()
+
+    this.boxes
+    .forEach((box)=>{
+      box.rotateY(0.01);
+    })
     this.renderer.render( this.scene, this.camera );
   }
 
@@ -133,9 +147,9 @@ export class IntroMainComponent  {
   }
 
   private createBoxes(scene:THREE.Scene) {
-    const geometry = new THREE.BoxGeometry(20, 20, 20);
+    const geometry = new THREE.BoxGeometry(20, 20, 10);
 
-    Array(15000)
+    this.boxes =Array(15000)
     .fill(null)
     .map((_)=>{
       let object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: Math.random() * 0xffffff }));
@@ -144,7 +158,8 @@ export class IntroMainComponent  {
       object.position.y = Math.random() * 1500 - 400;
       object.position.z = Math.random() * 6000 - 400;
 
-      scene.add(object);    
+      scene.add(object); 
+      return object   
     })
   }
 
