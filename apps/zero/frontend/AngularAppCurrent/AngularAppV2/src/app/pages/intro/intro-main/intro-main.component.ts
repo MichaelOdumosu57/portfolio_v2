@@ -50,27 +50,31 @@ export class IntroMainComponent  {
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.init();
     this.animate(); 
-    interval(2000)
-    .pipe(
-      startWith(0),
-      take(5),
-      tap((res)=>{
+    this.startPresentationAnimation().subscribe();
+  }
 
-        let z = 5000 - (res*300)
-        TWEEN.removeAll()
-        new TWEEN.Tween(this.camera.position)
-        .to(
-          {
-            x:400,
-            y:400,
-            z            
-          }
-        )
-        .start()
-      
-      })
-    )
-    .subscribe()
+  startPresentationAnimation() {
+    return interval(2000)
+      .pipe(
+        takeUntil(this.ngUnsub),
+        startWith(0),
+        take(5),
+        tap((res) => {
+
+          let z = 5000 - (res * 300);
+          TWEEN.removeAll();
+          new TWEEN.Tween(this.camera.position)
+            .to(
+              {
+                x: 400,
+                y: 400,
+                z
+              }
+            )
+            .start();
+
+        })
+      )
   }
 
   init(){
