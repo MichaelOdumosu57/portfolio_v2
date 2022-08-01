@@ -24,7 +24,8 @@ class Configs {
   }
   nav = {
     home:"/",
-    form:"/form"
+    form:"/form",
+    startURL:"/"
   }
 }
 

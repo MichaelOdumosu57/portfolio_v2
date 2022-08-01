@@ -31,10 +31,11 @@ describe('WmlInputComponent', () => {
     })  
 
     it("should have all values initalize properly", () => {
+
     })
 
     it("should have all properties be the correct class instance", () => {
-
+      expect(cpnt.meta).toBeInstanceOf(WmlInputMeta)
     })
   })
 });

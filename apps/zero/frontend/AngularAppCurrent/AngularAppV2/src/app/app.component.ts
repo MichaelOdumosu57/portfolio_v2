@@ -1,30 +1,18 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, ViewContainerRef } from '@angular/core';
 
 // rxjs
-import { takeUntil,tap } from 'rxjs';
-import { Subject,BehaviorSubject } from 'rxjs';
-
-// reactive forms
-import { FormControl, FormGroup } from '@angular/forms';
+import { takeUntil, tap } from 'rxjs';
+import { Subject } from 'rxjs';
 
 // misc
+import { environment as env } from "@environment/environment";
 import { CONFIG } from '@core/config/configs';
-import { DropdownOptionComponent, DropdownOptionMeta } from '@shared/dropdown-option/dropdown-option.component';
-
-
-// wml compoenets
-import { WmlDropdownComponent, WmlDropdownMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown.component';
-import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
-import { WMLForm } from  '@shared/wml-components/wml-form/wml-form.component';
-import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
-import { WmlDropdownService } from '@shared/wml-components/wml-dropdown/wml-dropdown-service/wml-dropdown.service';
 
 // services
-import { UtilityService } from '@app/core/utility/utility.service';
 import { ConfigService } from '@core/config/config.service';
-import { WmlInputComponent, WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
 import { BaseService } from '@core/base/base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -34,42 +22,64 @@ import { BaseService } from '@core/base/base.service';
 })
 export class AppComponent {
   constructor(
-    private utilService:UtilityService,
-    private configService:ConfigService,
-    private wmlDropdownService:WmlDropdownService,
-    private baseService:BaseService,
-    private cdref:ChangeDetectorRef,
-  ){}
-  
+    private configService: ConfigService,
+    private baseService: BaseService,
+    private cdref: ChangeDetectorRef,
+    private vcf: ViewContainerRef,
+    private router: Router
+  ) { }
+
   @HostBinding('class') myClass: string = `View`;
-  ngUnsub= new Subject<void>()
-  overlayLoadingIsPresent:boolean = false;
+  ngUnsub = new Subject<void>()
+  overlayLoadingIsPresent: boolean = false;
 
 
 
-  ngOnInit(){
-    this.configService.initI18NValues()
-    .pipe(
-      takeUntil(this.ngUnsub),
-      tap(()=>{
-
-        this.baseService.i18nValuesAreReadySubj.next()
-      })
-    )
-    .subscribe()
-
-    this.baseService.toggleOverlayLoadingSubj
-    .pipe(
-      takeUntil(this.ngUnsub),
-      tap((resp )=>{
-        this.overlayLoadingIsPresent = resp
-        this.cdref.detectChanges()
-      })
-    )
-    .subscribe()
+  ngOnInit() {
+    this.setupI18NValues();
+    this.listenForOverlayLoadingToggle();
+    this.doMiscConfigs()
   }
 
-  ngOnDestroy(){
+  doMiscConfigs() {
+    //remove version
+    if (env.production) {
+      this.vcf.element.nativeElement.removeAttribute("ng-version");
+    }
+    //
+
+    // so we dont have to navigate on dev
+    if (!env.production) {
+      this.router.navigateByUrl(CONFIG.nav.startURL);
+    }
+    //    
+  }
+
+  private listenForOverlayLoadingToggle() {
+    this.baseService.toggleOverlayLoadingSubj
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((resp) => {
+          this.overlayLoadingIsPresent = resp;
+          this.cdref.detectChanges();
+        })
+      )
+      .subscribe();
+  }
+
+  private setupI18NValues() {
+    this.configService.initI18NValues()
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap(() => {
+
+          this.baseService.i18nValuesAreReadySubj.next();
+        })
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy() {
     this.ngUnsub.next()
     this.ngUnsub.complete()
   }

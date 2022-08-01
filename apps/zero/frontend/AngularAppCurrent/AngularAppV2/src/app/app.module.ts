@@ -9,11 +9,24 @@ import { HttpClient } from '@angular/common/http';
 // misc
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
+import { environment as env } from '@environment/environment';
 
 // i18n
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
+
+if (env.production) {
+
+  Object.entries(console)
+  .forEach((x, i) => {
+      let [key, val] = x
+      if (typeof val === "function") {
+          ((console as any)[key] as any) = () => { }
+      }
+  })
+}
 
 
 
