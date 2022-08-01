@@ -35,4 +35,8 @@ export class AutomationService {
 
 
   }
+
+  documentQuerySelector(selector:string){
+    return document.querySelector(selector) as HTMLElement
+  }
 }

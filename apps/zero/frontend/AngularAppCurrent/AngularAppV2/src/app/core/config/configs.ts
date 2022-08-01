@@ -35,7 +35,7 @@ class Configs {
       start:{
         x: 400, 
         y: 400,
-        z: 5900
+        z: 5700
       }
     }
   }

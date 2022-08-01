@@ -5,9 +5,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Host
 import { ConfigService } from '@app/core/config/config.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 import { BaseService } from '@core/base/base.service';
+import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
+import {  tap,takeUntil} from "rxjs/operators";
 
 // misc
 import { CONFIG ,THREE} from '@app/core/config/configs';
@@ -32,17 +34,21 @@ export class IntroMainComponent  {
     private configService:ConfigService,
     private baseService:BaseService,
     private renderer2:Renderer2,
-    private el:ElementRef
+    private el:ElementRef,
+    private automationService:AutomationService
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()  
   camera!:CinematicCamera ;
   renderer!:THREE.WebGLRenderer
   scene!:THREE.Scene
+  displayDiv!:HTMLElement 
 
   ngAfterViewInit(): void {
 
+    this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.init();
+    this.animate(); 
   }
 
   init(){
@@ -66,23 +72,50 @@ export class IntroMainComponent  {
     this.createBoxes(this.scene);   
     
     this.applyCanvasToDisplayDiv();   
-    this.animate(); 
+    this.resizeCanvasOnWindowResize().subscribe();
+    
   }
   
   animate= ()=> {
     requestAnimationFrame( this.animate );
     this.renderer.render( this.scene, this.camera );
   }
+
+  onWindowResize = ()=> {
+
+    let {displayDivWidth, displayDivHeight} = this.retrieveDimsOfDisplayDiv()
+    this.camera.aspect = displayDivWidth / displayDivHeight;
+    this.camera.updateProjectionMatrix();
+
+    this.renderer.setSize( displayDivWidth, displayDivHeight );
+
+  }
   
 
-  private applyCanvasToDisplayDiv() {
+  applyCanvasToDisplayDiv = ()=> {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
-    let displayDiv = document.querySelector('intro-main .MainPod');
-    let displayDivWidth = this.utilService.numberParse(getComputedStyle(this.el.nativeElement).width);
-    let displayDivHeight = this.utilService.numberParse(getComputedStyle(this.el.nativeElement).height);
+    this.setCanvasDimsBasedOnDisplayDiv();
+    this.renderer2.appendChild(this.displayDiv, this.renderer.domElement);
+  }
+
+  retrieveDimsOfDisplayDiv= ()=> {
+    let displayDivWidth =  this.utilService.numberParse(getComputedStyle(this.displayDiv).width);
+    let displayDivHeight = this.utilService.numberParse(getComputedStyle(this.displayDiv).height);
+    return {displayDivWidth, displayDivHeight};
+  }
+
+  setCanvasDimsBasedOnDisplayDiv= ()=> {
+    let {displayDivWidth, displayDivHeight} =this.retrieveDimsOfDisplayDiv();
     this.renderer.setSize(displayDivWidth, displayDivHeight);
-    this.renderer2.appendChild(displayDiv, this.renderer.domElement);
+  }
+
+  private resizeCanvasOnWindowResize() {
+    return fromEvent(window, 'resize')
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap(this.onWindowResize)
+      )
   }
 
   private createBoxes(scene:THREE.Scene) {
