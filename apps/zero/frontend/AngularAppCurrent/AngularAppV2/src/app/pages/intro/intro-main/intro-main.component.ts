@@ -8,7 +8,7 @@ import { BaseService } from '@core/base/base.service';
 import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 // rxjs
-import { fromEvent, interval, Subject } from 'rxjs';
+import { fromEvent, interval, Subject, timer } from 'rxjs';
 import {  tap,takeUntil,take, startWith} from "rxjs/operators";
 
 // misc
@@ -16,6 +16,7 @@ import { CONFIG ,THREE} from '@app/core/config/configs';
 
 // three
 import { CinematicCamera } from 'three/examples/jsm/cameras/CinematicCamera';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -35,7 +36,7 @@ export class IntroMainComponent  {
     private baseService:BaseService,
     private renderer2:Renderer2,
     private el:ElementRef,
-    private automationService:AutomationService
+    private automationService:AutomationService,
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()  
@@ -44,23 +45,49 @@ export class IntroMainComponent  {
   scene!:THREE.Scene
   displayDiv!:HTMLElement 
   boxes!:THREE.Mesh[]
+  phrase:any;
+
 
   ngAfterViewInit(): void {
-
+    this.setPhraseObject();
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.init();
     this.animate(); 
-    this.startPresentationAnimation().subscribe();
+    this.startPresentationAnimation().subscribe();   
+
+  }
+
+  private setPhraseObject() {
+    this.phrase = {
+      items: this.utilService.getValueByi18nKey('intro.phrases')
+        .map((value: string) => {
+          return {
+            value,
+            class: this.utilService.selectRandomOptionFromArray([
+              "Pod0Text0","Pod0Text1", "Pod0Text2", "Pod0Text3"
+            ])
+          };
+        }),
+
+      display: {
+        text:"",
+        class:""
+      }
+    };
   }
 
   startPresentationAnimation() {
+    console.log(this.phrase)
     return interval(2000)
       .pipe(
         takeUntil(this.ngUnsub),
         startWith(0),
         take(5),
         tap((res) => {
-
+          console.log(res)
+          this.phrase.display.text = this.phrase.items[res].value;
+          this.phrase.display.class = this.phrase.items[res].class;
+          this.cdref.detectChanges()
           let z = 5000 - (res * 300);
           TWEEN.removeAll();
           new TWEEN.Tween(this.camera.position)

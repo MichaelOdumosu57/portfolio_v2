@@ -1,8 +1,7 @@
-# AngularAppV2
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
-
-## Overivew
-* this template started with
-    "@ngx-translate/core": "^14.0.0",
-  * https://github.com/karma-runner/karma-edge-launcher
+* intro page
+phrases
+* Find the problem, find the solution.
+* Demo, Design, Develop Deploy
+* Believe in the mission. Believe in the team.
+* Make it work for every possible scenario.
+* When faced with the greatest of pressures, remain calm. 

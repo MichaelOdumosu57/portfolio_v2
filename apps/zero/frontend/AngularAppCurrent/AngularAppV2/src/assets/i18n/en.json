@@ -17,6 +17,15 @@
     "homeNav":"Home",
     "formNav":"Form"
   },
+  "intro":{
+    "phrases":[
+      "Find the problem, find the solution.",
+      "Demo, Design, Develop Deploy",
+      "Believe in the mission. Believe in the team.",
+      "Make it work for every possible scenario.",
+      "When faced with the greatest of pressures, remain calm."
+    ]
+  },
   "form":{
     "invalidFormMsg":"Please fill out all required fields",
     "submitFormSuccess":"Form Submitted Sucessfully",

@@ -28,7 +28,8 @@ export class UtilityService {
   }
 
   getValueByi18nKey = (value: string) => {
-    return this.translateService.get(value)
+    
+    return this.translateService.instant(value)
   }
 
   eventDispatcher(event: string, element: HTMLElement | Window | Element) {

@@ -15,10 +15,48 @@
       align-items: center;
     }
   }
+  .Shared{
+    &Text{
+      &0{
+        background-color: var(--white);
+        color:var(--black);
+        font-size: var(--fontSize4);
+        font-style: italic;
+        flex:0 0 50%;
+        opacity:.8;
+        padding:var(--spacing3);
+        // max-width: 50%;
+        position: absolute;
+      }
+    }
+  }
   .Pod{
     &0{
       height: 95%;
       width: 95%;
+      display: flex;
+
+      &Text{
+        &0{
+          top:5%;
+          left:40%
+        }
+
+        &1{
+          top:25%;
+          left:25%
+        } 
+        
+        &2{
+          top:55%;
+          left:25%
+        }  
+        
+        &3{
+          top:55%;
+          left:55%
+        }          
+      }
     }
   }
 }

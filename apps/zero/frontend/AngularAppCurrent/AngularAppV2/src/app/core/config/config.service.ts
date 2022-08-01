@@ -19,25 +19,12 @@ export class ConfigService {
   ) { }
 
   initI18NValues(){
-    return forkJoin([
-      this.utilService.getValueByi18nKey("app.dropdown.select"),
-      this.utilService.getValueByi18nKey("app.dropdown.option"),
-      this.utilService.getValueByi18nKey("form.invalidFormMsg"),
-      this.utilService.getValueByi18nKey("form.submitFormSuccess"),
-      this.utilService.getValueByi18nKey("form.submitFormError"),
-    ])
-    .pipe(
-      tap((resp)=>{
-        [
-          CONFIG.i18n.appDropdownSelect,
-          CONFIG.i18n.appDropdownOption,
-          CONFIG.i18n.formInvalidFormMsg,
-          CONFIG.i18n.formSubmitFormSuccess,
-          CONFIG.i18n.formSubmitFormError          
-        ] = resp
-      })
-    )
-    
+
+    CONFIG.i18n.appDropdownSelect =       this.utilService.getValueByi18nKey("app.dropdown.select")
+    CONFIG.i18n.appDropdownOption =       this.utilService.getValueByi18nKey("app.dropdown.option")
+    CONFIG.i18n.formInvalidFormMsg =       this.utilService.getValueByi18nKey("form.invalidFormMsg")
+    CONFIG.i18n.formSubmitFormSuccess =       this.utilService.getValueByi18nKey("form.submitFormSuccess")
+    CONFIG.i18n.formSubmitFormError =       this.utilService.getValueByi18nKey("form.submitFormError")       
 
   }
 }

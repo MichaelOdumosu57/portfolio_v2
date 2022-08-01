@@ -36,7 +36,7 @@ export class AppComponent {
 
 
   ngOnInit() {
-    this.setupI18NValues();
+    this.configService.initI18NValues()
     this.listenForOverlayLoadingToggle();
     this.doMiscConfigs()
   }
@@ -67,17 +67,6 @@ export class AppComponent {
       .subscribe();
   }
 
-  private setupI18NValues() {
-    this.configService.initI18NValues()
-      .pipe(
-        takeUntil(this.ngUnsub),
-        tap(() => {
-
-          this.baseService.i18nValuesAreReadySubj.next();
-        })
-      )
-      .subscribe();
-  }
 
   ngOnDestroy() {
     this.ngUnsub.next()
