@@ -1,3 +1,11 @@
+import { environment as env } from '@environment/environment';
+
+// three.js
+import {Scene,Color,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}   from 'three';
+import {CinematicCamera} from 'three/examples/jsm/cameras/CinematicCamera';
+
+export let THREE =  {Scene,Color,CinematicCamera,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}
+
 class Configs {
   homepage={
     nameFieldFormControlName:"myName",
@@ -20,12 +28,22 @@ class Configs {
     formInvalidFormMsg:"",
     formSubmitFormSuccess:"",
     formSubmitFormError:"",
-
+  }
+  intro={
+    backgroundColor:0xA0B86A,
+    camera:{
+      start:{
+        x: 400, 
+        y: 400,
+        z: 5900
+      }
+    }
   }
   nav = {
     home:"/",
     form:"/form",
-    startURL:"/"
+    intro:"/intro",
+    startURL:"/intro"
   }
 }
 
@@ -36,4 +54,4 @@ class DefaultConfigs extends Configs  {
   }
 }
 
-export let CONFIG = window.location.origin === "http://localhost:4200"   ?  new Configs() : new DefaultConfigs()
+export let CONFIG = !env.production    ?  new Configs() : new DefaultConfigs()

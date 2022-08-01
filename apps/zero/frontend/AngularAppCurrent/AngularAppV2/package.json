@@ -21,6 +21,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "rxjs": "~7.5.0",
+    "three": "^0.143.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -29,6 +30,8 @@
     "@angular/cli": "~14.1.0",
     "@angular/compiler-cli": "^14.1.0",
     "@types/jasmine": "~4.0.0",
+    "@types/three": "^0.143.0",
+    "@windmillcode/angular-templates": "^0.0.0",
     "@windmillcode/karma-chronium-edge-launcher": "^0.0.1",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",

@@ -44,6 +44,19 @@ export class UtilityService {
     }
   }
 
+  numberParse(   dimension:any /* string or array */  ){
+    
+    if(typeof dimension === "string"){
+        return parseFloat(dimension.split("p")[0])
+    }
+    else{
+        return dimension
+        .map((x:string)=>{
+            return parseFloat(x.split("p")[0])
+        })
+    }
+}
+
   makeLowerCase = new LowerCasePipe().transform
   makeTitleCase = new TitleCasePipe().transform
 }
