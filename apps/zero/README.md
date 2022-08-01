@@ -14,7 +14,9 @@ Only members of the project can read the README.md from the ignore folder
 # Stack 
 
 ## Frontend
-* Angular v12.2.7
+* Angular v14.1.0
+*     "@ngx-translate/core": "^14.0.0",
+*     "three.js": "^0.143.0",
 ### Structure
 
 
