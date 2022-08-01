@@ -9,10 +9,10 @@ import { AutomationService } from '@helpers/automation/automation/automation.ser
 
 // rxjs
 import { fromEvent, interval, Subject, timer } from 'rxjs';
-import {  tap,takeUntil,take, startWith} from "rxjs/operators";
+import { tap, takeUntil, take, startWith } from "rxjs/operators";
 
 // misc
-import { CONFIG ,THREE} from '@app/core/config/configs';
+import { CONFIG, THREE } from '@app/core/config/configs';
 
 // three
 import { CinematicCamera } from 'three/examples/jsm/cameras/CinematicCamera';
@@ -24,36 +24,37 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'intro-main',
   templateUrl: './intro-main.component.html',
   styleUrls: ['./intro-main.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class IntroMainComponent  {
+export class IntroMainComponent {
 
   constructor(
-    private cdref:ChangeDetectorRef,
-    private utilService:UtilityService,
-    private configService:ConfigService,
-    private baseService:BaseService,
-    private renderer2:Renderer2,
-    private el:ElementRef,
-    private automationService:AutomationService,
+    private cdref: ChangeDetectorRef,
+    private utilService: UtilityService,
+    private configService: ConfigService,
+    private baseService: BaseService,
+    private renderer2: Renderer2,
+    private el: ElementRef,
+    private automationService: AutomationService,
   ) { }
   @HostBinding('class') myClass: string = `View`;
-  ngUnsub= new Subject<void>()  
-  camera!:CinematicCamera ;
-  renderer!:THREE.WebGLRenderer
-  scene!:THREE.Scene
-  displayDiv!:HTMLElement 
-  boxes!:THREE.Mesh[]
-  phrase:any;
-
+  ngUnsub = new Subject<void>()
+  camera!: CinematicCamera;
+  renderer!: THREE.WebGLRenderer
+  scene!: THREE.Scene
+  displayDiv!: HTMLElement 
+  boxes!: THREE.Mesh[]
+  phrase: any;
+  zDimForCamera!: number
+  zDimCounter: number = 0
 
   ngAfterViewInit(): void {
-    this.setPhraseObject();
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
+    this.setPhraseObject();
     this.init();
-    this.animate(); 
-    this.startPresentationAnimation().subscribe();   
+    this.animate();
+    this.phraseTransitionEnd()
 
   }
 
@@ -64,108 +65,145 @@ export class IntroMainComponent  {
           return {
             value,
             class: this.utilService.selectRandomOptionFromArray([
-              "Pod0Text0","Pod0Text1", "Pod0Text2", "Pod0Text3"
+              "Pod0Text0", "Pod0Text1", "Pod0Text2", "Pod0Text3"
             ])
           };
         }),
 
       display: {
-        text:"",
-        class:""
+        text: "",
+        class: "",
+        style: {},
+        transitionend: this.phraseTransitionEnd,
+
       }
     };
   }
 
-  startPresentationAnimation() {
-    console.log(this.phrase)
-    return interval(2000)
+  phraseTransitionEnd = (evt?: TransitionEvent) => {
+
+    this.zDimForCamera = 5000 - (this.zDimCounter * 300);
+
+
+    if(this.zDimCounter > 4){
+      return
+    }
+    timer(3000)
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+
+        delete this.phrase.display.style.opacity;
+        this.phrase.display.style.transition = "none"
+        this.cdref.detectChanges()
+
+        delete this.phrase.display.style.transition
+        TWEEN.removeAll();
+        new TWEEN.Tween(this.camera.position)
+          .to(
+            {
+              x: 400,
+              y: 400,
+              z: this.zDimForCamera
+            }
+          )
+          .onComplete(() => {
+    
+            this.presentationAnimationSubj.next(this.zDimCounter++)
+          })
+          .start();    
+      })
+    )
+    .subscribe()
+    
+  }
+
+
+
+  presentationAnimationSubj = (() => {
+    let subj = new Subject<number>()
+
+    subj
       .pipe(
         takeUntil(this.ngUnsub),
-        startWith(0),
-        take(5),
         tap((res) => {
-          console.log(res)
           this.phrase.display.text = this.phrase.items[res].value;
           this.phrase.display.class = this.phrase.items[res].class;
+          this.phrase.display.style.opacity = .8;
           this.cdref.detectChanges()
-          let z = 5000 - (res * 300);
-          TWEEN.removeAll();
-          new TWEEN.Tween(this.camera.position)
-            .to(
-              {
-                x: 400,
-                y: 400,
-                z
-              }
-            )
-            .start();
 
         })
       )
-  }
+      .subscribe()
 
-  init(){
+    return subj
+  })()
 
-    this.camera = new THREE.CinematicCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
-    this.camera.setLens( 5 );
-    this.camera.position.set( 
+
+
+  init() {
+
+    this.camera = new THREE.CinematicCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+    this.camera.setLens(5);
+    this.camera.position.set(
       CONFIG.intro.camera.start.x,
-      CONFIG.intro.camera.start.y, 
+      CONFIG.intro.camera.start.y,
       CONFIG.intro.camera.start.z
     );
 
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color( CONFIG.intro.backgroundColor );
-    this.scene.add( new THREE.AmbientLight( 0xffffff, 0.3 ) );
-    let light = new THREE.DirectionalLight( 0xffffff, 0.35 );
-    light.position.set( 1, 1, 1 ).normalize();
-    this.scene.add( light );
+    this.scene.background = new THREE.Color(CONFIG.intro.backgroundColor);
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+    let light = new THREE.DirectionalLight(0xffffff, 0.35);
+    light.position.set(1, 1, 1).normalize();
+    this.scene.add(light);
 
-    this.createBoxes(this.scene);   
-    
-    this.applyCanvasToDisplayDiv();   
+    this.createBoxes(this.scene);
+
+    this.applyCanvasToDisplayDiv();
     this.resizeCanvasOnWindowResize().subscribe();
-    
+
   }
-  
-  animate= ()=> {
-    requestAnimationFrame( this.animate );
+
+  animate = () => {
+    requestAnimationFrame(this.animate);
     TWEEN.update()
 
     this.boxes
-    .forEach((box)=>{
-      box.rotateY(0.01);
-    })
-    this.renderer.render( this.scene, this.camera );
+      .forEach((box) => {
+        box.rotateY(0.01);
+      })
+    this.renderer.render(this.scene, this.camera);
   }
 
-  onWindowResize = ()=> {
+  onWindowResize = () => {
 
-    let {displayDivWidth, displayDivHeight} = this.retrieveDimsOfDisplayDiv()
+    let { displayDivWidth, displayDivHeight } = this.retrieveDimsOfDisplayDiv()
     this.camera.aspect = displayDivWidth / displayDivHeight;
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize( displayDivWidth, displayDivHeight );
+    this.renderer.setSize(displayDivWidth, displayDivHeight);
 
   }
-  
 
-  applyCanvasToDisplayDiv = ()=> {
+
+  applyCanvasToDisplayDiv = () => {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.setCanvasDimsBasedOnDisplayDiv();
     this.renderer2.appendChild(this.displayDiv, this.renderer.domElement);
   }
 
-  retrieveDimsOfDisplayDiv= ()=> {
-    let displayDivWidth =  this.utilService.numberParse(getComputedStyle(this.displayDiv).width);
+  retrieveDimsOfDisplayDiv = () => {
+
+    let displayDivWidth = this.utilService.numberParse(getComputedStyle(this.displayDiv).width);
     let displayDivHeight = this.utilService.numberParse(getComputedStyle(this.displayDiv).height);
-    return {displayDivWidth, displayDivHeight};
+    return { displayDivWidth, displayDivHeight };
   }
 
-  setCanvasDimsBasedOnDisplayDiv= ()=> {
-    let {displayDivWidth, displayDivHeight} =this.retrieveDimsOfDisplayDiv();
+  setCanvasDimsBasedOnDisplayDiv = () => {
+    let { displayDivWidth, displayDivHeight } = this.retrieveDimsOfDisplayDiv();
     this.renderer.setSize(displayDivWidth, displayDivHeight);
   }
 
@@ -177,26 +215,26 @@ export class IntroMainComponent  {
       )
   }
 
-  private createBoxes(scene:THREE.Scene) {
+  private createBoxes(scene: THREE.Scene) {
     const geometry = new THREE.BoxGeometry(20, 20, 10);
 
-    this.boxes =Array(15000)
-    .fill(null)
-    .map((_)=>{
-      let object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: Math.random() * 0xffffff }));
+    this.boxes = Array(15000)
+      .fill(null)
+      .map((_) => {
+        let object = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: Math.random() * 0xffffff }));
 
-      object.position.x = Math.random() * 1500 - 400;
-      object.position.y = Math.random() * 1500 - 400;
-      object.position.z = Math.random() * 6000 - 400;
+        object.position.x = Math.random() * 1500 - 400;
+        object.position.y = Math.random() * 1500 - 400;
+        object.position.z = Math.random() * 6000 - 400;
 
-      scene.add(object); 
-      return object   
-    })
+        scene.add(object);
+        return object
+      })
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.ngUnsub.next();
     this.ngUnsub.complete()
-  }  
+  }
 
 }

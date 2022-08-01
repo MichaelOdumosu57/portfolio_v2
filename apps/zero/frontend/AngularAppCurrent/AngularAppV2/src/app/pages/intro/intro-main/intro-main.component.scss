@@ -20,13 +20,14 @@
       &0{
         background-color: var(--white);
         color:var(--black);
-        font-size: var(--fontSize4);
+        font-size: calc(3.5vw + 1.8rem );
         font-style: italic;
-        flex:0 0 50%;
-        opacity:.8;
+        opacity:0;
         padding:var(--spacing3);
-        // max-width: 50%;
+        max-width: 50%;
         position: absolute;
+        transition: opacity 2.5s;
+        transition-delay: 1s;
       }
     }
   }
@@ -34,7 +35,6 @@
     &0{
       height: 95%;
       width: 95%;
-      display: flex;
 
       &Text{
         &0{
@@ -48,13 +48,13 @@
         } 
         
         &2{
-          top:55%;
-          left:25%
+          top:25%;
+          left:5%
         }  
         
         &3{
-          top:55%;
-          left:55%
+          top:35%;
+          left:35%
         }          
       }
     }
