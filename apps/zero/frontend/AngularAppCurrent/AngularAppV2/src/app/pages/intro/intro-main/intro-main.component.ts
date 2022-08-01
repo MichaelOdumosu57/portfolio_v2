@@ -8,8 +8,8 @@ import { BaseService } from '@core/base/base.service';
 import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 // rxjs
-import { fromEvent, Subject } from 'rxjs';
-import {  tap,takeUntil} from "rxjs/operators";
+import { fromEvent, interval, Subject } from 'rxjs';
+import {  tap,takeUntil,take} from "rxjs/operators";
 
 // misc
 import { CONFIG ,THREE} from '@app/core/config/configs';
@@ -49,6 +49,20 @@ export class IntroMainComponent  {
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.init();
     this.animate(); 
+    interval(2000)
+    .pipe(
+      take(5),
+      tap((res)=>{
+        let z = 5000 - (res*300)
+        console.log(z)
+        this.camera.position.set(
+          400, 
+          400,
+          z
+        )
+      })
+    )
+    .subscribe()
   }
 
   init(){
