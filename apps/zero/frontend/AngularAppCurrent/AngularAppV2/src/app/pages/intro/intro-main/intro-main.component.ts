@@ -85,8 +85,8 @@ export class IntroMainComponent {
 
         this.resetQuoteAnimation();
         this.cdref.detectChanges()
-        
-        if(this.zDimCounter > 2){
+
+        if(this.zDimCounter > 4){
           this.quotesAnimationsIsComplete = true
           
           return
