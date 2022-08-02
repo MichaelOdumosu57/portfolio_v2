@@ -52,6 +52,7 @@ Only members of the project can read the README.md from the ignore folder
 ### Logging
 
 ## DevOps
+* Firebase Hosting
 
 ### CI/CD/CM
 * CircleCi
@@ -85,4 +86,12 @@ Slack
 ## Media 
 <!-- bunch of links -->
 
+# Misc
+
+## Terminal Setup
+1a - npx ng serve
+2a - npx firebase deploy
+2b - git push origin master
+2c - npx ng build -c firebaseprod
+3a - angular schematics
 
