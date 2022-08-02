@@ -39,6 +39,7 @@ export class AppComponent {
     this.configService.initI18NValues()
     this.listenForOverlayLoadingToggle();
     this.doMiscConfigs()
+    this.router.navigateByUrl(CONFIG.nav.intro);
   }
 
   doMiscConfigs() {

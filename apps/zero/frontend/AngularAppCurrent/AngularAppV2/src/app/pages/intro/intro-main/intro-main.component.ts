@@ -1,22 +1,18 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostBinding, OnInit, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Renderer2 } from '@angular/core';
 
-// services
-import { ConfigService } from '@app/core/config/config.service';
 import { UtilityService } from '@app/core/utility/utility.service';
-import { BaseService } from '@core/base/base.service';
 import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 // rxjs
-import { fromEvent, interval, Subject, timer } from 'rxjs';
-import { tap, takeUntil, take, startWith } from "rxjs/operators";
+import { fromEvent, Subject, timer } from 'rxjs';
+import { tap, takeUntil } from "rxjs/operators";
 
 // misc
 import { CONFIG, THREE } from '@app/core/config/configs';
 
 // three
 import { CinematicCamera } from 'three/examples/jsm/cameras/CinematicCamera';
-import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -24,7 +20,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'intro-main',
   templateUrl: './intro-main.component.html',
   styleUrls: ['./intro-main.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class IntroMainComponent {
@@ -32,10 +28,7 @@ export class IntroMainComponent {
   constructor(
     private cdref: ChangeDetectorRef,
     private utilService: UtilityService,
-    private configService: ConfigService,
-    private baseService: BaseService,
     private renderer2: Renderer2,
-    private el: ElementRef,
     private automationService: AutomationService,
   ) { }
   @HostBinding('class') myClass: string = `View`;
