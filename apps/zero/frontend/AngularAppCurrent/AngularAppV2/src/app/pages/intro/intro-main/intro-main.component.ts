@@ -41,6 +41,7 @@ export class IntroMainComponent {
   phrase: any;
   zDimForCamera!: number
   zDimCounter: number = 0
+  quotesAnimationsIsComplete: boolean = false;
 
   ngAfterViewInit(): void {
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
@@ -77,18 +78,21 @@ export class IntroMainComponent {
 
     this.zDimForCamera = 5000 - (this.zDimCounter * 300);
 
-
-    if(this.zDimCounter > 4){
-      return
-    }
     timer(3000)
     .pipe(
       takeUntil(this.ngUnsub),
       tap(()=>{
 
-        delete this.phrase.display.style.opacity;
-        this.phrase.display.style.transition = "none"
+        this.resetQuoteAnimation();
         this.cdref.detectChanges()
+        
+        if(this.zDimCounter > 2){
+          this.quotesAnimationsIsComplete = true
+          
+          return
+        }        
+
+
 
         delete this.phrase.display.style.transition
         TWEEN.removeAll();
@@ -111,8 +115,6 @@ export class IntroMainComponent {
     
   }
 
-
-
   presentationAnimationSubj = (() => {
     let subj = new Subject<number>()
 
@@ -133,6 +135,11 @@ export class IntroMainComponent {
   })()
 
 
+
+  private resetQuoteAnimation() {
+    delete this.phrase.display.style.opacity;
+    this.phrase.display.style.transition = "none";
+  }
 
   init() {
 
@@ -159,7 +166,9 @@ export class IntroMainComponent {
 
   }
 
+  
   animate = () => {
+    
     requestAnimationFrame(this.animate);
     TWEEN.update()
 
@@ -167,6 +176,10 @@ export class IntroMainComponent {
       .forEach((box) => {
         box.rotateY(0.01);
       })
+
+      if(this.quotesAnimationsIsComplete){
+        this.triggerCinematicEffect();      
+      }
     this.renderer.render(this.scene, this.camera);
   }
 
@@ -198,6 +211,18 @@ export class IntroMainComponent {
   setCanvasDimsBasedOnDisplayDiv = () => {
     let { displayDivWidth, displayDivHeight } = this.retrieveDimsOfDisplayDiv();
     this.renderer.setSize(displayDivWidth, displayDivHeight);
+  }
+
+  theta = 0
+  private triggerCinematicEffect() {
+    this.theta -= .1;
+    let radius = 100;
+    this.camera.position.x = radius * Math.sin(THREE.MathUtils.degToRad(this.theta));
+    this.camera.position.y = radius * Math.sin(THREE.MathUtils.degToRad(this.theta));
+    this.camera.position.z = radius * Math.cos(THREE.MathUtils.degToRad(this.theta));
+    this.camera.lookAt(this.scene.position);
+
+    this.camera.updateMatrixWorld();
   }
 
   private resizeCanvasOnWindowResize() {

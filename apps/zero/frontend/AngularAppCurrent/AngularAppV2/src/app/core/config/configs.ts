@@ -1,10 +1,10 @@
 import { environment as env } from '@environment/environment';
 
 // three.js
-import {Scene,Color,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}   from 'three';
+import {MathUtils,Scene,Color,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}   from 'three';
 import {CinematicCamera} from 'three/examples/jsm/cameras/CinematicCamera';
 
-export let THREE =  {Scene,Color,CinematicCamera,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}
+export let THREE =  {MathUtils,Scene,Color,CinematicCamera,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}
 
 class Configs {
   homepage={
