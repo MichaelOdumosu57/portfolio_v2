@@ -37,7 +37,9 @@ class Configs {
         y: 400,
         z: 5700
       }
-    }
+    },
+    moveIntroToAboveScreen:1000,
+    phrasesCompleteNumber:0
   }
   nav = {
     home:"/",

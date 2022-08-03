@@ -42,8 +42,10 @@ export class IntroMainComponent {
   zDimForCamera!: number
   zDimCounter: number = 0
   quotesAnimationsIsComplete: boolean = false;
+  mainPodClass = "MainPod MainPodScreen0"
 
   ngAfterViewInit(): void {
+
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.setPhraseObject();
     this.init();
@@ -74,10 +76,22 @@ export class IntroMainComponent {
     };
   }
 
+  moveIntroToAboveUsersScreen= ()=>{
+    return timer(CONFIG.intro.moveIntroToAboveScreen)
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+        this.mainPodClass = "MainPod MainPodScreen1"
+        this.cdref.detectChanges()
+        // console.log("fire")
+      })
+    )
+  }
+
   phraseTransitionEnd = (evt?: TransitionEvent) => {
 
     this.zDimForCamera = 5000 - (this.zDimCounter * 300);
-
++
     timer(3000)
     .pipe(
       takeUntil(this.ngUnsub),
@@ -86,9 +100,9 @@ export class IntroMainComponent {
         this.resetQuoteAnimation();
         this.cdref.detectChanges()
 
-        if(this.zDimCounter > 4){
+        if(this.zDimCounter > CONFIG.intro.phrasesCompleteNumber){
           this.quotesAnimationsIsComplete = true
-          
+          this.moveIntroToAboveUsersScreen().subscribe()
           return
         }        
 
@@ -114,6 +128,8 @@ export class IntroMainComponent {
     .subscribe()
     
   }
+
+
 
   presentationAnimationSubj = (() => {
     let subj = new Subject<number>()
