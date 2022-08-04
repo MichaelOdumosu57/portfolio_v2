@@ -1,9 +1,9 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, HostListener, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // rxjs
-import { takeUntil, tap, withLatestFrom } from 'rxjs';
+import { fromEvent, takeUntil, tap, withLatestFrom } from 'rxjs';
 import { Subject } from 'rxjs';
 
 // misc
@@ -34,14 +34,13 @@ export class AppComponent {
 
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
+
   overlayLoadingIsPresent: boolean = false;
   introMainIsPresent: boolean = true;
   toggleIntroMainIsPresent(evt:boolean){
     this.introMainIsPresent = evt
     this.cdref.detectChanges()
   }
-
-
 
   ngOnInit() {
     this.listenForOverlayLoadingToggle();

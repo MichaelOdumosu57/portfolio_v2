@@ -7,7 +7,8 @@ import { UtilityService } from '@app/core/utility/utility.service';
 import { BaseService } from '@core/base/base.service';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { Subject, timer,takeUntil,tap } from 'rxjs';
+
 
 // misc
 import { CONFIG } from '@app/core/config/configs';
@@ -35,48 +36,33 @@ export class HomeMainComponent  {
   ngUnsub= new Subject<void>()  
 
 
-  introButton: WMLButton = new WMLButton({
-    button:new WMLUIProperty({
-      click:()=>{
-        this.baseService.restartIntro()
-      }
-    }),
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey('global.nav.intro')
-    })
-  })
-  homeButton:  WMLButton = new WMLButton({
-    button:new WMLUIProperty({}),
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey('global.nav.home')
-    })
-  })
-  resumeButton: WMLButton = new WMLButton({
-    button:new WMLUIProperty({}),
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey('global.nav.resume')
-    })
-  })
-  storiesButton: WMLButton = new WMLButton({
-    button:new WMLUIProperty({}),
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey('global.nav.stories')
-    })
-  })
-  contactButton: WMLButton = new WMLButton({
-    button:new WMLUIProperty({}),
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey('global.nav.contact')
-    })
-  })  
+  mobileDivStyle:Partial<CSSStyleDeclaration> = {}
+
+  introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.baseService.restartIntro)
+  homeButton:  WMLButton = this.baseService.generateButton('global.nav.home')
+  resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume')
+  storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories')
+  certsButton: WMLButton = this.baseService.generateButton('global.nav.certs')
+  contactButton: WMLButton = this.baseService.generateButton('global.nav.contact')
   navButtons : WMLButton[]= [
     this.introButton,
     this.homeButton,
     this.resumeButton,
-    this.storiesButton,
+    this.certsButton,
     this.contactButton,    
   ]
   ngOnInit(): void {
+    timer(5000)
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+        this.mobileDivStyle=  {
+          left:"0%"
+        }
+        this.cdref.detectChanges()
+      })
+    )
+    .subscribe()
   }
 
   ngOnDestroy(){
