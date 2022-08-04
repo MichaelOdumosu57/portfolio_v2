@@ -1,0 +1,33 @@
+@import "src/assets/styles/global.scss";
+
+:host {
+  &.View {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+  }
+  .Main {
+    &Pod{
+      width: 100%;
+    }
+  }
+  .Pod{
+    &0{
+      background-color: var(--black);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding:var(--spacing5) var(--spacing3) 0 var(--spacing3);
+      border-top:3px solid var(--grey);
+      flex-flow:row wrap;
+      &Button{
+        &0{
+          background-color: var(--black);
+          color:var(--white);
+          border:1px solid var(--white);
+          margin:0 var(--spacing5) var(--spacing5) 0; 
+        }
+      }
+    }
+  }
+}

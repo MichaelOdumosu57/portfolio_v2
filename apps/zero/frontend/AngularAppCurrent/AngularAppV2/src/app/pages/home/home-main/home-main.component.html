@@ -1,7 +1,11 @@
 <main [class]="'MainPod'">
   <wml-card class="Pod0">
     <nav class="Pod0Item0">
-      <button class="Pod0Button0" *ngFor="let wmlButton of navButtons">{{wmlButton.text.value}}</button>
+      <button class="GlobalButton0" *ngFor="let wmlButton of navButtons">
+        <label>
+          {{wmlButton.text.value}}
+        </label>
+      </button>
     </nav>
   </wml-card>
 </main>

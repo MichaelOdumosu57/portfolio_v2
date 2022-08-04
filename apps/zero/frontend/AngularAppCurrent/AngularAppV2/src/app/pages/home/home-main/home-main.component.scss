@@ -26,19 +26,7 @@
 
         }
       }
-      &Button{
-        &0{
-          padding:var(--spacing3) var(--spacing6);
-          border-radius: var(--spacing6) ;
 
-          &:hover{
-            background-color: var(--black);
-            color: var(--white);
-          }
-
-          
-        }
-      }
     }
   }
 }

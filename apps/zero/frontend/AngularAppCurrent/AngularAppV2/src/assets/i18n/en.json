@@ -25,5 +25,19 @@
   },
   "home":{
     "title":"Michael Odumosu"
+  },
+  "footer":{
+    "langs":{
+      "english" : "English",
+      "spanish" : "Spanish",
+      "chinese" : "Chinese",
+      "hindi" : "Hindi",
+      "ukrainian" : "Ukrainian",
+      "arabic" : "Arabic",
+      "bengali" : "Bengali",
+      "malay" : "Malay",
+      "french" : "French",
+      "swahili" : "Swahili"
+    }
   }
 }
