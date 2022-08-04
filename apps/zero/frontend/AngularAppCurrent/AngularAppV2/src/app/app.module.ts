@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { environment as env } from '@environment/environment';
+import { HomeMainComponent } from './pages/home/home-main/home-main.component';
 
 // i18n
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -52,7 +53,8 @@ function waitFori18nextToLoad(translateService: TranslateService): () => Observa
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeMainComponent
   ],
   imports: [
     BrowserModule,

@@ -23,8 +23,9 @@
       "When faced with the greatest of pressures, remain calm."
     ]
   },
-  "home":{
-    "title":"Michael Odumosu"
+  "homeIntro":{
+    "title":"Michael Odumosu",
+    "summary":"Software developer with years of leadership experience. Constructed applications serving thouands of users in the financial and real estate industry. Managed core and external teams and mentored aspiring job seekers searching to enter the industry. Certified in GCP and AWS technologies. "
   },
   "footer":{
     "langs":{
