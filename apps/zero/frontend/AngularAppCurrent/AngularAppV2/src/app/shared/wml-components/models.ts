@@ -16,7 +16,9 @@ export class WMLUIProperty{
   class?:string = ""
   style?:Partial<CSSStyleDeclaration> = {}
   type?:any
-  click?:(evt:Event)=> void
+  click?:(evt:Event)=> void = (evt?:Event)=>{
+    evt?.stopImmediatePropagation()
+  }
 }
 
 

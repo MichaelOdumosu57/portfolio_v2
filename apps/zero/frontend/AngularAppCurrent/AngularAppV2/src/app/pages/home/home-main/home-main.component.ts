@@ -39,7 +39,10 @@ export class HomeMainComponent  {
   mobileDivStyle:Partial<CSSStyleDeclaration> = {}
   mobileViewIsPresent:boolean = false
 
-  introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.baseService.restartIntro)
+  introButton: WMLButton = this.baseService.generateButton('global.nav.intro',(evt?:Event)=>{
+    evt?.stopImmediatePropagation()
+    this.baseService.restartIntro()
+  })
   homeButton:  WMLButton = this.baseService.generateButton('global.nav.home')
   resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume')
   storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories')
@@ -73,7 +76,9 @@ export class HomeMainComponent  {
 
   }
 
-  closeMobileNav= ()=> {
+  closeMobileNav= (evt:Event)=> {
+    console.log(evt)
+    evt.stopImmediatePropagation()
     this.mobileViewIsPresent = false
     this.mobileDivStyle = {
       left: "-50%"
