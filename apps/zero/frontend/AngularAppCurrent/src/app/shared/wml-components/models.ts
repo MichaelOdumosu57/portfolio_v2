@@ -14,7 +14,7 @@ export class WMLUIProperty{
   isPresent:boolean = true 
   value?:string = ""
   class?:string = ""
-  style?:Partial<CSSStyleDeclaration> = {}
+style?:Partial<CSSStyleDeclaration> = {}
   type?:any
   click?:(evt:Event)=> void = (evt?:Event)=>{
     evt?.stopImmediatePropagation()

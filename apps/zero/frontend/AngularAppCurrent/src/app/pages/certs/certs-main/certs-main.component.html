@@ -1,0 +1,10 @@
+<main [class]="'MainPod'">
+  <div class="Pod0">
+    <h1>{{ 'certsMain.title' | translate}}</h1>
+  </div>
+  <div class="Pod1 row">
+    <div class="Pod1Item0 col-md-2" *ngFor="let card of certCards">
+      <img class="Pod1Img0" [src]="card.imgSrc" [alt]="card.imgAlt | translate"/>
+    </div>
+  </div>
+</main>

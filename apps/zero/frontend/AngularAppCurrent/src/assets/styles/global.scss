@@ -103,3 +103,8 @@ textarea {
 li {
   list-style: none;
 }
+
+h1{
+  font-size: calc( var(--fontSize3) + 1.5vw);
+  text-decoration: underline solid var(--grey);
+}

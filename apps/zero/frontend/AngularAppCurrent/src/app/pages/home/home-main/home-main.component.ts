@@ -47,10 +47,11 @@ export class HomeMainComponent  {
   navigate = (destination:string)=>{
     return (evt?:Event)=>{
       this.router.navigate([destination])
+      this.closeMobileNav()
     }
   }
   introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.introButtonClicked)
-  homeButton:  WMLButton = this.baseService.generateButton('global.nav.home',this.navigate(CONFIG.nav.home))
+  homeButton:  WMLButton = this.baseService.generateButton('global.nav.home',this.navigate(CONFIG.nav.homeAlt))
   resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume',this.navigate(CONFIG.nav.resume))
   storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories',this.navigate(CONFIG.nav.stories))
   certsButton: WMLButton = this.baseService.generateButton('global.nav.certs',this.navigate(CONFIG.nav.certs))
@@ -62,9 +63,7 @@ export class HomeMainComponent  {
     this.certsButton,
     this.contactButton,    
   ]
-  ngOnInit(): void {
 
-  }
 
   openMobileNav=()=> {
     this.mobileViewIsPresent = true
@@ -83,9 +82,8 @@ export class HomeMainComponent  {
 
   }
 
-  closeMobileNav= (evt:Event)=> {
-    console.log(evt)
-    evt.stopImmediatePropagation()
+  closeMobileNav= (evt?:Event )=> {
+    evt?.stopImmediatePropagation()
     this.mobileViewIsPresent = false
     this.mobileDivStyle = {
       left: "-50%"

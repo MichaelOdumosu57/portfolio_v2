@@ -38,6 +38,7 @@ class Configs {
   }
   nav = {
     home:"/",
+    homeAlt:"/home",
     form:"/form",
     intro:"/intro",
     resume:"/resume",

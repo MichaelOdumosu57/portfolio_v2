@@ -13,6 +13,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },  
 
+  {
+    path:'resume',
+    loadChildren: () => import('./pages/resume/resume.module').then(m => m.ResumeModule)
+  },  
+
+  {
+    path:'certs',
+    loadChildren: () => import('./pages/certs/certs.module').then(m => m.CertsModule)
+  },  
+  
+  {
+    path:'contact',
+    loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule)
+  },  
 ];
 
 @NgModule({
