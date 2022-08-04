@@ -1,4 +1,5 @@
-<intro-main></intro-main>
+
+<intro-main *ngIf="introMainIsPresent" (toggleIntroMainIsPresent)="toggleIntroMainIsPresent($event)"></intro-main>
 <router-outlet></router-outlet>
 <div *ngIf="overlayLoadingIsPresent" class="Pod2">
   <app-penrose  ></app-penrose>

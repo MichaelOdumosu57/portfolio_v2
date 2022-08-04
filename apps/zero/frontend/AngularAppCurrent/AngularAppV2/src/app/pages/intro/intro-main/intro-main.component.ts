@@ -1,5 +1,5 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, Output, Renderer2 } from '@angular/core';
 
 import { UtilityService } from '@app/core/utility/utility.service';
 import { AutomationService } from '@helpers/automation/automation/automation.service';
@@ -45,14 +45,13 @@ export class IntroMainComponent {
   zDimCounter: number = 0
   quotesAnimationsIsComplete: boolean = false;
   mainPodClass = "MainPod MainPodScreen0"
-
-  mainPodTransitionEnd(evt:TransitionEvent) {
-    
-    this.canDeactivateSubj.next(true)
+  mainPodTransitionEnd() {
+    this.toggleIntroMainIsPresent.emit(false)
   }
+  @Output() toggleIntroMainIsPresent = new EventEmitter<boolean>();
+
 
   ngAfterViewInit(): void {
-    console.log("fire")
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.setPhraseObject();
     this.init();
@@ -91,6 +90,7 @@ export class IntroMainComponent {
         this.router.navigate(['/home'])
         this.mainPodClass = "MainPod MainPodScreen1"
         this.cdref.detectChanges()
+
 
       })
     )
@@ -278,6 +278,5 @@ export class IntroMainComponent {
     this.ngUnsub.complete()
   }
 
-  canDeactivateSubj = new Subject<boolean>()
 
 }

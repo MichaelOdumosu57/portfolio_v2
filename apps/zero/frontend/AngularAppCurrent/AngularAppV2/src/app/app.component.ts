@@ -34,11 +34,16 @@ export class AppComponent {
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
   overlayLoadingIsPresent: boolean = false;
+  introMainIsPresent: boolean = true;
+  toggleIntroMainIsPresent(evt:boolean){
+    this.introMainIsPresent = evt
+    this.cdref.detectChanges()
+  }
 
 
 
   ngOnInit() {
-    this.configService.initI18NValues()
+    // this.configService.initI18NValues()
     this.listenForOverlayLoadingToggle();
     this.doMiscConfigs()
     this.router.navigateByUrl(CONFIG.nav.intro);
@@ -53,6 +58,7 @@ export class AppComponent {
 
     // so we dont have to navigate on dev
     if (!env.production) {
+      console.log(this.router.url)
       this.router.navigateByUrl(CONFIG.nav.startURL);
     }
     //    

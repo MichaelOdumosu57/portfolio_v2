@@ -22,13 +22,7 @@ class Configs {
     presenterFieldFormControlName:"myPresenter",
     submitFormEndpoint:"http://localhost:5000/form/submit",
   }
-  i18n= {
-    appDropdownSelect:"",
-    appDropdownOption:"",   
-    formInvalidFormMsg:"",
-    formSubmitFormSuccess:"",
-    formSubmitFormError:"",
-  }
+
   intro={
     backgroundColor:0xA0B86A,
     camera:{
