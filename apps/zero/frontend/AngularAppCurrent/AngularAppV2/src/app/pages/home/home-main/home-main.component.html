@@ -3,10 +3,10 @@
 
     
     <nav class="Pod0Item0">
-      <button class="GlobalButton0" *ngFor="let wmlButton of navButtons" (click)="wmlButton.button.click && wmlButton.button.click($event)">
-        <label>
-          {{wmlButton.text.value}}
-        </label>
+      <button class="GlobalButton0" 
+      *ngFor="let wmlButton of navButtons" 
+      (click)="wmlButton.button.click && wmlButton.button.click($event)">
+        <label>{{wmlButton.text.value}}</label>
       </button>
     </nav>
     <div class="Pod0Item1">
