@@ -1,3 +1,0 @@
-<main [class]="'MainPod'">
-  <p><%= dasherize(name) %>  works!</p>
-</main>

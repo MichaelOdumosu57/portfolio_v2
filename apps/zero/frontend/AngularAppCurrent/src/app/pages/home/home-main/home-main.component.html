@@ -1,0 +1,26 @@
+<main [class]="'MainPod'">
+  <wml-card class="Pod0">
+
+    
+    <nav class="Pod0Item0">
+      <button class="GlobalButton0" 
+      *ngFor="let wmlButton of navButtons" 
+      (click)="wmlButton.button.click && wmlButton.button.click($event)">
+        <label>{{wmlButton.text.value}}</label>
+      </button>
+    </nav>
+    <img class="Pod0Img0" src="assets/media/nav_0.ico" (click)="openMobileNav()"/>
+    <div class="Pod0Item1">
+      <router-outlet></router-outlet>
+    </div>
+  </wml-card>
+  <app-footer></app-footer>
+</main>
+<div class="Pod1" *ngIf="mobileViewIsPresent" >
+  <div class="Pod1Item0" [ngStyle]="mobileDivStyle" >
+    <div class="Pod1Item1" *ngFor="let wmlButton of navButtons" (click)="wmlButton.button.click && wmlButton.button.click($event)">
+      <label>{{wmlButton.text.value}}</label>
+    </div>
+  </div>
+  <img src="assets/media/nav_1.svg" class="Pod1Img0" (click)="closeMobileNav($event)" />
+</div>

@@ -10,7 +10,8 @@ Only members of the project can read the README.md from the ignore folder
 
 ## [Trello](paste trello url here)
 
-
+## Issues
+* figure out why stop progpagatin is not working
 # Stack 
 
 ## Frontend
