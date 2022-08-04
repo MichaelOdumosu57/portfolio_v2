@@ -1,6 +1,6 @@
 // angular
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, ViewContainerRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // rxjs
 import { takeUntil, tap, withLatestFrom } from 'rxjs';
@@ -28,6 +28,7 @@ export class AppComponent {
     private cdref: ChangeDetectorRef,
     private vcf: ViewContainerRef,
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private utilService: UtilityService
   ) { }
 
@@ -46,7 +47,6 @@ export class AppComponent {
     // this.configService.initI18NValues()
     this.listenForOverlayLoadingToggle();
     this.doMiscConfigs()
-    this.router.navigateByUrl(CONFIG.nav.intro);
   }
 
   doMiscConfigs() {
@@ -56,13 +56,18 @@ export class AppComponent {
     }
     //
 
-    // so we dont have to navigate on dev
-    if (!env.production) {
-      console.log(this.router.url)
-      this.router.navigateByUrl(CONFIG.nav.startURL);
+    CONFIG.nav.initialURL = window.location.pathname
+    if(CONFIG.nav.initialURL === "/"){
+      this.router.navigate([CONFIG.nav.startURL])
+    }    
+    if(!["/intro","/"].includes(CONFIG.nav.initialURL)){
+      this.introMainIsPresent = false
+      this.cdref.detectChanges()
     }
+
     //    
   }
+
 
   private listenForOverlayLoadingToggle() {
     this.baseService.toggleOverlayLoadingSubj

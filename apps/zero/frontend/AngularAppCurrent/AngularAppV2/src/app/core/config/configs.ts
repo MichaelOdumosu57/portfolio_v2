@@ -39,7 +39,8 @@ class Configs {
     home:"/",
     form:"/form",
     intro:"/intro",
-    startURL:"/intro"
+    startURL:"/intro",
+    initialURL:""
   }
 }
 

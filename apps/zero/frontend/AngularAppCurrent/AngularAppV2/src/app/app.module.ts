@@ -16,6 +16,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { CONFIG } from '@core/config/configs';
 
 declare global{
   var TWEEN:any
@@ -42,6 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 function waitFori18nextToLoad(translateService: TranslateService): () => Observable<any> {
   return () => {
+    console.log(CONFIG)
+    
     return translateService.use('en')
 
   }

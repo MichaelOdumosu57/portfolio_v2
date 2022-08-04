@@ -52,6 +52,7 @@ export class IntroMainComponent {
 
 
   ngAfterViewInit(): void {
+    
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.setPhraseObject();
     this.init();
