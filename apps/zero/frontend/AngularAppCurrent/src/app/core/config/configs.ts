@@ -40,6 +40,10 @@ class Configs {
     home:"/",
     form:"/form",
     intro:"/intro",
+    resume:"/resume",
+    stories:"/stories",
+    certs:"/certs",
+    contact:"/contact",
     startURL:"/intro",
     initialURL:""
   }

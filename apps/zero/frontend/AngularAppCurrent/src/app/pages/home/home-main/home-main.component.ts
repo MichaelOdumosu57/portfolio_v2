@@ -15,6 +15,7 @@ import { CONFIG } from '@app/core/config/configs';
 
 // wml-components
 import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-main',
@@ -30,7 +31,7 @@ export class HomeMainComponent  {
     private utilService:UtilityService,
     private configService:ConfigService,
     private baseService:BaseService,
-    
+    private router:Router
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()  
@@ -39,15 +40,21 @@ export class HomeMainComponent  {
   mobileDivStyle:Partial<CSSStyleDeclaration> = {}
   mobileViewIsPresent:boolean = false
 
-  introButton: WMLButton = this.baseService.generateButton('global.nav.intro',(evt?:Event)=>{
-    evt?.stopImmediatePropagation()
+  introButtonClicked = (evt?:Event)=>{
+    evt?.stopPropagation()
     this.baseService.restartIntro()
-  })
-  homeButton:  WMLButton = this.baseService.generateButton('global.nav.home')
-  resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume')
-  storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories')
-  certsButton: WMLButton = this.baseService.generateButton('global.nav.certs')
-  contactButton: WMLButton = this.baseService.generateButton('global.nav.contact')
+  }
+  navigate = (destination:string)=>{
+    return (evt?:Event)=>{
+      this.router.navigate([destination])
+    }
+  }
+  introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.introButtonClicked)
+  homeButton:  WMLButton = this.baseService.generateButton('global.nav.home',this.navigate(CONFIG.nav.home))
+  resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume',this.navigate(CONFIG.nav.resume))
+  storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories',this.navigate(CONFIG.nav.stories))
+  certsButton: WMLButton = this.baseService.generateButton('global.nav.certs',this.navigate(CONFIG.nav.certs))
+  contactButton: WMLButton = this.baseService.generateButton('global.nav.contact',this.navigate(CONFIG.nav.contact))
   navButtons : WMLButton[]= [
     this.introButton,
     this.homeButton,
