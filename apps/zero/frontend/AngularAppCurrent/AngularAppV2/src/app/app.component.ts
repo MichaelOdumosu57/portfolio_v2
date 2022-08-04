@@ -1,8 +1,9 @@
 // angular
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, ViewContainerRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 // rxjs
-import { takeUntil, tap } from 'rxjs';
+import { takeUntil, tap, withLatestFrom } from 'rxjs';
 import { Subject } from 'rxjs';
 
 // misc
@@ -12,7 +13,7 @@ import { CONFIG } from '@core/config/configs';
 // services
 import { ConfigService } from '@core/config/config.service';
 import { BaseService } from '@core/base/base.service';
-import { Router } from '@angular/router';
+import { UtilityService } from '@core/utility/utility.service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ export class AppComponent {
     private baseService: BaseService,
     private cdref: ChangeDetectorRef,
     private vcf: ViewContainerRef,
-    private router: Router
+    private router: Router,
+    private utilService: UtilityService
   ) { }
 
   @HostBinding('class') myClass: string = `View`;

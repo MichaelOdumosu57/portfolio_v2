@@ -10,7 +10,7 @@ import { WmlComponentsModule } from './wml-components/wml-components.module';
 
 // misc
 import { SampleCpntComponent } from './sample-cpnt/sample-cpnt.component';
-
+import { IntroMainComponent } from '@app/pages/intro/intro-main/intro-main.component';
 
 // i18n
 import { TranslateModule } from '@ngx-translate/core';
@@ -32,13 +32,15 @@ import { PenroseComponent } from './penrose/penrose.component';
     HttpClientModule,
     SampleCpntComponent,
     NavComponent,
-    PenroseComponent
+    PenroseComponent,
+    IntroMainComponent
   ],
   declarations: [
     SampleCpntComponent,
     DropdownOptionComponent,
     NavComponent,
     PenroseComponent,
+    IntroMainComponent
   ]  
 })
 export class SharedModule { }

@@ -13,6 +13,7 @@ import { CONFIG, THREE } from '@app/core/config/configs';
 
 // three
 import { CinematicCamera } from 'three/examples/jsm/cameras/CinematicCamera';
+import { Router } from '@angular/router';
 
 
 
@@ -30,6 +31,7 @@ export class IntroMainComponent {
     private utilService: UtilityService,
     private renderer2: Renderer2,
     private automationService: AutomationService,
+    private router:Router
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub = new Subject<void>()
@@ -44,8 +46,13 @@ export class IntroMainComponent {
   quotesAnimationsIsComplete: boolean = false;
   mainPodClass = "MainPod MainPodScreen0"
 
-  ngAfterViewInit(): void {
+  mainPodTransitionEnd(evt:TransitionEvent) {
+    
+    this.canDeactivateSubj.next(true)
+  }
 
+  ngAfterViewInit(): void {
+    console.log("fire")
     this.displayDiv = this.automationService.documentQuerySelector("intro-main .Pod0")
     this.setPhraseObject();
     this.init();
@@ -81,15 +88,16 @@ export class IntroMainComponent {
     .pipe(
       takeUntil(this.ngUnsub),
       tap(()=>{
+        this.router.navigate(['/home'])
         this.mainPodClass = "MainPod MainPodScreen1"
         this.cdref.detectChanges()
-        // console.log("fire")
+
       })
     )
   }
 
   phraseTransitionEnd = (evt?: TransitionEvent) => {
-
+    evt?.stopPropagation();
     this.zDimForCamera = 5000 - (this.zDimCounter * 300);
 +
     timer(3000)
@@ -128,7 +136,6 @@ export class IntroMainComponent {
     .subscribe()
     
   }
-
 
 
   presentationAnimationSubj = (() => {
@@ -270,5 +277,7 @@ export class IntroMainComponent {
     this.ngUnsub.next();
     this.ngUnsub.complete()
   }
+
+  canDeactivateSubj = new Subject<boolean>()
 
 }

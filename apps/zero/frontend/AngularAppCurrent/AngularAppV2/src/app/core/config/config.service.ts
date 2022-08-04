@@ -18,6 +18,7 @@ export class ConfigService {
     private utilService:UtilityService,
   ) { }
 
+  /**@deprecated, working on making i18n loading synchronous */
   initI18NValues(){
 
     CONFIG.i18n.appDropdownSelect =       this.utilService.getValueByi18nKey("app.dropdown.select")

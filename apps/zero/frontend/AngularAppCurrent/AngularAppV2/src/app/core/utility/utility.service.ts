@@ -3,15 +3,18 @@ import { LowerCasePipe, TitleCasePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 // i18n
-import { TranslateService } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  
 })
 export class UtilityService {
 
   constructor(
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    
   ) { }
 
 
@@ -28,8 +31,13 @@ export class UtilityService {
   }
 
   getValueByi18nKey = (value: string) => {
-    
+
+
     return this.translateService.instant(value)
+  }
+
+  async waitForTranslationsToLoad(){
+    return lastValueFrom(this.translateService.use('en'));
   }
 
   eventDispatcher(event: string, element: HTMLElement | Window | Element) {

@@ -1,5 +1,5 @@
 // angular
-import { NgModule } from '@angular/core';
+import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +12,10 @@ import { SharedModule } from '@shared/shared.module';
 import { environment as env } from '@environment/environment';
 
 // i18n
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 declare global{
   var TWEEN:any
@@ -38,6 +40,14 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 
+function waitFori18nextToLoad(translateService: TranslateService): () => Observable<any> {
+  return () => {
+    return translateService.use('en')
+
+  }
+
+ }
+
 @NgModule({
   declarations: [
     AppComponent
@@ -50,13 +60,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient],
-      }
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+    }
   })
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: waitFori18nextToLoad,
+    deps:[TranslateService],
+    multi: true
+   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  }
