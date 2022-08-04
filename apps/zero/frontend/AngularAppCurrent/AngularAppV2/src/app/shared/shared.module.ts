@@ -17,9 +17,16 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 import { NavComponent } from './nav/nav.component';
 import { PenroseComponent } from './penrose/penrose.component';
+import { FooterComponent } from '@core/components/footer/footer.component';
 
 
 
+let components = [
+  SampleCpntComponent,
+  FooterComponent,
+  PenroseComponent,
+  IntroMainComponent,
+]
 @NgModule({
   imports:[
     CommonModule,
@@ -27,20 +34,15 @@ import { PenroseComponent } from './penrose/penrose.component';
     RouterModule
   ],
   exports: [
+    ...components,
     WmlComponentsModule,
     TranslateModule,
     HttpClientModule,
-    SampleCpntComponent,
-    NavComponent,
-    PenroseComponent,
-    IntroMainComponent
   ],
   declarations: [
-    SampleCpntComponent,
+    ...components,
     DropdownOptionComponent,
-    NavComponent,
-    PenroseComponent,
-    IntroMainComponent
+    NavComponent
   ]  
 })
 export class SharedModule { }
