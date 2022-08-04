@@ -23,13 +23,19 @@
         top:0
       }
       .Pod1Item0{
-        @include outline;
         width: 50%;
         height: 100%;
-        transition: left 2s;
+        transition: left .5s;
         left: -50%;
         position: relative;
-        background-color: rgba(144,144,144,0.8);
+        background-color: rgba(144,144,144);
+      }
+      .Pod1Item1{
+        padding:var(--spacing7) var(--spacing4);
+        border:1px solid var(--black);
+        &:last-child{
+          border-bottom:2px solid var(--black);
+        }
       }
       
     }

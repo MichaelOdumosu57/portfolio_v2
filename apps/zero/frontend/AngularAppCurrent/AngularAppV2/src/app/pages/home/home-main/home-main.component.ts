@@ -37,6 +37,7 @@ export class HomeMainComponent  {
 
 
   mobileDivStyle:Partial<CSSStyleDeclaration> = {}
+  mobileViewIsPresent:boolean = false
 
   introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.baseService.restartIntro)
   homeButton:  WMLButton = this.baseService.generateButton('global.nav.home')
@@ -52,18 +53,34 @@ export class HomeMainComponent  {
     this.contactButton,    
   ]
   ngOnInit(): void {
-    timer(5000)
+
+  }
+
+  openMobileNav=()=> {
+    this.mobileViewIsPresent = true
+    this.cdref.detectChanges();
+    timer(500)
     .pipe(
       takeUntil(this.ngUnsub),
       tap(()=>{
-        this.mobileDivStyle=  {
-          left:"0%"
-        }
-        this.cdref.detectChanges()
+        this.mobileDivStyle = {
+          left: "0%"
+        };
+        this.cdref.detectChanges();
       })
     )
     .subscribe()
+
   }
+
+  closeMobileNav= ()=> {
+    this.mobileViewIsPresent = false
+    this.mobileDivStyle = {
+      left: "-50%"
+    };
+    this.cdref.detectChanges();
+  }
+
 
   ngOnDestroy(){
     this.ngUnsub.next();
