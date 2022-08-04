@@ -3,19 +3,16 @@
     "header":"Cpnt Created"
   },
   "app":{
-    "on":"Take off",
-    "off":"Add on",
-    "submit":"Submit",
-    "removeDropdownOption":"Remove Dropdown Option",
-    "dropdown":{
-      "select":"Please Select An Option",
-      "option":"Option"
-    }
+
   },
-  "nav":{
-    "title":"Some Powerful Components",
-    "homeNav":"Home",
-    "formNav":"Form"
+  "global":{
+    "nav":{
+      "intro":"Intro",
+      "home":"Home",
+      "resume":"Resume",
+      "stories":"Stories",
+      "contact":"Contact"
+    }
   },
   "intro":{
     "phrases":[
@@ -26,9 +23,7 @@
       "When faced with the greatest of pressures, remain calm."
     ]
   },
-  "form":{
-    "invalidFormMsg":"Please fill out all required fields",
-    "submitFormSuccess":"Form Submitted Sucessfully",
-    "submitFormError":"Form Submission Error, please try again or contact support if the problem persists"
+  "home":{
+    "title":"Michael Odumosu"
   }
 }

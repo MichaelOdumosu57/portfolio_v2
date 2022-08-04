@@ -1,7 +1,28 @@
 import { ChangeDetectorRef } from "@angular/core";
 
-export class WMLView {
-  constructor(params?:Partial<WMLView>){
+
+
+export class WMLUIProperty{
+  constructor(params:Partial<WMLUIProperty> = {}){
+    Object.assign(
+      this,
+      {
+        ...params
+      }
+    )
+  }
+  isPresent:boolean = true 
+  value?:string = ""
+  class?:string = ""
+  style?:Partial<CSSStyleDeclaration> = {}
+  type?:any
+  click?:(evt:Event)=> void
+}
+
+
+export class WMLView extends WMLUIProperty{ 
+  constructor(params:Partial<WMLView> ={}){
+    super();
     Object.assign(
       this,
       {
@@ -10,8 +31,8 @@ export class WMLView {
     )
   }
 
-  isPresent:boolean = true
   cdref?:ChangeDetectorRef
+  
 }
 
 export class WMLWrapper {
@@ -24,4 +45,21 @@ export class WMLWrapper {
     )
   }
   view:WMLView =new WMLView()
+}
+
+
+export class WMLButton extends WMLWrapper {
+  constructor(params:Partial<WMLButton> = {}){
+    super()
+    Object.assign(
+      this,
+      {
+        ...params
+      }
+    )
+  }
+  button = new WMLUIProperty();
+  text = new WMLUIProperty();
+  icon = new WMLUIProperty();
+
 }

@@ -1,5 +1,5 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostBinding, OnInit } from '@angular/core';
 
 // services
 import { ConfigService } from '@app/core/config/config.service';
@@ -11,6 +11,9 @@ import { Subject } from 'rxjs';
 
 // misc
 import { CONFIG } from '@app/core/config/configs';
+
+// wml-components
+import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 
 @Component({
   selector: 'home-main',
@@ -25,12 +28,52 @@ export class HomeMainComponent  {
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
     private configService:ConfigService,
-    private baseService:BaseService
+    private baseService:BaseService,
+    private el:ElementRef<HTMLInputElement>
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()  
 
+
+  introButton: WMLButton = new WMLButton({
+    button:new WMLUIProperty({}),
+    text:new WMLUIProperty({
+      value:this.utilService.getValueByi18nKey('global.nav.intro')
+    })
+  })
+  homeButton:  WMLButton = new WMLButton({
+    button:new WMLUIProperty({}),
+    text:new WMLUIProperty({
+      value:this.utilService.getValueByi18nKey('global.nav.home')
+    })
+  })
+  resumeButton: WMLButton = new WMLButton({
+    button:new WMLUIProperty({}),
+    text:new WMLUIProperty({
+      value:this.utilService.getValueByi18nKey('global.nav.resume')
+    })
+  })
+  storiesButton: WMLButton = new WMLButton({
+    button:new WMLUIProperty({}),
+    text:new WMLUIProperty({
+      value:this.utilService.getValueByi18nKey('global.nav.stories')
+    })
+  })
+  contactButton: WMLButton = new WMLButton({
+    button:new WMLUIProperty({}),
+    text:new WMLUIProperty({
+      value:this.utilService.getValueByi18nKey('global.nav.contact')
+    })
+  })  
+  navButtons : WMLButton[]= [
+    this.introButton,
+    this.homeButton,
+    this.resumeButton,
+    this.storiesButton,
+    this.contactButton,    
+  ]
   ngOnInit(): void {
+    this.el.nativeElement.style
   }
 
   ngOnDestroy(){

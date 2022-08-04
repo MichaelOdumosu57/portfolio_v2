@@ -43,7 +43,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 function waitFori18nextToLoad(translateService: TranslateService): () => Observable<any> {
   return () => {
-    console.log(CONFIG)
     
     return translateService.use('en')
 
@@ -69,6 +68,7 @@ function waitFori18nextToLoad(translateService: TranslateService): () => Observa
     }
   })
   ],
+
   providers: [{
     provide: APP_INITIALIZER,
     useFactory: waitFori18nextToLoad,

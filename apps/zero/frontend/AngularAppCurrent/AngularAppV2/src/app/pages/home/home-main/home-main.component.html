@@ -1,3 +1,7 @@
 <main [class]="'MainPod'">
-  <p>home-main  works!</p>
+  <wml-card class="Pod0">
+    <nav class="Pod0Item0">
+      <button class="Pod0Button0" *ngFor="let wmlButton of navButtons">{{wmlButton.text.value}}</button>
+    </nav>
+  </wml-card>
 </main>
