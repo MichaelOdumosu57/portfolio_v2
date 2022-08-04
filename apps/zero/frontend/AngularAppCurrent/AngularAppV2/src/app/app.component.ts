@@ -44,17 +44,28 @@ export class AppComponent {
 
 
   ngOnInit() {
-    // this.configService.initI18NValues()
     this.listenForOverlayLoadingToggle();
     this.doMiscConfigs()
+    this.listenForRestartIntro().subscribe()
+  }
+
+  listenForRestartIntro(){
+    return this.baseService.restartIntroSubj
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap(()=>{
+        this.toggleIntroMainIsPresent(true)
+        this.router.navigate([CONFIG.nav.intro])
+      })
+    )
+    
   }
 
   doMiscConfigs() {
-    //remove version
     if (env.production) {
       this.vcf.element.nativeElement.removeAttribute("ng-version");
     }
-    //
+    
 
     CONFIG.nav.initialURL = window.location.pathname
     if(CONFIG.nav.initialURL === "/"){

@@ -8,11 +8,15 @@ export class BaseService {
 
   constructor() { }
 
-  i18nValuesAreReadySubj=new ReplaySubject<void>(Infinity)
   toggleOverlayLoadingSubj=new Subject<boolean>()
+  restartIntroSubj = new Subject<void>()
 
   closeOverlayLoading = finalize(()=>{
     
     this.toggleOverlayLoadingSubj.next(false)
   })
+
+  restartIntro(){
+    this.restartIntroSubj.next()
+  }
 }

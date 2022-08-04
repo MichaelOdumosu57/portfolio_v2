@@ -29,14 +29,18 @@ export class HomeMainComponent  {
     private utilService:UtilityService,
     private configService:ConfigService,
     private baseService:BaseService,
-    private el:ElementRef<HTMLInputElement>
+    
   ) { }
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject<void>()  
 
 
   introButton: WMLButton = new WMLButton({
-    button:new WMLUIProperty({}),
+    button:new WMLUIProperty({
+      click:()=>{
+        this.baseService.restartIntro()
+      }
+    }),
     text:new WMLUIProperty({
       value:this.utilService.getValueByi18nKey('global.nav.intro')
     })
@@ -73,7 +77,6 @@ export class HomeMainComponent  {
     this.contactButton,    
   ]
   ngOnInit(): void {
-    this.el.nativeElement.style
   }
 
   ngOnDestroy(){
