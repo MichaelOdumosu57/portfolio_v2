@@ -6,6 +6,7 @@
     width:  100vw;
     display: block;
     overflow: hidden;    
+
   }
   .Main {
     &Pod{
@@ -16,6 +17,7 @@
       align-items:center ;
       justify-content: flex-end;
       flex-direction: column;
+      
     }
   }
   .Pod{

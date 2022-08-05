@@ -6,10 +6,23 @@
 
 
 
+      .CertsMainPod0Title0{
+        text-align: center;
+        font-size: calc( calc(24/16* 1rem) + 1.5vw);
+      }
       .CertsMainPod1Item0{
         margin :var(--spacing4) 0 0 0 ;
       }
       
+      .CertsMainPod0Item0{
+        position: relative;
+        justify-content: center;
+        margin :var(--spacing4) 0 0 0 ;
+      }
+      .CertsMainPod0{
+        flex-direction: column;
+        justify-content: center;
+      }
       .CertsMainView{
         height: 100%;
       }

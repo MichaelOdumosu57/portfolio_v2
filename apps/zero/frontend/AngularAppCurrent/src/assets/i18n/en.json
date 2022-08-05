@@ -28,6 +28,7 @@
     "summary":"Software developer with years of leadership experience. Constructed applications serving thouands of users in the financial and real estate industry. Managed core and external teams and mentored aspiring job seekers searching to enter the industry. Certified in GCP and AWS technologies. "
   },
   "certsMain":{
+    "backTextValue":"Back",
     "title":"Certifications",
     "summary":"Certifications include Google Cloud Platform and AWS. ",
     "cardsImgAlts":["aws","codecademy","coursera","gcp","pluralsight"],
@@ -40,8 +41,8 @@
     "courseraTitles": ["Data Engineering, Big Data and Machine Learning on GCP","Building Batch Data Pipelines on GCP","Building Resilient Streaming Analytics Systems on GCP","Google Cloud Platform Big Data and Machine Learning Fundamentals","Modernizing Data Lakes and Data Warehouses with GCP","Smart Analytics, Machine Learning, and AI on GCP"],
     "gcpImgAlts":["Get Started with Google Maps Platform badge","Visualize Data on Google Maps Platform badge","Web Vitals","WebRTC"],
     "gcpTitles":["Get Started with Google Maps Platform badge","Visualize Data on Google Maps Platform badge","Web Vitals","WebRTC" ],
-    "pluralSightImgAlts":["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Applications with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"],
-    "pluralSightTitles": ["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Applications with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"]   
+    "pluralSightImgAlts":["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"],
+    "pluralSightTitles": ["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"]   
   },
   "footer":{
     "langs":{

@@ -61,6 +61,8 @@ class DefaultConfigs extends Configs  {
 
   constructor(){
     super()
+    this.intro.moveIntroToAboveScreen = 3000
+    this.intro.phrasesCompleteNumber = 4
   }
 }
 

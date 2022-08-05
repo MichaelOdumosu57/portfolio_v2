@@ -1,12 +1,26 @@
 <main [class]="classPrefix('MainPod')">
   <div [class]="classPrefix('Pod0') ">
-    <h1>{{ 'certsMain.title' | translate}}</h1>
+    <h1 [class]="classPrefix('Pod0Title0')">{{ 'certsMain.title' | translate}}</h1>
+    <div [class]="classPrefix('Pod0Item0')">
+      <button *ngIf="backButton.button.isPresent" [class]="classPrefix('Pod0Button') + ' GlobalButton0'" (click)="backButton.button.click && backButton.button.click($event)">
+        <label>{{backButton.text.value ?? ""  | translate}}</label>
+      </button>
+    </div>
+
   </div>
   <div [class]="classPrefix('Pod1') + ' row'" >
     <div [class]="classPrefix('Pod1Item0') + '  col-md-2 col-sm-4 col-7'" *ngFor="let card of displayCards" (click)="card.click && card.click($event,card)">
       <img [class]="classPrefix('Pod1Img0')" [src]="card.imgSrc" [alt]="card.imgAlt | translate"/>
       <h2 [class]="classPrefix('Pod1Text0')" >{{card.displayTitle | translate}}</h2>
     </div>
+  </div>
+  <div [class]="classPrefix('Pod2')" *ngIf="certViewerView.isPresent">
+    <wml-card  [class]="certViewerCard.class" [ngStyle]="certViewerCard.style" (transitionend)=certViewerCardTransitionend($event) >
+      <div [class]="classPrefix('Pod2Item2')">
+        <img [class]="classPrefix('Pod2Img0')" src="assets/media/nav_1.svg"  (click)="closeCertViewer($event)" />
+      </div>
+      <img [class]="classPrefix('Pod2Item3')" [src]="certViewerImgSrc" [alt]="certViewerImgAlt"/>
+    </wml-card>
   </div>
 
 </main>

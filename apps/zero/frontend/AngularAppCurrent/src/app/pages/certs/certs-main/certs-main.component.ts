@@ -1,5 +1,5 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,13 +9,15 @@ import { UtilityService } from '@app/core/utility/utility.service';
 import { BaseService } from '@core/base/base.service';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { Subject, timer } from 'rxjs';
+import { takeUntil,tap } from 'rxjs/operators';
 
 // misc
 import { CONFIG } from '@app/core/config/configs';
 
 // wml-components
-import { WMLUIProperty } from '@shared/wml-components/models';
+import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
+import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 @Component({
   selector: 'certs-main',
@@ -24,20 +26,84 @@ import { WMLUIProperty } from '@shared/wml-components/models';
   changeDetection:ChangeDetectionStrategy.OnPush
 
 })
-export class CertsMainComponent  {
+export class CertsMainComponent   {
 
   constructor(
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
     private configService:ConfigService,
     private baseService:BaseService,
-    private router:Router
+    private router:Router,
+    private automationService:AutomationService
+  
   ) { }
   classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.certsMain)
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
-  ngUnsub= new Subject<void>() 
+
+  ngUnsub= new Subject<void>();
+  
+  certViewerImgSrc = ""
+  certViewerImgAlt = ""
+  certViewerView = new WMLUIProperty({isPresent:false})
+  certViewerCard = new WMLUIProperty({class:this.classPrefix('Pod2Item0')})
+  closeCertViewerWasTriggered = false
+  
+  certViewerCardTransitionend = (evt:Event)=>{
+    evt.stopPropagation()
+    if(this.closeCertViewerWasTriggered){
+      this.certViewerView.isPresent = false;
+      this.cdref.detectChanges();
+      this.closeCertViewerWasTriggered = false
+    }
+
+  }
+  openCertViewer =(evt:Event,card:CertCard)=> {
+    evt.stopPropagation()
+    this.certViewerView.isPresent = true;
+    
+    this.cdref.detectChanges();
+    timer(1000)
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap(() => {
+          
+          this.certViewerImgSrc = card.imgSrc
+          this.certViewerImgAlt = card.imgAlt          
+          this.certViewerCard.class = this.classPrefix('Pod2Item1')
+          this.certViewerCard.style.height = "100%";
+          this.certViewerCard.style.width = "100%";
+          this.cdref.detectChanges();
+        })
+      )
+      .subscribe()
+  }
+
+  closeCertViewer =(evt:Event)=> {
+    
+    evt.stopPropagation()
+    this.closeCertViewerWasTriggered = true;
+    this.certViewerCard.class = this.classPrefix('Pod2Item0')
+    this.certViewerCard.style.height = "1%";
+    this.certViewerCard.style.width = "1%";
+    this.cdref.detectChanges();
+
+  } 
 
   
+  backButton = new WMLButton({
+    text:new WMLUIProperty({
+      value:"certsMain.backTextValue"
+    }),
+    button:new WMLUIProperty({
+      click:(evt:Event)=>{
+        this.utilService.clearArray(this.displayCards)
+        this.displayCards.push(...this.certCards);
+        this.backButton.button.isPresent = false
+        this.cdref.detectChanges()        
+      },
+      isPresent:false
+    })
+  })
   certCards:CertCard[] = Array(5)
   .fill(null)
   .map((nullVal,index0)=>{
@@ -55,6 +121,7 @@ export class CertsMainComponent  {
       click:(evt,card)=>{
         this.utilService.clearArray(this.displayCards)
         this.displayCards.push(...this.certCategory[card.title]);
+        this.backButton.button.isPresent = true
         this.cdref.detectChanges()
 
       }
@@ -68,7 +135,8 @@ export class CertsMainComponent  {
     return new CertCard({
       imgSrc:`assets/media/aws_${index0}.PNG`,
       imgAlt:  "certsMain.awsImgAlts."+index0,
-      displayTitle:  "certsMain.awsTitles."+index0
+      displayTitle:  "certsMain.awsTitles."+index0,
+      click:this.openCertViewer
     })
   })
 
@@ -120,10 +188,18 @@ export class CertsMainComponent  {
     [CONFIG.certsMain.categories[4]]:this.pluralSightCertCards,
   }
 
+
+
   ngOnInit(): void {
     this.initDisplayCards();
+
   }
-    
+
+  ngAfterViewInit(): void {
+    this.automationService.openCertViewer()
+  }
+
+
 
   initDisplayCards() {
     this.displayCards.push(...this.certCards);

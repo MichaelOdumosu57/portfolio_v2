@@ -39,4 +39,11 @@ export class AutomationService {
   documentQuerySelector(selector:string){
     return document.querySelector(selector) as HTMLElement
   }
+
+  openCertViewer(){
+    let awsCerts = this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
+    awsCerts.click()
+    // let chosenCert =  this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
+    // chosenCert.click()
+  }
 }

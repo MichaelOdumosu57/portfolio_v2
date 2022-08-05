@@ -16,12 +16,32 @@
           flex-direction: column;
           height: 100%;
           
+          
 
         }
       }
       &Pod{
         &0{
           margin: 0 0 var(--spacing3) 0;
+          display: flex;
+          width: 100%;
+          position:relative;
+          justify-content: center;
+          &Button{
+            &0{
+              justify-self: flex-end;
+            }
+          }
+          &Item{
+            &0{
+              display:flex;
+              position: absolute;
+              justify-content: flex-end;
+              flex:0 1 30%;
+              left:0;
+              width:100%;
+            }
+          }
         }
         &1{
 
@@ -42,13 +62,14 @@
               margin: var(--spacing4) var(--spacing6) 0 0;
             }
             &1{
-              flex: 0 0 50%;
+              flex: 1 0 50%; 
+              
             }
           }
           &Text{
             &0{
               text-align: center;
-              font-size: calc( calc(8/16* 1rem) + 1.5vw);
+              font-size: calc( calc(2/16* 1rem) + 1.5vw);
             } 
           }
           &Img{
@@ -58,6 +79,52 @@
               max-height:50%;
               border-bottom: 5px solid var(--black);
               border-radius:  var(--certs-main-border-radius) var(--certs-main-border-radius) 0 0 ;
+            }
+          }
+        }
+        &2{
+          position: absolute;
+          left:0;
+          top:0;
+          width:100%;
+          height: 100%;
+          padding:var(--spacing4);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: var(--dimmed-grey);
+          &Item{
+            &0,&1{
+              width: 1%;
+              height: 1%;
+              transition: width 2s, height 2s;
+              display: flex;
+              flex-direction: column;
+            }
+            &0{
+              * {
+                transition: opacity 2s;
+                opacity: 0;
+              }
+            }
+            &1{
+              * {
+                transition: opacity 2s;
+                opacity: 1;
+              }
+            }            
+            &2{
+              display: flex;
+              width: 100%;
+              justify-content: flex-end;
+            }
+            &3{
+              overflow: auto;
+            }
+          }
+          &Img{
+            &0{
+              max-height: var(--spacing8);
             }
           }
         }

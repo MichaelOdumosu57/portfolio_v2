@@ -11,7 +11,8 @@ Only members of the project can read the README.md from the ignore folder
 ## [Trello](paste trello url here)
 
 ## Issues
-* figure out why stop progpagatin is not working
+* figure out why stop progpagatin is not working for click event for the mobile display
+* be careful with the certs page, for abosulelely positioned elements to the page you have to ensure that none of the parents are using a position or else the website will break, if this happens, make all abosulate page elements at top level in app compoennt and use service to communite
 # Stack 
 
 ## Frontend
