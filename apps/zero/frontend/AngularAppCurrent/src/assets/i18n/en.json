@@ -59,6 +59,9 @@
           "required":"Please enter a message"
         }
       }
+    },
+    "submit":{
+      "text":"Submit"
     }
   },
   "footer":{

@@ -12,7 +12,7 @@ export class WMLUIProperty{
     )
   }
   isPresent:boolean = true 
-  value?:string = ""
+  value:string = ""
   class?:string = ""
   style:Partial<CSSStyleDeclaration> = {}
   type?:any

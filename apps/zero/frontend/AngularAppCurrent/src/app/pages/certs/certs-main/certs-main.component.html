@@ -3,7 +3,7 @@
     <h1 [class]="classPrefix('Pod0Title0')">{{ 'certsMain.title' | translate}}</h1>
     <div [class]="classPrefix('Pod0Item0')">
       <button *ngIf="backButton.button.isPresent" [class]="classPrefix('Pod0Button') + ' GlobalButton0'" (click)="backButton.button.click && backButton.button.click($event)">
-        <label>{{backButton.text.value ?? ""  | translate}}</label>
+        <label>{{backButton.text.value   | translate}}</label>
       </button>
     </div>
 

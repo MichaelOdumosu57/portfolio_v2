@@ -75,6 +75,18 @@
 
 
       }
+
+      &1 {
+        background-color: var(--black);
+        color: var(--white);
+        border: 1px solid var(--white);
+
+        &:hover {
+          background-color: var(--white);
+          color: var(--black);
+          border: 1px solid var(--black);
+        }
+      }
     }
   }
 

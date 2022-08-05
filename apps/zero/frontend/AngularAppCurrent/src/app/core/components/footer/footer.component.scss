@@ -26,15 +26,9 @@
 
           &Button {
             &0 {
-              background-color: var(--black);
-              color: var(--white);
-              border: 1px solid var(--white);
+
               margin: 0 var(--spacing5) var(--spacing5) 0;
 
-              &:hover {
-                background-color: var(--white);
-                color: var(--black);
-              }
             }
           }
         }

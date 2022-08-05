@@ -20,6 +20,7 @@ import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WMLForm } from '@shared/wml-components/wml-form/wml-form.component';
 import { WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
+import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 
 @Component({
   selector: 'contact-main',
@@ -69,6 +70,12 @@ export class ContactMainComponent  {
         required:this.utilService.getValueByi18nKey("contactMain.form.msgText.errorMsgs.required")
       }
     }
+  })
+
+  submitButton = new WMLButton({
+    text:new WMLUIProperty({
+      value:"contactMain.submit.text"
+    })
   })
 
   fields= [this.nameField,this.msgTextField]
