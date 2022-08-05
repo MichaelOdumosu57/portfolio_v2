@@ -2,12 +2,14 @@
 
 #root{
   home-main{
-    @media screen and (max-width: 533px){
+    @media screen and (max-width: 576px){
       > .MainPod{
         overflow: hidden scroll;
         // height: auto;
         justify-content: flex-start;
         // background-color: blue;
+      
+
       }
       .Pod0Item0{
         display: none;

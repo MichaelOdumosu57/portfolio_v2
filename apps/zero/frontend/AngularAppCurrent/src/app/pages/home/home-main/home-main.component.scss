@@ -22,10 +22,11 @@
     &0{
       flex:  1 1 85%;
       // max-height:calc(1024/16* 1rem);
-      width:90%;
+      width:95%;
       margin:var(--spacing5) 0 0 0 ;
       display: flex;
       flex-direction: column;
+      overflow: hidden ;
       &Img{
         &0{
           display: none;
@@ -44,7 +45,8 @@
           flex:1 1 100%;
           border:5px solid var(--black);
           border-radius: var(--spacing5);
-          padding:var(--spacing4)
+          padding:var(--spacing4);
+          overflow: hidden;
         }
       }
 

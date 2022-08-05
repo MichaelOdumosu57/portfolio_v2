@@ -23,6 +23,9 @@ class Configs {
     presenterFieldFormControlName:"myPresenter",
     submitFormEndpoint:"http://localhost:5000/form/submit",
   }
+  classPrefix= {
+    certsMain:"CertsMain",
+  }
 
   intro={
     backgroundColor:0xA0B86A,

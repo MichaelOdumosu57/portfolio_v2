@@ -1,0 +1,18 @@
+@import "src/assets/styles/global.scss";
+
+#root{
+  certs-main{
+    @media screen and (max-width: 576px){
+
+      .CertsMainMainPod{
+        @include outline;
+      }
+      .CertsMainPod1{
+        overflow: hidden scroll;
+      }
+      .CertsMainView{
+        height: 100%;
+      }
+    }
+  }
+}

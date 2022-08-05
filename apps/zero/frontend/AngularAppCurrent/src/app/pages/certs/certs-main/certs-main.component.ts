@@ -30,9 +30,11 @@ export class CertsMainComponent  {
     private configService:ConfigService,
     private baseService:BaseService
   ) { }
-  @HostBinding('class') myClass: string = `View`;
+  classPrefix = this.utilService.classPrefix(CONFIG.classPrefix.certsMain)
+  @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()  
   certCards:CertCard[] = Array(5)
+  
   .fill(null)
   .map((nullVal,index0)=>{
     return new CertCard({

@@ -8,13 +8,13 @@ import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
-  
+
 })
 export class UtilityService {
 
   constructor(
     private translateService: TranslateService,
-    
+
   ) { }
 
 
@@ -36,7 +36,7 @@ export class UtilityService {
     return this.translateService.instant(value)
   }
 
-  async waitForTranslationsToLoad(){
+  async waitForTranslationsToLoad() {
     return lastValueFrom(this.translateService.use('en'));
   }
 
@@ -53,16 +53,21 @@ export class UtilityService {
     }
   }
 
-  numberParse(   dimension:any /* string or array */  ):number{
-    
-    if(typeof dimension === "string"){
-        return parseFloat(dimension.split("p")[0])
+  numberParse(dimension: any /* string or array */): number {
+
+    if (typeof dimension === "string") {
+      return parseFloat(dimension.split("p")[0])
     }
-    else{
-        return dimension
-        .map((x:string)=>{
-            return parseFloat(x.split("p")[0])
+    else {
+      return dimension
+        .map((x: string) => {
+          return parseFloat(x.split("p")[0])
         })
+    }
+  }
+  classPrefix(prefix){
+    return (val:string)=>{
+        return prefix+val
     }
 }
 

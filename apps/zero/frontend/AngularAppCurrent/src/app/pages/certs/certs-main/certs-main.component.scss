@@ -6,38 +6,49 @@
 
   --certs-main-border-radius:10px;
 
-  &.View {
-  }
-  .Main {
-    &Pod{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-  }
-  .Pod{
-    &0{
-      margin: 0 0 var(--spacing3) 0;
-    }
-    &1{
-      width: 100%;
-      justify-content: space-between;
-      &Item{
-        &0{
-          border:1px solid var(--black); 
-          height:var(--spacing14);
-          border-radius:var(--certs-main-border-radius);
-          display:flex;
-          flex-direction: column;
+  &.CertsMainView{
 
-        }
+    .CertsMainMain {
+      &Pod{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        
+
       }
-      &Img{
-        &0{
-          width:100%;
-          flex: 0 0 50%;
-          
-          border-radius:  var(--certs-main-border-radius) var(--certs-main-border-radius) 0 0 ;
+    }
+    .CertsMainPod{
+      &0{
+        margin: 0 0 var(--spacing3) 0;
+      }
+      &1{
+
+
+        width: 100%;
+        justify-content: space-between;
+
+        &Item{
+          &0{
+            border:1px solid var(--black); 
+            // height:var(--spacing14);
+            border-radius:var(--certs-main-border-radius);
+            display:flex;
+            flex-direction: column;
+            position: relative;
+          }
+          &1{
+            flex: 0 0 50%;
+          }
+        }
+        &Img{
+          &0{
+            width:100%;
+            flex: 0 0 50%;
+            max-height:50%;
+            border-radius:  var(--certs-main-border-radius) var(--certs-main-border-radius) 0 0 ;
+          }
         }
       }
     }
