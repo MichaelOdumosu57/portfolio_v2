@@ -8,6 +8,11 @@ import { CONFIG } from '@core/config/configs';
 
 // services
 import { UtilityService } from '@core/utility/utility.service';
+
+// misc
+import { environment  as env } from '@environment/environment';
+
+// wml-components
 import { WmlDropdownOptionsMeta } from '@shared/wml-components/wml-dropdown/wml-dropdown-option/wml-dropdown-option.component';
 
 @Injectable({
@@ -41,6 +46,7 @@ export class AutomationService {
   }
 
   openCertViewer(){
+    if(env.production) return
     let awsCerts = this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
     awsCerts.click()
     // let chosenCert =  this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")

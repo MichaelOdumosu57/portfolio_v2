@@ -89,7 +89,6 @@ export class CertsMainComponent   {
 
   } 
 
-  
   backButton = new WMLButton({
     text:new WMLUIProperty({
       value:"certsMain.backTextValue"
@@ -146,7 +145,8 @@ export class CertsMainComponent   {
     return new CertCard({
       imgSrc:`assets/media/codecademy_${index0}.PNG`,
       imgAlt:  "certsMain.codecademyImgAlts."+index0,
-      displayTitle:  "certsMain.codecademyTitles."+index0      
+      displayTitle:  "certsMain.codecademyTitles."+index0,
+      click:this.openCertViewer      
     })
   })
 
@@ -156,7 +156,8 @@ export class CertsMainComponent   {
     return new CertCard({
       imgSrc:`assets/media/coursera_${index0}.PNG`,
       imgAlt:  "certsMain.courseraImgAlts."+index0,
-      displayTitle:  "certsMain.courseraTitles."+index0      
+      displayTitle:  "certsMain.courseraTitles."+index0,
+      click:this.openCertViewer      
     })
   })
 
@@ -166,7 +167,8 @@ export class CertsMainComponent   {
     return new CertCard({
       imgSrc:`assets/media/gcp_${index0}.PNG`,
       imgAlt:  "certsMain.gcpImgAlts."+index0,
-      displayTitle:  "certsMain.gcpTitles."+index0      
+      displayTitle:  "certsMain.gcpTitles."+index0,
+      click:this.openCertViewer
     })
   })
 
@@ -176,7 +178,8 @@ export class CertsMainComponent   {
     return new CertCard({
       imgSrc:`assets/media/pluralSight (${index0}).PNG`,
       imgAlt:  "certsMain.pluralSightImgAlts."+index0,
-      displayTitle:  "certsMain.pluralSightTitles."+index0      
+      displayTitle:  "certsMain.pluralSightTitles."+index0,
+      click:this.openCertViewer  
     })
   })  
 
