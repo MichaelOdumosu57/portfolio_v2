@@ -3,9 +3,9 @@
     <h1>{{ 'certsMain.title' | translate}}</h1>
   </div>
   <div [class]="classPrefix('Pod1') + ' row'">
-    <div [class]="classPrefix('Pod1Item0') + '  col-sm-2 col-xs-12'" *ngFor="let card of certCards">
+    <div [class]="classPrefix('Pod1Item0') + '  col-md-2 col-sm-4 col-7'" *ngFor="let card of certCards">
       <img [class]="classPrefix('Pod1Img0')" [src]="card.imgSrc" [alt]="card.imgAlt | translate"/>
-      <div [class]="classPrefix('Pod1Item1') "></div>
+      <h2 [class]="classPrefix('Pod1Text0')" >{{card.title | translate}}</h2>
     </div>
   </div>
 

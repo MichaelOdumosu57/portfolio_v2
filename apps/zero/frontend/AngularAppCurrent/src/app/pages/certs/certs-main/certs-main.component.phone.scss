@@ -4,12 +4,12 @@
   certs-main{
     @media screen and (max-width: 576px){
 
-      .CertsMainMainPod{
-        @include outline;
+
+
+      .CertsMainPod1Item0{
+        margin :var(--spacing4) 0 0 0 ;
       }
-      .CertsMainPod1{
-        overflow: hidden scroll;
-      }
+      
       .CertsMainView{
         height: 100%;
       }

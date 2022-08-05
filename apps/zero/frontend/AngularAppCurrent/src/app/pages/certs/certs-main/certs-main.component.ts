@@ -46,6 +46,7 @@ export class CertsMainComponent  {
         "assets/media/certs_4.jfif",
       ][index0],
       imgAlt:"certsMain.cardsImgAlts."+index0,
+      title:"certsMain.cardTitles."+index0
     })
   })
 

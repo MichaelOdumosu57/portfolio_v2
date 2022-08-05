@@ -81,10 +81,6 @@
 
 
 
-body {
-  // padding: 0 0 var(--spacing3) 0;
-  // overflow:hidden
-}
 
 input,
 select,
@@ -108,3 +104,4 @@ h1{
   font-size: calc( var(--fontSize3) + 1.5vw);
   text-decoration: underline solid var(--grey);
 }
+

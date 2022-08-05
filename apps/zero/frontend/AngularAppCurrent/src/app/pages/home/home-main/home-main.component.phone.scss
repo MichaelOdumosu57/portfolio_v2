@@ -4,10 +4,9 @@
   home-main{
     @media screen and (max-width: 576px){
       > .MainPod{
-        overflow: hidden scroll;
-        // height: auto;
+        overflow: hidden auto;
+        
         justify-content: flex-start;
-        // background-color: blue;
       
 
       }

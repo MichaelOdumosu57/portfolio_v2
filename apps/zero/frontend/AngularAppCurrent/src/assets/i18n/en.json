@@ -30,7 +30,8 @@
   "certsMain":{
     "title":"Certifications",
     "summary":"Certifications include Google Cloud Platform and AWS. ",
-    "cardsImgAlts":["aws","codecademy","coursera","gcp","pluralsight"]
+    "cardsImgAlts":["aws","codecademy","coursera","gcp","pluralsight"],
+    "cardTitles":["AWS","Codecademy","Coursera","Google Cloud Platform","Pluralsight"]
   },
   "footer":{
     "langs":{
