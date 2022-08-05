@@ -10,7 +10,7 @@ import { CONFIG } from '@app/core/config/configs';
 import { SampleCpntComponent, SampleCpntMeta } from '../../sample-cpnt/sample-cpnt.component';
 
 // wml compoentns
-import { WMLWrapper } from '../models';
+import { WMLUIProperty, WMLWrapper } from '../models';
 import { addCustomComponent } from '../functions';
 import { WmlInputComponent, WmlInputMeta } from '../wml-input/wml-input.component';
 import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
@@ -99,6 +99,8 @@ export class WMLField extends WMLWrapper {
         fieldCustomMeta?:WMLField["field"]["custom"]["meta"],
         fieldParentForm?:WMLField["field"]["parentForm"],
         fieldFormControlName?:WMLField["field"]["formControlName"],
+        labelValue?:WMLField["label"]["value"],
+        errorMsgs?:WMLField["error"]["msgs"],
       }
     } = {
       type:"default",
@@ -129,7 +131,9 @@ export class WMLField extends WMLWrapper {
         wmlField:this
       })
       this.field.parentForm = custom.fieldParentForm ?? this.field.parentForm  
-      this.field.formControlName = custom.fieldFormControlName ?? this.field.formControlName  
+      this.field.formControlName = custom.fieldFormControlName ?? this.field.formControlName 
+      this.label.value = custom.labelValue ?? this.label.value 
+      this.error.msgs = custom.errorMsgs ?? this.error.msgs
     }
 
 
@@ -139,7 +143,9 @@ export class WMLField extends WMLWrapper {
   }= {
     type:"wml-card"
   }
-  label ={}
+  label =new WMLUIProperty({
+    value:"My Label"
+  })
   field:{
 
     type:"input" | "custom"  //may just make all components dynamic and provide metas 

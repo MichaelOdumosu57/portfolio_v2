@@ -44,6 +44,23 @@
     "pluralSightImgAlts":["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"],
     "pluralSightTitles": ["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"]   
   },
+  "contactMain":{
+    "title":"Contact",
+    "form":{
+      "name":{
+        "label":"Name",
+        "errorMsgs":{
+          "required":"Please enter a name"
+        }
+      },
+      "msg":{
+        "label":"Message",
+        "errorMsgs":{
+          "required":"Please enter a message"
+        }
+      }
+    }
+  },
   "footer":{
     "langs":{
       "english" : "English",

@@ -1,0 +1,8 @@
+<main [class]="classPrefix('MainPod')">
+  <div [class]="classPrefix('Pod0') ">
+    <h1 [class]="classPrefix('Pod0Title0')">{{ 'contactMain.title' | translate}}</h1>
+  </div>
+  <div [class]="classPrefix('Pod1')">
+    <wml-form [fields]="wmlForm.fields"></wml-form>
+  </div>
+</main>

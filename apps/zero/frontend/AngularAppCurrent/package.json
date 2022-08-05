@@ -31,7 +31,7 @@
     "@angular/compiler-cli": "^14.1.1",
     "@types/jasmine": "~4.0.0",
     "@types/three": "^0.143.0",
-    "@windmillcode/angular-templates": "^0.0.0",
+    "@windmillcode/angular-templates": "^0.0.15",
     "@windmillcode/karma-chronium-edge-launcher": "^0.0.1",
     "firebase-tools": "^11.4.1",
     "jasmine-core": "~4.2.0",

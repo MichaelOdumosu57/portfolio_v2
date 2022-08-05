@@ -2,7 +2,6 @@ import { environment as env } from '@environment/environment';
 
 // three.js
 import {MathUtils,Scene,Color,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}   from 'three' ;
-// import {MathUtils,Scene,Color,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer} as THREE from 'https://cdn.jsdelivr.net/npm/three@0.143.0/build/three.module.js';
 import {CinematicCamera} from 'three/examples/jsm/cameras/CinematicCamera';
 
 export let THREE =  {MathUtils,Scene,Color,CinematicCamera,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}
@@ -26,6 +25,7 @@ class Configs {
   classPrefix= {
     certsMain:"CertsMain",
     footer:"Footer",
+    contactMain:"ContactMain",
   }
 
   intro={
@@ -42,6 +42,10 @@ class Configs {
   }
   certsMain={
     categories:["aws","codecademy","coursera","gcp","pluralsight"]
+  }
+  contactMain= {
+    nameFieldFormControlName:"name",
+    msgTextFieldFormControlName:"Message"
   }
   nav = {
     home:"/",

@@ -49,7 +49,7 @@ export class AutomationService {
     if(env.production) return
     let awsCerts = this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
     awsCerts.click()
-    // let chosenCert =  this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
-    // chosenCert.click()
+    let chosenCert =  this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
+    chosenCert.click()
   }
 }

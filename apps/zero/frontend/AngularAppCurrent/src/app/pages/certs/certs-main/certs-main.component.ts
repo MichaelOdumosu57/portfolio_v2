@@ -199,7 +199,7 @@ export class CertsMainComponent   {
   }
 
   ngAfterViewInit(): void {
-    this.automationService.openCertViewer()
+    // this.automationService.openCertViewer()
   }
 
 
