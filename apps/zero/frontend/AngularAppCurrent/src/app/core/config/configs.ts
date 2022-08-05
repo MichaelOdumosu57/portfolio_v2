@@ -40,6 +40,9 @@ class Configs {
     moveIntroToAboveScreen:1000,
     phrasesCompleteNumber:0
   }
+  certsMain={
+    categories:["aws","codecademy","coursera","gcp","pluralsight"]
+  }
   nav = {
     home:"/",
     homeAlt:"/home",

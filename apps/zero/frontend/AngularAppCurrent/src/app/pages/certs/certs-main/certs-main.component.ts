@@ -1,5 +1,7 @@
 // angular
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 // services
 import { ConfigService } from '@app/core/config/config.service';
@@ -28,11 +30,14 @@ export class CertsMainComponent  {
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
     private configService:ConfigService,
-    private baseService:BaseService
+    private baseService:BaseService,
+    private router:Router
   ) { }
-  classPrefix = this.utilService.classPrefix(CONFIG.classPrefix.certsMain)
+  classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.certsMain)
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
-  ngUnsub= new Subject<void>()  
+  ngUnsub= new Subject<void>() 
+
+  
   certCards:CertCard[] = Array(5)
   .fill(null)
   .map((nullVal,index0)=>{
@@ -45,27 +50,84 @@ export class CertsMainComponent  {
         "assets/media/certs_4.jfif",
       ][index0],
       imgAlt:"certsMain.cardsImgAlts."+index0,
-      title:"certsMain.cardTitles."+index0
+      displayTitle:"certsMain.cardTitles."+index0,
+      title:CONFIG.certsMain.categories[index0],
+      click:(evt,card)=>{
+        this.utilService.clearArray(this.displayCards)
+        this.displayCards.push(...this.certCategory[card.title]);
+        this.cdref.detectChanges()
+
+      }
     })
   })
+  displayCards:CertCard[] =[]
 
-  awsCertCards:CertCard[] = Array(5)
+  awsCertCards:CertCard[] = Array(3)
   .fill(null)
   .map((nullVal,index0)=>{
     return new CertCard({
-      imgSrc:[
-        "assets/media/aws_certs_0.png",
-        "assets/media/aws_certs_1.png",
-        "assets/media/aws_certs_2.png",
-        "assets/media/aws_certs_3.png",
-        "assets/media/aws_certs_4.jfif",
-      ][index0],
-      imgAlt:"certsMain.cardsImgAlts."+index0,
-      title:"certsMain.cardTitles."+index0
+      imgSrc:`assets/media/aws_${index0}.PNG`,
+      imgAlt:  "certsMain.awsImgAlts."+index0,
+      displayTitle:  "certsMain.awsTitles."+index0
     })
   })
 
+  codecademyCertCards:CertCard[] = Array(5)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:`assets/media/codecademy_${index0}.PNG`,
+      imgAlt:  "certsMain.codecademyImgAlts."+index0,
+      displayTitle:  "certsMain.codecademyTitles."+index0      
+    })
+  })
+
+  courseraCertCards:CertCard[] = Array(6)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:`assets/media/coursera_${index0}.PNG`,
+      imgAlt:  "certsMain.courseraImgAlts."+index0,
+      displayTitle:  "certsMain.courseraTitles."+index0      
+    })
+  })
+
+  gcpCertCards:CertCard[] = Array(4)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:`assets/media/gcp_${index0}.PNG`,
+      imgAlt:  "certsMain.gcpImgAlts."+index0,
+      displayTitle:  "certsMain.gcpTitles."+index0      
+    })
+  })
+
+  pluralSightCertCards:CertCard[] = Array(7)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:`assets/media/pluralSight (${index0}).PNG`,
+      imgAlt:  "certsMain.pluralSightImgAlts."+index0,
+      displayTitle:  "certsMain.pluralSightTitles."+index0      
+    })
+  })  
+
+  certCategory = {
+    [CONFIG.certsMain.categories[0]]:this.awsCertCards,
+    [CONFIG.certsMain.categories[1]]:this.codecademyCertCards,
+    [CONFIG.certsMain.categories[2]]:this.courseraCertCards,
+    [CONFIG.certsMain.categories[3]]:this.gcpCertCards,
+    [CONFIG.certsMain.categories[4]]:this.pluralSightCertCards,
+  }
+
   ngOnInit(): void {
+    this.initDisplayCards();
+  }
+    
+
+  initDisplayCards() {
+    this.displayCards.push(...this.certCards);
+    this.cdref.detectChanges();
   }
 
   ngOnDestroy(){
@@ -88,7 +150,9 @@ class CertCard{
 
   imgSrc:string = ""
   imgAlt:string = ""
-  title:string = "Title"
+  title:string= ""
+  displayTitle:string = "Title"
   subtitle:string = "SubTitile"
-  description:string = "Title"  
+  description:string = "Description"  
+  click:(evt:Event,card:CertCard)=>void = (evt,card)=>{}
 }

@@ -65,11 +65,17 @@ export class UtilityService {
         })
     }
   }
-  classPrefix(prefix){
-    return (val:string)=>{
-        return prefix+val
+  generateClassPrefix(prefix:string) {
+    return (val: string) => {
+      return prefix + val
     }
-}
+  }
+
+
+
+  clearArray(A: Array<any>) {
+    A.splice(0,A.length)
+  }
 
   makeLowerCase = new LowerCasePipe().transform
   makeTitleCase = new TitleCasePipe().transform
