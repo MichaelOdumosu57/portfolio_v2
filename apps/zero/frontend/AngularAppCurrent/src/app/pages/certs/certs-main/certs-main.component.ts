@@ -34,7 +34,6 @@ export class CertsMainComponent  {
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()  
   certCards:CertCard[] = Array(5)
-  
   .fill(null)
   .map((nullVal,index0)=>{
     return new CertCard({
@@ -44,6 +43,22 @@ export class CertsMainComponent  {
         "assets/media/certs_2.png",
         "assets/media/certs_3.png",
         "assets/media/certs_4.jfif",
+      ][index0],
+      imgAlt:"certsMain.cardsImgAlts."+index0,
+      title:"certsMain.cardTitles."+index0
+    })
+  })
+
+  awsCertCards:CertCard[] = Array(5)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:[
+        "assets/media/aws_certs_0.png",
+        "assets/media/aws_certs_1.png",
+        "assets/media/aws_certs_2.png",
+        "assets/media/aws_certs_3.png",
+        "assets/media/aws_certs_4.jfif",
       ][index0],
       imgAlt:"certsMain.cardsImgAlts."+index0,
       title:"certsMain.cardTitles."+index0

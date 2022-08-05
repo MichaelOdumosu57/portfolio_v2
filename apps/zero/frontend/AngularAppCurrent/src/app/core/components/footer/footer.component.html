@@ -1,10 +1,10 @@
-<main [class]="'MainPod'">
-  <div class="Pod0">
-    <button class="GlobalButton0 Pod0Button0" *ngFor="let wmlButton of langButtons">
+<footer [class]="classPrefix('MainPod')">
+  <div [class]="classPrefix('Pod0')">
+    <button [class]="'GlobalButton0 ' +  classPrefix('Pod0Button0')" *ngFor="let wmlButton of langButtons">
       <label>
         {{wmlButton.text.value}}
       </label>
     </button>
   </div>
 
-</main>
+</footer>

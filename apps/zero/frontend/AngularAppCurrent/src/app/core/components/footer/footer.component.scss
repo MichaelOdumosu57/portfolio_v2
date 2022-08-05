@@ -1,35 +1,42 @@
 @import "src/assets/styles/global.scss";
 
 :host {
-  &.View {
-    width: 100%;
-    bottom:0;
-  }
-  .Main {
-    &Pod{
-      width: 100%;
-    }
-  }
-  .Pod{
-    &0{
-      background-color: var(--black);
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding:var(--spacing5) var(--spacing3) 0 var(--spacing3);
-      border-top:3px solid var(--grey);
-      flex-flow:row wrap;
-      &Button{
-        &0{
-          background-color: var(--black);
-          color:var(--white);
-          border:1px solid var(--white);
-          margin:0 var(--spacing5) var(--spacing5) 0; 
+  &.FooterView {
 
-          &:hover{
-            background-color: var(--white);
-            color: var(--black);
-          }          
+    width: 100%;
+    bottom: 0;
+
+
+    .Footer{
+      &Main {
+        &Pod {
+          width: 100%;
+        }
+      }
+
+      &Pod {
+        &0 {
+          background-color: var(--black);
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: var(--spacing5) var(--spacing3) 0 var(--spacing3);
+          border-top: 3px solid var(--grey);
+          flex-flow: row wrap;
+
+          &Button {
+            &0 {
+              background-color: var(--black);
+              color: var(--white);
+              border: 1px solid var(--white);
+              margin: 0 var(--spacing5) var(--spacing5) 0;
+
+              &:hover {
+                background-color: var(--white);
+                color: var(--black);
+              }
+            }
+          }
         }
       }
     }

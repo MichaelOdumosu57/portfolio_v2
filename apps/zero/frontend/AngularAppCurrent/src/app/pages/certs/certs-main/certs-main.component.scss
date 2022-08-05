@@ -8,55 +8,57 @@
 
   &.CertsMainView{
 
-    .CertsMainMain {
+    .CertsMain{
+      &Main {
+        &Pod{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          height: 100%;
+          
+
+        }
+      }
       &Pod{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-        
-
-      }
-    }
-    .CertsMainPod{
-      &0{
-        margin: 0 0 var(--spacing3) 0;
-      }
-      &1{
-
-
-        width: 100%;
-        justify-content: center;
-        overflow: auto;
-
-        &Item{
-          &0{
-            border:1px solid var(--black); 
-            height:25vw;
-            border-radius:var(--certs-main-border-radius);
-            display:flex;
-            flex-direction: column;
-            position: relative;
-            align-items: center;
-            margin: var(--spacing4) var(--spacing6) 0 0;
-          }
-          &1{
-            flex: 0 0 50%;
-          }
+        &0{
+          margin: 0 0 var(--spacing3) 0;
         }
-        &Text{
-          &0{
-            text-align: center;
-            font-size: calc( calc(8/16* 1rem) + 1.5vw);
-          } 
-        }
-        &Img{
-          &0{
-            width:100%;
-            flex: 0 0 50%;
-            max-height:50%;
-            border-bottom: 5px solid var(--black);
-            border-radius:  var(--certs-main-border-radius) var(--certs-main-border-radius) 0 0 ;
+        &1{
+
+
+          width: 100%;
+          justify-content: center;
+          overflow: auto;
+
+          &Item{
+            &0{
+              border:1px solid var(--black); 
+              height:25vw;
+              border-radius:var(--certs-main-border-radius);
+              display:flex;
+              flex-direction: column;
+              position: relative;
+              align-items: center;
+              margin: var(--spacing4) var(--spacing6) 0 0;
+            }
+            &1{
+              flex: 0 0 50%;
+            }
+          }
+          &Text{
+            &0{
+              text-align: center;
+              font-size: calc( calc(8/16* 1rem) + 1.5vw);
+            } 
+          }
+          &Img{
+            &0{
+              width:100%;
+              flex: 0 0 50%;
+              max-height:50%;
+              border-bottom: 5px solid var(--black);
+              border-radius:  var(--certs-main-border-radius) var(--certs-main-border-radius) 0 0 ;
+            }
           }
         }
       }

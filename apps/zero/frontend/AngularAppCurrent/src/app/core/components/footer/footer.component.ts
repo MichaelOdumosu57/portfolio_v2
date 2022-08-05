@@ -30,7 +30,8 @@ export class FooterComponent  {
     private configService:ConfigService,
     private baseService:BaseService
   ) { }
-  @HostBinding('class') myClass: string = `View`;
+  classPrefix = this.utilService.classPrefix(CONFIG.classPrefix.footer)
+  @HostBinding('class') myClass: string = this.classPrefix('View');
   ngUnsub= new Subject<void>()  
   englishButton: WMLButton = new WMLButton({
     text:new WMLUIProperty({

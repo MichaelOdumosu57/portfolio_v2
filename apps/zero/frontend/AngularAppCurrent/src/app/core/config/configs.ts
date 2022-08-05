@@ -25,6 +25,7 @@ class Configs {
   }
   classPrefix= {
     certsMain:"CertsMain",
+    footer:"Footer",
   }
 
   intro={
