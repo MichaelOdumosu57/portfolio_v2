@@ -33,7 +33,8 @@ export class HomeMainComponent  {
     private baseService:BaseService,
     private router:Router
   ) { }
-  @HostBinding('class') myClass: string = `View`;
+  classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.homeMain)
+  @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()  
 
 

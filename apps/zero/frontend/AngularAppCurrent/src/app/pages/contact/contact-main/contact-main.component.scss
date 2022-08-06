@@ -30,17 +30,40 @@
         }
         &1{
           width: 100%;
-          &Button{
-            &0{
+          display: flex;
 
-            }
-          }
+
           &Item{
             &0{
               width: 50%;
               display: flex;
               flex-direction: column;
-              justify-content: flex-end;
+            }
+            &1{
+              width: 50%;
+              padding:0 var(--spacing7);
+              
+            }
+            &2{
+              display: flex;
+              margin: 0 0 var(--spacing5) 0;
+              
+            }
+          }
+          &Text{
+            &0{
+              margin:0 0 0 var(--spacing5);
+              color:var(--white);
+              padding:0 var(--spacing5);
+              border-radius: var(--spacing7);
+            }
+          }
+          &Img{
+            &0{
+              // flex: 0 0 20%;
+              height: 6vh;
+              border-radius: 100%;
+              
             }
           }
         }

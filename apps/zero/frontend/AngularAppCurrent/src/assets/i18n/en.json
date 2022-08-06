@@ -62,7 +62,10 @@
     },
     "submit":{
       "text":"Submit"
-    }
+    },
+    "socialMedia":[
+      "Gmail","Facebook","Twitter","Slack","Discord","LinkedIn"
+    ]
   },
   "footer":{
     "langs":{

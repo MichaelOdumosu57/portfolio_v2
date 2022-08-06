@@ -1,6 +1,6 @@
 <main [class]="classPrefix('MainPod')">
   <div [class]="classPrefix('Pod0') ">
-    <h1 [class]="classPrefix('Pod0Title0')">{{ 'contactMain.title' | translate}}</h1>
+    <h1 >{{ 'contactMain.title' | translate}}</h1>
   </div>
   <div [class]="classPrefix('Pod1')">
     <div [class]="classPrefix('Pod1Item0')">
@@ -8,6 +8,14 @@
       <button [class]="'GlobalButton0 GlobalButton1'">
         <label>{{ submitButton.text.value  | translate}}</label>
       </button>
+    </div>
+    <div [class]="classPrefix('Pod1Item1')">
+      <div
+      [class]="classPrefix('Pod1Item2')"
+      *ngFor="let item of socialMediaContacts">
+        <img [class]="classPrefix('Pod1Img0')"  [src]="item.imgSrc" [alt]="item.imgAlt | translate" (click)="item.navigateTo()"/>
+        <h2 [ngStyle]="item.titleStyle" [class]="classPrefix('Pod1Text0')" (click)="item.navigateTo()">{{item.displayTitle | translate}}</h2>
+      </div>      
     </div>
   </div>
 </main>

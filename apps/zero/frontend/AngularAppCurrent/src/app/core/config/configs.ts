@@ -26,6 +26,7 @@ class Configs {
     certsMain:"CertsMain",
     footer:"Footer",
     contactMain:"ContactMain",
+    homeMain:"HomeMain",
   }
 
   intro={
