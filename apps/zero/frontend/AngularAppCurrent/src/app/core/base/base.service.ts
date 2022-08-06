@@ -6,6 +6,7 @@ import { UtilityService } from '@core/utility/utility.service';
 
 // wml components
 import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
+import { FormControl, FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +34,20 @@ export class BaseService {
       })      
     })
   }
+
+  validateAllFormFields(formGroup: FormGroup) {         //{1}
+    Object.keys(formGroup.controls).forEach(field => {  //{2}
+      const control = formGroup.get(field);             //{3}
+      if (control instanceof FormControl) {             //{4}
+        control.markAsTouched({ onlySelf: true });
+        control.markAsDirty({ onlySelf: true });
+        control.updateValueAndValidity({ emitEvent: true });
+      } else if (control instanceof FormGroup) {        //{5}
+        this.validateAllFormFields(control);            //{6}
+      }
+    });
+  }
+  
 
   restartIntro= ()=>{
     this.restartIntroSubj.next()

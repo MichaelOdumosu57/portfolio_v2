@@ -24,22 +24,6 @@ export class AutomationService {
     private utilService:UtilityService,
   ) { }
 
-  submitForm(reactiveForm:FormGroup) {
-    Object.entries(reactiveForm.controls)
-    .forEach((control)=>{
-      let [key,value]=control
-      if([CONFIG.form.proficiencyFieldFormControlName,CONFIG.form.aptitudeFieldFormControlName].includes(key)){
-        value.setValue(new WmlDropdownOptionsMeta({
-          sourceValue:this.utilService.generateRandomColor()
-        }))
-      }
-      else{
-        value.setValue(this.utilService.generateRandomColor())
-      }
-    })
-
-
-  }
 
   documentQuerySelector(selector:string){
     return document.querySelector(selector) as HTMLElement
@@ -51,5 +35,23 @@ export class AutomationService {
     awsCerts.click()
     let chosenCert =  this.documentQuerySelector("certs-main > main > div.CertsMainPod1.row > div:nth-child(1)")
     chosenCert.click()
+  }
+
+  submitContactForm(reactiveForm:FormGroup) {
+    if(env.production) return
+    Object.entries(reactiveForm.controls)
+    .forEach((control)=>{
+      let [key,value]=control
+      if([CONFIG.contactMain.emailFieldFormControlName].includes(key)){
+        value.setValue("michaelodumosu57@gmail.com")
+      }
+      else{
+
+        value.setValue(this.utilService.generateRandomColor())
+      }
+    })
+    let submitButton = this.documentQuerySelector("#root > app-root > home-main > main > wml-card > div > contact-main > main > div.ContactMainPod1 > div.ContactMainPod1Item0 > button")
+    submitButton.click()
+
   }
 }

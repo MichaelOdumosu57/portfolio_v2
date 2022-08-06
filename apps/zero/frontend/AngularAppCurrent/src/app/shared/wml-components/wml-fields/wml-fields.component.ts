@@ -5,7 +5,8 @@ import { ConfigService } from '@app/core/config/config.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 
 // rxjs
-import { Subject } from 'rxjs';
+import { combineLatest, merge, Subject } from 'rxjs';
+import { takeUntil,tap } from 'rxjs/operators';
 import { CONFIG } from '@app/core/config/configs';
 import { SampleCpntComponent, SampleCpntMeta } from '../../sample-cpnt/sample-cpnt.component';
 
@@ -57,23 +58,37 @@ export class WmlFieldComponent implements OnInit {
 
   }
 
-  toggleErrorMsg(){
-    
-    let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
-    let result = (formControl?.errors !== null && formControl?.dirty)
-    if(this.wmlField){
-      this.wmlField.error.displayMsg = this.wmlField.error.msgs[ Object.keys(formControl?.errors ?? {})[0] ] ?? this.wmlField.error.displayMsg
-      
-    }
+  errorMsgIsPresentByListening:any= false
+  listenForErrorMsg(){
 
-    return result
+
+    let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
+
+    return formControl?.statusChanges
+    .pipe(
+      takeUntil(this.ngUnsub),
+      tap((resp)=>{
+        this.errorMsgIsPresentByListening = (formControl?.errors !== null && formControl?.dirty)
+        if(this.wmlField){
+          this.wmlField.error.displayMsg = this.wmlField.error.msgs[ Object.keys(formControl?.errors ?? {})[0] ] ?? this.wmlField.error.displayMsg
+          
+        } 
+        this.cdref.detectChanges()   
+      })
+    )
+
+
+   
   }
+
+
 
 
   ngOnInit(): void {
     this.wmlField?.field.parentForm.errors
     this.initComponent()
     this.initUpdateComponent()
+    this.listenForErrorMsg()?.subscribe()
     
   }
 

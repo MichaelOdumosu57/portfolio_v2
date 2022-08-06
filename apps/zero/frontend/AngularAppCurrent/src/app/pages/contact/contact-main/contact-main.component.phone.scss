@@ -1,0 +1,16 @@
+@import "src/assets/styles/global.scss";
+
+#root{
+  contact-main{
+    @media screen and (max-width: 576px){
+
+      .ContactMainPod1{
+        flex-direction: column-reverse;
+        > *{
+          width: 100%;
+        }
+      }
+
+    }
+  }
+}

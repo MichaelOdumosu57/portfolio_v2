@@ -5,7 +5,7 @@
   <div [class]="classPrefix('Pod1')">
     <div [class]="classPrefix('Pod1Item0')">
       <wml-form [fields]="wmlForm.fields"></wml-form>
-      <button [class]="'GlobalButton0 GlobalButton1'">
+      <button [class]="'GlobalButton0 GlobalButton1'" (click)="submitButton.button.click && submitButton.button.click($event)">
         <label>{{ submitButton.text.value  | translate}}</label>
       </button>
     </div>

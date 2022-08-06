@@ -1,10 +1,12 @@
 // angular
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostBinding, OnInit } from '@angular/core';
 
 // services
 import { ConfigService } from '@app/core/config/config.service';
 import { UtilityService } from '@app/core/utility/utility.service';
 import { BaseService } from '@core/base/base.service';
+import { ContactService } from '../service/contact.service';
+import { AutomationService } from '@helpers/automation/automation/automation.service';
 
 // rxjs
 import { Subject } from 'rxjs';
@@ -21,6 +23,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { WMLForm } from '@shared/wml-components/wml-form/wml-form.component';
 import { WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
 import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'contact-main',
@@ -35,7 +38,9 @@ export class ContactMainComponent  {
     private cdref:ChangeDetectorRef,
     private utilService:UtilityService,
     private configService:ConfigService,
-    private baseService:BaseService
+    private baseService:BaseService,
+    private contactService:ContactService,
+    private automationService:AutomationService
   ) { }
   classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.contactMain)
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
@@ -43,6 +48,8 @@ export class ContactMainComponent  {
 
   rootFormGroup = new FormGroup({
     [CONFIG.contactMain.nameFieldFormControlName]: new FormControl(null,[Validators.required]),
+    [CONFIG.contactMain.emailFieldFormControlName]: new FormControl(null,[Validators.required,Validators.email]),
+    [CONFIG.contactMain.subjectFieldFormControlName]: new FormControl(null),
     [CONFIG.contactMain.msgTextFieldFormControlName]: new FormControl(null,[Validators.required]),
   })
   
@@ -52,33 +59,87 @@ export class ContactMainComponent  {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.nameFieldFormControlName,
-      labelValue:this.utilService.getValueByi18nKey("contactMain.form.name.label")
+      labelValue:this.utilService.getValueByi18nKey("contactMain.form.name.label"),
+      errorMsgs:{
+        required:this.utilService.getValueByi18nKey("contactMain.form.name.errorMsgs.required")
+      }
     }
   })
 
+  emailField = new WMLField({
+    type: "custom",
+    custom: {
+      selfType: "wml-card",
+      fieldParentForm: this.rootFormGroup,
+      fieldFormControlName: CONFIG.contactMain.emailFieldFormControlName,
+      labelValue:this.utilService.getValueByi18nKey("contactMain.form.email.label"),
+      errorMsgs:{
+        required:this.utilService.getValueByi18nKey("contactMain.form.email.errorMsgs.required"),
+        email:this.utilService.getValueByi18nKey("contactMain.form.email.errorMsgs.email")
+      }
+    }
+  })
 
-  msgTextMeta  = new WmlInputMeta({ type: "textarea" })
-  msgTextField = new WMLField({
+  subjectField = new WMLField({
+    type: "custom",
+    custom: {
+      selfType: "wml-card",
+      fieldParentForm: this.rootFormGroup,
+      fieldFormControlName: CONFIG.contactMain.subjectFieldFormControlName,
+      labelValue:this.utilService.getValueByi18nKey("contactMain.form.subject.label")
+    }
+  })
+
+  
+
+
+  msgMeta  = new WmlInputMeta({ type: "textarea" })
+  msgField = new WMLField({
     type: "custom",
     custom: {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.msgTextFieldFormControlName,
-      fieldCustomMeta: this.msgTextMeta,
+      fieldCustomMeta: this.msgMeta,
       labelValue:this.utilService.getValueByi18nKey("contactMain.form.msg.label"),
       errorMsgs:{
-        required:this.utilService.getValueByi18nKey("contactMain.form.msgText.errorMsgs.required")
+        required:this.utilService.getValueByi18nKey("contactMain.form.msg.errorMsgs.required")
       }
     }
   })
 
-  submitButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:"contactMain.submit.text"
-    })
-  })
+  submitForm = ()=>{
+    if(this.rootFormGroup.valid){
+      this.contactService.submitForm(this.rootFormGroup)
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap({
+          next:()=>{
+            alert(this.utilService.getValueByi18nKey('contactMain.submitFormSuccess'))
+          },
+          error:(resp:HttpErrorResponse)=>{
+            console.log(resp.error.data)
+            alert(this.utilService.getValueByi18nKey('contactMain.submitFormError'))
+          }
+        }),
+      )
+      .subscribe()
+    }
+    else{
 
-  fields= [this.nameField,this.msgTextField]
+      this.baseService.validateAllFormFields(this.rootFormGroup)
+      this.cdref.detectChanges()
+    }        
+  }
+  submitButton = this.baseService.generateButton(
+    "contactMain.submit.text",
+    this.submitForm
+
+  )
+  
+
+
+  fields= [this.nameField,this.emailField,this.subjectField, this.msgField]
   wmlForm = new WMLForm({
     fields: this.fields
   })
@@ -112,6 +173,10 @@ export class ContactMainComponent  {
   })
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(){
+    this.automationService.submitContactForm(this.rootFormGroup)
   }
 
   ngOnDestroy(){

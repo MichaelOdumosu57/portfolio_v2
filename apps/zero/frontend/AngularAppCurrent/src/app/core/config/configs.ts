@@ -7,11 +7,7 @@ import {CinematicCamera} from 'three/examples/jsm/cameras/CinematicCamera';
 export let THREE =  {MathUtils,Scene,Color,CinematicCamera,AmbientLight,DirectionalLight,BoxGeometry,Mesh,MeshLambertMaterial,WebGLRenderer}
 
 class Configs {
-  homepage={
-    nameFieldFormControlName:"myName",
-    dropdownFieldFormControlName:"myDropdown",
-    textAreaFieldFormControlName:"myTextArea",
-  }
+
   form={
     nameFieldFormControlName:"myName",
     proficiencyFieldFormControlName:"myProficiency",
@@ -46,7 +42,10 @@ class Configs {
   }
   contactMain= {
     nameFieldFormControlName:"name",
-    msgTextFieldFormControlName:"Message"
+    emailFieldFormControlName:"email",
+    subjectFieldFormControlName:"subject",
+    msgTextFieldFormControlName:"message",
+    submitFormEndpoint:"http://localhost:5000/contact/submit",
   }
   nav = {
     home:"/",

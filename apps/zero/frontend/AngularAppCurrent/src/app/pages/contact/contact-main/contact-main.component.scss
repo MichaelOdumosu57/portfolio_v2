@@ -31,6 +31,7 @@
         &1{
           width: 100%;
           display: flex;
+          overflow: auto;
 
 
           &Item{
@@ -38,6 +39,7 @@
               width: 50%;
               display: flex;
               flex-direction: column;
+              padding:0 var(--spacing5) var(--spacing5) var(--spacing5);
             }
             &1{
               width: 50%;
@@ -47,7 +49,7 @@
             &2{
               display: flex;
               margin: 0 0 var(--spacing5) 0;
-              
+              align-items: center;
             }
           }
           &Text{

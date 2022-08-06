@@ -58,8 +58,20 @@
         "errorMsgs":{
           "required":"Please enter a message"
         }
+      },
+      "email":{
+        "label":"Email",
+        "errorMsgs":{
+          "required":"Please enter an email",
+          "email":"Please enter a valid email"
+        }
+      },
+      "subject":{
+        "label":"Subject"
       }
     },
+    "submitFormSuccess":"Form Submitted Sucessfully",
+    "submitFormError":"Form Submission Error, please try again or contact me via the social media links if the problem persists",
     "submit":{
       "text":"Submit"
     },
