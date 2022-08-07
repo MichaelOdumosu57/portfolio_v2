@@ -26,10 +26,9 @@ export class ContactService {
     this.baseService.toggleOverlayLoadingSubj.next(true)
     let uiForm = reactiveForm.getRawValue()
     let apiForm = submitFormAPIRequestModel(uiForm)
-    console.log(uiForm)
-    console.log(apiForm)
+
     
-    return this.http.post(CONFIG.form.submitFormEndpoint, apiForm)
+    return this.http.post(CONFIG.contactMain.submitFormEndpoint, apiForm)
     .pipe(
       this.baseService.closeOverlayLoading
     )

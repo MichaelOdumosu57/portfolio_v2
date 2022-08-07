@@ -1,21 +1,19 @@
 {
-  "sampleCpnt":{
-    "header":"Cpnt Created"
+  "sampleCpnt": {
+    "header": "Cpnt Created"
   },
-  "app":{
-
-  },
-  "global":{
-    "nav":{
-      "intro":"Intro",
-      "home":"Home",
-      "resume":"Resume",
-      "certs":"Certs",
-      "contact":"Contact"
+  "app": {},
+  "global": {
+    "nav": {
+      "intro": "Intro",
+      "home": "Home",
+      "resume": "Resume",
+      "certs": "Certs",
+      "contact": "Contact"
     }
   },
-  "intro":{
-    "phrases":[
+  "intro": {
+    "phrases": [
       "Find the problem, find the solution.",
       "Demo, Design, Develop Deploy",
       "Believe in the mission. Believe in the team.",
@@ -23,74 +21,151 @@
       "When faced with the greatest of pressures, remain calm."
     ]
   },
-  "homeIntro":{
-    "title":"Michael Odumosu",
-    "summary":"Software developer with years of leadership experience. Constructed applications serving thouands of users in the financial and real estate industry. Managed core and external teams and mentored aspiring job seekers searching to enter the industry. Certified in GCP and AWS technologies. "
+  "homeIntro": {
+    "title": "Michael Odumosu",
+    "summary": "Software developer with years of leadership experience. Constructed applications serving thouands of users in the financial and real estate industry. Managed core and external teams and mentored aspiring job seekers searching to enter the industry. Certified in GCP and AWS technologies. "
   },
-  "certsMain":{
-    "backTextValue":"Back",
-    "title":"Certifications",
-    "summary":"Certifications include Google Cloud Platform and AWS. ",
-    "cardsImgAlts":["aws","codecademy","coursera","gcp","pluralsight"],
-    "cardTitles":["AWS","Codecademy","Coursera","Google Cloud Platform","Pluralsight"],
-    "awsImgAlts":["core aws storage services","introduction to aws managed services","introduction to serverless development"],
-    "awsTitles":["Core Aws Storage Services","Introduction To Aws Managed Services","Introduction To Serverless Development"],
-    "codecademyImgAlts":["Learn Ruby Course","Learn Java Course","Learn React Course","Learn Bootstrap Course","Create REST APIs with Spring and Java Skill Path"],
-    "codecademyTitles":["Learn Ruby Course","Learn Java Course","Learn React Course","Learn Bootstrap Course","Create REST APIs with Spring and Java Skill Path"],
-    "courseraImgAlts":["Data Engineering, Big Data and Machine Learning on GCP","Building Batch Data Pipelines on GCP","Building Resilient Streaming Analytics Systems on GCP","Google Cloud Platform Big Data and Machine Learning Fundamentals","Modernizing Data Lakes and Data Warehouses with GCP","Smart Analytics, Machine Learning, and AI on GCP"],
-    "courseraTitles": ["Data Engineering, Big Data and Machine Learning on GCP","Building Batch Data Pipelines on GCP","Building Resilient Streaming Analytics Systems on GCP","Google Cloud Platform Big Data and Machine Learning Fundamentals","Modernizing Data Lakes and Data Warehouses with GCP","Smart Analytics, Machine Learning, and AI on GCP"],
-    "gcpImgAlts":["Get Started with Google Maps Platform badge","Visualize Data on Google Maps Platform badge","Web Vitals","WebRTC"],
-    "gcpTitles":["Get Started with Google Maps Platform badge","Visualize Data on Google Maps Platform badge","Web Vitals","WebRTC" ],
-    "pluralSightImgAlts":["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"],
-    "pluralSightTitles": ["Creating Layouts with Flutter","Debugging, Testing, and Publishing a Flutter App","Managing State in Flutter","Persisting Data Locally with Flutter","Structuing Angular Apps with Angular Libraries","Creating a Connected App with Flutter","Creating Animations with Flutter"]   
-  },
-  "contactMain":{
-    "title":"Contact",
-    "form":{
-      "name":{
-        "label":"Name",
-        "errorMsgs":{
-          "required":"Please enter a name"
-        }
-      },
-      "msg":{
-        "label":"Message",
-        "errorMsgs":{
-          "required":"Please enter a message"
-        }
-      },
-      "email":{
-        "label":"Email",
-        "errorMsgs":{
-          "required":"Please enter an email",
-          "email":"Please enter a valid email"
-        }
-      },
-      "subject":{
-        "label":"Subject"
-      }
-    },
-    "submitFormSuccess":"Form Submitted Sucessfully",
-    "submitFormError":"Form Submission Error, please try again or contact me via the social media links if the problem persists",
-    "submit":{
-      "text":"Submit"
-    },
-    "socialMedia":[
-      "Gmail","Facebook","Twitter","Slack","Discord","LinkedIn"
+  "certsMain": {
+    "backTextValue": "Back",
+    "title": "Certifications",
+    "summary": "Certifications include Google Cloud Platform and AWS. ",
+    "cardsImgAlts": [
+      "aws",
+      "codecademy",
+      "coursera",
+      "gcp",
+      "pluralsight"
+    ],
+    "cardTitles": [
+      "AWS",
+      "Codecademy",
+      "Coursera",
+      "Google Cloud Platform",
+      "Pluralsight"
+    ],
+    "awsImgAlts": [
+      "core aws storage services",
+      "introduction to aws managed services",
+      "introduction to serverless development"
+    ],
+    "awsTitles": [
+      "Core Aws Storage Services",
+      "Introduction To Aws Managed Services",
+      "Introduction To Serverless Development"
+    ],
+    "codecademyImgAlts": [
+      "Learn Ruby Course",
+      "Learn Java Course",
+      "Learn React Course",
+      "Learn Bootstrap Course",
+      "Create REST APIs with Spring and Java Skill Path"
+    ],
+    "codecademyTitles": [
+      "Learn Ruby Course",
+      "Learn Java Course",
+      "Learn React Course",
+      "Learn Bootstrap Course",
+      "Create REST APIs with Spring and Java Skill Path"
+    ],
+    "courseraImgAlts": [
+      "Data Engineering, Big Data and Machine Learning on GCP",
+      "Building Batch Data Pipelines on GCP",
+      "Building Resilient Streaming Analytics Systems on GCP",
+      "Google Cloud Platform Big Data and Machine Learning Fundamentals",
+      "Modernizing Data Lakes and Data Warehouses with GCP",
+      "Smart Analytics, Machine Learning, and AI on GCP"
+    ],
+    "courseraTitles": [
+      "Data Engineering, Big Data and Machine Learning on GCP",
+      "Building Batch Data Pipelines on GCP",
+      "Building Resilient Streaming Analytics Systems on GCP",
+      "Google Cloud Platform Big Data and Machine Learning Fundamentals",
+      "Modernizing Data Lakes and Data Warehouses with GCP",
+      "Smart Analytics, Machine Learning, and AI on GCP"
+    ],
+    "gcpImgAlts": [
+      "Get Started with Google Maps Platform badge",
+      "Visualize Data on Google Maps Platform badge",
+      "Web Vitals",
+      "WebRTC"
+    ],
+    "gcpTitles": [
+      "Get Started with Google Maps Platform badge",
+      "Visualize Data on Google Maps Platform badge",
+      "Web Vitals",
+      "WebRTC"
+    ],
+    "pluralSightImgAlts": [
+      "Creating Layouts with Flutter",
+      "Debugging, Testing, and Publishing a Flutter App",
+      "Managing State in Flutter",
+      "Persisting Data Locally with Flutter",
+      "Structuing Angular Apps with Angular Libraries",
+      "Creating a Connected App with Flutter",
+      "Creating Animations with Flutter"
+    ],
+    "pluralSightTitles": [
+      "Creating Layouts with Flutter",
+      "Debugging, Testing, and Publishing a Flutter App",
+      "Managing State in Flutter",
+      "Persisting Data Locally with Flutter",
+      "Structuing Angular Apps with Angular Libraries",
+      "Creating a Connected App with Flutter",
+      "Creating Animations with Flutter"
     ]
   },
-  "footer":{
-    "langs":{
-      "english" : "English",
-      "spanish" : "Spanish",
-      "chinese" : "Chinese",
-      "hindi" : "Hindi",
-      "ukrainian" : "Ukrainian",
-      "arabic" : "Arabic",
-      "bengali" : "Bengali",
-      "malay" : "Malay",
-      "french" : "French",
-      "swahili" : "Swahili"
+  "contactMain": {
+    "title": "Contact",
+    "form": {
+      "name": {
+        "label": "Name",
+        "errorMsgs": {
+          "required": "Please enter a name"
+        }
+      },
+      "msg": {
+        "label": "Message",
+        "errorMsgs": {
+          "required": "Please enter a message"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "errorMsgs": {
+          "required": "Please enter an email",
+          "email": "Please enter a valid email"
+        }
+      },
+      "subject": {
+        "label": "Subject"
+      }
+    },
+    "submitFormSuccess": "Email Sucessfully Sent",
+    "submitFormError": "Form Submission Error, please try again or contact me via the social media links if the problem persists",
+    "submit": {
+      "text": "Submit"
+    },
+    "socialMedia": [
+      "Gmail",
+      "Facebook",
+      "Twitter",
+      "Slack",
+      "Discord",
+      "LinkedIn"
+    ]
+  },
+  "footer": {
+    "langs": {
+      "english": "English",
+      "spanish": "Spanish",
+      "chinese": "Chinese",
+      "hindi": "Hindi",
+      "ukrainian": "Ukrainian",
+      "arabic": "Arabic",
+      "bengali": "Bengali",
+      "malay": "Malay",
+      "french": "French",
+      "swahili": "Swahili"
     }
   }
 }

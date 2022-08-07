@@ -8,16 +8,7 @@ export let THREE =  {MathUtils,Scene,Color,CinematicCamera,AmbientLight,Directio
 
 class Configs {
 
-  form={
-    nameFieldFormControlName:"myName",
-    proficiencyFieldFormControlName:"myProficiency",
-    descFieldFormControlName:"myDesc",
-    aptitudeFieldFormControlName:"myAptitude",
-    helpTextFieldFormControlName:"myHelpText",
-    clientStakeHldrFieldFormControlName:"myClientStakeHldr",
-    presenterFieldFormControlName:"myPresenter",
-    submitFormEndpoint:"http://localhost:5000/form/submit",
-  }
+
   classPrefix= {
     certsMain:"CertsMain",
     footer:"Footer",
