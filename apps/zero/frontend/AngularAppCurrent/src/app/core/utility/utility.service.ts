@@ -36,6 +36,11 @@ export class UtilityService {
     return this.translateService.instant(value)
   }
 
+  changeLanguage(langCode:string){
+    this.translateService.use(langCode)
+  }
+
+
   async waitForTranslationsToLoad() {
     return lastValueFrom(this.translateService.use('en'));
   }

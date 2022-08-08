@@ -33,56 +33,20 @@ export class FooterComponent  {
   classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.footer)
   @HostBinding('class') myClass: string = this.classPrefix('View');
   ngUnsub= new Subject<void>()  
-  englishButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.english")
-    })
-  })
-  spanishButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.spanish")
-    })
-  })
-  chineseButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.chinese")
-    })
-  })
-  hindiButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.hindi")
-    })
-  })
-  ukrainianButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.ukrainian")
-    })
-  })
-  arabicButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.arabic")
-    })
-  })
-  bengaliButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.bengali")
-    })
-  })
-  malayButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.malay")
-    })
-  })
-  frenchButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.french")
-    })
-  })
-  swahiliButton: WMLButton = new WMLButton({
-    text:new WMLUIProperty({
-      value:this.utilService.getValueByi18nKey("footer.langs.swahili")
-    })
-  })
+  changeLanguage =(langCode:string)=> { return (evt:Event | any)=> {
+    
+    this.utilService.changeLanguage(langCode)
+  }}
+  englishButton: WMLButton = this.baseService.generateButton("footer.langs.english",this.changeLanguage("en"))
+  spanishButton: WMLButton = this.baseService.generateButton("footer.langs.spanish",this.changeLanguage("es"))
+  chineseButton: WMLButton = this.baseService.generateButton("footer.langs.chinese",this.changeLanguage("zh"))
+  hindiButton: WMLButton = this.baseService.generateButton("footer.langs.hindi",this.changeLanguage("hi"))
+  ukrainianButton: WMLButton = this.baseService.generateButton("footer.langs.ukrainian",this.changeLanguage("uk"))
+  arabicButton: WMLButton = this.baseService.generateButton("footer.langs.arabic",this.changeLanguage("ar"))
+  bengaliButton: WMLButton = this.baseService.generateButton("footer.langs.bengali",this.changeLanguage("bn"))
+  malayButton: WMLButton = this.baseService.generateButton("footer.langs.malay",this.changeLanguage("ms"))
+  frenchButton: WMLButton = this.baseService.generateButton("footer.langs.french",this.changeLanguage("fr"))
+  swahiliButton: WMLButton = this.baseService.generateButton("footer.langs.swahili",this.changeLanguage("sw"))
   langButtons: WMLButton[] =[
     this.englishButton,
     this.spanishButton,

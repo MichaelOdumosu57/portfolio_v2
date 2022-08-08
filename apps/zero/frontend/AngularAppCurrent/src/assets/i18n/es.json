@@ -1,0 +1,213 @@
+{
+    "sampleCpnt": {
+        "header": "CPNT creado"
+    },
+    "app": {},
+    "global": {
+        "nav": {
+            "intro": "Introducci\u00f3n",
+            "home": "Hogar",
+            "projects": "Proyectos",
+            "certs": "Certs",
+            "contact": "Contacto"
+        }
+    },
+    "intro": {
+        "phrases": [
+            "Encuentre el problema, encuentre la soluci\u00f3n.",
+            "Demostraci\u00f3n, dise\u00f1o, desarrollar implementaci\u00f3n",
+            "Creer en la misi\u00f3n.Cree en el equipo.",
+            "Haz que funcione para cada escenario posible.",
+            "Cuando se enfrente a las mayores presiones, mant\u00e9n la calma."
+        ]
+    },
+    "homeIntro": {
+        "title": "Michael Odumosu",
+        "summary": "Desarrollador de software con a\u00f1os de experiencia en liderazgo.Aplicaciones construidas que sirven a los usuarios en la industria financiera e inmobiliaria.Manej\u00f3 equipos centrales y externos y buscadores de empleo aspirantes a los aspirantes a buscar ingresar a la industria.Certificado en tecnolog\u00edas GCP y AWS."
+    },
+    "certsMain": {
+        "backTextValue": "atr\u00e1s",
+        "title": "Certificaciones",
+        "summary": "Las certificaciones incluyen Google Cloud Platform y AWS.",
+        "cardsImgAlts": [
+            "AWS",
+            "Codecademy",
+            "cursera",
+            "GCP",
+            "pluralsight"
+        ],
+        "cardTitles": [
+            "AWS",
+            "Codecademy",
+            "Cursera",
+            "Plataforma en la nube de Google",
+            "Pluralsight"
+        ],
+        "awsImgAlts": [
+            "Servicios de almacenamiento de Core AWS",
+            "Introducci\u00f3n a los servicios administrados de AWS",
+            "Introducci\u00f3n al desarrollo sin servidor"
+        ],
+        "awsTitles": [
+            "Servicios de almacenamiento de Core AWS",
+            "Introducci\u00f3n a los servicios administrados de AWS",
+            "Introducci\u00f3n al desarrollo sin servidor"
+        ],
+        "codecademyImgAlts": [
+            "Aprender ruby curso",
+            "Curso de aprendizaje Java",
+            "Aprender el curso de reacci\u00f3n",
+            "Aprender el curso de bootstrap",
+            "Crear API REST con Spring y Java Skill Path"
+        ],
+        "codecademyTitles": [
+            "Aprender ruby curso",
+            "Curso de aprendizaje Java",
+            "Aprender el curso de reacci\u00f3n",
+            "Aprender el curso de bootstrap",
+            "Crear API REST con Spring y Java Skill Path"
+        ],
+        "courseraImgAlts": [
+            "Ingenier\u00eda de datos, big data y aprendizaje autom\u00e1tico en GCP",
+            "Construyendo tuber\u00edas de datos por lotes en GCP",
+            "Creaci\u00f3n de sistemas de an\u00e1lisis de transmisi\u00f3n resistente en GCP",
+            "Google Cloud Platform Big Data y Fundamentos de aprendizaje autom\u00e1tico",
+            "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP",
+            "Smart Analytics, Machine Learning y AI en GCP"
+        ],
+        "courseraTitles": [
+            "Ingenier\u00eda de datos, big data y aprendizaje autom\u00e1tico en GCP",
+            "Construyendo tuber\u00edas de datos por lotes en GCP",
+            "Creaci\u00f3n de sistemas de an\u00e1lisis de transmisi\u00f3n resistente en GCP",
+            "Google Cloud Platform Big Data y Fundamentos de aprendizaje autom\u00e1tico",
+            "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP",
+            "Smart Analytics, Machine Learning y AI en GCP"
+        ],
+        "gcpImgAlts": [
+            "Comience con la insignia de la plataforma de Google Maps",
+            "Visualizar datos en la insignia de la plataforma de Google Maps",
+            "Vitalidad de la web",
+            "Webrtc"
+        ],
+        "gcpTitles": [
+            "Comience con la insignia de la plataforma de Google Maps",
+            "Visualizar datos en la insignia de la plataforma de Google Maps",
+            "Vitalidad de la web",
+            "Webrtc"
+        ],
+        "pluralSightImgAlts": [
+            "Creando dise\u00f1os con Flutter",
+            "Depuraci\u00f3n, prueba y publicaci\u00f3n de una aplicaci\u00f3n Flutter",
+            "Gesti\u00f3n del estado en Flutter",
+            "Persistir datos localmente con Flutter",
+            "Estructurar aplicaciones angulares con bibliotecas angulares",
+            "Crear una aplicaci\u00f3n conectada con Flutter",
+            "Creando animaciones con Flutter"
+        ],
+        "pluralSightTitles": [
+            "Creando dise\u00f1os con Flutter",
+            "Depuraci\u00f3n, prueba y publicaci\u00f3n de una aplicaci\u00f3n Flutter",
+            "Gesti\u00f3n del estado en Flutter",
+            "Persistir datos localmente con Flutter",
+            "Estructurar aplicaciones angulares con bibliotecas angulares",
+            "Crear una aplicaci\u00f3n conectada con Flutter",
+            "Creando animaciones con Flutter"
+        ]
+    },
+    "contactMain": {
+        "title": "Contacto",
+        "form": {
+            "name": {
+                "label": "Nombre",
+                "errorMsgs": {
+                    "required": "Por favor ingrese un nombre"
+                }
+            },
+            "msg": {
+                "label": "Mensaje",
+                "errorMsgs": {
+                    "required": "Por favor ingrese un mensaje"
+                }
+            },
+            "email": {
+                "label": "Correo electr\u00f3nico",
+                "errorMsgs": {
+                    "required": "Ingrese un correo electr\u00f3nico",
+                    "email": "Por favor introduzca una direcci\u00f3n de correo electr\u00f3nico v\u00e1lida"
+                }
+            },
+            "subject": {
+                "label": "Tema"
+            }
+        },
+        "submitFormSuccess": "Correo electr\u00f3nico enviado con \u00e9xito",
+        "submitFormError": "Error de env\u00edo de formularios, intente nuevamente o cont\u00e1cteme a trav\u00e9s de los enlaces de las redes sociales si el problema persiste",
+        "submit": {
+            "text": "Enviar"
+        },
+        "socialMedia": [
+            "Gmail",
+            "Facebook",
+            "Gorjeo",
+            "Flojo",
+            "Discordia",
+            "LinkedIn"
+        ]
+    },
+    "projectsMain": {
+        "title": "Proyectos",
+        "projectURL": "Url",
+        "projects": [
+            {
+                "title": "Proyecto simulado de Facebook",
+                "desc": "Cre\u00f3 una versi\u00f3n simulada simple de Facebook, con los \u00faltimos conceptos de UI/UX de dise\u00f1o"
+            },
+            {
+                "title": "Rastreador de recibos",
+                "desc": "Utiliza WebRTC y la API ML Nanonets para hacer una aplicaci\u00f3n que mantiene registros y extrae informaci\u00f3n de precios de sus recibos"
+            },
+            {
+                "title": "Cargador social",
+                "desc": "Aprovecha la autores modernos para ayudar a los creadores de contenido a publicar una vez y ver su trabajo en todas las plataformas"
+            },
+            {
+                "title": "Sitio web de abogados de la ley para alumnos",
+                "desc": "Plantilla de prototipo para una p\u00e1gina de inicio de ejemplo para un bufete de abogados con sede en Nueva York."
+            },
+            {
+                "title": "I18N PAYAL OKTA BROUSTURE APLICACI\u00d3N",
+                "desc": "Reproducci\u00f3n personal del programa Pohela Boishakh junto con un proyecto realizado con un tercero que trabaja con el Departamento de Asuntos Culturales de Nueva York.Construido con React"
+            },
+            {
+                "title": "Muestra de la aplicaci\u00f3n de comercio electr\u00f3nico",
+                "desc": "Muestra de aplicaci\u00f3n de comercio electr\u00f3nico dise\u00f1ada para inicio NFT"
+            },
+            {
+                "title": "Aplicaci\u00f3n de reuni\u00f3n de muelles de windmill",
+                "desc": "Reproducci\u00f3n a escala m\u00e1s peque\u00f1a de la aplicaci\u00f3n Meetup, construida personalmente basada en la aplicaci\u00f3n Meetup creada dentro de WindmillCode escrita con Flutter"
+            },
+            {
+                "title": "Tienda en l\u00ednea mkimbe",
+                "desc": "Reproducci\u00f3n personal de una aplicaci\u00f3n de comercio electr\u00f3nico escrita en React"
+            },
+            {
+                "title": "Sitio web de cartera v1",
+                "desc": "V1 del sitio web de mi cartera contiene una versi\u00f3n descargable de mi curr\u00edculum visual junto con otras caracter\u00edsticas, como referencias y gr\u00e1fico de habilidades"
+            }
+        ]
+    },
+    "footer": {
+        "langs": {
+            "english": "ingl\u00e9s",
+            "spanish": "espa\u00f1ol",
+            "chinese": "Chino",
+            "hindi": "hindi",
+            "ukrainian": "ucranio",
+            "arabic": "Ar\u00e1bica",
+            "bengali": "bengal\u00ed",
+            "malay": "malayo",
+            "french": "Franc\u00e9s",
+            "swahili": "swahili"
+        }
+    }
+}
