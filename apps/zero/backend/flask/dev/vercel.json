@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "public":true,
   "builds": [
       {
           "src": "./index.py",
@@ -10,7 +9,7 @@
   "routes": [
       {
           "src": "/(.*)",
-          "dest": "/"
+          "dest": "./index.py"
       }
   ]
 }

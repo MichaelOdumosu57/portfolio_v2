@@ -7,7 +7,7 @@
     "nav": {
       "intro": "Intro",
       "home": "Home",
-      "resume": "Resume",
+      "projects": "Projects",
       "certs": "Certs",
       "contact": "Contact"
     }
@@ -152,6 +152,16 @@
       "Slack",
       "Discord",
       "LinkedIn"
+    ]
+  },
+  "projectsMain":{
+    "title":"Projects",
+    "projectURL":"URL",
+    "projects":[
+      {
+        "title":"Facebook Mock Project",
+        "desc":"Created a Simple Mock Version of Facebook, with latest design UI/UX concepts"
+      }
     ]
   },
   "footer": {

@@ -31,6 +31,7 @@
   .Shared{
     &Text{
       &0{
+        text-decoration: none;
         background-color: var(--white);
         color:var(--black);
         font-size: calc(3.5vw + 1.8rem );

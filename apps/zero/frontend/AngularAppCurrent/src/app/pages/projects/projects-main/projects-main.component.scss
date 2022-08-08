@@ -1,0 +1,73 @@
+@import "src/assets/styles/global.scss";
+
+
+:host {
+
+
+  &.ProjectsMainView{
+    .ProjectsMain{
+      &Main{
+        &Pod{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          height: 100%;
+          overflow: auto;
+        }
+      }
+      &Pod{
+        &0{
+          margin: 0 0 var(--spacing6) 0;
+          display: flex;
+          width: 100%;
+          position:relative;
+          justify-content: center;   
+        }
+        &1{
+          width: 80%;
+          &Item{
+            &0{
+              display: flex;
+              margin: 0 0 var(--spacing3) 0;
+            }
+            &1{
+              flex: 0 0 50%;
+            }
+          }
+          &Img{
+            &0{
+              flex: 0 0 50%;
+              width: 50%;
+              height: auto;
+              border:5px solid var(--black);
+            }
+          }
+          &Link{
+            &0{
+              color:var(--black);
+              
+              
+            }
+          }
+          &Span{
+            &0{
+              border-radius: 20%;
+              padding:var(--spacing2);
+              background-color:var(--black) ;
+              text-decoration:none;
+              display: inline-block;
+              color:var(--white)
+            }
+          }
+          &Strike{
+            &0{
+              border-bottom: 5px dotted var(--red);
+              margin: var(--spacing6) 0 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

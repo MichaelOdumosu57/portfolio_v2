@@ -53,14 +53,14 @@ export class HomeMainComponent  {
   }
   introButton: WMLButton = this.baseService.generateButton('global.nav.intro',this.introButtonClicked)
   homeButton:  WMLButton = this.baseService.generateButton('global.nav.home',this.navigate(CONFIG.nav.homeAlt))
-  resumeButton: WMLButton = this.baseService.generateButton('global.nav.resume',this.navigate(CONFIG.nav.resume))
+  projectsButton: WMLButton = this.baseService.generateButton('global.nav.projects',this.navigate(CONFIG.nav.projects))
   storiesButton: WMLButton = this.baseService.generateButton('global.nav.stories',this.navigate(CONFIG.nav.stories))
   certsButton: WMLButton = this.baseService.generateButton('global.nav.certs',this.navigate(CONFIG.nav.certs))
   contactButton: WMLButton = this.baseService.generateButton('global.nav.contact',this.navigate(CONFIG.nav.contact))
   navButtons : WMLButton[]= [
     this.introButton,
     this.homeButton,
-    this.resumeButton,
+    this.projectsButton,
     this.certsButton,
     this.contactButton,    
   ]
