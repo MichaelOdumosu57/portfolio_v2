@@ -15,7 +15,7 @@ class Configs {
     contactMain:"ContactMain",
     homeMain:"HomeMain",
   }
-
+  
   intro={
     backgroundColor:0xA0B86A,
     camera:{
@@ -58,7 +58,8 @@ class DefaultConfigs extends Configs  {
     super()
     this.intro.moveIntroToAboveScreen = 3000
     this.intro.phrasesCompleteNumber = 4
+    this.contactMain.submitFormEndpoint = "https://portfolio-v2-flask-backend.vercel.app/contact/submit"
   }
 }
 
-export let CONFIG = !env.production    ?  new Configs() : new DefaultConfigs()
+export let CONFIG = env.production    ?  new Configs() : new DefaultConfigs()

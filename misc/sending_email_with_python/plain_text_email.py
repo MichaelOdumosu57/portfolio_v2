@@ -12,9 +12,9 @@ Subject: Hi there
 This message is sent from Python."""  
 
 
-with smtplib.SMTP_SSL("localhost") as server:
-    server.ehlo()
-    server.starttls(context=context)
+with smtplib.SMTP("smtp.gmail.com", port) as server:
+    # server.ehlo()
+    # server.starttls(context=context)
     server.ehlo()
     server.sendmail(sender_email, receiver_email, message)
     # TODO: Send email here 

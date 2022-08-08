@@ -29,7 +29,7 @@ controller.start()
 
 
 from smtplib import SMTP as Client
-client = Client(controller.hostname, controller.port)
+client = Client(controller.hostname, 1025)
 r = client.sendmail('a@example.com', ['michaelodumosu57@outlook.com'], """\
 From: Anne Person <anne@example.com>
 To: Bart Person <bart@example.com>
