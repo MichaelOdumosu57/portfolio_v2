@@ -32,18 +32,56 @@ export class ProjectsMainComponent  {
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()  
   projects:ProjectInfo[] = [
-    "https://michaelodumosu57.github.io/Facebook_Project"
+    "https://michaelodumosu57.github.io/ Facebook_Project",
+    "https://gx8pv.csb.app",
+    "https://michaelodumosu57 .github.io/SocialMediaApp",
+    "https://lawforlearners. firebaseapp.com/home",
+    "https://i18n-paypal-okta-brochure.netlify.app/home",
+    "https://windmillcode.github.io/portal-sample-app/",
+    "N/A",
+    "https://github.com/MichaelOdumosu57/ mkimbe_online_store",
+    "https://myportfolio-7d6b0.firebaseapp.com/resume"
+    // "https://lwqx5.csb.app/"
   ]
   .map((href,index0)=>{
+    let imgSrc="assets/media/projects_"+index0+".png"
+    if( 
+      ["https://michaelodumosu57 .github.io/SocialMediaApp"]
+      .includes(href) 
+    ){
+      imgSrc="assets/media/projects_"+index0+".gif"
+    }
     return new ProjectInfo({
       title:"projectsMain.projects."+index0+".title",
       desc:"projectsMain.projects."+index0+".desc",
-      imgSrc:"assets/media/projects_"+index0+".png",
+      imgSrc,
       href,
     })
   })
 
   ngOnInit(): void {
+    let [
+      facebookProject,
+      receiptTracker,
+      socialUploader,
+      lawForLearners,
+      pohelaBoishakh,
+      sampleEcommerce,
+      meetupApp,
+      mkimbe,
+      portfolioV1
+    ]= this.projects
+    this.projects = [
+      portfolioV1,      
+      receiptTracker,
+      socialUploader,
+      pohelaBoishakh,
+      sampleEcommerce,
+      mkimbe,
+      meetupApp,
+      facebookProject,
+      lawForLearners,
+    ]
   }
 
   ngOnDestroy(){

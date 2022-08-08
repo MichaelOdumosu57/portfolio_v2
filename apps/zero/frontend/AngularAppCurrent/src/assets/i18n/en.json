@@ -161,7 +161,40 @@
       {
         "title":"Facebook Mock Project",
         "desc":"Created a Simple Mock Version of Facebook, with latest design UI/UX concepts"
-      }
+      },
+      {
+        "title":"Receipt Tracker",
+        "desc":"Uses webRTC and the Nanonets ML API to make an app that keeps records, and extracts price info from your receipts"
+      },
+      {
+        "title":"Social Uploader",
+        "desc":"Leverages modern auth to help content creators post once and see their work on all platforms"
+      },
+      {
+        "title":"Law for Learners Lawyer Website",
+        "desc":"Prototype template for an example homepage for a law firm based in NYC."
+      },
+      {
+        "title":"I18n payal okta brouchure app",
+        "desc":"Personal reproduction of Pohela Boishakh program in conjunction with a project done with a 3rd party working with NYC department of cultural affairs. Built with React"
+      },
+      {
+        "title":"Sample e-commerce app",
+        "desc":"sample e-commerce app designed for NFT startup"
+    },
+      {
+        "title":"Windmillcode Meetup App",
+        "desc":"Smaller scaled reproduction of the meetup app, personally built based on the meetup app created within Windmillcode written with Flutter"
+      },
+      {
+        "title":"Mkimbe Online Store",
+        "desc":"Personal reproduction of an e-commerce app written in React"
+      },
+      {
+        "title":"Portfolio Website v1",
+        "desc":"v1 of my portfolio website contains downloadable version of my visual resume along with other features such as refernces and skills graph"
+      }               
+                        
     ]
   },
   "footer": {

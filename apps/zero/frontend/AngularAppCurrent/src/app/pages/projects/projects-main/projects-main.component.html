@@ -9,11 +9,11 @@
         <p> {{project.desc | translate}}</p>
         <a  [class]="classPrefix('Pod1Link0')" [href]="project.href">
           <span [class]="classPrefix('Pod1Span0')">{{"projectsMain.projectURL" | translate}}</span>
-          {{project.href}}
+          <p>{{project.href}}</p>
         </a>
       </div>
       <img [class]="classPrefix('Pod1Img0')" [src]="project.imgSrc" [alt]="project.imgAlt | translate" />
     </div>
-    <div [class]="classPrefix('Pod1Strike0')"></div>
+
   </div>
 </main>

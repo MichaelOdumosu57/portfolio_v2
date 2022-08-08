@@ -1,0 +1,19 @@
+@import "src/assets/styles/global.scss";
+
+
+#root {
+  projects-main {
+    .ProjectsMain {
+      @media screen and (max-width: 768px) {
+        &Pod1Item0 {
+          flex-direction: column;
+        }
+
+        &Pod1Img0 {
+          margin: var(--spacing3) 0 0 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
