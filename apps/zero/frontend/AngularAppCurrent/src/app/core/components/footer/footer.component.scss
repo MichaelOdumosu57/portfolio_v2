@@ -20,13 +20,25 @@
           width: 100%;
           display: flex;
           justify-content: center;
-          padding: var(--spacing5) var(--spacing3) 0 var(--spacing3);
+          padding: var(--spacing5) var(--spacing3) 0 var(--spacing5);
           border-top: 3px solid var(--grey);
           flex-flow: row wrap;
 
+
+          &Img{
+            &0{
+              width:4vh;
+              height: 3vh;
+              border-radius: 40%;
+              margin: 0  var(--spacing2) 0 0;
+            }
+          }
           &Button {
             &0 {
-
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              flex: 0 0 8%;
               margin: 0 var(--spacing5) var(--spacing5) 0;
 
             }

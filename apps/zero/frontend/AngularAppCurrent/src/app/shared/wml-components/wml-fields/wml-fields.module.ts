@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { WmlFieldComponent } from './wml-fields.component';
 
 
-
 @NgModule({
   declarations: [
-    WmlFieldComponent
+    WmlFieldComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     WmlFieldComponent

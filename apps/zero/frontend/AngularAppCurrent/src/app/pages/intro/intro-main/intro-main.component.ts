@@ -63,10 +63,11 @@ export class IntroMainComponent {
 
   private setPhraseObject() {
     this.phrase = {
-      items: this.utilService.getValueByi18nKey('intro.phrases')
-        .map((value: string) => {
+      items: Array(5)
+      .fill(null)
+        .map((value: string,index0:number) => {
           return {
-            value,
+            value:"intro.phrases."+index0,
             class: this.utilService.selectRandomOptionFromArray([
               "Pod0Text0", "Pod0Text1", "Pod0Text2", "Pod0Text3"
             ])

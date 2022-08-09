@@ -62,6 +62,9 @@ export class WMLButton extends WMLWrapper {
   }
   button = new WMLUIProperty();
   text = new WMLUIProperty();
-  icon = new WMLUIProperty();
+  icon : {
+    src?:string 
+    alt?:string
+  } ={}
 
 }

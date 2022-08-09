@@ -13,7 +13,7 @@ import { lastValueFrom } from 'rxjs';
 export class UtilityService {
 
   constructor(
-    private translateService: TranslateService,
+    public translateService: TranslateService,
 
   ) { }
 
@@ -33,7 +33,7 @@ export class UtilityService {
   getValueByi18nKey = (value: string) => {
 
 
-    return this.translateService.instant(value)
+    return value 
   }
 
   changeLanguage(langCode:string){

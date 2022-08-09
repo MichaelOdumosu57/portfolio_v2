@@ -5,6 +5,9 @@
         margin: 0 calc(var(--spacing4) + 1.5vw) calc(var(--spacing4) + 1.5vw) 0;
         font-size: calc( calc(8/16* 1rem) + 1.5vw);
       }
+      .FooterPod0Label0{
+        display: none;
+      }
     }
   }
 }

@@ -24,14 +24,18 @@ export class BaseService {
     this.toggleOverlayLoadingSubj.next(false)
   })
 
-  generateButton(i18nKey:string /*i18n key*/,buttonClick?:(evt?:Event)=>void){
+  generateButton(i18nKey:string /*i18n key*/,buttonClick?:(evt?:Event)=>void,iconSrc?:string,iconAlt?:string){
     return new WMLButton({
       button:new WMLUIProperty({
         click:buttonClick
       }),
       text:new WMLUIProperty({
         value:this.utilService.getValueByi18nKey(i18nKey)
-      })      
+      }),
+      icon:{
+        src:iconSrc,
+        alt:iconAlt
+      }      
     })
   }
 

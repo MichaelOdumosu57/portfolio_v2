@@ -49,8 +49,8 @@ export class FooterComponent  {
   swahiliButton: WMLButton = this.baseService.generateButton("footer.langs.swahili",this.changeLanguage("sw"))
   langButtons: WMLButton[] =[
     this.englishButton,
-    this.spanishButton,
     this.chineseButton,
+    this.spanishButton,
     this.hindiButton,
     this.ukrainianButton,
     this.arabicButton,
@@ -61,6 +61,9 @@ export class FooterComponent  {
   ]
 
   ngOnInit(): void {
+    this.langButtons.forEach((button,index0)=>{
+      button.icon.src = "assets/media/footer_"+index0+".png"
+    })
   }
 
   ngOnDestroy(){

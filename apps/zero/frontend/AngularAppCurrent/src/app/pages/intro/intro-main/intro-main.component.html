@@ -1,5 +1,5 @@
 <main [class]="mainPodClass" (transitionend)="mainPodTransitionEnd()">
   <div class="Pod0">
-    <h1 (transitionend)="phraseTransitionEnd($event)" [ngStyle] = phrase?.display.style [class]="'SharedText0 ' + phrase?.display.class">{{phrase?.display.text}}</h1>
+    <h1 (transitionend)="phraseTransitionEnd($event)" [ngStyle] = phrase?.display.style [class]="'SharedText0 ' + phrase?.display.class">{{phrase?.display.text | translate}}</h1>
   </div>
 </main>
