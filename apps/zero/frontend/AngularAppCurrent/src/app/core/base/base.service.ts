@@ -7,6 +7,8 @@ import { UtilityService } from '@core/utility/utility.service';
 // wml components
 import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 import { FormControl, FormGroup } from '@angular/forms';
+import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
+import { CustomLabelComponent } from '@shared/custom-label/custom-label.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +39,12 @@ export class BaseService {
         alt:iconAlt
       }      
     })
+  }
+
+  generateFormField(wmlField:WMLField){
+    wmlField.label.custom.cpnt = CustomLabelComponent
+    wmlField.error.custom.cpnt = CustomLabelComponent
+    return wmlField
   }
 
 

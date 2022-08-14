@@ -18,6 +18,7 @@ import { DropdownOptionComponent } from './dropdown-option/dropdown-option.compo
 import { NavComponent } from './nav/nav.component';
 import { PenroseComponent } from './penrose/penrose.component';
 import { FooterComponent } from '@core/components/footer/footer.component';
+import { CustomLabelComponent } from './custom-label/custom-label.component';
 
 
 
@@ -26,6 +27,7 @@ let components = [
   FooterComponent,
   PenroseComponent,
   IntroMainComponent,
+  CustomLabelComponent
 ]
 @NgModule({
   imports:[

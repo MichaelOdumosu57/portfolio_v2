@@ -25,6 +25,9 @@ import { WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.compone
 import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 import { HttpErrorResponse } from '@angular/common/http';
 
+
+
+
 @Component({
   selector: 'contact-main',
   templateUrl: './contact-main.component.html',
@@ -54,61 +57,61 @@ export class ContactMainComponent  {
   })
   
 
-  nameField = new WMLField({
+  nameField = this.baseService.generateFormField(new WMLField({
     type: "custom",
     custom: {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.nameFieldFormControlName,
-      labelValue:this.utilService.translateService.instant("contactMain.form.name.label"),
+      labelValue:"contactMain.form.name.label",
       errorMsgs:{
-        required:this.utilService.translateService.instant("contactMain.form.name.errorMsgs.required")
+        required:"contactMain.form.name.errorMsgs.required"
       }
     }
-  })
+  }))
 
-  emailField = new WMLField({
+  emailField = this.baseService.generateFormField(new WMLField({
     type: "custom",
     custom: {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.emailFieldFormControlName,
-      labelValue:this.utilService.translateService.instant("contactMain.form.email.label"),
+      labelValue:"contactMain.form.email.label",
       errorMsgs:{
-        required:this.utilService.translateService.instant("contactMain.form.email.errorMsgs.required"),
-        email:this.utilService.translateService.instant("contactMain.form.email.errorMsgs.email")
+        required:"contactMain.form.email.errorMsgs.required",
+        email:"contactMain.form.email.errorMsgs.email"
       }
     }
-  })
+  }))
 
-  subjectField = new WMLField({
+  subjectField = this.baseService.generateFormField(new WMLField({
     type: "custom",
     custom: {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.subjectFieldFormControlName,
-      labelValue:this.utilService.translateService.instant("contactMain.form.subject.label"),
+      labelValue:"contactMain.form.subject.label",
       labelRequired:false
     }
-  })
+  }))
 
   
 
 
   msgMeta  = new WmlInputMeta({ type: "textarea" })
-  msgField = new WMLField({
+  msgField = this.baseService.generateFormField(new WMLField({
     type: "custom",
     custom: {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.msgTextFieldFormControlName,
       fieldCustomMeta: this.msgMeta,
-      labelValue:this.utilService.translateService.instant("contactMain.form.msg.label"),
+      labelValue:"contactMain.form.msg.label",
       errorMsgs:{
-        required:this.utilService.translateService.instant("contactMain.form.msg.errorMsgs.required")
+        required:"contactMain.form.msg.errorMsgs.required"
       }
     }
-  })
+  }))
 
   submitForm = ()=>{
     if(this.rootFormGroup.valid){
@@ -174,31 +177,7 @@ export class ContactMainComponent  {
     })
   })
 
-  // listenForLangChangeAndUpdateI18NValues = ()=>{
-  //   return this.utilService.translateService.onLangChange
-  //   .pipe(
-  //     takeUntil(this.ngUnsub),
-  //     tap(()=>{
-        
-        
-        
-        
-  //       this.nameField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.name.errorMsgs.required")
-  //       this.emailField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.required")
-  //       this.emailField.error.msgs['email'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.email")
-  //       this.subjectField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.subject.errorMsgs.required")
-  //       this.msgField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.msg.errorMsgs.required")
-  //       this.wmlForm.fields.forEach((field)=>{
-  //         let errorKey = Object.keys(field.field.parentForm.controls[field.field.formControlName].errors ?? {})[0]
-  //         if(errorKey){
-  //           field.error.displayMsg = this.utilService.translateService.instant(field.error.msgs[errorKey])
-  //         }
-  //         field.view.cdref?.detectChanges()
-  //       })
-  //     })
-  //   )
-    
-  // }
+
   ngOnInit(): void {
   }
 
@@ -231,3 +210,4 @@ class ContactSocialMedia{
   titleStyle:Partial<CSSStyleDeclaration>= {}
   displayTitle:string = "Title"
 }
+

@@ -96,7 +96,9 @@ export class WMLField extends WMLWrapper {
         fieldFormControlName?:WMLField["field"]["formControlName"],
         labelValue?:WmlLabelMeta["labels"][number][number]["value"],
         labelRequired?:boolean,
+        labelCpnt?:WMLField["label"]["custom"]["cpnt"]
         errorMsgs?:WmlLabelMeta["errorMsgs"],
+        errorCpnt?:WMLField["error"]["custom"]["cpnt"],
       }
     } = {
       type:"default",
@@ -131,11 +133,13 @@ export class WMLField extends WMLWrapper {
       this.field.parentForm = custom.fieldParentForm ?? this.field.parentForm  
       this.field.formControlName = custom.fieldFormControlName ?? this.field.formControlName 
 
+      this.label.custom.cpnt = custom.labelCpnt ?? this.label.custom.cpnt
       labelWMLLabelMeta.labels[0][1].value = custom.labelValue ?? labelWMLLabelMeta.labels[0][1].value 
       if(custom.labelRequired === false){
         labelWMLLabelMeta.labels[0].shift()  
       }
       
+      this.error.custom.cpnt = custom.errorCpnt ?? this.error.custom.cpnt
       errorWMLFieldErrorMeta.errorMsgs = custom.errorMsgs ?? errorWMLFieldErrorMeta.errorMsgs
     }
 

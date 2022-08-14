@@ -20,7 +20,7 @@ import { AbstractControl } from '@angular/forms';
   selector: 'wml-label',
   templateUrl: './wml-label.component.html',
   styleUrls: ['./wml-label.component.scss'],
-  // changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection:ChangeDetectionStrategy.OnPush
 
 })
 export class WmlLabelComponent  {
