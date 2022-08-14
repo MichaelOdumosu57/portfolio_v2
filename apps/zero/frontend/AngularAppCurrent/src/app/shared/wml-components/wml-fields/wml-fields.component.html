@@ -1,11 +1,12 @@
 <main [class]="'MainPod'">
   <section [class]="'Pod0'">
-    <label>{{wmlField?.label?.value }}</label>
+    <ng-template #customLabel ></ng-template>
   </section>
   <section [class]="'Pod1'">
     <ng-template #customField ></ng-template>
   </section>
   <section [class]="'Pod2'">
+    <ng-template #customError ></ng-template>
     <label class =Pod2Label0 *ngIf="errorMsgIsPresentByListening">{{wmlField?.error?.displayMsg}}</label>
   </section>
 </main>

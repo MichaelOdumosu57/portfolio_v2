@@ -53,6 +53,7 @@ export class ContactMainComponent  {
     [CONFIG.contactMain.msgTextFieldFormControlName]: new FormControl(null,[Validators.required]),
   })
   
+
   nameField = new WMLField({
     type: "custom",
     custom: {
@@ -177,10 +178,10 @@ export class ContactMainComponent  {
     .pipe(
       takeUntil(this.ngUnsub),
       tap(()=>{
-        this.nameField.label.value = this.utilService.translateService.instant("contactMain.form.name.label")
-        this.emailField.label.value = this.utilService.translateService.instant("contactMain.form.email.label")
-        this.subjectField.label.value = this.utilService.translateService.instant("contactMain.form.subject.label")
-        this.msgField.label.value = this.utilService.translateService.instant("contactMain.form.msg.label")
+        
+        
+        
+        
         this.nameField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.name.errorMsgs.required")
         this.emailField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.required")
         this.emailField.error.msgs['email'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.email")

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef } from "@angular/core";
+import { ChangeDetectorRef, Type } from "@angular/core";
 
 
 
@@ -67,4 +67,17 @@ export class WMLButton extends WMLWrapper {
     alt?:string
   } ={}
 
+}
+
+export class WMLCustomComponent {
+  constructor(params:Partial<WMLCustomComponent> = {}){
+    Object.assign(
+      this,
+      {
+        ...params
+      }
+    )
+  }
+  cpnt!:Type<any>
+  meta:any
 }

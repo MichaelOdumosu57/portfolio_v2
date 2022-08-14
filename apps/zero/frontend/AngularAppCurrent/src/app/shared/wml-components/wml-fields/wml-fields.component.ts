@@ -11,10 +11,11 @@ import { CONFIG } from '@app/core/config/configs';
 import { SampleCpntComponent, SampleCpntMeta } from '../../sample-cpnt/sample-cpnt.component';
 
 // wml compoentns
-import { WMLUIProperty, WMLWrapper } from '../models';
+import { WMLCustomComponent, WMLUIProperty, WMLWrapper } from '../models';
 import { addCustomComponent } from '../functions';
 import { WmlInputComponent, WmlInputMeta } from '../wml-input/wml-input.component';
 import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { WmlLabelComponent, WmlLabelMeta } from './wml-label/wml-label.component';
 
 @Component({
   selector: 'wml-fields',
@@ -34,7 +35,7 @@ export class WmlFieldComponent implements OnInit {
   @HostBinding('class') myClass: string = `View`;
   ngUnsub= new Subject()
   @Input("field") wmlField?:WMLField
-  @ViewChild("customLabels",{read:ViewContainerRef,static:true}) customLabels!:ViewContainerRef;
+  @ViewChild("customLabel",{read:ViewContainerRef,static:true}) customLabel!:ViewContainerRef;
   @ViewChild("customField", {read:ViewContainerRef,static:true}) customField!:ViewContainerRef;
   @ViewChild("customError", {read:ViewContainerRef,static:true}) customError!:ViewContainerRef;
 
@@ -45,13 +46,20 @@ export class WmlFieldComponent implements OnInit {
     }
     
 
-    if(this.wmlField?.field.type ==="custom"){
+    ["label","field"].forEach((key,index0)=>{
 
-      this.wmlField.field.custom.meta
-      this.wmlField.field.custom.meta.wmlField = this.wmlField 
-      addCustomComponent(this.customField,this.wmlField.field.custom.cpnt as Type<any>,this.wmlField.field.custom.meta)
+      if(  this.wmlField?.[key]?.type === "custom"){
+        this.wmlField[key].custom.meta.wmlField = this.wmlField 
+    
+        addCustomComponent(
+          [this.customLabel,this.customField][index0],
+          this.wmlField[key].custom.cpnt as Type<any>,
+          this.wmlField[key].custom.meta
+        )
+  
+      }
+    })
 
-    }
   }
 
   initUpdateComponent(){
@@ -85,7 +93,6 @@ export class WmlFieldComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.wmlField?.field.parentForm.errors
     this.initComponent()
     this.initUpdateComponent()
     this.listenForErrorMsg()?.subscribe()
@@ -114,7 +121,8 @@ export class WMLField extends WMLWrapper {
         fieldCustomMeta?:WMLField["field"]["custom"]["meta"],
         fieldParentForm?:WMLField["field"]["parentForm"],
         fieldFormControlName?:WMLField["field"]["formControlName"],
-        labelValue?:WMLField["label"]["value"],
+        labelValue?:WmlLabelMeta["labels"][number][number]["value"],
+        labelRequired?:boolean,
         errorMsgs?:WMLField["error"]["msgs"],
       }
     } = {
@@ -139,6 +147,7 @@ export class WMLField extends WMLWrapper {
 
     else if(params.type === "custom"){
       let custom = params.custom ?? {}
+      let labelWMLLabelMeta:WmlLabelMeta = this.label.custom.meta
       this.self.type = custom.selfType ?? "standalone"
       this.field.type = custom.fieldType ?? "custom"
       this.field.custom.cpnt = custom.fieldCustomCpnt ?? WmlInputComponent 
@@ -147,10 +156,16 @@ export class WMLField extends WMLWrapper {
       })
       this.field.parentForm = custom.fieldParentForm ?? this.field.parentForm  
       this.field.formControlName = custom.fieldFormControlName ?? this.field.formControlName 
-      this.label.value = custom.labelValue ?? this.label.value 
+
+      labelWMLLabelMeta.labels[0][1].value = custom.labelValue ?? labelWMLLabelMeta.labels[0][1].value 
+      if(custom.labelRequired === false){
+        labelWMLLabelMeta.labels[0].shift()  
+      }
+      
       this.error.msgs = custom.errorMsgs ?? this.error.msgs
     }
 
+    
 
   }
   self:{
@@ -158,18 +173,19 @@ export class WMLField extends WMLWrapper {
   }= {
     type:"wml-card"
   }
-  label =new WMLUIProperty({
-    value:"My Label"
-  })
+  label = {
+    type:"custom",
+    custom:new WMLCustomComponent({
+      cpnt:WmlLabelComponent,
+      meta:new WmlLabelMeta()
+    })
+  }
   field:{
 
     type:"input" | "custom"  //may just make all components dynamic and provide metas 
     parentForm:FormGroup,
     formControlName:string
-    custom:{
-      cpnt?:Type<any>
-      meta:any,
-    }
+    custom:WMLCustomComponent
     
   } = {
     type:"custom",
