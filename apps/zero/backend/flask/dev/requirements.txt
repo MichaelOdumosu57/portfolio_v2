@@ -1,5 +1,5 @@
 ﻿requests
-Flask==1.1.4
+Flask
 pyngrok
 flask_socketio
 gunicorn

@@ -1,4 +1,4 @@
-from __main__ import app,request
+from index import app,request
 import json
 import requests
 

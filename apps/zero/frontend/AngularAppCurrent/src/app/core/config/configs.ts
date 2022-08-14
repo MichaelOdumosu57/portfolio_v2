@@ -63,4 +63,4 @@ class DefaultConfigs extends Configs  {
   }
 }
 
-export let CONFIG = env.production    ?  new Configs() : new DefaultConfigs()
+export let CONFIG = !env.production    ?  new Configs() : new DefaultConfigs()

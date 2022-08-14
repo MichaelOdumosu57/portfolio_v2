@@ -43,11 +43,11 @@ export class ProjectsMainComponent  {
     "https://myportfolio-7d6b0.firebaseapp.com/resume"
     // "https://lwqx5.csb.app/"
   ]
-  .map((href,index0)=>{
+  .map((displayValue,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
     if( 
       ["https://michaelodumosu57 .github.io/SocialMediaApp"]
-      .includes(href) 
+      .includes(displayValue) 
     ){
       imgSrc="assets/media/projects_"+index0+".gif"
     }
@@ -55,7 +55,8 @@ export class ProjectsMainComponent  {
       title:"projectsMain.projects."+index0+".title",
       desc:"projectsMain.projects."+index0+".desc",
       imgSrc,
-      href,
+      href:displayValue.split(" ").join(""),
+      displayValue
     })
   })
 
@@ -106,4 +107,5 @@ class ProjectInfo{
   imgSrc:string = ""
   imgAlt:string = ""
   href:string = ""
+  displayValue:string=""
 }

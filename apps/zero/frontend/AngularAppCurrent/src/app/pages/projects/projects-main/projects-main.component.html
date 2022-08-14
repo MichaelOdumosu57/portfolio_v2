@@ -9,7 +9,7 @@
         <p> {{project.desc | translate}}</p>
         <a  [class]="classPrefix('Pod1Link0')" [href]="project.href">
           <span [class]="classPrefix('Pod1Span0')">{{"projectsMain.projectURL" | translate}}</span>
-          <p>{{project.href}}</p>
+          <p>{{project.displayValue}}</p>
         </a>
       </div>
       <img [class]="classPrefix('Pod1Img0')" [src]="project.imgSrc" [alt]="project.imgAlt | translate" />
