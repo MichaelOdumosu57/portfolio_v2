@@ -87,7 +87,8 @@ export class ContactMainComponent  {
       selfType: "wml-card",
       fieldParentForm: this.rootFormGroup,
       fieldFormControlName: CONFIG.contactMain.subjectFieldFormControlName,
-      labelValue:this.utilService.translateService.instant("contactMain.form.subject.label")
+      labelValue:this.utilService.translateService.instant("contactMain.form.subject.label"),
+      labelRequired:false
     }
   })
 
@@ -127,7 +128,7 @@ export class ContactMainComponent  {
       .subscribe()
     }
     else{
-
+      
       this.baseService.validateAllFormFields(this.rootFormGroup)
       this.cdref.detectChanges()
     }        
@@ -173,33 +174,32 @@ export class ContactMainComponent  {
     })
   })
 
-  listenForLangChangeAndUpdateI18NValues = ()=>{
-    return this.utilService.translateService.onLangChange
-    .pipe(
-      takeUntil(this.ngUnsub),
-      tap(()=>{
+  // listenForLangChangeAndUpdateI18NValues = ()=>{
+  //   return this.utilService.translateService.onLangChange
+  //   .pipe(
+  //     takeUntil(this.ngUnsub),
+  //     tap(()=>{
         
         
         
         
-        this.nameField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.name.errorMsgs.required")
-        this.emailField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.required")
-        this.emailField.error.msgs['email'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.email")
-        this.subjectField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.subject.errorMsgs.required")
-        this.msgField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.msg.errorMsgs.required")
-        this.wmlForm.fields.forEach((field)=>{
-          let errorKey = Object.keys(field.field.parentForm.controls[field.field.formControlName].errors ?? {})[0]
-          if(errorKey){
-            field.error.displayMsg = this.utilService.translateService.instant(field.error.msgs[errorKey])
-          }
-          field.view.cdref?.detectChanges()
-        })
-      })
-    )
+  //       this.nameField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.name.errorMsgs.required")
+  //       this.emailField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.required")
+  //       this.emailField.error.msgs['email'] = this.utilService.translateService.instant("contactMain.form.email.errorMsgs.email")
+  //       this.subjectField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.subject.errorMsgs.required")
+  //       this.msgField.error.msgs['required'] = this.utilService.translateService.instant("contactMain.form.msg.errorMsgs.required")
+  //       this.wmlForm.fields.forEach((field)=>{
+  //         let errorKey = Object.keys(field.field.parentForm.controls[field.field.formControlName].errors ?? {})[0]
+  //         if(errorKey){
+  //           field.error.displayMsg = this.utilService.translateService.instant(field.error.msgs[errorKey])
+  //         }
+  //         field.view.cdref?.detectChanges()
+  //       })
+  //     })
+  //   )
     
-  }
+  // }
   ngOnInit(): void {
-    this.listenForLangChangeAndUpdateI18NValues().subscribe()
   }
 
   ngAfterViewInit(){

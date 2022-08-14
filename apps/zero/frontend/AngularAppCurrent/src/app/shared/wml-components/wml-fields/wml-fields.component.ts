@@ -46,13 +46,13 @@ export class WmlFieldComponent implements OnInit {
     }
     
 
-    ["label","field"].forEach((key,index0)=>{
+    ["label","field","error"].forEach((key,index0)=>{
 
       if(  this.wmlField?.[key]?.type === "custom"){
         this.wmlField[key].custom.meta.wmlField = this.wmlField 
     
         addCustomComponent(
-          [this.customLabel,this.customField][index0],
+          [this.customLabel,this.customField,this.customError][index0],
           this.wmlField[key].custom.cpnt as Type<any>,
           this.wmlField[key].custom.meta
         )
@@ -66,36 +66,9 @@ export class WmlFieldComponent implements OnInit {
 
   }
 
-  errorMsgIsPresentByListening:any= false
-  listenForErrorMsg(){
-
-
-    let formControl = this.wmlField?.field?.parentForm.controls[this.wmlField?.field?.formControlName]
-
-    return formControl?.statusChanges
-    .pipe(
-      takeUntil(this.ngUnsub),
-      tap((resp)=>{
-        this.errorMsgIsPresentByListening = (formControl?.errors !== null && formControl?.dirty)
-        if(this.wmlField){
-          this.wmlField.error.displayMsg = this.wmlField.error.msgs[ Object.keys(formControl?.errors ?? {})[0] ] ?? this.wmlField.error.displayMsg
-          
-        } 
-        this.cdref.detectChanges()   
-      })
-    )
-
-
-   
-  }
-
-
-
-
   ngOnInit(): void {
     this.initComponent()
     this.initUpdateComponent()
-    this.listenForErrorMsg()?.subscribe()
     
   }
 
@@ -123,7 +96,7 @@ export class WMLField extends WMLWrapper {
         fieldFormControlName?:WMLField["field"]["formControlName"],
         labelValue?:WmlLabelMeta["labels"][number][number]["value"],
         labelRequired?:boolean,
-        errorMsgs?:WMLField["error"]["msgs"],
+        errorMsgs?:WmlLabelMeta["errorMsgs"],
       }
     } = {
       type:"default",
@@ -148,6 +121,7 @@ export class WMLField extends WMLWrapper {
     else if(params.type === "custom"){
       let custom = params.custom ?? {}
       let labelWMLLabelMeta:WmlLabelMeta = this.label.custom.meta
+      let errorWMLFieldErrorMeta:WmlLabelMeta = this.error.custom.meta
       this.self.type = custom.selfType ?? "standalone"
       this.field.type = custom.fieldType ?? "custom"
       this.field.custom.cpnt = custom.fieldCustomCpnt ?? WmlInputComponent 
@@ -162,7 +136,7 @@ export class WMLField extends WMLWrapper {
         labelWMLLabelMeta.labels[0].shift()  
       }
       
-      this.error.msgs = custom.errorMsgs ?? this.error.msgs
+      errorWMLFieldErrorMeta.errorMsgs = custom.errorMsgs ?? errorWMLFieldErrorMeta.errorMsgs
     }
 
     
@@ -198,17 +172,26 @@ export class WMLField extends WMLWrapper {
     }),
     formControlName:"name"
   }
-  error:{
-    msgs:{
-      [k:string]:string
-    }
-    displayMsg:string
-    isPresent:boolean
-  }= {
-    msgs:{
-      required:"This field is required"
-    },
-    isPresent:false,
-    displayMsg:"Please correct the above error",
+
+  error = {
+    type:"custom",
+    custom:new WMLCustomComponent({
+      cpnt:WmlLabelComponent,
+      meta:new WmlLabelMeta({
+        errorMsgs:{
+          required:"This field is required"
+        },
+        type:"error",
+        labels:[
+          [
+            {
+              type:"error",
+              value:"Please resolve the above errors",           
+            }
+          ],      
+        ]
+      })
+    })
   }
+
 }

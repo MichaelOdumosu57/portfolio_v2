@@ -44,7 +44,7 @@ export class BaseService {
     Object.keys(formGroup.controls).forEach(field => {  //{2}
       const control = formGroup.get(field);             //{3}
       if (control instanceof FormControl) {             //{4}
-        control.markAsTouched({ onlySelf: true });
+        // control.markAsTouched({ onlySelf: true });
         control.markAsDirty({ onlySelf: true });
         control.updateValueAndValidity({ emitEvent: true });
       } else if (control instanceof FormGroup) {        //{5}

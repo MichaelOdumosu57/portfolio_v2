@@ -7,10 +7,10 @@
 
     </ng-container>
   </label>
-  <p [class]="classPrefix('MainPodLabel0')" *ngFor=" let labelLine of (  meta.type === 'label' ?   meta.labels.splice(1) : meta.labels )  ">
+  <p [class]="classPrefix('MainPodLabel0')" *ngFor=" let labelLine of (  meta.type === 'label' ?   meta.labels.splice(1) : meta.labels );let index = index  ">
     <ng-container
     [ngTemplateOutlet]="templateLabelPart"
-    [ngTemplateOutletContext]="{ $implicit: label }"    
+    [ngTemplateOutletContext]="{ $implicit: label,index:index }"    
     *ngFor="let label of labelLine">
 
     </ng-container>    
@@ -18,11 +18,12 @@
 </main>
 
 
-<ng-template #templateLabelPart let-data> 
-  <ng-container *ngIf="!data.isLink">
-    <p [class]="classPrefix('MainPodError0')" *ngIf="data.type === 'error'">{{data.value}}</p>
+<ng-template #templateLabelPart let-data let-index="index"> 
+  <ng-container *ngIf="data.isPresent">
+    <p *ngIf="data.type === 'required'" [class]="classPrefix('MainPodError0')"  >{{data.value}}</p>
+    <p *ngIf="data.type === 'error'     && formControl.errors &&  formControl.dirty && displayErrors[index]  " [class]="classPrefix('MainPodError0')"  >{{displayErrors[index]}}</p>
+    <a *ngIf="data.type === 'errorLink' && formControl.errors &&  formControl.dirty && displayErrors[index] " [class]="classPrefix('MainPodError0')"  >{{displayErrors[index]}}</a>
     <p *ngIf="data.type === 'default'">{{data.value}}</p>
-    <a [class]="classPrefix('MainPodError0')" *ngIf="data.type === 'errorLink'">{{data.value}}</a>
     <a *ngIf="data.type === 'defaultLink'">{{data.value}}</a>    
   </ng-container>
  

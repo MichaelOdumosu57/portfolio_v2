@@ -13,12 +13,14 @@ import { takeUntil,tap } from 'rxjs/operators';
 // misc
 import { CONFIG } from '@app/core/config/configs';
 import { WMLWrapper } from '@shared/wml-components/models';
+import { WMLField } from '../wml-fields.component';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'wml-label',
   templateUrl: './wml-label.component.html',
   styleUrls: ['./wml-label.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  // changeDetection:ChangeDetectionStrategy.OnPush
 
 })
 export class WmlLabelComponent  {
@@ -33,8 +35,26 @@ export class WmlLabelComponent  {
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()  
   @Input('meta') meta = new WmlLabelMeta()
+  formControl!:AbstractControl 
+  displayErrors:string[] = []
+
 
   ngOnInit(): void {
+    this.formControl = this.meta.wmlField.field.parentForm.controls[this.meta.wmlField.field.formControlName]
+    this.listenForFormControlStatusChanges().subscribe()
+  }
+
+  private listenForFormControlStatusChanges() {
+    return this.formControl
+      .statusChanges
+      .pipe(
+        takeUntil(this.ngUnsub),
+        tap((res) => {
+
+          this.displayErrors = this.meta.toggleErrors(this.formControl);
+          this.cdref.detectChanges();
+        })
+      )
   }
 
   ngOnDestroy(){
@@ -56,19 +76,25 @@ export class WmlLabelMeta extends WMLWrapper{
     this.labels = this.labels.map((labelLine)=>{
       return labelLine.map((label)=>{
         label.type  = label.type || 'default'
+        label.isPresent = (label.isPresent === undefined ? true :label.isPresent ) 
         return label 
       })
     })
   }
 
-  type: 'label' | 'error' = 'label'
+  type: 'label' | 'error'  = 'label'
+  isPresent:boolean = true
+  errorMsgs:{
+    [k:string]:string
+  } = {}
   labels:{
-    type?:"default" | "error",
+    type?:"default" | "error" | 'required',
     value:string
+    isPresent?:boolean
   }[][] = [
     [
       {
-        type:"error",
+        type:"required",
         value:"*"
       },
       {
@@ -77,4 +103,11 @@ export class WmlLabelMeta extends WMLWrapper{
       }      
     ]
   ]
+  toggleErrors(formControl:AbstractControl){
+    return  Object.keys(formControl.errors ?? {})
+    .map((key)=>{
+      return this.errorMsgs[key]
+    })
+  }
+  wmlField!:WMLField
 }

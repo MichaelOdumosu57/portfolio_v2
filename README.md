@@ -14,7 +14,7 @@
 
 * getting the footer and the body to align properly, it seems when you use flex-end in flex-direction column, things want to start from the bottom of the screen and if the content is bigger than the viewport it will overflow upwards
 
-
+* learning that ngAfterviewChecked and ngAfterContentChecked are called even if there is ChnageDetectionStrategy.OnPush and can be used to mimic ChangeDetectionStrategy.Default behavoir
 
 ## Enjoyed
 * making the site responsive, using new learnings to make mobile and regular nav
