@@ -10,10 +10,11 @@ import { BaseService } from '@core/base/base.service';
 import { Subject } from 'rxjs';
 import { takeUntil,tap } from 'rxjs/operators';
 
-// misc
-import { CONFIG } from '@app/core/config/configs';
+// wml-components
 import { WMLWrapper } from '@shared/wml-components/models';
 import { WMLField } from '../wml-fields.component';
+
+// reactive-forms
 import { AbstractControl } from '@angular/forms';
 
 @Component({

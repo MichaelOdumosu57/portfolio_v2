@@ -1,20 +1,15 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component,  HostBinding,  Input, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 
-// service
-import { ConfigService } from '@app/core/config/config.service';
-import { UtilityService } from '@app/core/utility/utility.service';
 
 // rxjs
-import { combineLatest, merge, Subject } from 'rxjs';
-import { takeUntil,tap } from 'rxjs/operators';
-import { CONFIG } from '@app/core/config/configs';
+import { Subject } from 'rxjs';
 import { SampleCpntComponent, SampleCpntMeta } from '../../sample-cpnt/sample-cpnt.component';
 
 // wml compoentns
-import { WMLCustomComponent, WMLUIProperty, WMLWrapper } from '../models';
+import { WMLCustomComponent, WMLWrapper } from '../models';
 import { addCustomComponent } from '../functions';
 import { WmlInputComponent, WmlInputMeta } from '../wml-input/wml-input.component';
-import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { WmlLabelComponent, WmlLabelMeta } from './wml-label/wml-label.component';
 
 @Component({
@@ -27,8 +22,6 @@ export class WmlFieldComponent implements OnInit {
 
   constructor(
     private cdref:ChangeDetectorRef,
-    private utilService:UtilityService,
-    private configService:ConfigService,
     
   ) { }
 
@@ -169,7 +162,7 @@ export class WMLField extends WMLWrapper {
     type:"custom",
     custom:{
       cpnt:SampleCpntComponent,
-      meta:new SampleCpntMeta
+      meta:new SampleCpntMeta()
     },
     parentForm:new FormGroup({
       name:new FormControl()

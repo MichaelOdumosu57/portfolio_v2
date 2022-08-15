@@ -23,40 +23,82 @@ app = Flask(__name__)
 #     FLASK_ENV = 'development',
 #     SECRET_KEY=os.environ.get("FLASK_SOCKET_IO_SECRET_KEY")
 # )
-import contact
+# import contact
 #
+import os
+
+CONFIGS= {
+  'endpointMsgCodes':{
+    'success':'OK',
+    'error':'ERROR',
+  },
+  'env_vars':{
+    'RESTDBIO_API_KEY':os.getenv("RESTDBIO_API_KEY")
+  }
+}
 
 
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return Response("<h1>Flask</h1><p>You visited: /%s</p>" % (__name__), mimetype="text/html")
+import requests
+
+@app.route('/contact/submit',methods=['POST'])
+def send_email_to_portfolio_owner():
+  
+
+      
+    data = request.json['data']
+     
+
+    dict_variable =  {
+      key:{
+        "errorMsg":"Please Provide a value for "+key,
+      } for (key,value) in data.items() if value == ""
+    }
+    
+    
+
+
+    if len(dict_variable) == 0:
+      
+      url = 'https://myportfoliov2-e00d.restdb.io/mail'
+      message = {
+        "to":"michaelodumosu57@gmail.com",
+        "subject":"Email from your portfolio website from {}".format(data['email']),
+        "html": data['message'],
+        "company": "WindmillCode",
+        "sendername": "My Portfolio v2 Drive Manager"
+      }
+      headers = {
+        "Content-Type": "application/json",
+        "x-apikey":CONFIGS['env_vars']['RESTDBIO_API_KEY'],
+        "Cache-Control": "no-cache"
+      }      
+
+      resp = requests.post(url, json = message,headers= headers)     
+      print(resp.content) 
+      return {
+        'data':{
+          'msg':'Email Sent',
+          'code': CONFIGS['endpointMsgCodes']['success']
+        }
+      }
+    else:
+      return {
+        'data':dict_variable,
+        'code':CONFIGS['endpointMsgCodes']['error']
+      },400 
 
 
 
-# @app.after_request
-# def after_request(response):
-#   response.headers.set('Access-Control-Allow-Origin', '*')
-#   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH') 
-#   return response
 
 
-# @app.route('/i18n_translate_vendor',methods=['POST'])
-# def i18n_translate_vendor():
-#     data  = request.json['data']
-#     my_util.i18n_translate_vendor(data)
-#     return {
-#         'msg':'OK'
-#     },200
+@app.after_request
+def after_request(response):
+  response.headers.set('Access-Control-Allow-Origin', 'https://my-portfolio-5907b.web.app')
+  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+  response.headers.add('Access-Control-Allow-Methods', 'POST') 
+  return response
 
-if __name__ == "__main__":
-    port = 5000
-    if app.config['USE_NGROK']:
-        public_url = ngrok.connect(port).public_url
-        print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
-        app.config["BASE_URL"] = public_url
-    app.run(debug=True)
+
 

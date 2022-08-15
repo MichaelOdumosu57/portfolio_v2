@@ -59,7 +59,7 @@ class DefaultConfigs extends Configs  {
     super()
     this.intro.moveIntroToAboveScreen = 3000
     this.intro.phrasesCompleteNumber = 4
-    this.contactMain.submitFormEndpoint = "https://portfolio-v2-flask-backend.vercel.app/contact/submit"
+    this.contactMain.submitFormEndpoint = "https://my-portfolio-v2-flask-backend.vercel.app/contact/submit"
   }
 }
 
