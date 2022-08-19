@@ -8,9 +8,7 @@ jobs:
     parallelism: 1
     environment:
     steps:
-      - setup_remote_docker:
-          docker_layer_caching:  
-      - browser-tools/install-browser-tools   
+
       - checkout    
       - restore_cache:
           keys:
