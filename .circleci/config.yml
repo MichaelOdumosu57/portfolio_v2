@@ -8,28 +8,48 @@ jobs:
     parallelism: 1
     environment:
     steps:
-
+      - setup_remote_docker:
+          docker_layer_caching:    
       - checkout    
       - restore_cache:
           keys:
             # Find a cache corresponding to this specific package-lock.json
-            - npm-deps-v1-{{ checksum "/root/apps/zero/frontend/AngularAppCurrent/package.json" }}
-                
+            - npm-deps-v1-{{ checksum "/root/project/AngularApp/package.json" }}
+     
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
+
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - site-packages-deps-v1-{{ checksum "/root/project/AngularApp/backend/python/linux-requirements.txt" }}            
 
       - run:  
           
-          ls;
+          . /etc/profile.d/01-custom-docker-setup.sh;    
+          echo $PATH;
           cd apps/zero/frontend/AngularAppCurrent ;
           npm install -s;   
       - save_cache:
           key: npm-deps-v1-{{ checksum "/root/project/AngularApp/package.json" }}
           paths:
-            - /root/project/AngularApp/node_modules              
+            - /root/project/AngularApp/node_modules  
+      - save_cache:
+          key: bundle-deps-v1-{{ checksum "/root/project/AngularApp/testing/e2e/Gemfile.lock" }}
+          paths:
+            - /root/project/AngularApp/testing/e2e/vendor/bundle  
+      - save_cache:
+          key: site-packages-deps-v1-{{ checksum "/root/project/AngularApp/backend/python/linux-requirements.txt" }}   
+          paths:
+            - /root/project/AngularApp/backend/python/site-packages
+          
       - run:
-
-          cd ~/apps/zero/frontend/AngularAppCurrent;
-          npm run build;
-          npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN;
+          . /etc/profile.d/01-custom-docker-setup.sh;
+          cd apps/zero/frontend/AngularAppCurrent;      
+          npm run build;        
+          npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN
 
 
 
