@@ -103,7 +103,7 @@ export class CertsMainComponent   {
       isPresent:false
     })
   })
-  certCards:CertCard[] = Array(5)
+  certCards:CertCard[] = Array(6)
   .fill(null)
   .map((nullVal,index0)=>{
     return new CertCard({
@@ -113,6 +113,7 @@ export class CertsMainComponent   {
         "assets/media/certs_2.png",
         "assets/media/certs_3.png",
         "assets/media/certs_4.jfif",
+        "assets/media/certs_5.png",
       ][index0],
       imgAlt:"certsMain.cardsImgAlts."+index0,
       displayTitle:"certsMain.cardTitles."+index0,
@@ -183,12 +184,24 @@ export class CertsMainComponent   {
     })
   })  
 
+  linkedinCertCards:CertCard[] = Array(1)
+  .fill(null)
+  .map((nullVal,index0)=>{
+    return new CertCard({
+      imgSrc:`assets/media/linkedin_${index0}.PNG`,
+      imgAlt:  "certsMain.linkedinImgAlts."+index0,
+      displayTitle:  "certsMain.linkedinTitles."+index0,
+      click:this.openCertViewer
+    })
+  })
+
   certCategory = {
     [CONFIG.certsMain.categories[0]]:this.awsCertCards,
     [CONFIG.certsMain.categories[1]]:this.codecademyCertCards,
     [CONFIG.certsMain.categories[2]]:this.courseraCertCards,
     [CONFIG.certsMain.categories[3]]:this.gcpCertCards,
     [CONFIG.certsMain.categories[4]]:this.pluralSightCertCards,
+    [CONFIG.certsMain.categories[5]]:this.linkedinCertCards, 
   }
 
 

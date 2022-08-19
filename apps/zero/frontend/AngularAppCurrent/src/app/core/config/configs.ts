@@ -30,7 +30,7 @@ class Configs {
     phrasesCompleteNumber:0
   }
   certsMain={
-    categories:["aws","codecademy","coursera","gcp","pluralsight"]
+    categories:["aws","codecademy","coursera","gcp","pluralsight","linkedin"]
   }
   contactMain= {
     nameFieldFormControlName:"name",

@@ -41,7 +41,8 @@
             "Cod\u00e9cade",
             "Parcours",
             "Google Cloud Plateforme",
-            "Vue plurielle"
+            "Vue plurielle",
+            "LinkedIn Learning"
         ],
         "awsImgAlts": [
             "Services de stockage Core AWS",
@@ -112,6 +113,12 @@
             "Structurer les applications angulaires avec des biblioth\u00e8ques angulaires",
             "Cr\u00e9ation d'une application connect\u00e9e avec Flutter",
             "Cr\u00e9er des animations avec un flottement"
+        ],
+        "linkedinImgAlts": [
+            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP"
+        ],
+        "linkedinTitles": [
+            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP"
         ]
     },
     "contactMain": {

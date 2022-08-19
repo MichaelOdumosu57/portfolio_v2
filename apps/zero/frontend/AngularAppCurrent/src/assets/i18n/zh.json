@@ -41,7 +41,8 @@
             "Codecademy",
             "Coursera",
             "Google\u4e91\u5e73\u53f0",
-            "\u591a\u5143\u89c6\u89d2"
+            "\u591a\u5143\u89c6\u89d2",
+            "LinkedIn\u5b66\u4e60"
         ],
         "awsImgAlts": [
             "\u6838\u5fc3AWS\u5b58\u50a8\u670d\u52a1",
@@ -112,6 +113,12 @@
             "\u4e0e\u89d2\u5e93\u7ed3\u6784\u89d2\u5ea6\u5e94\u7528",
             "\u521b\u5efa\u4e00\u4e2a\u5e26\u6709\u98a4\u97f3\u7684\u8fde\u63a5\u5e94\u7528\u7a0b\u5e8f",
             "\u7528\u98a4\u97f3\u521b\u5efa\u52a8\u753b"
+        ],
+        "linkedinImgAlts": [
+            "\u6784\u5efa\u4ee5\u592a\u574a\u533a\u5757\u94fe\u5e94\u7528\u7a0b\u5e8f\uff1a8\u4f9b\u5e94\u94fe\u667a\u80fd\u5408\u7ea6DAPP"
+        ],
+        "linkedinTitles": [
+            "\u6784\u5efa\u4ee5\u592a\u574a\u533a\u5757\u94fe\u5e94\u7528\u7a0b\u5e8f\uff1a8\u4f9b\u5e94\u94fe\u667a\u80fd\u5408\u7ea6DAPP"
         ]
     },
     "contactMain": {

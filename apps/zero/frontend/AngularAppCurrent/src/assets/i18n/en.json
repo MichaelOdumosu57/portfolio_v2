@@ -41,7 +41,8 @@
       "Codecademy",
       "Coursera",
       "Google Cloud Platform",
-      "Pluralsight"
+      "Pluralsight",
+      "Linkedin Learning"
     ],
     "awsImgAlts": [
       "core aws storage services",
@@ -112,6 +113,12 @@
       "Structuing Angular Apps with Angular Libraries",
       "Creating a Connected App with Flutter",
       "Creating Animations with Flutter"
+    ],
+    "linkedinImgAlts": [
+      "Building an Ethereum Blockchain App: 8 Supply Chain Smart Contract dApp"
+    ],
+    "linkedinTitles": [
+      "Building an Ethereum Blockchain App: 8 Supply Chain Smart Contract dApp"
     ]
   },
   "contactMain": {

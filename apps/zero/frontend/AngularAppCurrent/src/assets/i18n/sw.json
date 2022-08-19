@@ -14,7 +14,7 @@
     },
     "intro": {
         "phrases": [
-            "Tafuta tatizo, tafuta suluhisho.",
+            "Pata shida, pata suluhisho.",
             "Demo, kubuni, kukuza kupelekwa",
             "Amini katika misheni.Amini katika timu.",
             "Fanya ifanye kazi kwa kila hali inayowezekana.",
@@ -41,7 +41,8 @@
             "Codecademy",
             "Coursera",
             "Jukwaa la Wingu la Google",
-            "Pluralsight"
+            "Pluralsight",
+            "LinkedIn Kujifunza"
         ],
         "awsImgAlts": [
             "Huduma za Hifadhi za Core AWS",
@@ -112,6 +113,12 @@
             "Kuunda programu za angular na maktaba za angular",
             "Kuunda programu iliyounganishwa na flutter",
             "Kuunda michoro na Flutter"
+        ],
+        "linkedinImgAlts": [
+            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP"
+        ],
+        "linkedinTitles": [
+            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP"
         ]
     },
     "contactMain": {

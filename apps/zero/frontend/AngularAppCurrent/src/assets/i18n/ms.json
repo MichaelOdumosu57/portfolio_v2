@@ -41,7 +41,8 @@
             "Codecademy",
             "Coursera",
             "Platform Awan Google",
-            "Pluralsight"
+            "Pluralsight",
+            "Pembelajaran LinkedIn"
         ],
         "awsImgAlts": [
             "Perkhidmatan Penyimpanan Teras AWS",
@@ -112,6 +113,12 @@
             "Menstrukturkan aplikasi sudut dengan perpustakaan sudut",
             "Membuat aplikasi yang disambungkan dengan Flutter",
             "Membuat animasi dengan Flutter"
+        ],
+        "linkedinImgAlts": [
+            "Membina Aplikasi Blockchain Ethereum: 8 Rantaian Bekalan Kontrak Pintar Dapp"
+        ],
+        "linkedinTitles": [
+            "Membina Aplikasi Blockchain Ethereum: 8 Rantaian Bekalan Kontrak Pintar Dapp"
         ]
     },
     "contactMain": {
@@ -192,7 +199,7 @@
             },
             {
                 "title": "Laman Web Portfolio v1",
-                "desc": "V1 laman web portfolio saya mengandungi versi resume visual saya yang boleh dimuat turun bersama -sama dengan ciri -ciri lain seperti rujukan dan grafik kemahiran"
+                "desc": "V1 laman web portfolio saya mengandungi versi resume visual saya yang boleh dimuat turun bersama -sama dengan ciri -ciri lain seperti rujukan dan graf kemahiran"
             }
         ]
     },

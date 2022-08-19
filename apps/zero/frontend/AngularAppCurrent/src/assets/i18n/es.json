@@ -41,7 +41,8 @@
             "Codecademy",
             "Cursera",
             "Plataforma en la nube de Google",
-            "Pluralsight"
+            "Pluralsight",
+            "LinkedIn Learning"
         ],
         "awsImgAlts": [
             "Servicios de almacenamiento de Core AWS",
@@ -112,6 +113,12 @@
             "Estructurar aplicaciones angulares con bibliotecas angulares",
             "Crear una aplicaci\u00f3n conectada con Flutter",
             "Creando animaciones con Flutter"
+        ],
+        "linkedinImgAlts": [
+            "Construyendo una aplicaci\u00f3n de blockchain de Ethereum: 8 DAPP de contrato inteligente de cadena de suministro"
+        ],
+        "linkedinTitles": [
+            "Construyendo una aplicaci\u00f3n de blockchain de Ethereum: 8 DAPP de contrato inteligente de cadena de suministro"
         ]
     },
     "contactMain": {
