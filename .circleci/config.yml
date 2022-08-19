@@ -20,7 +20,7 @@ jobs:
 
       - run:  
           
-          . /etc/profile.d/01-custom-docker-setup.sh;    
+
           echo $PATH;
           cd ~/apps/zero/frontend/AngularAppCurrent ;
           npm install -s;   
@@ -29,7 +29,7 @@ jobs:
           paths:
             - /root/project/AngularApp/node_modules              
       - run:
-          . /etc/profile.d/01-custom-docker-setup.sh;
+
           cd ~/apps/zero/frontend/AngularAppCurrent;
           npm run build;
           npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN;
