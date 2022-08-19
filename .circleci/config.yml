@@ -18,9 +18,8 @@ jobs:
 
       - run:  
           
-
           ls;
-          cd ~/apps/zero/frontend/AngularAppCurrent ;
+          cd apps/zero/frontend/AngularAppCurrent ;
           npm install -s;   
       - save_cache:
           key: npm-deps-v1-{{ checksum "/root/project/AngularApp/package.json" }}
