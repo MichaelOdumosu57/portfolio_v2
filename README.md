@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/WindMillCode/WindMillCodeSite.svg?style=svg)](<LINK>)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/MichaelOdumosu57/portfolio_v2/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/MichaelOdumosu57/portfolio_v2/tree/master)
 
 
 # Summary
