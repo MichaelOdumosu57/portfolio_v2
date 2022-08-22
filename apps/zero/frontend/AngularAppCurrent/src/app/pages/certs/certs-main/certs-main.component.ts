@@ -184,7 +184,7 @@ export class CertsMainComponent   {
     })
   })  
 
-  linkedinCertCards:CertCard[] = Array(3)
+  linkedinCertCards:CertCard[] = Array(4)
   .fill(null)
   .map((nullVal,index0)=>{
     return new CertCard({
