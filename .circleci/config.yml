@@ -17,14 +17,12 @@ jobs:
             - npm-frontend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
       - restore_cache:
           keys:
-            # Find a cache corresponding to this specific package-lock.json
             - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }}
 
 
      
 
       - run:  
-          
           . /etc/profile.d/01-custom-docker-setup.sh;    
           echo $PATH;
           cd apps/zero/frontend/AngularAppCurrent ;
@@ -34,11 +32,11 @@ jobs:
       - save_cache:
           key: npm-frontend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
           paths:
-            - /root/project/AngularApp/node_modules  
+            - /root/project/apps/zero/frontend/AngularAppCurrent/node_modules  
       - save_cache:
-          keys:
-            # Find a cache corresponding to this specific package-lock.json
-            - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }}            
+          key: npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }} 
+          paths:
+            - /root/project/apps/zero/backend/flask/node_modules             
 
       - run:
           . /etc/profile.d/01-custom-docker-setup.sh;
