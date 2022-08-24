@@ -14,7 +14,13 @@ jobs:
       - restore_cache:
           keys:
             # Find a cache corresponding to this specific package-lock.json
-            - npm-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
+            - npm-frontend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
+
+
      
 
       - run:  
@@ -23,16 +29,25 @@ jobs:
           echo $PATH;
           cd apps/zero/frontend/AngularAppCurrent ;
           npm install -s;   
+          cd ../../backend/flask;
+          npm install -s;
       - save_cache:
-          key: npm-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
+          key: npm-frontend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
           paths:
             - /root/project/AngularApp/node_modules  
+      - save_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }}            
 
       - run:
           . /etc/profile.d/01-custom-docker-setup.sh;
           cd apps/zero/frontend/AngularAppCurrent;      
           npm run build;        
-          npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN
+          npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN;
+          cd ../../backend/flask;
+          npx vercel .\dev --prod          
+
 
 
 
