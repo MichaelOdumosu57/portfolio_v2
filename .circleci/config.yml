@@ -18,7 +18,7 @@ jobs:
       - restore_cache:
           keys:
             # Find a cache corresponding to this specific package-lock.json
-            - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/frontend/AngularAppCurrent/package.json" }}
+            - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }}
 
 
      
