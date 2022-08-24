@@ -44,7 +44,7 @@ jobs:
           npm run build;        
           npx firebase deploy --project auxillary-305605 --token $FIREBASE_TOKEN;
           cd ../../backend/flask;
-          npx vercel ./dev --prod  --yes --token=$VERCEL_TOKEN     
+          npx vercel ./dev --prod   --token=$VERCEL_TOKEN     
 
 
 
