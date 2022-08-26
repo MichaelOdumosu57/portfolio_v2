@@ -89,3 +89,8 @@
 2022-08-26 18:42:15,368 DEBUG c.e.m.c.HelloController [http-nio-4000-exec-6] Email contact: null
 2022-08-26 18:51:33,384 DEBUG c.e.m.c.HelloController [http-nio-4000-exec-5] Email contact: michaelodumosu57@gmail.com
 2022-08-26 18:52:07,629 DEBUG c.e.m.c.HelloController [http-nio-4000-exec-7] Email contact: joefishey@gmail.com
+2022-08-26 18:58:07,607 INFO c.e.m.MySpringProjectApplication [restartedMain] Starting MySpringProjectApplication using Java 11.0.12 on DESKTOP-T9M7T57 with PID 141028 (C:\Users\Restop-2345\My_Notebook\cases\FinancialUpwardCase\SoftwareEngineer\projects\my_portfolio_v2\apps\zero\logging\mySpringProject\target\classes started by Restop-2345 in C:\Users\Restop-2345\My_Notebook\cases\FinancialUpwardCase\SoftwareEngineer\projects\my_portfolio_v2\apps\zero\logging\mySpringProject)
+2022-08-26 18:58:07,612 DEBUG c.e.m.MySpringProjectApplication [restartedMain] Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-08-26 18:58:07,614 INFO c.e.m.MySpringProjectApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-26 18:58:09,335 INFO c.e.m.MySpringProjectApplication [restartedMain] Started MySpringProjectApplication in 2.098 seconds (JVM running for 3.038)
+2022-08-26 18:59:01,636 DEBUG c.e.m.c.HelloController [http-nio-4000-exec-1] Email contact: joefishey@gmail.com
