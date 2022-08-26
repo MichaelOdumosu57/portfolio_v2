@@ -1,10 +1,13 @@
-from index import app,request
+from __main__ import app,request
 import json
 import requests
 
 
 from configs import CONFIGS
 
+@app.route('/')
+def index():
+    return 'Hello World'
 
 @app.route('/contact/submit',methods=['POST'])
 def send_email_to_portfolio_owner():
@@ -33,8 +36,12 @@ def send_email_to_portfolio_owner():
         "Cache-Control": "no-cache"
       }      
 
-      resp = requests.post(url, json = message,headers= headers)     
-      print(resp.content) 
+      # resp = requests.post(url, json = message,headers= headers)     
+      log_email_result_to_email_logging_service(data)
+      
+
+            
+
       return {
         'data':{
           'msg':'Email Sent',
@@ -46,3 +53,35 @@ def send_email_to_portfolio_owner():
         'data':dict_variable,
         'code':CONFIGS['endpointMsgCodes']['error']
       },400 
+      
+      
+def log_email_result_to_email_logging_service(data):
+  
+  headersList = {
+    "Accept": "*/*",
+    "Content-Type": "application/json" 
+  }  
+  try:
+    resp =requests.post(
+      CONFIGS['endpoints']['contact/submit'],
+      json.dumps({
+        'email':data['email'],
+        'emailSentSucessfully': CONFIGS['endpointMsgCodes']["success"]
+      }),
+      headers=headersList
+    );
+    print(resp.text)
+  except BaseException as e:
+    print(e); 
+    try:
+      requests.post(
+        CONFIGS['endpoints']['contact/submit'],
+      json.dumps({
+        'email':data['email'],
+        'emailSentSucessfully': CONFIGS['endpointMsgCodes']["success"]
+      }),
+      headers=headersList
+      )
+    except BaseException as e:
+      print(e); 
+      None  

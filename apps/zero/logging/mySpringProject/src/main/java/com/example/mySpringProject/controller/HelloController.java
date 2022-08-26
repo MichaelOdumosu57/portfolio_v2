@@ -1,7 +1,14 @@
 package com.example.mySpringProject.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.mySpringProject.models.EmailMetadata;
+
+import org.springframework.http.HttpStatus;
 
 
 // Import log4j classes.
@@ -19,10 +26,16 @@ public class HelloController {
     return "Hello World!";
   }
 
-  @GetMapping("/log")
-  public void logHelloWorld(){
+  @PostMapping(path= "/contact/submit", consumes="application/json")
+  @ResponseStatus(HttpStatus.CREATED)
+  public void logEmailContactInfo(@RequestBody EmailMetadata emailMetadata){
     logger.traceEntry();
-    logger.debug("Hello beautiful world.");
+    StringBuilder sb = new StringBuilder();
+    sb
+    .append("Email contact: ")
+    .append(emailMetadata.getEmail());
+    
+    logger.debug(sb.toString());
     logger.traceExit();
 
   }

@@ -10,5 +10,6 @@
   },
   "python.analysis.extraPaths": [
     "./misc/sending_email_with_python/site-packages/windows"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
