@@ -1,3 +1,5 @@
+import time
+
 def local_deps():
     import sys
     if sys.platform == "win32":
@@ -25,9 +27,11 @@ def i18n_translate_vendor(dev_obj):
     i18n_trnaslator = Translator()
     for x in lang_codes:
 
+        
         with open(source_file,encoding="utf-8") as f:
             lang  = json.load(f)
             def translateMe(string):
+
                 my_result = i18n_trnaslator.translate(
                     string,
                     destination_language=x,
@@ -35,6 +39,7 @@ def i18n_translate_vendor(dev_obj):
                 ).result
                 print(my_result)
                 return my_result
+
 
             my_translate = replace(lang,translateMe)
 

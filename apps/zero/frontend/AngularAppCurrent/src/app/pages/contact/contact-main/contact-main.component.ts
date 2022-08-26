@@ -149,33 +149,47 @@ export class ContactMainComponent  {
     fields: this.fields
   })
 
-  socialMediaContacts =Array(6)
-  .fill(null)
-  .map((nullVal,index0)=>{
-    return new ContactSocialMedia({
-      imgSrc:"assets/media/contact_"+index0+".png",
-      imgAlt:"contactMain.socialMedia."+index0,
-      displayTitle:"contactMain.socialMedia."+index0,
-      navigateTo:()=> window.location.href = [
-        "mailto:michaelodumosu57@gmail.com",
-        "https://www.facebook.com/mchael.odumosu/",
-        "https://twitter.com/MOdumosu",
-        "https://app.slack.com/client/T02A6UJ4EJD/setup-invites",
-        "https://discord.com/channels/michaelodumosu57#0118",        
-        "https://www.linkedin.com/in/michael-odumosu-a58367b1",
-      ][index0],
-      titleStyle :{
-        background:[
-          "radial-gradient(farthest-corner at 100% 0px, red 0%, white 250%)",
-          "radial-gradient(farthest-corner at 100% 0px, royalblue 0%, navy 200%)",
-          "radial-gradient(farthest-corner at 100% 0px, cyan 0%, skyblue 200%)",
-          "radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, green 200%)",
-          "radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, purple 200%)",
-          "radial-gradient(farthest-corner at 100% 0px, cyan 0%, blue 200%)",
-        ][index0]
+  socialMediaContacts =(()=>{
+    let result = Array(7)
+    .fill(null)
+    .map((nullVal,index0)=>{
+      let imgSrc = "assets/media/contact_"+index0+".png"
+      if(index0=== 6  ){
+        imgSrc = "assets/media/contact_"+index0+".jpg"
       }
+      return new ContactSocialMedia({
+        imgSrc,
+        imgAlt:"contactMain.socialMedia."+index0,
+        displayTitle:"contactMain.socialMedia."+index0,
+        navigateTo:()=> window.location.href = [
+          "mailto:michaelodumosu57@gmail.com",
+          "https://www.facebook.com/mchael.odumosu/",
+          "https://twitter.com/MOdumosu",
+          "https://app.slack.com/client/T02A6UJ4EJD/setup-invites",
+          "https://discord.com/channels/michaelodumosu57#0118",        
+          "https://www.linkedin.com/in/michael-odumosu-a58367b1",
+          "https://github.com/michaelodumosu57",
+        ][index0],
+        titleStyle :{
+          background:[
+            "radial-gradient(farthest-corner at 100% 0px, red 0%, white 250%)",
+            "radial-gradient(farthest-corner at 100% 0px, royalblue 0%, navy 200%)",
+            "radial-gradient(farthest-corner at 100% 0px, cyan 0%, skyblue 200%)",
+            "radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, green 200%)",
+            "radial-gradient(farthest-corner at 100% 0px, aquamarine 0%, purple 200%)",
+            "radial-gradient(farthest-corner at 100% 0px, cyan 0%, blue 200%)",
+            "radial-gradient(farthest-corner at 100% 0px, grey 0%, black 150%)"
+          ][index0]
+        }
+      })
     })
-  })
+    
+    result.unshift(result.pop() as ContactSocialMedia)
+    return result
+  })()
+  
+  
+
 
 
   ngOnInit(): void {

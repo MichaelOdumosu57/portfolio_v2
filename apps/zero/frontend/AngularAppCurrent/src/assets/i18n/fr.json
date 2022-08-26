@@ -115,10 +115,16 @@
             "Cr\u00e9er des animations avec un flottement"
         ],
         "linkedinImgAlts": [
-            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP"
+            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP",
+            "Construire une application Ethereum Blockchain: 10 D\u00e9ploiement et entretien",
+            "Construire une application Ethereum Blockchain: 11 Int\u00e9gration de l'application non blockchain",
+            "Premier regard svelte"
         ],
         "linkedinTitles": [
-            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP"
+            "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP",
+            "Construire une application Ethereum Blockchain: 10 D\u00e9ploiement et entretien",
+            "Construire une application Ethereum Blockchain: 11 Int\u00e9gration de l'application non blockchain",
+            "Premier regard svelte"
         ]
     },
     "contactMain": {
@@ -158,7 +164,8 @@
             "Twitter",
             "Mou",
             "Discorde",
-            "Liendin"
+            "Liendin",
+            "Github"
         ]
     },
     "projectsMain": {

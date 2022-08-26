@@ -8,7 +8,7 @@
             "intro": "Intro",
             "home": "Nyumbani",
             "projects": "Miradi",
-            "certs": "Cert",
+            "certs": "Certs",
             "contact": "Wasiliana"
         }
     },
@@ -115,10 +115,16 @@
             "Kuunda michoro na Flutter"
         ],
         "linkedinImgAlts": [
-            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP"
+            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
+            "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
+            "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
+            "Svelte kwanza kuangalia"
         ],
         "linkedinTitles": [
-            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP"
+            "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
+            "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
+            "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
+            "Svelte kwanza kuangalia"
         ]
     },
     "contactMain": {
@@ -158,7 +164,8 @@
             "Twitter",
             "Slack",
             "Discord",
-            "LinkedIn"
+            "LinkedIn",
+            "GitHub"
         ]
     },
     "projectsMain": {

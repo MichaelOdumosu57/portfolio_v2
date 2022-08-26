@@ -9,13 +9,13 @@
         <label>{{ submitButton.text.value  | translate}}</label>
       </button>
     </div>
-    <div [class]="classPrefix('Pod1Item1')">
-      <div
+    <ul [class]="classPrefix('Pod1Item1')">
+      <li
       [class]="classPrefix('Pod1Item2')"
       *ngFor="let item of socialMediaContacts">
         <img [class]="classPrefix('Pod1Img0')"  [src]="item.imgSrc" [alt]="item.imgAlt | translate" (click)="item.navigateTo()"/>
         <h2 [ngStyle]="item.titleStyle" [class]="classPrefix('Pod1Text0')" (click)="item.navigateTo()">{{item.displayTitle | translate}}</h2>
-      </div>      
-    </div>
+      </li>      
+    </ul>
   </div>
 </main>
