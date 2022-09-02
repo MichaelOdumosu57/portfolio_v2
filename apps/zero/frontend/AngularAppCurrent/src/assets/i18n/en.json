@@ -207,7 +207,11 @@
       {
         "title":"Portfolio Website v1",
         "desc":"v1 of my portfolio website contains downloadable version of my visual resume along with other features such as refernces and skills graph"
-      }               
+      },
+      {
+        "title":"Ngrx Project",
+        "desc":"Full-featured angular application leveraging features such as angular material,ngrx,three.js,scss, i18n, responsiveness and server side pagination"
+      }                
                         
     ]
   },

@@ -35,6 +35,9 @@
 
 # Resources
 
+10 languages to convert site 
+"ar","bn","es","fr","hi","ms","sw","uk","zh"
+
 [Angular validate all fields](https://loiane.com/2017/08/angular-reactive-forms-trigger-validation-on-submit/)
 
 [Codepen album animation](https://codepen.io/maxew33/pen/yLMzgZe)

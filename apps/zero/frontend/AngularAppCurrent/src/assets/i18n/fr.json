@@ -22,8 +22,8 @@
         ]
     },
     "homeIntro": {
-        "title": "Michael Odumosu",
-        "summary": "D\u00e9veloppeur de logiciels avec des ann\u00e9es d'exp\u00e9rience en leadership.Applications construites servant des utilisateurs dans le secteur financier et immobilier.Des \u00e9quipes de base et externes g\u00e9r\u00e9es et des demandeurs d'emploi en herbe encadr\u00e9s cherchent \u00e0 entrer dans l'industrie.Certifi\u00e9 en technologies GCP et AWS."
+        "title": "Michel Odumoso",
+        "summary": "D\u00e9veloppeur de logiciels avec des ann\u00e9es d'exp\u00e9rience en leadership.Applications construites servant des utilisateurs dans le secteur financier et immobilier.Des \u00e9quipes de base et externes g\u00e9r\u00e9es et des demandeurs d'emploi en herbe encadr\u00e9s cherchent \u00e0 entrer dans l'industrie.Certifi\u00e9 dans GCP et AWS Technologies."
     },
     "certsMain": {
         "backTextValue": "Retour",
@@ -207,6 +207,10 @@
             {
                 "title": "Site Web de portefeuille v1",
                 "desc": "V1 de mon site Web de portfolio contient une version t\u00e9l\u00e9chargeable de mon CV visuel ainsi que d'autres fonctionnalit\u00e9s telles que les r\u00e9f\u00e9rences et le graphique de comp\u00e9tences"
+            },
+            {
+                "title": "Projet NGRX",
+                "desc": "Application angulaire compl\u00e8te Tirant des fonctionnalit\u00e9s telles que Angular Material, NGRX, Three.JS, SCSS, I18N, R\u00e9activit\u00e9 et Pagination c\u00f4t\u00e9 serveur"
             }
         ]
     },

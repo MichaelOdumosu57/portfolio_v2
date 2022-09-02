@@ -8,7 +8,7 @@
             "intro": "Intro",
             "home": "Nyumbani",
             "projects": "Miradi",
-            "certs": "Certs",
+            "certs": "Cert",
             "contact": "Wasiliana"
         }
     },
@@ -17,7 +17,7 @@
             "Pata shida, pata suluhisho.",
             "Demo, kubuni, kukuza kupelekwa",
             "Amini katika misheni.Amini katika timu.",
-            "Fanya ifanye kazi kwa kila hali inayowezekana.",
+            "Ifanye ifanye kazi kwa kila hali inayowezekana.",
             "Unapokabiliwa na shinikizo kubwa zaidi, kaa utulivu."
         ]
     },
@@ -207,6 +207,10 @@
             {
                 "title": "Tovuti ya kwingineko v1",
                 "desc": "V1 ya wavuti yangu ya kwingine"
+            },
+            {
+                "title": "Mradi wa NGRX",
+                "desc": "Vipengee kamili vya matumizi ya angular kama vile nyenzo za angular, NGRX, tatu.js, SCSS, I18N, mwitikio na upendeleo wa upande wa seva"
             }
         ]
     },

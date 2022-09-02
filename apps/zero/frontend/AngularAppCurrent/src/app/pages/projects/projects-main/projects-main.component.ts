@@ -40,13 +40,17 @@ export class ProjectsMainComponent  {
     "https://windmillcode.github.io/portal-sample-app/",
     "N/A",
     "https://github.com/MichaelOdumosu57/ mkimbe_online_store",
-    "https://myportfolio-7d6b0.firebaseapp.com/resume"
+    "https://myportfolio-7d6b0.firebaseapp.com/resume",
+    "https://r76j1j-8888.preview.csb.app/profiles"
     // "https://lwqx5.csb.app/"
   ]
   .map((displayValue,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
     if( 
-      ["https://michaelodumosu57 .github.io/SocialMediaApp"]
+      [
+        "https://michaelodumosu57 .github.io/SocialMediaApp",
+        "https://r76j1j-8888.preview.csb.app/profiles"
+      ]
       .includes(displayValue) 
     ){
       imgSrc="assets/media/projects_"+index0+".gif"
@@ -70,9 +74,11 @@ export class ProjectsMainComponent  {
       sampleEcommerce,
       meetupApp,
       mkimbe,
-      portfolioV1
+      portfolioV1,
+      crexiTakeHome
     ]= this.projects
     this.projects = [
+      crexiTakeHome,
       portfolioV1,      
       receiptTracker,
       socialUploader,

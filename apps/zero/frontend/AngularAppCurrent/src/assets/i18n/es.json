@@ -207,6 +207,10 @@
             {
                 "title": "Sitio web de cartera v1",
                 "desc": "V1 del sitio web de mi cartera contiene una versi\u00f3n descargable de mi curr\u00edculum visual junto con otras caracter\u00edsticas, como referencias y gr\u00e1fico de habilidades"
+            },
+            {
+                "title": "Proyecto NGRX",
+                "desc": "Caracter\u00edsticas de apalancamiento de la aplicaci\u00f3n angular completa como material angular, NGRX, tres.js, SCSS, I18N, capacidad de respuesta y paginaci\u00f3n del lado del servidor"
             }
         ]
     },

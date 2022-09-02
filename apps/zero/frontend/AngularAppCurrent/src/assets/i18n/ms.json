@@ -15,9 +15,9 @@
     "intro": {
         "phrases": [
             "Cari masalah, cari penyelesaiannya.",
-            "Demo, Reka Bentuk, Bangunkan Sebarkan",
+            "Demo, reka bentuk, membangunkan penyebaran",
             "Percaya dalam misi.Percayalah kepada pasukan.",
-            "Jadikannya berfungsi untuk setiap senario yang mungkin.",
+            "Jadikan ia berfungsi untuk setiap senario yang mungkin.",
             "Apabila berhadapan dengan tekanan yang paling besar, tetap tenang."
         ]
     },
@@ -207,6 +207,10 @@
             {
                 "title": "Laman Web Portfolio v1",
                 "desc": "V1 laman web portfolio saya mengandungi versi resume visual saya yang boleh dimuat turun bersama -sama dengan ciri -ciri lain seperti rujukan dan grafik kemahiran"
+            },
+            {
+                "title": "Projek NGRX",
+                "desc": "Ciri-ciri memanfaatkan aplikasi sudut penuh seperti bahan sudut, ngrx, tiga.js, scss, i18n, responsif dan penomboran sampingan pelayan"
             }
         ]
     },
