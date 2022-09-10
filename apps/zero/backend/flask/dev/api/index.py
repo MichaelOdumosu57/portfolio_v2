@@ -78,10 +78,8 @@ def send_email_to_portfolio_owner():
       resp = requests.post(url, json = message,headers= headers)     
       print(resp.content) 
       return {
-        'data':{
-          'msg':'Email Sent',
-          'code': CONFIGS['endpointMsgCodes']['success']
-        }
+        'msg':'Email Sent',
+        'code': CONFIGS['endpointMsgCodes']['success']
       }
     else:
       return {
