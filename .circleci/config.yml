@@ -19,9 +19,6 @@ jobs:
           keys:
             - npm-backend-deps-v1-{{ checksum "/root/project/apps/zero/backend/flask/package.json" }}
 
-
-     
-
       - run:  
           . /etc/profile.d/01-custom-docker-setup.sh;    
           echo $PATH;
