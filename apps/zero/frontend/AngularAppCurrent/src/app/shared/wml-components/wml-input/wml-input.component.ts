@@ -43,7 +43,7 @@ export class WmlInputComponent implements OnInit, ControlValueAccessor {
       val = null
     }
     this.onChange(val)
-    this.onTouch(val)    
+    this.onTouch(val)
   }
 
   registerOnChange(fn: Function) {
@@ -65,6 +65,6 @@ export class WmlInputMeta {
     )
   }
 
-  type: "input" | "number" | "password" | "email" | "tel" | "textarea" = "input";
+  type: "input" | "number" | "password" | "email" | "tel" | "textarea" |"range" = "input";
   wmlField: WMLField = new WMLField()
 }

@@ -211,8 +211,20 @@
       {
         "title":"Ngrx Project",
         "desc":"Full-featured angular application leveraging features such as angular material,ngrx,three.js,scss, i18n, responsiveness and server side pagination"
-      }                
-                        
+      },
+      {
+        "title":"NYC Near Hackathon Proof of Vibes",
+        "desc":"Leveraging the near blockchain tech ecosystem to build an MVP SoFi application for the NEAR Hackathon"
+      },
+      {
+        "title":"Official Project Proof of Vibes",
+        "desc":"Social  Blockchain  Engineering Projects where users create NFT's souvenirs from events. Created with React, Firebase Auth, Firebase Realtime Database, NEAR Blockchain Technologies, SCSS,Material/UI, and Python"
+      },
+      {
+        "title":"NIBLS Coin Project",
+        "desc":"Sports Blockchain app based on a new sport whose financial identity (buying tickets,merch, media) will be based on the ethererum blockchain only. Created with Angular,Python MSSQL, Azure Cloud,Moralis blockchain API"
+      }
+
     ]
   },
   "footer": {

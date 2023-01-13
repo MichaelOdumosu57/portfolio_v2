@@ -9,6 +9,8 @@ import { WMLButton, WMLUIProperty } from '@shared/wml-components/models';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WMLField } from '@shared/wml-components/wml-fields/wml-fields.component';
 import { CustomLabelComponent } from '@shared/custom-label/custom-label.component';
+import { WmlInputMeta } from '@shared/wml-components/wml-input/wml-input.component';
+import { WmlLabelMeta } from '@shared/wml-components/wml-fields/wml-label/wml-label.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +24,7 @@ export class BaseService {
   restartIntroSubj = new Subject<void>()
 
   closeOverlayLoading = finalize(()=>{
-    
+
     this.toggleOverlayLoadingSubj.next(false)
   })
 
@@ -37,8 +39,47 @@ export class BaseService {
       icon:{
         src:iconSrc,
         alt:iconAlt
-      }      
+      }
     })
+  }
+
+  generateInputFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs:WmlLabelMeta["errorMsgs"],selfType?)=>{
+
+    return this.generateFormField(
+      new WMLField({
+        type: "custom",
+        custom: {
+
+          selfType: selfType ?? "wml-card",
+          fieldParentForm,
+          fieldFormControlName,
+          labelValue,
+          errorMsgs
+        }
+      })
+    )
+  }
+
+  generateRangeFormField=(labelValue:string,fieldFormControlName,fieldParentForm,errorMsgs?:WmlLabelMeta["errorMsgs"],selfType?)=>{
+    let wmlField
+    wmlField =      new WMLField({
+      type: "custom",
+      custom: {
+
+        selfType: selfType ?? "standalone",
+        fieldParentForm,
+        fieldFormControlName,
+        labelValue,
+        errorMsgs:errorMsgs??{
+          required:"value is Required"
+        },
+        fieldCustomMeta:new WmlInputMeta({
+          wmlField,
+          type:"range"
+        })
+      }
+    })
+    return this.generateFormField(wmlField)
   }
 
   generateFormField(wmlField:WMLField){
@@ -60,7 +101,7 @@ export class BaseService {
       }
     });
   }
-  
+
 
   restartIntro= ()=>{
     this.restartIntroSubj.next()

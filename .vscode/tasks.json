@@ -1,0 +1,242 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "pushing work to git remote",
+      "type": "shell",
+      "command": "git add .;git commit -m'[${input:pushing_work_to_git_remote0}] ${input:pushing_work_to_git_remote1}';git branch --unset-upstream;git push origin HEAD",
+      "group": "none",
+      "linux": {
+        "command": "git add .;git commit -m\"[${input:pushing_work_to_git_remote0}] ${input:pushing_work_to_git_remote1}\";git branch --unset-upstream;git push origin HEAD"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        // "close": true
+      }
+    },
+    {
+      "label": "package your projects",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\projects\\${input:package_your_projects0}\\;npm version ${input:package_your_projects1};npm run build;cd ..\\..\\dist\\${input:package_your_projects0};npm publish --access public;",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Build_python_docker_backend_prod_img",
+      "type": "shell",
+      "command": " cd .\\apps\\zero\\devops\\python_backend_docker_image\\;  docker build -t niblscontainerregistry0.azurecr.io/nibls-flask-backend-image:${input:Build_python_docker_backend_prod_img0}  .",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+    },
+    {
+      "label": "push_python_docker_backend_prod_img",
+      "type": "shell",
+      "command": " cd .\\apps\\zero\\devops\\python_backend_docker_image\\;  docker push niblscontainerregistry0.azurecr.io/nibls-flask-backend-image:${input:push_python_docker_backend_prod_img0}",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+    },
+    {
+      "label": "Merge Changes From Master",
+      "type": "shell",
+      "command": " git checkout master;git pull origin master;git branch --delete michael-fantastic;git checkout -b michael-fantastic",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+    },
+    {
+      "label": "Run frontend",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng serve --ssl=true --ssl-key=$env:WML_CERT_KEY0 --ssl-cert=$env:WML_CERT0",
+      "windows": {
+        "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng serve --ssl=true --ssl-key=$env:WML_CERT_KEY0 --ssl-cert=$env:WML_CERT0"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Reinstall Angular Package",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npm uninstall ${input:update_an_Angular_package0};npm install ${input:update_an_Angular_package1} ${input:update_an_Angular_package0};",
+
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Generate_Angular_Component",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\;npx ng g @windmillcode/angular-templates:component --name ${input:Generate_Angular_Component0}  --standalone ${input:Generate_Angular_Component1}  --cpnt-type ${input:Generate_Angular_Component2} --style-type ${input:Generate_Angular_Component3};",
+
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Test Frontend",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng test --watch --code-coverage",
+      "windows": {
+        "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng test --watch --code-coverage"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+
+    },
+    {
+      "label": "Deploy Frontend",
+      "type": "shell",
+      "windows": {
+        "command": ".\\ignore\\set_frontend_env.ps1; npm run build;npx swa deploy ./dist/azureSWA  --env production  --app-name nibls-angular-frontend-0;rm *-app.zip"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run backend",
+      "type": "shell",
+      "command": ".\\ignore\\run_backend_dev.ps1",
+      "windows": {
+        "command": ".\\ignore\\run_backend_dev.ps1"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Test backend",
+      "type": "shell",
+      "command": ".\\ignore\\run_backend_test.ps1",
+      "windows": {
+        "command": ".\\ignore\\run_backend_test.ps1"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Git management",
+      "type": "shell",
+      "command": "git status",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "package_your_projects0",
+      "description": "provide the package name",
+      "default": "wml-slicebox",
+      "type": "promptString"
+    },
+    {
+      "id": "package_your_projects1",
+      "description": "npm version update option",
+      "default": "patch",
+      "type": "pickString",
+      "options": ["major", "minor","patch"]
+    },
+    {
+      "id": "push_python_docker_backend_prod_img0",
+      "description": "provide img tag(version) for your docker img to be pushed",
+      "type": "promptString"
+    },
+    {
+      "id": "Build_python_docker_backend_prod_img0",
+      "description": "provide img tag(version) for your docker img",
+      "type": "promptString"
+    },
+    {
+      "id": "update_an_Angular_package0",
+      "description": "provide an npm package to reninstall",
+      "default": "@windmillcode/angular-templates",
+      "type": "promptString"
+    },
+    {
+      "id": "update_an_Angular_package1",
+      "description": "dev install or dev dependency install",
+      "default": "-D",
+      "type": "pickString",
+      "options": ["-s", "-D"]
+    },
+    {
+      "id": "Generate_Angular_Component0",
+      "description": "the name of the component",
+      "type": "promptString",
+    },
+    {
+      "id": "Generate_Angular_Component1",
+      "description": "component is standalone?",
+      "default": "false",
+      "type": "pickString",
+      "options": ["true", "false"]
+    },
+    {
+      "id": "Generate_Angular_Component2",
+      "description": "type of component",
+      "default": "default",
+      "type": "pickString",
+      "options": ["default", "library"]
+    },
+    {
+      "id": "Generate_Angular_Component3",
+      "description": "preset scss to choose from.",
+      "default": "type0",
+      "type": "pickString",
+      "options": ["type0","type1", "none"]
+    },
+    {
+      "id": "pushing_work_to_git_remote0",
+      "description": "pushing_work_to_git_remote",
+      "default": "UPDATE",
+      "type": "pickString",
+      "options": ["UPDATE", "FIX", "PATCH", "BUG", "MERGE", "COMPLEX MERGE"]
+    },
+    {
+      "id": "pushing_work_to_git_remote1",
+      "description": "git commit desc",
+      "default": "additional work",
+      "type": "promptString"
+    },
+  ]
+}

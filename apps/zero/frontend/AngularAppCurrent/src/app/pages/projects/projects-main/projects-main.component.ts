@@ -28,9 +28,9 @@ export class ProjectsMainComponent  {
     private configService:ConfigService,
     private baseService:BaseService
   ) { }
-  classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.projectsMain)  
+  classPrefix = this.utilService.generateClassPrefix(CONFIG.classPrefix.projectsMain)
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
-  ngUnsub= new Subject<void>()  
+  ngUnsub= new Subject<void>()
   projects:ProjectInfo[] = [
     "https://michaelodumosu57.github.io/ Facebook_Project",
     "https://gx8pv.csb.app",
@@ -41,17 +41,21 @@ export class ProjectsMainComponent  {
     "N/A",
     "https://github.com/MichaelOdumosu57/ mkimbe_online_store",
     "https://myportfolio-7d6b0.firebaseapp.com/resume",
-    "https://r76j1j-8888.preview.csb.app/profiles"
-    // "https://lwqx5.csb.app/"
+    "https://r76j1j-8888.preview.csb.app/profiles",
+    "https://github.com/ MichaelOdumosu57/ proof_of_vibes_near_hackathon",
+    "https://proof-of-vibes-preview.web.app",
+    "https://github.com/MichaelOdumosu57/sample_sports_app",
   ]
   .map((displayValue,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
-    if( 
+    if(
       [
         "https://michaelodumosu57 .github.io/SocialMediaApp",
-        "https://r76j1j-8888.preview.csb.app/profiles"
+        "https://r76j1j-8888.preview.csb.app/profiles",
+        "https://proof-of-vibes-preview.web.app",
+        "https://github.com/MichaelOdumosu57/sample_sports_app",
       ]
-      .includes(displayValue) 
+      .includes(displayValue)
     ){
       imgSrc="assets/media/projects_"+index0+".gif"
     }
@@ -75,17 +79,23 @@ export class ProjectsMainComponent  {
       meetupApp,
       mkimbe,
       portfolioV1,
-      crexiTakeHome
+      crexiTakeHome,
+      nearHackathon,
+      proofOfVibes,
+      sampleSportsApp
     ]= this.projects
     this.projects = [
+      proofOfVibes,
       crexiTakeHome,
-      portfolioV1,      
+      portfolioV1,
+      sampleSportsApp,
       receiptTracker,
       socialUploader,
       pohelaBoishakh,
       sampleEcommerce,
       mkimbe,
       meetupApp,
+      nearHackathon,
       facebookProject,
       lawForLearners,
     ]
@@ -94,7 +104,7 @@ export class ProjectsMainComponent  {
   ngOnDestroy(){
     this.ngUnsub.next();
     this.ngUnsub.complete()
-  }  
+  }
 
 }
 
