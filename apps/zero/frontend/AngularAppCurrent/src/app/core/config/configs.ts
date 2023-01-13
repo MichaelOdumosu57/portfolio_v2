@@ -16,12 +16,12 @@ class Configs {
     homeMain:"HomeMain",
     projectsMain:"ProjectsMain",
   }
-  
+
   intro={
     backgroundColor:0xA0B86A,
     camera:{
       start:{
-        x: 400, 
+        x: 400,
         y: 400,
         z: 5700
       }
@@ -58,7 +58,7 @@ class DefaultConfigs extends Configs  {
   constructor(){
     super()
     this.intro.moveIntroToAboveScreen = 3000
-    this.intro.phrasesCompleteNumber = 2
+    this.intro.phrasesCompleteNumber = 1
     this.contactMain.submitFormEndpoint = "https://my-portfolio-v2-flask-backend.vercel.app/contact/submit"
   }
 }
