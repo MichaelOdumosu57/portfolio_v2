@@ -44,7 +44,7 @@ export class ProjectsMainComponent  {
     "https://r76j1j-8888.preview.csb.app/profiles",
     "https://github.com/ MichaelOdumosu57/ proof_of_vibes_near_hackathon",
     "https://proof-of-vibes-preview.web.app",
-    "https://github.com/MichaelOdumosu57/sample_sports_app",
+    "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
   ]
   .map((displayValue,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
@@ -53,7 +53,7 @@ export class ProjectsMainComponent  {
         "https://michaelodumosu57 .github.io/SocialMediaApp",
         "https://r76j1j-8888.preview.csb.app/profiles",
         "https://proof-of-vibes-preview.web.app",
-        "https://github.com/MichaelOdumosu57/sample_sports_app",
+        "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
       ]
       .includes(displayValue)
     ){
