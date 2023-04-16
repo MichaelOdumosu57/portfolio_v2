@@ -41,7 +41,7 @@ export class ProjectsMainComponent  {
     "N/A",
     "https://github.com/MichaelOdumosu57/ mkimbe_online_store",
     "https://myportfolio-7d6b0.firebaseapp.com/resume",
-    "https://r76j1j-8888.preview.csb.app/profiles",
+    "https://michaelodumosu57.github.io/crexi_take_home",
     "https://github.com/ MichaelOdumosu57/ proof_of_vibes_near_hackathon",
     "https://proof-of-vibes-preview.web.app",
     "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
@@ -51,7 +51,7 @@ export class ProjectsMainComponent  {
     if(
       [
         "https://michaelodumosu57 .github.io/SocialMediaApp",
-        "https://r76j1j-8888.preview.csb.app/profiles",
+        "https://michaelodumosu57.github.io/crexi_take_home",
         "https://proof-of-vibes-preview.web.app",
         "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
       ]
