@@ -223,6 +223,10 @@
       {
         "title":"NIBLS Coin Project",
         "desc":"Sports Blockchain app based on a new sport whose financial identity (buying tickets,merch, media) will be based on the ethererum blockchain only. Created with Angular,Python MSSQL, Azure Cloud,Moralis blockchain API"
+      },
+      {
+        "title":"Baka Songs",
+        "desc":"Flutter Mobile app based on African music culture. Users can create, delete and favorite songs. Users can view entertainment news related to the industry. Users can optionally create an account with firebase and update their profile information. Also includes animations and ads."
       }
 
     ]

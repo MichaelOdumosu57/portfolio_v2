@@ -32,6 +32,7 @@ export class ProjectsMainComponent  {
   @HostBinding('class') myClass: string = this.classPrefix(`View`);
   ngUnsub= new Subject<void>()
   projects:ProjectInfo[] = [
+
     "https://michaelodumosu57.github.io/ Facebook_Project",
     "https://gx8pv.csb.app",
     "https://michaelodumosu57 .github.io/SocialMediaApp",
@@ -45,6 +46,7 @@ export class ProjectsMainComponent  {
     "https://github.com/ MichaelOdumosu57/ proof_of_vibes_near_hackathon",
     "https://proof-of-vibes-preview.web.app",
     "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
+    "https://play.google.com/store/apps/details?id=com.windmillcode.songs_practice",
   ]
   .map((displayValue,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
@@ -54,6 +56,7 @@ export class ProjectsMainComponent  {
         "https://michaelodumosu57.github.io/crexi_take_home",
         "https://proof-of-vibes-preview.web.app",
         "https://63c32253e1cda000087c4769--grand-dasik-23dd9f.netlify.app/",
+        "https://play.google.com/store/apps/details?id=com.windmillcode.songs_practice"
       ]
       .includes(displayValue)
     ){
@@ -82,9 +85,11 @@ export class ProjectsMainComponent  {
       crexiTakeHome,
       nearHackathon,
       proofOfVibes,
-      sampleSportsApp
+      sampleSportsApp,
+      bakaSongs
     ]= this.projects
     this.projects = [
+      bakaSongs,
       proofOfVibes,
       crexiTakeHome,
       portfolioV1,
