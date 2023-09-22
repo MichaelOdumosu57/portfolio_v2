@@ -195,7 +195,7 @@
       {
         "title":"Sample e-commerce app",
         "desc":"sample e-commerce app designed for NFT startup"
-    },
+      },
       {
         "title":"Windmillcode Meetup App",
         "desc":"Smaller scaled reproduction of the meetup app, personally built based on the meetup app created within Windmillcode written with Flutter"
@@ -227,6 +227,10 @@
       {
         "title":"Baka Songs",
         "desc":"Flutter Mobile app based on African music culture. Users can create, delete and favorite songs. Users can view entertainment news related to the industry. Users can optionally create an account with firebase and update their profile information. Also includes animations and ads."
+      },
+      {
+        "title":"Ride Platform",
+        "desc":"Application built for local surfing store. Its a user-friendly online platform, seamlessly integrating an extensive collection of surf gear while prioritizing intuitive navigation and secure transaction processing, ensuring a hassle-free shopping experience for all surf enthusiasts."
       }
 
     ]
