@@ -1,0 +1,259 @@
+{
+  "sampleCpnt": {
+    "header": "Cpnt Creado"
+  },
+  "app": {},
+  "global": {
+    "nav": {
+      "intro": "Introducci\u00f3n",
+      "home": "Hogar",
+      "projects": "Proyectos",
+      "certs": "Certificados",
+      "contact": "Contacto"
+    }
+  },
+  "intro": {
+    "phrases": [
+      "Encuentra el problema, encuentra la soluci\u00f3n. (Spanish)",
+      "Demo, Dise\u00f1o, Desarrollar, Desplegar. Spanish.",
+      "Cree en la misi\u00f3n. Cree en el equipo. (Spanish)",
+      "Haz que funcione para cada posible escenario.",
+      "Cuando te enfrentes a la mayor de las presiones, mant\u00e9n la calma."
+    ]
+  },
+  "homeIntro": {
+    "title": "Michael Odumosu",
+    "summary": "Desarrollador de software con a\u00f1os de experiencia en liderazgo. Construy\u00f3 aplicaciones que sirven a miles de usuarios en la industria financiera e inmobiliaria. Gestion\u00f3 equipos internos y externos y mentoriz\u00f3 a aspirantes a empleo que buscan ingresar en la industria. Certificado en tecnolog\u00edas GCP y AWS. (Spanish)"
+  },
+  "certsMain": {
+    "backTextValue": "Espalda",
+    "title": "Certificaciones",
+    "summary": "Las certificaciones incluyen Google Cloud Platform y AWS.",
+    "cardsImgAlts": [
+      "aws",
+      "codecademy",
+      "coursera",
+      "gcp",
+      "pluralsight"
+    ],
+    "cardTitles": [
+      "AWS",
+      "Codecademy",
+      "Coursera",
+      "Plataforma de Google Cloud",
+      "Pluralsight",
+      "Aprendizaje de Linkedin"
+    ],
+    "awsImgAlts": [
+      "servicios principales de almacenamiento de AWS",
+      "introducci\u00f3n a los servicios administrados de AWS",
+      "Introducci\u00f3n al desarrollo sin servidor"
+    ],
+    "awsTitles": [
+      "Servicios de almacenamiento principales de AWS",
+      "Introducci\u00f3n a los servicios administrados de AWS.",
+      "Introducci\u00f3n al desarrollo sin servidor"
+    ],
+    "codecademyImgAlts": [
+      "Aprender curso de Ruby",
+      "Aprender curso de Java",
+      "Aprender curso de React",
+      "Aprender curso de Bootstrap",
+      "Crea APIs REST con Spring y Java Skill Path. (Spanish)"
+    ],
+    "codecademyTitles": [
+      "Aprender curso de Ruby",
+      "Aprender curso de Java",
+      "Aprender curso de React",
+      "Aprender curso de Bootstrap",
+      "Crea APIs REST con Spring y Java Skill Path. (Spanish)"
+    ],
+    "courseraImgAlts": [
+      "Ingenier\u00eda de datos, Big Data y Aprendizaje autom\u00e1tico en GCP.",
+      "Construyendo tuber\u00edas de datos por lotes en GCP. (Spanish)",
+      "Construyendo sistemas de an\u00e1lisis de transmisi\u00f3n resilientes en GCP. (Spanish)",
+      "Fundamentos de Big Data y Aprendizaje Autom\u00e1tico de Google Cloud Platform",
+      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP.",
+      "An\u00e1lisis inteligente, aprendizaje autom\u00e1tico y IA en GCP."
+    ],
+    "courseraTitles": [
+      "Ingenier\u00eda de datos, Big Data y Aprendizaje autom\u00e1tico en GCP.",
+      "Construyendo tuber\u00edas de datos por lotes en GCP. (Spanish)",
+      "Construyendo sistemas de an\u00e1lisis de transmisi\u00f3n resilientes en GCP. (Spanish)",
+      "Fundamentos de Big Data y Aprendizaje Autom\u00e1tico de Google Cloud Platform",
+      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP.",
+      "An\u00e1lisis inteligente, aprendizaje autom\u00e1tico y IA en GCP."
+    ],
+    "gcpImgAlts": [
+      "Comience con la insignia de la plataforma de Google Maps.",
+      "In Spanish: Insignia Visualizar datos en la plataforma Google Maps",
+      "Vitales de la Web",
+      "WebRTC"
+    ],
+    "gcpTitles": [
+      "Comience con la insignia de la plataforma de Google Maps.",
+      "In Spanish: Insignia Visualizar datos en la plataforma Google Maps",
+      "Vitales de la Web",
+      "WebRTC"
+    ],
+    "pluralSightImgAlts": [
+      "Creando dise\u00f1os con Flutter.",
+      "Depuraci\u00f3n, Pruebas y Publicaci\u00f3n de una aplicaci\u00f3n Flutter. Espa\u00f1ol.",
+      "Gesti\u00f3n de estado en Flutter.",
+      "Persistiendo datos localmente con Flutter. (Spanish)",
+      "Estructurando aplicaciones de Angular con bibliotecas de Angular.",
+      "Creando una aplicaci\u00f3n conectada con Flutter.",
+      "Creando animaciones con Flutter."
+    ],
+    "pluralSightTitles": [
+      "Creando dise\u00f1os con Flutter.",
+      "Depuraci\u00f3n, Pruebas y Publicaci\u00f3n de una aplicaci\u00f3n Flutter. Espa\u00f1ol.",
+      "Gesti\u00f3n de estado en Flutter.",
+      "Persistiendo datos localmente con Flutter. (Spanish)",
+      "Estructurando aplicaciones de Angular con bibliotecas de Angular.",
+      "Creando una aplicaci\u00f3n conectada con Flutter.",
+      "Creando animaciones con Flutter."
+    ],
+    "linkedinImgAlts": [
+      "Construyendo una aplicaci\u00f3n de cadena de suministro inteligente de contrato dApp de Ethereum: 8.",
+      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 10 implementaci\u00f3n y mantenimiento. (Spanish)",
+      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 11 Integrando una aplicaci\u00f3n no-Blockchain. (Spanish)",
+      "Vistazo inicial de Svelte"
+    ],
+    "linkedinTitles": [
+      "Construyendo una aplicaci\u00f3n de cadena de suministro inteligente de 8 contratos inteligentes dApp en la cadena de bloques Ethereum.",
+      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 10 Despliegue y Mantenimiento. Espa\u00f1ol.",
+      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 11 Integrando una aplicaci\u00f3n no-Blockchain. (Spanish)",
+      "Vistazo inicial de Svelte"
+    ]
+  },
+  "contactMain": {
+    "title": "Contacto",
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "errorMsgs": {
+          "required": "Por favor ingrese un nombre. (Spanish)"
+        }
+      },
+      "msg": {
+        "label": "Mensaje",
+        "errorMsgs": {
+          "required": "Por favor ingrese un mensaje. (Spanish)"
+        }
+      },
+      "email": {
+        "label": "Correo electr\u00f3nico",
+        "errorMsgs": {
+          "required": "Por favor ingrese un correo electr\u00f3nico. (Spanish)",
+          "email": "Por favor ingrese un correo electr\u00f3nico v\u00e1lido. (Spanish)"
+        }
+      },
+      "subject": {
+        "label": "Asunto"
+      }
+    },
+    "submitFormSuccess": "Correo electr\u00f3nico enviado con \u00e9xito.",
+    "submitFormError": "Error de env\u00edo de formulario, por favor int\u00e9ntelo de nuevo o cont\u00e1cteme a trav\u00e9s de los enlaces de redes sociales si el problema persiste. (Spanish)",
+    "submit": {
+      "text": "Enviar"
+    },
+    "socialMedia": [
+      "Gmail - Correo electr\u00f3nico de Google",
+      "Facebook - Facebook Spanish - Facebook",
+      "Twitter",
+      "Flojo",
+      "Discord - Discordia",
+      "LinkedIn",
+      "Github"
+    ]
+  },
+  "projectsMain": {
+    "title": "Proyectos",
+    "projectURL": "URL",
+    "projects": [
+      {
+        "title": "Proyecto simulado de Facebook",
+        "desc": "Cre\u00e9 una versi\u00f3n simulada simple de Facebook, con los \u00faltimos conceptos de dise\u00f1o UI/UX."
+      },
+      {
+        "title": "Seguimiento de recibos",
+        "desc": "Utiliza webRTC y la API de Nanonets ML para hacer una aplicaci\u00f3n que mantiene registros y extrae informaci\u00f3n de precios de tus recibos."
+      },
+      {
+        "title": "Cargador social",
+        "desc": "Utiliza la autenticaci\u00f3n moderna para ayudar a los creadores de contenido a publicar una vez y ver su trabajo en todas las plataformas. (Spanish)"
+      },
+      {
+        "title": "Ley para Aprendices Sitio web de abogados",
+        "desc": "Plantilla de prototipo para una p\u00e1gina de inicio de ejemplo para un bufete de abogados con sede en Nueva York."
+      },
+      {
+        "title": "I18n pago okta folleto aplicaci\u00f3n",
+        "desc": "Reproducci\u00f3n personal del programa de Pohela Boishakh en conjunto con un proyecto realizado con un tercero que trabaja con el departamento de asuntos culturales de Nueva York. Construido con React. (Spanish)"
+      },
+      {
+        "title": "Aplicaci\u00f3n de comercio electr\u00f3nico de muestra",
+        "desc": "aplicaci\u00f3n de comercio electr\u00f3nico de muestra dise\u00f1ada para una startup de NFT"
+      },
+      {
+        "title": "Aplicaci\u00f3n de reuni\u00f3n de Windmillcode",
+        "desc": "Reproducci\u00f3n en escala menor de la aplicaci\u00f3n Meetup, construida personalmente basada en la aplicaci\u00f3n Meetup creada dentro de Windmillcode escrita con Flutter."
+      },
+      {
+        "title": "Tienda en l\u00ednea Mkimbe",
+        "desc": "Reproducci\u00f3n personal de una aplicaci\u00f3n de comercio electr\u00f3nico escrita en React."
+      },
+      {
+        "title": "Sitio web de portafolio v1",
+        "desc": "La versi\u00f3n 1 de mi sitio web de cartera contiene una versi\u00f3n descargable de mi curr\u00edculum visual junto con otras caracter\u00edsticas como referencias y gr\u00e1fico de habilidades. (Spanish)"
+      },
+      {
+        "title": "Proyecto Ngrx",
+        "desc": "Aplicaci\u00f3n angular completa con caracter\u00edsticas como angular material, ngrx, three.js, scss, i18n, capacidad de respuesta y paginaci\u00f3n del lado del servidor."
+      },
+      {
+        "title": "\"Nueva York cerca de Hackathon Prueba de Vibes\"",
+        "desc": "Aprovechando el ecosistema tecnol\u00f3gico blockchain cercano para construir una aplicaci\u00f3n MVP de SoFi para el Hackathon de NEAR. (Spanish)"
+      },
+      {
+        "title": "Prueba oficial del proyecto Vibes",
+        "desc": "Proyectos de Ingenier\u00eda de Blockchain Social donde los usuarios crean souvenirs NFT de eventos. Creado con React, Firebase Auth, Firebase Realtime Database, Tecnolog\u00edas de Blockchain NEAR, SCSS, Material/UI y Python. (Translated to Spanish)"
+      },
+      {
+        "title": "Proyecto de moneda NIBLS",
+        "desc": "Aplicaci\u00f3n de Blockchain deportivo basada en un nuevo deporte cuya identidad financiera (compra de entradas, merchandising, medios) se basar\u00e1 \u00fanicamente en la cadena de bloques de Ethereum. Creado con Angular, Python MSSQL, Azure Cloud, API de blockchain de Moralis."
+      },
+      {
+        "title": "Canciones Baka",
+        "desc": "Aplicaci\u00f3n m\u00f3vil Flutter basada en la cultura musical africana. Los usuarios pueden crear, eliminar y marcar canciones como favoritas. Los usuarios pueden ver noticias de entretenimiento relacionadas con la industria. Los usuarios pueden opcionalmente crear una cuenta con Firebase y actualizar su informaci\u00f3n de perfil. Tambi\u00e9n incluye animaciones y anuncios. (Translated to Spanish)"
+      },
+      {
+        "title": "Plataforma de viaje",
+        "desc": "Aplicaci\u00f3n construida para una tienda local de surf. Es una plataforma en l\u00ednea f\u00e1cil de usar, que integra sin problemas una extensa colecci\u00f3n de equipo de surf mientras prioriza la navegaci\u00f3n intuitiva y el procesamiento seguro de transacciones, asegurando una experiencia de compra sin problemas para todos los entusiastas del surf. (Spanish)"
+      },
+      {
+        "title": "WaveRide -> Surfear",
+        "desc": "Una aplicaci\u00f3n comunitaria para surfistas y patinadores. Los usuarios interact\u00faan con ella de varias maneras, incluyendo comunicarse con otros usuarios, recibir alertas sobre precauciones en el \u00e1rea, ver eventos y ubicaciones y recibir las noticias m\u00e1s actualizadas en su feed de noticias. (Translated from English to Spanish)"
+      },
+      {
+        "title": "Ola y Moler",
+        "desc": "Divisi\u00f3n exclusiva de la colecci\u00f3n WaveRide donde surfistas y skaters se unen a una lista de espera para esperar a que se lancen productos exclusivos. Una vez que los art\u00edculos se lanzan, los miembros de la lista de espera suelen tener alrededor de 24 horas para acceder. La contrase\u00f1a para acceder es mercurio."
+      }
+    ]
+  },
+  "footer": {
+    "langs": {
+      "english": "espa\u00f1ol",
+      "spanish": "espa\u00f1ol",
+      "chinese": "Chino",
+      "hindi": "Hindi - Hindi",
+      "ukrainian": "ucraniano",
+      "arabic": "\u00c1rabe",
+      "bengali": "Bengal\u00ed",
+      "malay": "Malayo",
+      "french": "Franc\u00e9s",
+      "swahili": "Swahili - Suajili"
+    }
+  }
+}

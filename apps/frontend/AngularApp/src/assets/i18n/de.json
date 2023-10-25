@@ -1,0 +1,189 @@
+{
+  "sampleCpnt": {
+    "header": "Cpnt erstellt"
+  },
+  "app": {},
+  "global": {
+    "nav": {
+      "intro": "Einf\u00fchrung",
+      "home": "Zuhause",
+      "projects": "Projekte",
+      "certs": "Zertifikate",
+      "contact": "Kontakt"
+    }
+  },
+  "intro": {
+    "phrases": [
+      "Finde das Problem, finde die L\u00f6sung. (German)",
+      "Demo, Design, Develop, Deploy - Demo, Design, Entwickeln, Bereitstellen",
+      "Glauben Sie an die Mission. Glauben Sie an das Team.",
+      "Machen Sie es f\u00fcr jedes m\u00f6gliche Szenario funktionieren.",
+      "Wenn Sie mit dem gr\u00f6\u00dften Druck konfrontiert werden, bleiben Sie ruhig."
+    ]
+  },
+  "homeIntro": {
+    "title": "Michael Odumosu",
+    "summary": "Softwareentwickler mit jahrelanger F\u00fchrungserfahrung. Konstruierte Anwendungen, die Tausende von Benutzern in der Finanz- und Immobilienbranche bedienen. Verwaltete Kern- und externe Teams und betreute angehende Arbeitssuchende, die in die Branche einsteigen wollten. Zertifiziert in GCP- und AWS-Technologien."
+  },
+  "certsMain": {
+    "backTextValue": "Zur\u00fcck",
+    "title": "Zertifizierungen",
+    "summary": "Zertifizierungen umfassen Google Cloud Platform und AWS.",
+    "cardsImgAlts": [
+      "aws",
+      "codecademy",
+      "coursera",
+      "gcp",
+      "Pluralsight"
+    ],
+    "cardTitles": [
+      "AWS",
+      "Codecademy",
+      "Coursera",
+      "Google Cloud-Plattform",
+      "Pluralsight",
+      "Linkedin Lernen"
+    ],
+    "awsImgAlts": [
+      "Kern AWS Speicherdienste",
+      "Einf\u00fchrung in AWS Managed Services",
+      "Einf\u00fchrung in die serverlose Entwicklung"
+    ],
+    "awsTitles": [
+      "Kern AWS Speicherdienste",
+      "Einf\u00fchrung in AWS Managed Services",
+      "Einf\u00fchrung in die serverlose Entwicklung"
+    ],
+    "codecademyImgAlts": [
+      "Lernen Sie den Ruby-Kurs.",
+      "Lernen Sie den Java-Kurs.",
+      "Lernen Sie den React-Kurs.",
+      "Lernen Sie den Bootstrap-Kurs.",
+      "Erstellen Sie REST-APIs mit Spring und Java Skill Path. (German)"
+    ],
+    "codecademyTitles": [
+      "Lernen Sie den Ruby-Kurs.",
+      "Lernen Sie den Java-Kurs.",
+      "Lernen Sie den React-Kurs.",
+      "Lernen Sie den Bootstrap-Kurs.",
+      "Erstellen Sie REST-APIs mit Spring und Java Skill Path. (German)"
+    ],
+    "courseraImgAlts": [
+      "Data Engineering, Big Data und Machine Learning auf GCP",
+      "Erstellen von Batch-Datenpipelines auf GCP.",
+      "Aufbau widerstandsf\u00e4higer Streaming-Analyse-Systeme auf GCP.",
+      "Google Cloud Platform Big Data und Machine Learning Grundlagen",
+      "Modernisierung von Data Lakes und Data Warehouses mit GCP",
+      "Intelligente Analytik, maschinelles Lernen und KI auf GCP."
+    ],
+    "courseraTitles": [
+      "Data Engineering, Big Data und Machine Learning auf GCP",
+      "Erstellen von Batch-Datenpipelines auf GCP.",
+      "Aufbau widerstandsf\u00e4higer Streaming-Analyse-Systeme auf GCP.",
+      "Google Cloud Platform Big Data und Machine Learning Grundlagen",
+      "Modernisierung von Data Lakes und Data Warehouses mit GCP",
+      "Intelligente Analytik, maschinelles Lernen und KI auf GCP."
+    ],
+    "gcpImgAlts": [
+      "Beginnen Sie mit dem Google Maps Platform-Abzeichen.",
+      "Visualisieren Sie Daten auf dem Google Maps Platform-Abzeichen.",
+      "Web-Vitalit\u00e4ten",
+      "WebRTC"
+    ],
+    "gcpTitles": [
+      "Beginnen Sie mit dem Google Maps Platform-Abzeichen.",
+      "Visualisieren Sie Daten auf dem Google Maps Platform-Abzeichen.",
+      "Web-Vitalit\u00e4ten",
+      "WebRTC"
+    ],
+    "pluralSightImgAlts": [
+      "Erstellen von Layouts mit Flutter.",
+      "Debugging, Testing und Ver\u00f6ffentlichen einer Flutter-App. Deutsch.",
+      "Verwaltung des Zustands in Flutter",
+      "Lokales Speichern von Daten mit Flutter",
+      "Strukturierung von Angular-Anwendungen mit Angular-Bibliotheken",
+      "Erstellen einer verbundenen App mit Flutter.",
+      "Erstellung von Animationen mit Flutter."
+    ],
+    "pluralSightTitles": [
+      "Erstellen von Layouts mit Flutter.",
+      "Debugging, Testing und Ver\u00f6ffentlichen einer Flutter-App. Deutsch.",
+      "Verwaltung des Zustands in Flutter",
+      "Lokales Speichern von Daten mit Flutter",
+      "Strukturierung von Angular-Anwendungen mit Angular-Bibliotheken",
+      "Erstellen einer verbundenen App mit Flutter.",
+      "Erstellung von Animationen mit Flutter."
+    ],
+    "linkedinImgAlts": [
+      "Erstellung einer Ethereum-Blockchain-App: 8 Supply-Chain-Smart-Contract-dApp",
+      "Erstellung einer Ethereum-Blockchain-App: 10 Bereitstellung und Wartung",
+      "Erstellung einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps",
+      "Svelte Erster Blick"
+    ],
+    "linkedinTitles": [
+      "Erstellung einer Ethereum-Blockchain-App: 8 Supply-Chain-Smart-Contract-dApp",
+      "Erstellung einer Ethereum-Blockchain-App: 10 Bereitstellung und Wartung",
+      "Erstellen einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps.",
+      "Svelte Erster Blick"
+    ]
+  },
+  "contactMain": {
+    "title": "Kontakt",
+    "form": {
+      "name": {
+        "label": "Name",
+        "errorMsgs": {
+          "required": "Bitte geben Sie einen Namen ein."
+        }
+      },
+      "msg": {
+        "label": "Nachricht",
+        "errorMsgs": {
+          "required": "Bitte geben Sie eine Nachricht ein. (German)"
+        }
+      },
+      "email": {
+        "label": "E-Mail",
+        "errorMsgs": {
+          "required": "Bitte geben Sie eine E-Mail-Adresse ein. (German)",
+          "email": "Bitte geben Sie eine g\u00fcltige E-Mail-Adresse ein. (German)"
+        }
+      },
+      "subject": {
+        "label": "Thema"
+      }
+    },
+    "submitFormSuccess": "E-Mail erfolgreich gesendet.",
+    "submitFormError": "Formular\u00fcbermittlungsfehler, bitte versuchen Sie es erneut oder kontaktieren Sie mich \u00fcber die Social-Media-Links, wenn das Problem weiterhin besteht. (German)",
+    "submit": {
+      "text": "Einreichen"
+    },
+    "socialMedia": [
+      "Gmail -> Gmail",
+      "Facebook",
+      "Twitter",
+      "Schlaffheit",
+      "Discord",
+      "LinkedIn",
+      "Github"
+    ]
+  },
+  "projectsMain": {
+    "title": "Projekte",
+    "projectURL": "URL"
+  },
+  "footer": {
+    "langs": {
+      "english": "German",
+      "spanish": "Spanisch",
+      "chinese": "Chinesisch",
+      "hindi": "Hindi - Hindi",
+      "ukrainian": "Ukrainisch",
+      "arabic": "Arabisch",
+      "bengali": "Bengalisch",
+      "malay": "Malaiisch",
+      "french": "Franz\u00f6sisch",
+      "swahili": "Swahili - Swahili"
+    }
+  }
+}

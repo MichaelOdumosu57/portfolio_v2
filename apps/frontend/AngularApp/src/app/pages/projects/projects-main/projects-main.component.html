@@ -7,9 +7,9 @@
       <div [class]="classPrefix('Pod1Item1')">
         <h2>{{project.title | translate}}</h2>
         <p> {{project.desc | translate}}</p>
-        <a  [class]="classPrefix('Pod1Link0')" [href]="project.href">
-          <span [class]="classPrefix('Pod1Span0')">{{"projectsMain.projectURL" | translate}}</span>
-          <p>{{project.displayValue}}</p>
+        <span [class]="classPrefix('Pod1Span0')">{{"projectsMain.projectURL" | translate}}</span>
+        <a  [class]="classPrefix('Pod1Link0')" *ngFor="let val of project.displayValues" [href]="val.href">
+          <p >{{val.val}}</p>
         </a>
       </div>
       <img [class]="classPrefix('Pod1Img0')" [src]="project.imgSrc" [alt]="project.imgAlt | translate" />

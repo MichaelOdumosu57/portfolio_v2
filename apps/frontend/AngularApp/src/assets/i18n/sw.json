@@ -1,0 +1,189 @@
+{
+  "sampleCpnt": {
+    "header": "CPNT imeundwa"
+  },
+  "app": {},
+  "global": {
+    "nav": {
+      "intro": "Intro",
+      "home": "Nyumbani",
+      "projects": "Miradi",
+      "certs": "Cert",
+      "contact": "Wasiliana"
+    }
+  },
+  "intro": {
+    "phrases": [
+      "Pata shida, pata suluhisho.",
+      "Demo, kubuni, kukuza kupelekwa",
+      "Amini katika misheni.Amini katika timu.",
+      "Ifanye ifanye kazi kwa kila hali inayowezekana.",
+      "Unapokabiliwa na shinikizo kubwa zaidi, kaa utulivu."
+    ]
+  },
+  "homeIntro": {
+    "title": "Michael Odumosu",
+    "summary": "Msanidi programu na miaka ya uzoefu wa uongozi.Maombi yaliyojengwa yanayohudumia watumiaji wa tasnia ya kifedha na mali isiyohamishika.Timu zilizosimamiwa za msingi na za nje na wanaoshauriwa wanaotafuta kazi wanaotafuta kuingia kwenye tasnia.Imethibitishwa katika teknolojia za GCP na AWS."
+  },
+  "certsMain": {
+    "backTextValue": "Nyuma",
+    "title": "Udhibitisho",
+    "summary": "Vyeti ni pamoja na Jukwaa la Wingu la Google na AWS.",
+    "cardsImgAlts": [
+      "aws",
+      "Codecademy",
+      "Coursera",
+      "GCP",
+      "Pluralsight"
+    ],
+    "cardTitles": [
+      "Aws",
+      "Codecademy",
+      "Coursera",
+      "Jukwaa la Wingu la Google",
+      "Pluralsight",
+      "LinkedIn Kujifunza"
+    ],
+    "awsImgAlts": [
+      "Huduma za Hifadhi za Core AWS",
+      "Utangulizi wa huduma zilizosimamiwa za AWS",
+      "Utangulizi wa maendeleo ya seva"
+    ],
+    "awsTitles": [
+      "Huduma za Hifadhi za Core AWS",
+      "Utangulizi wa huduma zilizosimamiwa za AWS",
+      "Utangulizi wa maendeleo ya seva"
+    ],
+    "codecademyImgAlts": [
+      "Jifunze kozi ya Ruby",
+      "Jifunze kozi ya Java",
+      "Jifunze kozi ya React",
+      "Jifunze kozi ya Bootstrap",
+      "Unda API za REST na njia ya ustadi wa Spring na Java"
+    ],
+    "codecademyTitles": [
+      "Jifunze kozi ya Ruby",
+      "Jifunze kozi ya Java",
+      "Jifunze kozi ya React",
+      "Jifunze kozi ya Bootstrap",
+      "Unda API za REST na njia ya ustadi wa Spring na Java"
+    ],
+    "courseraImgAlts": [
+      "Uhandisi wa data, data kubwa na kujifunza kwa mashine kwenye GCP",
+      "Mabomba ya data ya batch kwenye GCP",
+      "Kuunda mifumo ya uchambuzi wa utiririshaji wa utiririshaji kwenye GCP",
+      "Data kubwa ya Google Cloud na misingi ya kujifunza mashine",
+      "Kuboresha maziwa ya data na ghala za data na GCP",
+      "Uchambuzi wa Smart, Kujifunza Mashine, na AI kwenye GCP"
+    ],
+    "courseraTitles": [
+      "Uhandisi wa data, data kubwa na kujifunza kwa mashine kwenye GCP",
+      "Mabomba ya data ya batch kwenye GCP",
+      "Kuunda mifumo ya uchambuzi wa utiririshaji wa utiririshaji kwenye GCP",
+      "Data kubwa ya Google Cloud na misingi ya kujifunza mashine",
+      "Kuboresha maziwa ya data na ghala za data na GCP",
+      "Uchambuzi wa Smart, Kujifunza Mashine, na AI kwenye GCP"
+    ],
+    "gcpImgAlts": [
+      "Anza na beji ya jukwaa la Ramani za Google",
+      "Fikiria data kwenye beji ya jukwaa la Ramani za Google",
+      "Viti za wavuti",
+      "Webrtc"
+    ],
+    "gcpTitles": [
+      "Anza na beji ya jukwaa la Ramani za Google",
+      "Fikiria data kwenye beji ya jukwaa la Ramani za Google",
+      "Viti za wavuti",
+      "Webrtc"
+    ],
+    "pluralSightImgAlts": [
+      "Kuunda mpangilio na flutter",
+      "Kutatua, kupima, na kuchapisha programu ya Flutter",
+      "Kusimamia hali katika flutter",
+      "Data inayoendelea ndani na flutter",
+      "Kuunda programu za angular na maktaba za angular",
+      "Kuunda programu iliyounganishwa na flutter",
+      "Kuunda michoro na Flutter"
+    ],
+    "pluralSightTitles": [
+      "Kuunda mpangilio na flutter",
+      "Kutatua, kupima, na kuchapisha programu ya Flutter",
+      "Kusimamia hali katika flutter",
+      "Data inayoendelea ndani na flutter",
+      "Kuunda programu za angular na maktaba za angular",
+      "Kuunda programu iliyounganishwa na flutter",
+      "Kuunda michoro na Flutter"
+    ],
+    "linkedinImgAlts": [
+      "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
+      "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
+      "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
+      "Svelte kwanza kuangalia"
+    ],
+    "linkedinTitles": [
+      "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
+      "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
+      "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
+      "Svelte kwanza kuangalia"
+    ]
+  },
+  "contactMain": {
+    "title": "Wasiliana",
+    "form": {
+      "name": {
+        "label": "Jina",
+        "errorMsgs": {
+          "required": "Tafadhali ingiza jina"
+        }
+      },
+      "msg": {
+        "label": "Ujumbe",
+        "errorMsgs": {
+          "required": "Tafadhali ingiza ujumbe"
+        }
+      },
+      "email": {
+        "label": "Barua pepe",
+        "errorMsgs": {
+          "required": "Tafadhali ingiza barua pepe",
+          "email": "Tafadhali ingiza barua pepe halali"
+        }
+      },
+      "subject": {
+        "label": "Somo"
+      }
+    },
+    "submitFormSuccess": "Barua pepe imetumwa vizuri",
+    "submitFormError": "Fanya kosa la uwasilishaji, tafadhali jaribu tena au wasiliana nami kupitia viungo vya media ya kijamii ikiwa shida itaendelea",
+    "submit": {
+      "text": "Wasilisha"
+    },
+    "socialMedia": [
+      "Gmail",
+      "Facebook",
+      "Twitter",
+      "Slack",
+      "Discord",
+      "LinkedIn",
+      "GitHub"
+    ]
+  },
+  "projectsMain": {
+    "title": "Miradi",
+    "projectURL": "URL"
+  },
+  "footer": {
+    "langs": {
+      "english": "Kiingereza",
+      "spanish": "Kihispania",
+      "chinese": "Kichina",
+      "hindi": "Kihindi",
+      "ukrainian": "Kiukreni",
+      "arabic": "Kiarabu",
+      "bengali": "Kibengali",
+      "malay": "Malay",
+      "french": "Kifaransa",
+      "swahili": "Kiswahili"
+    }
+  }
+}

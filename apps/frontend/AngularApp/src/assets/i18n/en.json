@@ -231,6 +231,14 @@
       {
         "title":"Ride Platform",
         "desc":"Application built for local surfing store. Its a user-friendly online platform, seamlessly integrating an extensive collection of surf gear while prioritizing intuitive navigation and secure transaction processing, ensuring a hassle-free shopping experience for all surf enthusiasts."
+      },
+      {
+        "title":"WaveRide",
+        "desc":"A community app for surfers and skaters. Users interact with it in several ways including communicating with other users, receiving alerts about cautions in the area, viewing events and locations and receiving the most update to news in their newsfeed"
+      },
+      {
+        "title":"Wave and Grind",
+        "desc":"Exclusive division of the WaveRide collection where surfers and skaters join a waitlist to wait for exclusive goods to drop. Once the items drop waitlist members typically have about 24 hours to access. Password to access is mercury"
       }
 
     ]
