@@ -15,7 +15,7 @@
   "intro": {
     "phrases": [
       "Finde das Problem, finde die L\u00f6sung. (German)",
-      "Demo, Design, Develop, Deploy - Demo, Design, Entwickeln, Bereitstellen",
+      "Demo, Design, Develop, Deploy - Demo, Design, Entwickeln, Bereitstellen (German)",
       "Glauben Sie an die Mission. Glauben Sie an das Team.",
       "Machen Sie es f\u00fcr jedes m\u00f6gliche Szenario funktionieren.",
       "Wenn Sie mit dem gr\u00f6\u00dften Druck konfrontiert werden, bleiben Sie ruhig."
@@ -100,7 +100,7 @@
       "Erstellen von Layouts mit Flutter.",
       "Debugging, Testing und Ver\u00f6ffentlichen einer Flutter-App. Deutsch.",
       "Verwaltung des Zustands in Flutter",
-      "Lokales Speichern von Daten mit Flutter",
+      "Lokales Speichern von Daten mit Flutter.",
       "Strukturierung von Angular-Anwendungen mit Angular-Bibliotheken",
       "Erstellen einer verbundenen App mit Flutter.",
       "Erstellung von Animationen mit Flutter."
@@ -109,7 +109,7 @@
       "Erstellen von Layouts mit Flutter.",
       "Debugging, Testing und Ver\u00f6ffentlichen einer Flutter-App. Deutsch.",
       "Verwaltung des Zustands in Flutter",
-      "Lokales Speichern von Daten mit Flutter",
+      "Lokales Speichern von Daten mit Flutter.",
       "Strukturierung von Angular-Anwendungen mit Angular-Bibliotheken",
       "Erstellen einer verbundenen App mit Flutter.",
       "Erstellung von Animationen mit Flutter."
@@ -117,13 +117,13 @@
     "linkedinImgAlts": [
       "Erstellung einer Ethereum-Blockchain-App: 8 Supply-Chain-Smart-Contract-dApp",
       "Erstellung einer Ethereum-Blockchain-App: 10 Bereitstellung und Wartung",
-      "Erstellung einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps",
+      "Erstellen einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps",
       "Svelte Erster Blick"
     ],
     "linkedinTitles": [
       "Erstellung einer Ethereum-Blockchain-App: 8 Supply-Chain-Smart-Contract-dApp",
       "Erstellung einer Ethereum-Blockchain-App: 10 Bereitstellung und Wartung",
-      "Erstellen einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps.",
+      "Erstellung einer Ethereum-Blockchain-App: 11 Integration von Nicht-Blockchain-Apps",
       "Svelte Erster Blick"
     ]
   },
@@ -160,17 +160,87 @@
     },
     "socialMedia": [
       "Gmail -> Gmail",
-      "Facebook",
+      "Facebook - Facebook (German language - Deutsch)",
       "Twitter",
       "Schlaffheit",
-      "Discord",
+      "Discord - Unstimmigkeit",
       "LinkedIn",
       "Github"
     ]
   },
   "projectsMain": {
     "title": "Projekte",
-    "projectURL": "URL"
+    "projectURL": "URL",
+    "projects": [
+      {
+        "title": "Facebook Mock Projekt",
+        "desc": "Erstellt eine einfache Mock-Version von Facebook mit den neuesten Design-UI/UX-Konzepten. (German)"
+      },
+      {
+        "title": "Belegverfolgung",
+        "desc": "Verwendet webRTC und die Nanonets ML API, um eine App zu erstellen, die Aufzeichnungen f\u00fchrt und Preisinformationen von Ihren Quittungen extrahiert."
+      },
+      {
+        "title": "Sozialer Uploader",
+        "desc": "Nutzt moderne Authentifizierung, um Content-Erstellern zu helfen, einmal zu posten und ihre Arbeit auf allen Plattformen zu sehen. (German)"
+      },
+      {
+        "title": "Gesetz f\u00fcr Lernende Anwalt Website",
+        "desc": "Prototypvorlage f\u00fcr eine Beispiel-Homepage f\u00fcr eine Anwaltskanzlei mit Sitz in NYC."
+      },
+      {
+        "title": "I18n Payal Okta Brosch\u00fcre App -> I18n Payal Okta Brosch\u00fcre App",
+        "desc": "Pers\u00f6nliche Reproduktion des Pohela Boishakh-Programms in Verbindung mit einem Projekt, das mit einem Dritten zusammenarbeitet, der mit der Abteilung f\u00fcr Kulturangelegenheiten der Stadt New York arbeitet. Gebaut mit React."
+      },
+      {
+        "title": "Beispiel E-Commerce-App",
+        "desc": "Beispiel E-Commerce-App f\u00fcr NFT-Startup."
+      },
+      {
+        "title": "Windmillcode Meetup App -> Windmillcode Meetup-App",
+        "desc": "Kleiner ma\u00dfstabsgetreuer Nachbau der Meetup-App, pers\u00f6nlich erstellt auf Basis der Meetup-App, die innerhalb von Windmillcode mit Flutter geschrieben wurde."
+      },
+      {
+        "title": "Mkimbe Online-Shop",
+        "desc": "Pers\u00f6nliche Reproduktion einer E-Commerce-App, die in React geschrieben wurde."
+      },
+      {
+        "title": "Portfolio-Website v1",
+        "desc": "Die Version 1 meiner Portfolio-Website enth\u00e4lt eine herunterladbare Version meines visuellen Lebenslaufs sowie andere Funktionen wie Referenzen und F\u00e4higkeitsgrafiken. (German)"
+      },
+      {
+        "title": "Ngrx Projekt",
+        "desc": "Vollst\u00e4ndige Angular-Anwendung, die Funktionen wie Angular Material, ngrx, three.js, scss, i18n, Responsiveness und serverseitige Paginierung nutzt."
+      },
+      {
+        "title": "NYC In der N\u00e4he von Hackathon Beweis der Vibes",
+        "desc": "Die Nutzung des nahegelegenen Blockchain-Technologie-\u00d6kosystems zum Aufbau einer MVP SoFi-Anwendung f\u00fcr den NEAR Hackathon."
+      },
+      {
+        "title": "Offizieller Projektbeweis von Vibes",
+        "desc": "Soziale Blockchain-Engineering-Projekte, bei denen Benutzer NFT-Souvenirs von Veranstaltungen erstellen. Erstellt mit React, Firebase Auth, Firebase Realtime Database, NEAR Blockchain Technologies, SCSS, Material/UI und Python. (German)"
+      },
+      {
+        "title": "NIBLS M\u00fcnzprojekt",
+        "desc": "Sport-Blockchain-App basierend auf einem neuen Sport, dessen finanzielle Identit\u00e4t (Kauf von Tickets, Merch, Medien) ausschlie\u00dflich auf der Ethereum-Blockchain basieren wird. Erstellt mit Angular, Python MSSQL, Azure Cloud, Moralis Blockchain API."
+      },
+      {
+        "title": "Baka Lieder",
+        "desc": "Flutter Mobile-App basierend auf afrikanischer Musik-Kultur. Benutzer k\u00f6nnen Songs erstellen, l\u00f6schen und favorisieren. Benutzer k\u00f6nnen Unterhaltungsnachrichten aus der Branche anzeigen. Benutzer k\u00f6nnen optional ein Konto mit Firebase erstellen und ihre Profilinformationen aktualisieren. Enth\u00e4lt auch Animationen und Anzeigen. German"
+      },
+      {
+        "title": "Fahrbahn",
+        "desc": "Anwendung f\u00fcr lokalen Surfshop gebaut. Es ist eine benutzerfreundliche Online-Plattform, die nahtlos eine umfangreiche Sammlung von Surf-Ausr\u00fcstung integriert und dabei auf intuitive Navigation und sichere Transaktionsabwicklung priorisiert, um ein problemloses Einkaufserlebnis f\u00fcr alle Surf-Enthusiasten zu gew\u00e4hrleisten."
+      },
+      {
+        "title": "WaveRide",
+        "desc": "Eine Community-App f\u00fcr Surfer und Skater. Benutzer interagieren auf verschiedene Weise damit, einschlie\u00dflich der Kommunikation mit anderen Benutzern, dem Empfang von Warnungen \u00fcber Vorsichtsma\u00dfnahmen in der Umgebung, dem Anzeigen von Ereignissen und Standorten und dem Empfang der aktuellsten Nachrichten in ihrem Newsfeed. (German)"
+      },
+      {
+        "title": "Welle und Schleifen.",
+        "desc": "Exklusive Abteilung der WaveRide-Kollektion, in der sich Surfer und Skater auf eine Warteliste setzen lassen, um auf exklusive Waren zu warten. Sobald die Artikel verf\u00fcgbar sind, haben Wartelistenmitglieder in der Regel etwa 24 Stunden Zugang. Das Passwort zum Zugriff lautet Quecksilber."
+      }
+    ]
   },
   "footer": {
     "langs": {

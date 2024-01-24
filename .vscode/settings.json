@@ -14,7 +14,6 @@
   ],
   "java.configuration.updateBuildConfiguration": "interactive",
   "windmillcode-extension-pack-0":{
-    "openAIAPIBase0":"http://localhost:1234",
     "langCodes0":"zh, es, hi, uk, ar, bn, ms, fr, de, sw, am"
   }
 }

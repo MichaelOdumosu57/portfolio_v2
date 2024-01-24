@@ -50,8 +50,11 @@ export class ProjectsMainComponent  {
     ["https://waveride-56f1a.web.app/"],
     [
       "https://wave-and-grind-4rgp1.web.app/",
-      "https://play.google.com/apps/internaltest/4701699808949055108"
+      "https://play.google.com/apps/testing/com.windmillcode.session_by_me"
     ],
+    ["https://findmyrole-preview.web.app/"],
+    ["https://659815fa624754145bc2e0fd--cerulean-crisp-d02c30.netlify.app/"],
+    ["https://ui.preview.eneobia.com"]
   ]
   .map((displayValues,index0)=>{
     let imgSrc="assets/media/projects_"+index0+".png"
@@ -101,9 +104,15 @@ export class ProjectsMainComponent  {
       bakaSongs,
       ridePlfatform,
       waveRide,
-      waveAndGrind
+      waveAndGrind,
+      findmyrole,
+      zawadiYaManutako,
+      eneobia,
     ]= this.projects
     this.projects = [
+      eneobia,
+      zawadiYaManutako,
+      findmyrole,
       waveAndGrind,
       waveRide,
       ridePlfatform,

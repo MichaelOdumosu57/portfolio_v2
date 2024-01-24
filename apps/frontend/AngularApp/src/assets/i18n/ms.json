@@ -1,6 +1,6 @@
 {
   "sampleCpnt": {
-    "header": "CPNT dibuat"
+    "header": "Cpnt Dibuat"
   },
   "app": {},
   "global": {
@@ -8,123 +8,123 @@
       "intro": "Pengenalan",
       "home": "Rumah",
       "projects": "Projek",
-      "certs": "Sijil",
+      "certs": "Sijil-sijil",
       "contact": "Hubungi"
     }
   },
   "intro": {
     "phrases": [
-      "Cari masalah, cari penyelesaiannya.",
-      "Demo, reka bentuk, membangunkan penyebaran",
-      "Percaya dalam misi.Percayalah kepada pasukan.",
-      "Jadikan ia berfungsi untuk setiap senario yang mungkin.",
-      "Apabila berhadapan dengan tekanan yang paling besar, tetap tenang."
+      "Cari masalah, cari penyelesaian. (Malay)",
+      "Demo, Design, Develop, Deploy - Demo, Reka Bentuk, Bangun, Terapkan",
+      "Percayalah pada misi. Percayalah pada pasukan. (Malay)",
+      "Buatlah ia berfungsi untuk setiap skenario yang mungkin.",
+      "Apabila dihadapkan dengan tekanan yang terbesar, kekal tenang."
     ]
   },
   "homeIntro": {
-    "title": "Michael Odumosu",
-    "summary": "Pemaju perisian dengan pengalaman kepimpinan bertahun -tahun.Aplikasi yang dibina yang melayani pengguna dalam industri kewangan dan hartanah.Teras teras dan pasukan luaran dan mentor pencari kerja yang bercita -cita mencari untuk memasuki industri.Disahkan dalam teknologi GCP dan AWS."
+    "title": "Michael Odumosu: Michael Odumosu",
+    "summary": "Pembangun perisian dengan pengalaman kepimpinan bertahun-tahun. Membina aplikasi yang melayani ribuan pengguna dalam industri kewangan dan hartanah. Menguruskan pasukan dalaman dan luaran serta membimbing pencari kerja yang bercita-cita untuk memasuki industri. Disahkan dalam teknologi GCP dan AWS."
   },
   "certsMain": {
-    "backTextValue": "Kembali",
-    "title": "Pensijilan",
-    "summary": "Pensijilan termasuk Google Cloud Platform dan AWS.",
+    "backTextValue": "Belakang",
+    "title": "Sijil-sijil",
+    "summary": "Sijil termasuk Platform Awan Google dan AWS.",
     "cardsImgAlts": [
-      "AWS",
-      "Codecademy",
-      "Coursera",
-      "GCP",
-      "Pluralsight"
+      "aws",
+      "codecademy",
+      "coursera: coursera",
+      "gcp",
+      "pluralsight: pluralsight"
     ],
     "cardTitles": [
       "AWS",
       "Codecademy",
       "Coursera",
       "Platform Awan Google",
-      "Pluralsight",
-      "Pembelajaran LinkedIn"
+      "Pluralsight: Pluralsight",
+      "Pembelajaran Linkedin"
     ],
     "awsImgAlts": [
-      "Perkhidmatan Penyimpanan Teras AWS",
-      "Pengenalan kepada Perkhidmatan Terurus AWS",
-      "Pengenalan kepada pembangunan tanpa pelayan"
+      "perkhidmatan penyimpanan inti aws",
+      "pengenalan kepada perkhidmatan yang diuruskan aws",
+      "pengenalan kepada pembangunan tanpa pelayan"
     ],
     "awsTitles": [
-      "Perkhidmatan Penyimpanan Teras AWS",
+      "Perkhidmatan Penyimpanan Inti Aws",
       "Pengenalan kepada Perkhidmatan Terurus AWS",
-      "Pengenalan kepada pembangunan tanpa pelayan"
+      "Pengenalan kepada Pembangunan Tanpa Pelayan"
     ],
     "codecademyImgAlts": [
-      "Belajar kursus Ruby",
-      "Belajar kursus Java",
+      "Belajar Kursus Ruby",
+      "Belajar Kursus Java",
       "Belajar Kursus React",
-      "Belajar kursus bootstrap",
-      "Buat API Rehat dengan Laluan Kemahiran Spring dan Java"
+      "Belajar Kursus Bootstrap",
+      "Buat API REST dengan Skill Path Spring dan Java."
     ],
     "codecademyTitles": [
-      "Belajar kursus Ruby",
-      "Belajar kursus Java",
+      "Belajar Kursus Ruby",
+      "Belajar Kursus Java",
       "Belajar Kursus React",
-      "Belajar kursus bootstrap",
-      "Buat API Rehat dengan Laluan Kemahiran Spring dan Java"
+      "Belajar Kursus Bootstrap",
+      "Buat API REST dengan Skill Path Spring dan Java."
     ],
     "courseraImgAlts": [
-      "Kejuruteraan Data, Data Besar dan Pembelajaran Mesin di GCP",
-      "Membina saluran paip data batch pada GCP",
-      "Membina sistem analisis streaming yang berdaya tahan pada GCP",
-      "Google Cloud Platform Big Data dan Mesin Pembelajaran Asas",
-      "Memodenkan tasik data dan gudang data dengan GCP",
-      "Analisis Pintar, Pembelajaran Mesin, dan AI di GCP"
+      "Kejuruteraan Data, Big Data dan Pembelajaran Mesin di GCP. Bahasa: Melayu.",
+      "Membina Paip Data Kelompok di GCP.",
+      "Membina Sistem Analitik Streaming Tahan Lasak di GCP.",
+      "Asas Big Data dan Pembelajaran Mesin Platform Google Cloud",
+      "Memodernkan Tasik Data dan Gudang Data dengan GCP.",
+      "Analitik Pintar, Pembelajaran Mesin, dan Kecerdasan Buatan di GCP. Malay."
     ],
     "courseraTitles": [
-      "Kejuruteraan Data, Data Besar dan Pembelajaran Mesin di GCP",
-      "Membina saluran paip data batch pada GCP",
-      "Membina sistem analisis streaming yang berdaya tahan pada GCP",
-      "Google Cloud Platform Big Data dan Mesin Pembelajaran Asas",
-      "Memodenkan tasik data dan gudang data dengan GCP",
-      "Analisis Pintar, Pembelajaran Mesin, dan AI di GCP"
+      "Kejuruteraan Data, Big Data dan Pembelajaran Mesin di GCP. Bahasa: Melayu.",
+      "Membina Paip Data Kelompok di GCP.",
+      "Membina Sistem Analitik Streaming Tahan Lasak di GCP.",
+      "Asas Big Data dan Pembelajaran Mesin Platform Google Cloud",
+      "Memodernkan Tasik Data dan Gudang Data dengan GCP.",
+      "Analitik Pintar, Pembelajaran Mesin, dan Kecerdasan Buatan di GCP. Malay."
     ],
     "gcpImgAlts": [
-      "Mulakan dengan lencana platform Google Maps",
-      "Bayangkan data pada lencana platform Google Maps",
-      "Web Vitals",
+      "Mula dengan lencana Platform Peta Google.",
+      "Lencana Visualize Data on Google Maps Platform.",
+      "Web Vitals: Vital Web",
       "WebRTC"
     ],
     "gcpTitles": [
-      "Mulakan dengan lencana platform Google Maps",
-      "Bayangkan data pada lencana platform Google Maps",
-      "Web Vitals",
+      "Mula dengan lencana Platform Peta Google.",
+      "Lencana Visualize Data on Google Maps Platform.",
+      "Web Vitals: Vital Web",
       "WebRTC"
     ],
     "pluralSightImgAlts": [
-      "Membuat susun atur dengan berkibar",
-      "Debugging, Ujian, dan Penerbitan Aplikasi Flutter",
-      "Menguruskan Negeri di Flutter",
-      "Data berterusan secara tempatan dengan berkibar",
-      "Menstrukturkan aplikasi sudut dengan perpustakaan sudut",
-      "Membuat aplikasi yang disambungkan dengan Flutter",
-      "Membuat animasi dengan Flutter"
+      "Membuat Layout dengan Flutter",
+      "Debugging, Testing, dan Penerbitan Aplikasi Flutter. Bahasa Melayu.",
+      "Menguruskan Keadaan dalam Flutter",
+      "Menyimpan Data Secara Tempatan dengan Flutter",
+      "Menstrukturkan Aplikasi Angular dengan Perpustakaan Angular. Malay.",
+      "Membuat Aplikasi Terhubung dengan Flutter.",
+      "Mewujudkan Animasi dengan Flutter."
     ],
     "pluralSightTitles": [
-      "Membuat susun atur dengan berkibar",
-      "Debugging, Ujian, dan Penerbitan Aplikasi Flutter",
-      "Menguruskan Negeri di Flutter",
-      "Data berterusan secara tempatan dengan berkibar",
-      "Menstrukturkan aplikasi sudut dengan perpustakaan sudut",
-      "Membuat aplikasi yang disambungkan dengan Flutter",
-      "Membuat animasi dengan Flutter"
+      "Membuat Layout dengan Flutter",
+      "Debugging, Testing, dan Penerbitan Aplikasi Flutter",
+      "Menguruskan Keadaan dalam Flutter",
+      "Menyimpan Data Secara Tempatan dengan Flutter",
+      "Menstrukturkan Aplikasi Angular dengan Perpustakaan Angular. Malay.",
+      "Membuat Aplikasi Terhubung dengan Flutter.",
+      "Mewujudkan Animasi dengan Flutter."
     ],
     "linkedinImgAlts": [
-      "Membina Aplikasi Blockchain Ethereum: 8 Rantaian Bekalan Kontrak Pintar Dapp",
-      "Membina Aplikasi Blockchain Ethereum: 10 Penggunaan dan Penyelenggaraan",
-      "Membina Aplikasi Blockchain Ethereum: 11 Mengintegrasikan App Non-Blockchain",
-      "Svelte melihat pertama"
+      "Membina Aplikasi Rangkaian Bekalan Kontrak Pintar Ethereum Blockchain: 8 dApp",
+      "Membina Aplikasi Rangkaian Blok Ethereum: 10 Penyediaan dan Penyelenggaraan",
+      "Membina Aplikasi Rangkaian Ethereum: 11 Mengintegrasikan Aplikasi Bukan Rangkaian Blok.",
+      "Pandangan Pertama Svelte"
     ],
     "linkedinTitles": [
-      "Membina Aplikasi Blockchain Ethereum: 8 Rantaian Bekalan Kontrak Pintar Dapp",
-      "Membina Aplikasi Blockchain Ethereum: 10 Penggunaan dan Penyelenggaraan",
-      "Membina Aplikasi Blockchain Ethereum: 11 Mengintegrasikan App Non-Blockchain",
-      "Svelte melihat pertama"
+      "Membina Aplikasi Rangkaian Pembekalan Kontrak Pintar Ethereum Blockchain: 8 dApp",
+      "Membina Aplikasi Rangkaian Blok Ethereum: 10 Penyediaan dan Penyelenggaraan",
+      "Membina Aplikasi Rangkaian Ethereum: 11 Mengintegrasikan Aplikasi Bukan Rangkaian Blok.",
+      "Pandangan Pertama Svelte"
     ]
   },
   "contactMain": {
@@ -133,57 +133,127 @@
       "name": {
         "label": "Nama",
         "errorMsgs": {
-          "required": "Sila masukkan nama"
+          "required": "Sila masukkan nama."
         }
       },
       "msg": {
         "label": "Mesej",
         "errorMsgs": {
-          "required": "Sila masukkan mesej"
+          "required": "Sila masukkan mesej. (Malay)"
         }
       },
       "email": {
-        "label": "E -mel",
+        "label": "E-mel",
         "errorMsgs": {
-          "required": "Sila masukkan e -mel",
-          "email": "Sila masukkan e -mel yang sah"
+          "required": "Sila masukkan emel. (Malay)",
+          "email": "Sila masukkan emel yang sah. (Malay)"
         }
       },
       "subject": {
         "label": "Subjek"
       }
     },
-    "submitFormSuccess": "E -mel berjaya dihantar",
-    "submitFormError": "Ralat penyerahan borang, sila cuba lagi atau hubungi saya melalui pautan media sosial jika masalahnya berterusan",
+    "submitFormSuccess": "E-mel Berjaya Dihantar. Malay.",
+    "submitFormError": "Ralat Penghantaran Borang, sila cuba lagi atau hubungi saya melalui pautan media sosial jika masalah berterusan. Malay",
     "submit": {
       "text": "Hantar"
     },
     "socialMedia": [
-      "Gmail",
-      "Facebook",
-      "Twitter",
-      "Kendur",
-      "Perselisihan",
-      "LinkedIn",
-      "Github"
+      "Gmail: Gmail",
+      "Facebook - Facebook",
+      "Twitter: Twitter",
+      "Lenggang",
+      "Discord: Ketidakserasian",
+      "LinkedIn: LinkedIn",
+      "Github: Github"
     ]
   },
   "projectsMain": {
     "title": "Projek",
-    "projectURL": "Url"
+    "projectURL": "URL: URL",
+    "projects": [
+      {
+        "title": "Projek Tiruan Facebook",
+        "desc": "Mencipta Versi Tiruan Mudah Facebook, dengan konsep UI/UX reka bentuk terkini."
+      },
+      {
+        "title": "Penjejak Resit",
+        "desc": "Menggunakan webRTC dan API Nanonets ML untuk membuat aplikasi yang menyimpan rekod, dan mengekstrak maklumat harga dari resit anda. (Malay)"
+      },
+      {
+        "title": "Pemuat Naik Sosial",
+        "desc": "Memanfaatkan pengesahan moden untuk membantu pencipta kandungan memuat naik sekali dan melihat kerja mereka di semua platform. (Malay)"
+      },
+      {
+        "title": "Undang-undang untuk Pembelajar Laman Web Peguam",
+        "desc": "Prototaip templat untuk laman utama contoh bagi firma guaman yang berpangkalan di NYC."
+      },
+      {
+        "title": "I18n bayaran okta brosur aplikasi.",
+        "desc": "Reproduksi peribadi program Pohela Boishakh bersama dengan projek yang dilakukan dengan pihak ketiga yang bekerja dengan jabatan hal ehwal budaya NYC. Dibina dengan React. (Malay)"
+      },
+      {
+        "title": "Aplikasi e-dagang contoh",
+        "desc": "aplikasi e-dagang contoh yang direka untuk permulaan NFT"
+      },
+      {
+        "title": "Aplikasi Windmillcode Meetup.",
+        "desc": "Reproduksi berskala kecil aplikasi meetup, dibina secara peribadi berdasarkan aplikasi meetup yang dicipta dalam Windmillcode ditulis dengan Flutter."
+      },
+      {
+        "title": "Toko Online Mkimbe",
+        "desc": "Reproduksi peribadi aplikasi e-dagang yang ditulis dalam React."
+      },
+      {
+        "title": "Laman Web Portofolio v1",
+        "desc": "v1 laman web portfolio saya mengandungi versi muat turun resume visual saya bersama dengan ciri-ciri lain seperti rujukan dan graf kemahiran. (Malay)"
+      },
+      {
+        "title": "Projek Ngrx",
+        "desc": "Aplikasi angular yang lengkap dengan menggunakan fitur seperti angular material, ngrx, three.js, scss, i18n, responsiviti dan pengepagination di bahagian pelayan. (Malay)"
+      },
+      {
+        "title": "NYC Berdekatan Hackathon Bukti Getaran",
+        "desc": "Memanfaatkan ekosistem teknologi blockchain terdekat untuk membina aplikasi MVP SoFi untuk NEAR Hackathon. (Malay)"
+      },
+      {
+        "title": "Bukti Rasmi Projek Vibes",
+        "desc": "Projek Kejuruteraan Blockchain Sosial di mana pengguna mencipta suvenir NFT dari acara. Dicipta dengan React, Firebase Auth, Firebase Realtime Database, Teknologi Blockchain NEAR, SCSS, Material/UI, dan Python. (Malay)"
+      },
+      {
+        "title": "Projek NIBLS Coin",
+        "desc": "Aplikasi Blockchain Sukan berdasarkan sukan baru yang identiti kewangannya (pembelian tiket, barang dagangan, media) akan berdasarkan blockchain ethererum sahaja. Dibuat dengan Angular, Python MSSQL, Azure Cloud, Moral blockchain API. (Malay)"
+      },
+      {
+        "title": "Lagu Baka",
+        "desc": "Aplikasi Mudah Alih Flutter berdasarkan budaya muzik Afrika. Pengguna boleh membuat, memadam dan kegemaran lagu. Pengguna boleh melihat berita hiburan yang berkaitan dengan industri. Pengguna boleh secara pilihan membuat akaun dengan firebase dan mengemaskini maklumat profil mereka. Juga termasuk animasi dan iklan."
+      },
+      {
+        "title": "Platform Rides",
+        "desc": "Aplikasi dibina untuk kedai surfing tempatan. Ia adalah platform dalam talian yang mesra pengguna, dengan mengintegrasikan koleksi peralatan surfing yang luas sambil memberi keutamaan kepada navigasi intuitif dan pemprosesan transaksi yang selamat, memastikan pengalaman membeli-belah yang bebas dari masalah untuk semua penggemar surfing."
+      },
+      {
+        "title": "WaveRide",
+        "desc": "Satu aplikasi komuniti untuk peselancar dan pemain skateboard. Pengguna berinteraksi dengannya dalam beberapa cara termasuk berkomunikasi dengan pengguna lain, menerima amaran tentang peringatan di kawasan tersebut, melihat acara dan lokasi, dan menerima berita terkini dalam feed berita mereka. (Malay)"
+      },
+      {
+        "title": "Gelombang dan Gilingan",
+        "desc": "Bahagian eksklusif koleksi WaveRide di mana peselancar dan pemain skateboard menyertai senarai tunggu untuk menunggu barang eksklusif yang akan dilancarkan. Setelah barang-barang dilancarkan, ahli senarai tunggu biasanya mempunyai kira-kira 24 jam untuk mengakses. Kata laluan untuk mengakses adalah merkuri."
+      }
+    ]
   },
   "footer": {
     "langs": {
-      "english": "Bahasa Inggeris",
-      "spanish": "Sepanyol",
+      "english": "Malay",
+      "spanish":"Bahasa",
       "chinese": "Cina",
-      "hindi": "Hindi",
-      "ukrainian": "Ukraine",
-      "arabic": "Bahasa Arab",
-      "bengali": "Bengali",
-      "malay": "Melayu",
+      "hindi": "Hindi - Hindi",
+      "ukrainian": "Ukrainian: Ukraina",
+      "arabic": "Arabic: ArabMalay: Arab",
+      "bengali": "Bengali: Bengali",
+      "malay": "Malay: Melayu",
       "french": "Perancis",
-      "swahili": "Swahili"
+      "swahili": "Swahili: Swahili"
     }
   }
 }

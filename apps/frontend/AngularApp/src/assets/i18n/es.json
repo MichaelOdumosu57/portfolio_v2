@@ -73,7 +73,7 @@
       "Construyendo tuber\u00edas de datos por lotes en GCP. (Spanish)",
       "Construyendo sistemas de an\u00e1lisis de transmisi\u00f3n resilientes en GCP. (Spanish)",
       "Fundamentos de Big Data y Aprendizaje Autom\u00e1tico de Google Cloud Platform",
-      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP.",
+      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP. (Spanish)",
       "An\u00e1lisis inteligente, aprendizaje autom\u00e1tico y IA en GCP."
     ],
     "courseraTitles": [
@@ -81,7 +81,7 @@
       "Construyendo tuber\u00edas de datos por lotes en GCP. (Spanish)",
       "Construyendo sistemas de an\u00e1lisis de transmisi\u00f3n resilientes en GCP. (Spanish)",
       "Fundamentos de Big Data y Aprendizaje Autom\u00e1tico de Google Cloud Platform",
-      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP.",
+      "Modernizaci\u00f3n de lagos de datos y almacenes de datos con GCP. (Spanish)",
       "An\u00e1lisis inteligente, aprendizaje autom\u00e1tico y IA en GCP."
     ],
     "gcpImgAlts": [
@@ -103,7 +103,7 @@
       "Persistiendo datos localmente con Flutter. (Spanish)",
       "Estructurando aplicaciones de Angular con bibliotecas de Angular.",
       "Creando una aplicaci\u00f3n conectada con Flutter.",
-      "Creando animaciones con Flutter."
+      "Creando animaciones con Flutter"
     ],
     "pluralSightTitles": [
       "Creando dise\u00f1os con Flutter.",
@@ -115,8 +115,8 @@
       "Creando animaciones con Flutter."
     ],
     "linkedinImgAlts": [
-      "Construyendo una aplicaci\u00f3n de cadena de suministro inteligente de contrato dApp de Ethereum: 8.",
-      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 10 implementaci\u00f3n y mantenimiento. (Spanish)",
+      "Construyendo una aplicaci\u00f3n de cadena de suministro inteligente de 8 contratos inteligentes dApp en la cadena de bloques Ethereum.",
+      "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 10 Despliegue y Mantenimiento. Espa\u00f1ol.",
       "Construyendo una aplicaci\u00f3n de Blockchain Ethereum: 11 Integrando una aplicaci\u00f3n no-Blockchain. (Spanish)",
       "Vistazo inicial de Svelte"
     ],
@@ -210,11 +210,11 @@
       },
       {
         "title": "Proyecto Ngrx",
-        "desc": "Aplicaci\u00f3n angular completa con caracter\u00edsticas como angular material, ngrx, three.js, scss, i18n, capacidad de respuesta y paginaci\u00f3n del lado del servidor."
+        "desc": "Aplicaci\u00f3n angular completa que aprovecha caracter\u00edsticas como angular material, ngrx, three.js, scss, i18n, capacidad de respuesta y paginaci\u00f3n del lado del servidor."
       },
       {
         "title": "\"Nueva York cerca de Hackathon Prueba de Vibes\"",
-        "desc": "Aprovechando el ecosistema tecnol\u00f3gico blockchain cercano para construir una aplicaci\u00f3n MVP de SoFi para el Hackathon de NEAR. (Spanish)"
+        "desc": "Aprovechando el ecosistema tecnol\u00f3gico blockchain cercano para construir una aplicaci\u00f3n MVP de SoFi para el Hackathon de NEAR."
       },
       {
         "title": "Prueba oficial del proyecto Vibes",
@@ -233,7 +233,7 @@
         "desc": "Aplicaci\u00f3n construida para una tienda local de surf. Es una plataforma en l\u00ednea f\u00e1cil de usar, que integra sin problemas una extensa colecci\u00f3n de equipo de surf mientras prioriza la navegaci\u00f3n intuitiva y el procesamiento seguro de transacciones, asegurando una experiencia de compra sin problemas para todos los entusiastas del surf. (Spanish)"
       },
       {
-        "title": "WaveRide -> Surfear",
+        "title": "WaveRide",
         "desc": "Una aplicaci\u00f3n comunitaria para surfistas y patinadores. Los usuarios interact\u00faan con ella de varias maneras, incluyendo comunicarse con otros usuarios, recibir alertas sobre precauciones en el \u00e1rea, ver eventos y ubicaciones y recibir las noticias m\u00e1s actualizadas en su feed de noticias. (Translated from English to Spanish)"
       },
       {

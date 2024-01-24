@@ -1,189 +1,259 @@
 {
   "sampleCpnt": {
-    "header": "CPNT imeundwa"
+    "header": "Cpnt Imetengenezwa"
   },
   "app": {},
   "global": {
     "nav": {
-      "intro": "Intro",
+      "intro": "Ufunguzi",
       "home": "Nyumbani",
       "projects": "Miradi",
-      "certs": "Cert",
-      "contact": "Wasiliana"
+      "certs": "Vyeti",
+      "contact": "Mawasiliano"
     }
   },
   "intro": {
     "phrases": [
-      "Pata shida, pata suluhisho.",
-      "Demo, kubuni, kukuza kupelekwa",
-      "Amini katika misheni.Amini katika timu.",
-      "Ifanye ifanye kazi kwa kila hali inayowezekana.",
-      "Unapokabiliwa na shinikizo kubwa zaidi, kaa utulivu."
+      "Pata tatizo, pata suluhisho. (Swahili)",
+      "Demo, Design, Develop, Deploy: Demo, Ubunifu, Kukuza, Kupeleka",
+      "Amini katika misheni. Amini katika timu.",
+      "Fanya iweze kufanya kazi kwa kila hali inayowezekana.",
+      "Wakati unapokabiliwa na shinikizo kubwa, baki mtulivu."
     ]
   },
   "homeIntro": {
     "title": "Michael Odumosu",
-    "summary": "Msanidi programu na miaka ya uzoefu wa uongozi.Maombi yaliyojengwa yanayohudumia watumiaji wa tasnia ya kifedha na mali isiyohamishika.Timu zilizosimamiwa za msingi na za nje na wanaoshauriwa wanaotafuta kazi wanaotafuta kuingia kwenye tasnia.Imethibitishwa katika teknolojia za GCP na AWS."
+    "summary": "Mwandishi wa programu na uzoefu wa uongozi wa miaka mingi. Alitengeneza programu zinazohudumia maelfu ya watumiaji katika tasnia ya fedha na mali isiyohamishika. Alisimamia timu za ndani na nje na kuwaelimisha watafuta kazi wanaotafuta kuingia katika tasnia. Imethibitishwa katika teknolojia za GCP na AWS."
   },
   "certsMain": {
     "backTextValue": "Nyuma",
-    "title": "Udhibitisho",
-    "summary": "Vyeti ni pamoja na Jukwaa la Wingu la Google na AWS.",
+    "title": "Vyeti",
+    "summary": "Vyeti ni pamoja na Jukwaa la Google Cloud na AWS.",
     "cardsImgAlts": [
       "aws",
-      "Codecademy",
-      "Coursera",
-      "GCP",
-      "Pluralsight"
+      "codecademy",
+      "coursera",
+      "gcp - hakuna tafsiri (no translation)",
+      "pluralsight: pluralsight"
     ],
     "cardTitles": [
-      "Aws",
+      "AWS",
       "Codecademy",
-      "Coursera",
-      "Jukwaa la Wingu la Google",
-      "Pluralsight",
-      "LinkedIn Kujifunza"
+      "Coursera: Coursera",
+      "Jukwaa la Google Cloud",
+      "Pluralsight: Pluralsight",
+      "Linkedin Kujifunza"
     ],
     "awsImgAlts": [
-      "Huduma za Hifadhi za Core AWS",
-      "Utangulizi wa huduma zilizosimamiwa za AWS",
-      "Utangulizi wa maendeleo ya seva"
+      "huduma za uhifadhi wa msingi wa aws",
+      "utangulizi wa huduma zilizosimamiwa za aws",
+      "Uwasilishaji wa Maendeleo ya Serverless"
     ],
     "awsTitles": [
-      "Huduma za Hifadhi za Core AWS",
-      "Utangulizi wa huduma zilizosimamiwa za AWS",
-      "Utangulizi wa maendeleo ya seva"
+      "Huduma za Uhifadhi za Msingi za Aws",
+      "Utangulizi wa Huduma Zinazosimamiwa na AWS",
+      "Uwasilishaji wa Maendeleo ya Serverless"
     ],
     "codecademyImgAlts": [
-      "Jifunze kozi ya Ruby",
-      "Jifunze kozi ya Java",
-      "Jifunze kozi ya React",
-      "Jifunze kozi ya Bootstrap",
-      "Unda API za REST na njia ya ustadi wa Spring na Java"
+      "Jifunze Kozi ya Ruby",
+      "Jifunze Kozi ya Java",
+      "Jifunze Kozi ya React",
+      "Jifunze Kozi ya Bootstrap.",
+      "Unda REST APIs na Spring na Java Skill Path. (Swahili)"
     ],
     "codecademyTitles": [
-      "Jifunze kozi ya Ruby",
-      "Jifunze kozi ya Java",
-      "Jifunze kozi ya React",
-      "Jifunze kozi ya Bootstrap",
-      "Unda API za REST na njia ya ustadi wa Spring na Java"
+      "Jifunze Kozi ya Ruby",
+      "Jifunze Kozi ya Java",
+      "Jifunze Kozi ya React",
+      "Jifunze Kozi ya Bootstrap.",
+      "Unda REST APIs na Spring na Java Skill Path. (Swahili)"
     ],
     "courseraImgAlts": [
-      "Uhandisi wa data, data kubwa na kujifunza kwa mashine kwenye GCP",
-      "Mabomba ya data ya batch kwenye GCP",
-      "Kuunda mifumo ya uchambuzi wa utiririshaji wa utiririshaji kwenye GCP",
-      "Data kubwa ya Google Cloud na misingi ya kujifunza mashine",
-      "Kuboresha maziwa ya data na ghala za data na GCP",
-      "Uchambuzi wa Smart, Kujifunza Mashine, na AI kwenye GCP"
+      "Uhandisi wa Data, Data Kubwa na Kujifunza Kwa Mashine kwenye GCP. Swahili.",
+      "Kujenga Mizunguko ya Data ya Batch kwenye GCP.",
+      "Kujenga Mifumo ya Uchambuzi wa Streaming yenye Uwezo wa Kustahimili kwenye GCP.",
+      "Jukwaa la Google Cloud la Msingi wa Takwimu Kubwa na Ufundishaji wa Mashine. Swahili.",
+      "Kuendeleza Maziwa ya Data na Maghala ya Data na GCP.",
+      "Uchambuzi Mjanja, Kujifunza Kwa Mashine, na AI kwenye GCP."
     ],
     "courseraTitles": [
-      "Uhandisi wa data, data kubwa na kujifunza kwa mashine kwenye GCP",
-      "Mabomba ya data ya batch kwenye GCP",
-      "Kuunda mifumo ya uchambuzi wa utiririshaji wa utiririshaji kwenye GCP",
-      "Data kubwa ya Google Cloud na misingi ya kujifunza mashine",
-      "Kuboresha maziwa ya data na ghala za data na GCP",
-      "Uchambuzi wa Smart, Kujifunza Mashine, na AI kwenye GCP"
+      "Uhandisi wa Data, Big Data na Ujifunzaji wa Mashine kwenye GCP. Swahili.",
+      "Kujenga Mizunguko ya Data ya Batch kwenye GCP.",
+      "Kujenga Mifumo ya Uchambuzi wa Streaming yenye Uwezo wa Kustahimili kwenye GCP.",
+      "Jukwaa la Google Cloud la Msingi wa Takwimu Kubwa na Ufundishaji wa Mashine. Swahili.",
+      "Kuendeleza Maziwa ya Data na Maghala ya Data na GCP.",
+      "Uchambuzi Mjanja, Kujifunza Kwa Mashine, na AI kwenye GCP."
     ],
     "gcpImgAlts": [
-      "Anza na beji ya jukwaa la Ramani za Google",
-      "Fikiria data kwenye beji ya jukwaa la Ramani za Google",
-      "Viti za wavuti",
-      "Webrtc"
+      "Anza na bendera ya Jukwaa la Google Maps.",
+      "Lebo ya Kuona Data kwenye Jukwaa la Ramani za Google",
+      "Web Vitals: Vipimo vya Wavuti",
+      "WebRTC"
     ],
     "gcpTitles": [
-      "Anza na beji ya jukwaa la Ramani za Google",
-      "Fikiria data kwenye beji ya jukwaa la Ramani za Google",
-      "Viti za wavuti",
-      "Webrtc"
+      "Anza na bendera ya Jukwaa la Google Maps.",
+      "Lebo ya Kuona Data kwenye Jukwaa la Ramani za Google",
+      "Web Vitals: Vipimo vya Wavuti",
+      "WebRTC"
     ],
     "pluralSightImgAlts": [
-      "Kuunda mpangilio na flutter",
-      "Kutatua, kupima, na kuchapisha programu ya Flutter",
-      "Kusimamia hali katika flutter",
-      "Data inayoendelea ndani na flutter",
-      "Kuunda programu za angular na maktaba za angular",
-      "Kuunda programu iliyounganishwa na flutter",
-      "Kuunda michoro na Flutter"
+      "Kujenga Layouts na Flutter.",
+      "Kutatua Hitilafu, Kujaribu, na Kuchapisha Programu ya Flutter",
+      "Kusimamia Hali katika Flutter",
+      "Kudumu Data Kwa Njia ya Ndani na Flutter.",
+      "Kuunda Programu za Angular na Maktaba za Angular.",
+      "Kuunda Programu Iliyounganishwa na Flutter.",
+      "Kuunda Animations na Flutter."
     ],
     "pluralSightTitles": [
-      "Kuunda mpangilio na flutter",
-      "Kutatua, kupima, na kuchapisha programu ya Flutter",
-      "Kusimamia hali katika flutter",
-      "Data inayoendelea ndani na flutter",
-      "Kuunda programu za angular na maktaba za angular",
-      "Kuunda programu iliyounganishwa na flutter",
-      "Kuunda michoro na Flutter"
+      "Kujenga Layouts na Flutter.",
+      "Kutatua Hitilafu, Kujaribu, na Kuchapisha Programu ya Flutter",
+      "Kusimamia Hali katika Flutter",
+      "Kudumu Data Kwa Njia ya Ndani na Flutter.",
+      "Kuunda Programu za Angular na Maktaba za Angular.",
+      "Kuunda Programu Iliyounganishwa na Flutter.",
+      "Kuunda Animations na Flutter."
     ],
     "linkedinImgAlts": [
-      "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
-      "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
-      "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
-      "Svelte kwanza kuangalia"
+      "Kujenga Programu ya Ethereum Blockchain: 8 Ugavi wa Mkataba wa Smart Contract dApp",
+      "Kujenga Programu ya Ethereum Blockchain: 10 Utekelezaji na Uendeshaji.",
+      "Kujenga Programu ya Ethereum Blockchain: 11 Kuunganisha Programu Isiyokuwa ya Blockchain. Swahili.",
+      "Svelte Kwanza Kuangalia"
     ],
     "linkedinTitles": [
-      "Kuunda Programu ya Ethereum Blockchain: 8 Ugavi wa Ugavi Smart DAPP",
-      "Kuunda Programu ya Ethereum blockchain: Kupelekwa na Matengenezo 10",
-      "Kuunda Programu ya Ethereum blockchain: 11 Kuunganisha Programu isiyo ya Blockchain",
-      "Svelte kwanza kuangalia"
+      "Kujenga Programu ya Ethereum Blockchain: 8 Ugavi wa Mkataba wa Smart Contract dApp",
+      "Kujenga Programu ya Ethereum Blockchain: 10 Utekelezaji na Uendeshaji.",
+      "Kujenga Programu ya Ethereum Blockchain: 11 Kuunganisha Programu Isiyokuwa ya Blockchain. Swahili.",
+      "Svelte Kwanza Kuangalia"
     ]
   },
   "contactMain": {
-    "title": "Wasiliana",
+    "title": "Mawasiliano",
     "form": {
       "name": {
         "label": "Jina",
         "errorMsgs": {
-          "required": "Tafadhali ingiza jina"
+          "required": "Tafadhali ingiza jina."
         }
       },
       "msg": {
         "label": "Ujumbe",
         "errorMsgs": {
-          "required": "Tafadhali ingiza ujumbe"
+          "required": "Tafadhali ingiza ujumbe. (Swahili)"
         }
       },
       "email": {
         "label": "Barua pepe",
         "errorMsgs": {
-          "required": "Tafadhali ingiza barua pepe",
-          "email": "Tafadhali ingiza barua pepe halali"
+          "required": "Tafadhali ingiza barua pepe. (Swahili)",
+          "email": "Tafadhali ingiza anwani ya barua pepe halali. (Swahili)"
         }
       },
       "subject": {
-        "label": "Somo"
+        "label": "Mada"
       }
     },
-    "submitFormSuccess": "Barua pepe imetumwa vizuri",
-    "submitFormError": "Fanya kosa la uwasilishaji, tafadhali jaribu tena au wasiliana nami kupitia viungo vya media ya kijamii ikiwa shida itaendelea",
+    "submitFormSuccess": "Barua pepe imefanikiwa kutumwa.",
+    "submitFormError": "Hitilafu ya Kutuma Fomu, tafadhali jaribu tena au wasiliana nami kupitia viungo vya media ya kijamii ikiwa tatizo litaendelea. (Swahili)",
     "submit": {
       "text": "Wasilisha"
     },
     "socialMedia": [
-      "Gmail",
-      "Facebook",
-      "Twitter",
-      "Slack",
-      "Discord",
-      "LinkedIn",
-      "GitHub"
+      "Gmail: Gmaili",
+      "Facebook: Facebooki",
+      "Twitter - Twitteri",
+      "Slack - Ulegevu",
+      "Mgawanyiko",
+      "LinkedIn: LinkedIn",
+      "Github: Github"
     ]
   },
   "projectsMain": {
     "title": "Miradi",
-    "projectURL": "URL"
+    "projectURL": "URL: URL",
+    "projects": [
+      {
+        "title": "Mradi wa Facebook wa Uigizaji.",
+        "desc": "Alitengeneza toleo rahisi la Facebook, na dhana za hivi karibuni za UI / UX. (Swahili)"
+      },
+      {
+        "title": "Mfuatiliaji wa risiti.",
+        "desc": "Inatumia webRTC na API ya Nanonets ML kuunda programu ambayo inaandika rekodi, na kuchukua habari za bei kutoka kwenye risiti zako. (Swahili)"
+      },
+      {
+        "title": "Msimamizi wa Jamii",
+        "desc": "Inatumia uthibitishaji wa kisasa ili kusaidia waundaji wa maudhui kuweka mara moja na kuona kazi yao kwenye majukwaa yote. (Swahili)"
+      },
+      {
+        "title": "Sheria kwa Wanafunzi Wakili Tovuti",
+        "desc": "Kigezo cha mfano wa ukurasa wa nyumbani kwa kampuni ya sheria iliyo na makao yake makuu huko NYC."
+      },
+      {
+        "title": "I18n kulipa okta brouchure programu. (Swahili)",
+        "desc": "Uzalishaji wa kibinafsi wa programu ya Pohela Boishakh kwa kushirikiana na mradi uliofanywa na mtu wa tatu anayefanya kazi na idara ya masuala ya utamaduni ya NYC. Imejengwa na React. (Swahili)"
+      },
+      {
+        "title": "Programu ya biashara ya mtandaoni ya mfano",
+        "desc": "Programu-jalizi ya biashara ya mtandaoni iliyoundwa kwa kuanza kwa NFT."
+      },
+      {
+        "title": "Programu ya Mkutano wa Windmillcode",
+        "desc": "Reproduksi ndogo ya programu ya mkutano, iliyojengwa kibinafsi kulingana na programu ya mkutano iliyoanzishwa ndani ya Windmillcode iliyoandikwa na Flutter."
+      },
+      {
+        "title": "Duka la Mkimbe mtandaoni",
+        "desc": "Uzalishaji wa kibinafsi wa programu ya biashara ya mtandaoni iliyoandikwa kwa React."
+      },
+      {
+        "title": "Tovuti ya Portfoliyo v1",
+        "desc": "v1 ya tovuti yangu ya portfolio ina toleo linaloweza kupakuliwa la wasifu wangu wa kuona pamoja na vipengele vingine kama vile marejeleo na grafu za ujuzi. (Swahili)"
+      },
+      {
+        "title": "Mradi wa Ngrx",
+        "desc": "Programu kamili ya angular ikitumia vipengele kama vile vifaa vya angular, ngrx, three.js, scss, i18n, uwezo wa kujibu na ukurasa wa upande wa seva."
+      },
+      {
+        "title": "NYC Karibu Hackathon Uthibitisho wa Vibes",
+        "desc": "Kutumia mfumo wa teknolojia ya blockchain karibu ili kujenga programu ya SoFi MVP kwa ajili ya NEAR Hackathon. (Swahili)"
+      },
+      {
+        "title": "Uthibitisho Rasmi wa Mradi wa Vibes",
+        "desc": "Miradi ya Uhandisi wa Kijamii wa Blockchain ambapo watumiaji hujenga vitu vya kumbukumbu vya NFT kutoka kwenye matukio. Imetengenezwa na React, Firebase Auth, Firebase Realtime Database, Teknolojia za Blockchain za NEAR, SCSS, Vifaa / UI, na Python."
+      },
+      {
+        "title": "Mradi wa Sarafu ya NIBLS",
+        "desc": "Programu ya Blockchain ya Michezo inayotegemea mchezo mpya ambao kitambulisho chake cha kifedha (ununuzi wa tiketi, bidhaa, media) kitategemea blockchain ya ethererum tu. Iliyoundwa na Angular, Python MSSQL, Azure Cloud, API ya blockchain ya Moralis. (Translated to Swahili)"
+      },
+      {
+        "title": "Nyimbo za Baka",
+        "desc": "Programu ya simu ya Flutter inayotegemea utamaduni wa muziki wa Kiafrika. Watumiaji wanaweza kuunda, kufuta na kupenda nyimbo. Watumiaji wanaweza kuona habari za burudani zinazohusiana na tasnia hiyo. Watumiaji wanaweza hiari kuunda akaunti na firebase na kusasisha habari zao za wasifu. Pia inajumuisha uhuishaji na matangazo."
+      },
+      {
+        "title": "Jukwaa la Safari",
+        "desc": "Programu iliyoundwa kwa duka la kusafiri la ndani. Ni jukwaa la mtandaoni rafiki kwa mtumiaji, linalounganisha kwa urahisi mkusanyiko mkubwa wa vifaa vya kusafiri wakati wa kipaumbele cha urambazaji wa kina na usindikaji salama wa shughuli, kuhakikisha uzoefu wa ununuzi usio na shida kwa wapenzi wote wa kusafiri."
+      },
+      {
+        "title": "WaveRide: Safari ya Wimbi",
+        "desc": "Programu ya jamii kwa wapiga mbizi na wapiga sketi. Watumiaji wanashirikiana nayo kwa njia kadhaa ikiwa ni pamoja na kuwasiliana na watumiaji wengine, kupokea tahadhari kuhusu tahadhari katika eneo hilo, kuona matukio na maeneo na kupokea habari za hivi karibuni katika malisho yao ya habari."
+      },
+      {
+        "title": "Wimbi na Kusaga",
+        "desc": "Ugawanyaji wa kipekee wa mkusanyiko wa WaveRide ambapo wapiga mbizi na wapiga sketi wanajiunga na orodha ya kusubiri kusubiri bidhaa za kipekee kudondoka. Mara tu vitu vinapodondoka, wanachama wa orodha ya kusubiri kawaida wana saa 24 kupata ufikiaji. Nenosiri la ufikiaji ni zebaki."
+      }
+    ]
   },
   "footer": {
     "langs": {
-      "english": "Kiingereza",
-      "spanish": "Kihispania",
+      "english": "Swahili",
+      "spanish": "Spanish - Kihispania",
       "chinese": "Kichina",
-      "hindi": "Kihindi",
-      "ukrainian": "Kiukreni",
+      "hindi": "Hindi - Kihindi",
+      "ukrainian": "Ukrainian - Kiyukreni",
       "arabic": "Kiarabu",
-      "bengali": "Kibengali",
-      "malay": "Malay",
+      "bengali": "Bengali: Bengali",
+      "malay": "Malay - Malayasiya",
       "french": "Kifaransa",
-      "swahili": "Kiswahili"
+      "swahili": "Swahili: Hakikisha kurudisha neno lililotafsiriwa."
     }
   }
 }

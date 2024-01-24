@@ -1,6 +1,6 @@
 {
   "sampleCpnt": {
-    "header": "CPNT cr\u00e9\u00e9"
+    "header": "Cpnt Cr\u00e9\u00e9"
   },
   "app": {},
   "global": {
@@ -8,123 +8,123 @@
       "intro": "Introduction",
       "home": "Maison",
       "projects": "Projets",
-      "certs": "Certificat",
+      "certs": "Certificats",
       "contact": "Contact"
     }
   },
   "intro": {
     "phrases": [
-      "Trouvez le probl\u00e8me, trouvez la solution.",
-      "D\u00e9mo, conception, d\u00e9velopper le d\u00e9ploiement",
-      "Croyez en la mission.Croyez en l'\u00e9quipe.",
-      "Faites en sorte que cela fonctionne pour chaque sc\u00e9nario possible.",
-      "Face aux plus grandes pressions, restez calme."
+      "Trouvez le probl\u00e8me, trouvez la solution. (French)",
+      "D\u00e9mo, Conception, D\u00e9velopper, D\u00e9ployer. Fran\u00e7ais.",
+      "Croyez en la mission. Croyez en l'\u00e9quipe.",
+      "Faites-le fonctionner pour tous les sc\u00e9narios possibles.",
+      "Lorsqu'on est confront\u00e9 aux plus grandes pressions, restez calme. (French)"
     ]
   },
   "homeIntro": {
-    "title": "Michel Odumoso",
-    "summary": "D\u00e9veloppeur de logiciels avec des ann\u00e9es d'exp\u00e9rience en leadership.Applications construites servant des utilisateurs dans le secteur financier et immobilier.Des \u00e9quipes de base et externes g\u00e9r\u00e9es et des demandeurs d'emploi en herbe encadr\u00e9s cherchent \u00e0 entrer dans l'industrie.Certifi\u00e9 dans GCP et AWS Technologies."
+    "title": "Michael Odumosu",
+    "summary": "D\u00e9veloppeur de logiciels avec des ann\u00e9es d'exp\u00e9rience en leadership. A construit des applications servant des milliers d'utilisateurs dans l'industrie financi\u00e8re et immobili\u00e8re. G\u00e9r\u00e9 des \u00e9quipes internes et externes et mentor\u00e9 des chercheurs d'emploi aspirants cherchant \u00e0 entrer dans l'industrie. Certifi\u00e9 dans les technologies GCP et AWS."
   },
   "certsMain": {
-    "backTextValue": "Retour",
+    "backTextValue": "Arri\u00e8re",
     "title": "Certifications",
-    "summary": "Les certifications incluent Google Cloud Platform et AWS.",
+    "summary": "Les certifications comprennent Google Cloud Platform et AWS.",
     "cardsImgAlts": [
-      "AWS",
-      "cod\u00e9cade",
-      "parcours",
-      "GCP",
-      "vue plurielle"
+      "aws",
+      "codecademy",
+      "coursera",
+      "gcp",
+      "pluralsight"
     ],
     "cardTitles": [
       "AWS",
-      "Cod\u00e9cade",
-      "Parcours",
-      "Google Cloud Plateforme",
-      "Vue plurielle",
-      "LinkedIn Learning"
+      "Codecademy",
+      "Coursera",
+      "Plateforme Google Cloud",
+      "Pluralsight",
+      "Formation LinkedIn"
     ],
     "awsImgAlts": [
-      "Services de stockage Core AWS",
+      "services de stockage de base aws",
       "Introduction aux services g\u00e9r\u00e9s AWS",
       "Introduction au d\u00e9veloppement sans serveur"
     ],
     "awsTitles": [
-      "Services de stockage Core AWS",
+      "Services de stockage de base Aws",
       "Introduction aux services g\u00e9r\u00e9s AWS",
       "Introduction au d\u00e9veloppement sans serveur"
     ],
     "codecademyImgAlts": [
-      "Apprendre le cours Ruby",
-      "Apprendre le cours Java",
-      "Cours de r\u00e9action d'apprentissage",
-      "Apprendre le cours de bootstrap",
-      "Cr\u00e9er des API REST avec le chemin de comp\u00e9tence Spring et Java"
+      "Apprendre le cours de Ruby",
+      "Apprendre le cours de Java",
+      "Apprendre le cours React",
+      "Apprendre le cours Bootstrap",
+      "Cr\u00e9er des API REST avec Spring et Java Skill Path. (French)"
     ],
     "codecademyTitles": [
-      "Apprendre le cours Ruby",
-      "Apprendre le cours Java",
-      "Cours de r\u00e9action d'apprentissage",
-      "Apprendre le cours de bootstrap",
-      "Cr\u00e9er des API REST avec le chemin de comp\u00e9tence Spring et Java"
+      "Apprendre le cours de Ruby",
+      "Apprendre le cours de Java",
+      "Apprendre le cours React",
+      "Apprendre le cours Bootstrap",
+      "Cr\u00e9er des API REST avec Spring et Java Skill Path. (French)"
     ],
     "courseraImgAlts": [
-      "Ing\u00e9nierie des donn\u00e9es, big data et apprentissage automatique sur GCP",
-      "Construire des pipelines de donn\u00e9es par lots sur GCP",
-      "Construire des syst\u00e8mes d'analyse de streaming r\u00e9silient sur GCP",
-      "Google Cloud Platform Big Data et Machine Learnmentals",
-      "Moderniser les lacs de donn\u00e9es et les entrep\u00f4ts de donn\u00e9es avec GCP",
-      "Analyse intelligente, apprentissage automatique et IA sur GCP"
+      "Ing\u00e9nierie des donn\u00e9es, Big Data et apprentissage automatique sur GCP",
+      "Construction de pipelines de donn\u00e9es en lots sur GCP",
+      "B\u00e2tir des syst\u00e8mes d'analyse de streaming r\u00e9silients sur GCP.",
+      "Fondamentaux de Big Data et de Machine Learning de la plateforme Google Cloud. (French)",
+      "Modernisation des lacs de donn\u00e9es et des entrep\u00f4ts de donn\u00e9es avec GCP.",
+      "Smart Analytics, Machine Learning et AI sur GCP"
     ],
     "courseraTitles": [
-      "Ing\u00e9nierie des donn\u00e9es, big data et apprentissage automatique sur GCP",
-      "Construire des pipelines de donn\u00e9es par lots sur GCP",
-      "Construire des syst\u00e8mes d'analyse de streaming r\u00e9silient sur GCP",
-      "Google Cloud Platform Big Data et Machine Learnmentals",
-      "Moderniser les lacs de donn\u00e9es et les entrep\u00f4ts de donn\u00e9es avec GCP",
-      "Analyse intelligente, apprentissage automatique et IA sur GCP"
+      "Ing\u00e9nierie des donn\u00e9es, Big Data et apprentissage automatique sur GCP",
+      "Construction de pipelines de donn\u00e9es en lots sur GCP",
+      "B\u00e2tir des syst\u00e8mes d'analyse de streaming r\u00e9silients sur GCP.",
+      "Fondamentaux de Big Data et de Machine Learning de la plateforme Google Cloud. (French)",
+      "Modernisation des lacs de donn\u00e9es et des entrep\u00f4ts de donn\u00e9es avec GCP.",
+      "Smart Analytics, Machine Learning et AI sur GCP"
     ],
     "gcpImgAlts": [
-      "Commencez avec Google Maps Platform Badge",
-      "Visualiser les donn\u00e9es sur le badge de la plate-forme Google Maps",
-      "Web vitals",
-      "Webrtc"
+      "Commencez avec l'insigne de la plateforme Google Maps.",
+      "Badge Visualiser des donn\u00e9es sur la plateforme Google Maps",
+      "Les indicateurs de qualit\u00e9 du Web",
+      "WebRTC"
     ],
     "gcpTitles": [
-      "Commencez avec Google Maps Platform Badge",
-      "Visualiser les donn\u00e9es sur le badge de la plate-forme Google Maps",
-      "Web vitals",
-      "Webrtc"
+      "Commencez avec l'insigne de la plateforme Google Maps.",
+      "Badge Visualiser des donn\u00e9es sur la plateforme Google Maps",
+      "Les indicateurs de qualit\u00e9 du Web",
+      "WebRTC"
     ],
     "pluralSightImgAlts": [
-      "Cr\u00e9ation de dispositions avec flottement",
-      "D\u00e9bogage, tester et publier une application de flottement",
-      "G\u00e9rer l'\u00e9tat dans Flutter",
-      "Persister les donn\u00e9es localement avec un flottement",
-      "Structurer les applications angulaires avec des biblioth\u00e8ques angulaires",
-      "Cr\u00e9ation d'une application connect\u00e9e avec Flutter",
-      "Cr\u00e9er des animations avec un flottement"
+      "Cr\u00e9ation de mises en page avec Flutter.",
+      "D\u00e9bogage, Test et Publication d'une application Flutter",
+      "Gestion de l'\u00e9tat dans Flutter.",
+      "Persistant les donn\u00e9es localement avec Flutter.",
+      "Structuration des applications Angular avec des biblioth\u00e8ques Angular",
+      "Cr\u00e9ation d'une application connect\u00e9e avec Flutter.",
+      "Cr\u00e9ation d'animations avec Flutter."
     ],
     "pluralSightTitles": [
-      "Cr\u00e9ation de dispositions avec flottement",
-      "D\u00e9bogage, tester et publier une application de flottement",
-      "G\u00e9rer l'\u00e9tat dans Flutter",
-      "Persister les donn\u00e9es localement avec un flottement",
-      "Structurer les applications angulaires avec des biblioth\u00e8ques angulaires",
-      "Cr\u00e9ation d'une application connect\u00e9e avec Flutter",
-      "Cr\u00e9er des animations avec un flottement"
+      "Cr\u00e9ation de mises en page avec Flutter.",
+      "D\u00e9bogage, Test et Publication d'une application Flutter",
+      "Gestion de l'\u00e9tat dans Flutter",
+      "Persistant les donn\u00e9es localement avec Flutter.",
+      "Structuration des applications Angular avec des biblioth\u00e8ques Angular",
+      "Cr\u00e9ation d'une application connect\u00e9e avec Flutter.",
+      "Cr\u00e9ation d'animations avec Flutter."
     ],
     "linkedinImgAlts": [
-      "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP",
-      "Construire une application Ethereum Blockchain: 10 D\u00e9ploiement et entretien",
-      "Construire une application Ethereum Blockchain: 11 Int\u00e9gration de l'application non blockchain",
-      "Premier regard svelte"
+      "\"Construire une application Ethereum Blockchain: 8 dApp de contrat intelligent de cha\u00eene d'approvisionnement\"",
+      "Cr\u00e9ation d'une application Ethereum Blockchain: 10 d\u00e9ploiement et maintenance. (French)",
+      "Cr\u00e9ation d'une application Ethereum Blockchain: 11 Int\u00e9gration d'une application non-Blockchain",
+      "Regard pr\u00e9liminaire sur Svelte"
     ],
     "linkedinTitles": [
-      "Construire une application Ethereum Blockchain: 8 Contrat intelligent de la cha\u00eene d'approvisionnement DAPP",
-      "Construire une application Ethereum Blockchain: 10 D\u00e9ploiement et entretien",
-      "Construire une application Ethereum Blockchain: 11 Int\u00e9gration de l'application non blockchain",
-      "Premier regard svelte"
+      "\"Construire une application Ethereum Blockchain: 8 dApp de contrat intelligent de cha\u00eene d'approvisionnement\"",
+      "Cr\u00e9ation d'une application Ethereum Blockchain: 10 d\u00e9ploiement et maintenance. (French)",
+      "Cr\u00e9ation d'une application Ethereum Blockchain: 11 Int\u00e9gration d'une application non-Blockchain",
+      "Regard pr\u00e9liminaire sur Svelte"
     ]
   },
   "contactMain": {
@@ -133,57 +133,127 @@
       "name": {
         "label": "Nom",
         "errorMsgs": {
-          "required": "Veuillez saisir un nom"
+          "required": "S'il vous pla\u00eet entrez un nom. (French)"
         }
       },
       "msg": {
         "label": "Message",
         "errorMsgs": {
-          "required": "Veuillez saisir un message"
+          "required": "S'il vous pla\u00eet entrer un message. (French)"
         }
       },
       "email": {
-        "label": "E-mail",
+        "label": "Courriel",
         "errorMsgs": {
-          "required": "Veuillez saisir un e-mail",
-          "email": "Veuillez saisir un e-mail valide"
+          "required": "S'il vous pla\u00eet entrer un email. (French)",
+          "email": "S'il vous pla\u00eet entrer une adresse e-mail valide. (French)"
         }
       },
       "subject": {
-        "label": "Mati\u00e8re"
+        "label": "Sujet"
       }
     },
-    "submitFormSuccess": "E-mail avec succ\u00e8s envoy\u00e9",
-    "submitFormError": "Erreur de soumission du formulaire, veuillez r\u00e9essayer ou me contacter via les liens de m\u00e9dias sociaux si le probl\u00e8me persiste",
+    "submitFormSuccess": "Email envoy\u00e9 avec succ\u00e8s. (French)",
+    "submitFormError": "Erreur de soumission de formulaire, veuillez r\u00e9essayer ou me contacter via les liens des r\u00e9seaux sociaux si le probl\u00e8me persiste. (French)",
     "submit": {
       "text": "Soumettre"
     },
     "socialMedia": [
       "Gmail",
-      "Facebook",
-      "Twitter",
-      "Mou",
+      "Facebook - Facebook French - Facebook",
+      "Twitter - Twitter",
+      "Paresseux",
       "Discorde",
-      "Liendin",
+      "LinkedIn",
       "Github"
     ]
   },
   "projectsMain": {
     "title": "Projets",
-    "projectURL": "URL"
+    "projectURL": "URL",
+    "projects": [
+      {
+        "title": "Projet de simulation Facebook",
+        "desc": "Cr\u00e9\u00e9 une version factice simple de Facebook, avec les derniers concepts de design UI/UX. (French)"
+      },
+      {
+        "title": "Suivi des re\u00e7us",
+        "desc": "Utilise webRTC et l'API Nanonets ML pour cr\u00e9er une application qui garde des enregistrements et extrait des informations de prix de vos re\u00e7us."
+      },
+      {
+        "title": "T\u00e9l\u00e9chargeur social",
+        "desc": "Utilise une authentification moderne pour aider les cr\u00e9ateurs de contenu \u00e0 publier une fois et \u00e0 voir leur travail sur toutes les plateformes. (French)"
+      },
+      {
+        "title": "Loi pour les apprenants Site web d'avocat",
+        "desc": "Mod\u00e8le de prototype pour une page d'accueil d'exemple pour un cabinet d'avocats bas\u00e9 \u00e0 NYC. (French)"
+      },
+      {
+        "title": "I18n payal okta brouchure app -> I18n payal okta brochure application",
+        "desc": "Reproduction personnelle du programme Pohela Boishakh en conjonction avec un projet r\u00e9alis\u00e9 avec un tiers travaillant avec le d\u00e9partement des affaires culturelles de NYC. Construit avec React."
+      },
+      {
+        "title": "Application de commerce \u00e9lectronique d'\u00e9chantillon",
+        "desc": "application de commerce \u00e9lectronique d'\u00e9chantillon con\u00e7ue pour une startup NFT"
+      },
+      {
+        "title": "Application de rencontre Windmillcode",
+        "desc": "\"Reproduction \u00e0 plus petite \u00e9chelle de l'application meetup, construite personnellement sur la base de l'application meetup cr\u00e9\u00e9e dans Windmillcode \u00e9crite avec Flutter\" translates to \"Reproduction \u00e0 plus petite \u00e9chelle de l'application meetup, construite personnellement sur la base de l'application meetup cr\u00e9\u00e9e dans Windmillcode \u00e9crite avec Flutter\" in French."
+      },
+      {
+        "title": "Boutique en ligne Mkimbe",
+        "desc": "Reproduction personnelle d'une application de commerce \u00e9lectronique \u00e9crite en React."
+      },
+      {
+        "title": "Site Web de Portfolio v1",
+        "desc": "La version 1 de mon site web de portfolio contient une version t\u00e9l\u00e9chargeable de mon CV visuel ainsi que d'autres fonctionnalit\u00e9s telles que des r\u00e9f\u00e9rences et un graphique de comp\u00e9tences. (French)"
+      },
+      {
+        "title": "Projet Ngrx",
+        "desc": "Application Angular compl\u00e8te utilisant des fonctionnalit\u00e9s telles que le mat\u00e9riel Angular, ngrx, three.js, scss, i18n, la r\u00e9activit\u00e9 et la pagination c\u00f4t\u00e9 serveur."
+      },
+      {
+        "title": "NYC Pr\u00e8s de Hackathon Preuve de Vibes",
+        "desc": "Exploiter l'\u00e9cosyst\u00e8me technologique blockchain proche pour construire une application MVP SoFi pour le NEAR Hackathon."
+      },
+      {
+        "title": "Preuve officielle du projet Vibes",
+        "desc": "Projets d'ing\u00e9nierie sociale Blockchain o\u00f9 les utilisateurs cr\u00e9ent des souvenirs NFT \u00e0 partir d'\u00e9v\u00e9nements. Cr\u00e9\u00e9 avec React, Firebase Auth, Firebase Realtime Database, NEAR Blockchain Technologies, SCSS, Material/UI et Python."
+      },
+      {
+        "title": "Projet de pi\u00e8ce NIBLS",
+        "desc": "Application Blockchain sportive bas\u00e9e sur un nouveau sport dont l'identit\u00e9 financi\u00e8re (achat de billets, de marchandises, de m\u00e9dias) sera bas\u00e9e uniquement sur la blockchain Ethereum. Cr\u00e9\u00e9e avec Angular, Python MSSQL, Azure Cloud, Moralis blockchain API."
+      },
+      {
+        "title": "Chansons Baka",
+        "desc": "Application mobile Flutter bas\u00e9e sur la culture musicale africaine. Les utilisateurs peuvent cr\u00e9er, supprimer et ajouter des chansons en favoris. Les utilisateurs peuvent consulter les actualit\u00e9s de divertissement li\u00e9es \u00e0 l'industrie. Les utilisateurs peuvent \u00e9ventuellement cr\u00e9er un compte avec Firebase et mettre \u00e0 jour leurs informations de profil. Comprend \u00e9galement des animations et des publicit\u00e9s."
+      },
+      {
+        "title": "Plateforme de trajet",
+        "desc": "Application construite pour un magasin de surf local. C'est une plateforme conviviale en ligne, int\u00e9grant de mani\u00e8re transparente une vaste collection d'\u00e9quipements de surf tout en privil\u00e9giant une navigation intuitive et un traitement s\u00e9curis\u00e9 des transactions, garantissant une exp\u00e9rience de shopping sans tracas pour tous les passionn\u00e9s de surf."
+      },
+      {
+        "title": "WaveRide",
+        "desc": "Une application communautaire pour les surfeurs et les skateurs. Les utilisateurs interagissent avec elle de plusieurs fa\u00e7ons, notamment en communiquant avec d'autres utilisateurs, en recevant des alertes sur les mises en garde dans la r\u00e9gion, en visualisant des \u00e9v\u00e9nements et des lieux et en recevant les derni\u00e8res nouvelles dans leur fil d'actualit\u00e9s."
+      },
+      {
+        "title": "Vague et Moudre",
+        "desc": "Division exclusive de la collection WaveRide o\u00f9 les surfeurs et les skateurs rejoignent une liste d'attente pour attendre la sortie de produits exclusifs. Une fois que les articles sont disponibles, les membres de la liste d'attente ont g\u00e9n\u00e9ralement environ 24 heures pour y acc\u00e9der. Le mot de passe pour y acc\u00e9der est mercure."
+      }
+    ]
   },
   "footer": {
     "langs": {
-      "english": "Anglais",
-      "spanish": "Espagnol",
+      "english": "French",
+      "spanish": "espagnol",
       "chinese": "Chinois",
-      "hindi": "hindi",
+      "hindi": "Hindi - Hindi",
       "ukrainian": "ukrainien",
-      "arabic": "arabe",
-      "bengali": "bengali",
-      "malay": "malais",
+      "arabic": "Arabe",
+      "bengali": "Bengali -> Bengali",
+      "malay": "Malais",
       "french": "Fran\u00e7ais",
-      "swahili": "Swahili"
+      "swahili": "Swahili - Swahili"
     }
   }
 }

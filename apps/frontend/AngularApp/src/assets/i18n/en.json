@@ -239,7 +239,20 @@
       {
         "title":"Wave and Grind",
         "desc":"Exclusive division of the WaveRide collection where surfers and skaters join a waitlist to wait for exclusive goods to drop. Once the items drop waitlist members typically have about 24 hours to access. Password to access is mercury"
+      },
+      {
+        "title":"Find My Role",
+        "desc":"AI powered resume app where users can upload a resume and JD and receive best tips on what to talk about during a potential interview"
+      },
+      {
+        "title":"Zawadi ya Manukato",
+        "desc":"Restaurant application where users can place orders for food to the restaurant and have food prepared for them (in progress)"
+      },
+      {
+        "title":"Eneobia",
+        "desc":"Video Management Platform App where users can transfer, upload, and download videos between their computer and multple video platform apps. View on desktop only mobile coming soon"
       }
+
 
     ]
   },
